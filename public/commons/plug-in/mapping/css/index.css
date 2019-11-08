@@ -1,0 +1,301 @@
+@font-face {
+	/*font-family: 'icomoon';
+	src:url('../fonts/icomoon.eot?rretjt');
+	src:url('../fonts/icomoon.eot?#iefixrretjt') format('embedded-opentype'),
+		url('../fonts/icomoon.woff?rretjt') format('woff'),
+		url('../fonts/icomoon.ttf?rretjt') format('truetype'),
+		url('../fonts/icomoon.svg?rretjt#icomoon') format('svg');*/
+	font-weight: normal;
+	font-style: normal;
+}
+body, html { font-size: 100%; 	padding: 0; margin: 0; height: 100%;}
+
+/* Reset */
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+body{
+	background: #f9f7f6;
+	color: #404d5b;
+	font-weight: 500;
+    min-height: 500px;
+	font-size: 1.05em;
+	font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
+}
+a{color: #2fa0ec;text-decoration: none;outline: none;}
+a:hover,a:focus{
+	color:#fff;
+ 	text-decoration:none;
+}
+.wrapper{
+	display: flex!important;
+    display: -webkit-flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    /* height: 100%;
+    min-height: 600px;
+    min-width: 540px; */
+}
+.content{
+	/*position: absolute;
+	left: 45%;
+	top:50%;
+	transform: translate(-50%,-50%);*/
+	width: 90%;
+	margin:5%;
+	box-shadow: 1px 1px 20px #DDD;
+	flex-direction: column;
+	display: flex;
+	align-items: center;
+}
+.top{
+	width:100%;
+	font-size: 18px;
+	height: 50px;
+	line-height:  50px;
+	background: #61B7CF;
+	text-align:  center;
+	color: #fff;
+	letter-spacing: 2px;
+	border-radius: 5px 5px 0 0;
+}
+.main{
+	width:100%;
+	border: 1px solid #ddd;
+	border-top: none;
+	padding: 20px;
+	background: #fff;
+	position: relative;
+	height: auto;
+	position: relative;
+}
+.left,.right{
+	width: 40%;
+	float: left;
+	border: 1px solid #61B7CF;
+	background: #fff;
+	box-shadow: 1px 1px 15px #DDD;
+	border-radius: 5px;
+	/* min-height: 500px; */
+}
+.answer{margin-left: 20%}
+.con_top{
+	height: 50px;
+	line-height: 50px;
+	width:100%;
+	border-bottom: 1px solid #61B7CF;
+	text-align:  center;
+	font-family: Verdana, Arial, Helvetica, AppleGothic, sans-serif;
+	position: relative;
+	z-index: 50;
+}
+.ztree{
+	padding:5px 0px;
+}
+.ztree li {
+	padding:0;
+}
+.ztree li a{
+	text-indent: 20px;
+	display: block;
+}
+.ztree li ul li a{
+	text-indent: 40px;
+}
+.ztree li a.selectBg{
+	width:100%;
+	color: #fff;
+	text-indent: 40px;
+	background-color:#61B7CF;
+	position: relative;
+}
+.ztree li a:hover{
+	text-decoration:none;
+	width: 100%;
+	cursor: pointer;
+	background-color:#61B7CF;
+	color: #fff;
+}
+.ztree li ul {
+	padding: 0;
+}
+.ztree li ul.line {
+    background: none;
+}
+.ztree li span.button.switch {
+   display: none;
+}
+
+.aLabel {
+    -webkit-transition: background-color 0.25s ease-in;
+    -moz-transition: background-color 0.25s ease-in;
+    transition: background-color 0.25s ease-in;
+}
+.aLabel {
+    background-color: transparent;
+    opacity: 0.8;
+    border-radius: 0.5em;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    color: transparent;
+}
+/* .aLabel:hover{
+	border: 1px solid #61B7CF;
+	color: #61B7CF;
+} */
+.aLabel._jsPlumb_hover, ._jsPlumb_source_hover,._jsPlumb_target_hover{
+	background: #61B7CF;
+}
+.aLabel._jsPlumb_hover {
+    background: url('../img/delete.gif') no-repeat center center;
+	background-size: cover;
+	z-index: 1111;
+}
+.dropHover{
+	border: 5px dotted #61B7CF;
+	padding: 5px;
+}
+._jsPlumb_hover{
+	cursor: pointer;
+}
+._jsPlumb_endpoint_anchor_{
+	position: relative;
+	z-index: 20000;
+}
+.icn1{
+	display: inline-block;
+    width: 20px;
+    height: 20px;
+    float: right;
+    cursor: pointer;
+    margin: 15px 3px;
+}
+.addImg{
+	background: url("../img/add.png") no-repeat center/cover;
+}
+.addImg:hover{
+	background: url("../img/add_hover.png") no-repeat center/cover;
+}
+.clearImg{
+	background: url("../img/del.png") no-repeat center/cover;
+}
+.clearImg:hover{
+	background: url("../img/del_hover.png") no-repeat center/cover;
+}
+.connectImg{
+	background: url("../img/connect.png") no-repeat center/cover;
+}
+.connectImg:hover{
+	background: url("../img/connect_hover.png") no-repeat center/cover;
+}
+.black_overlay{
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index:20001;
+    -moz-opacity: 0.8;
+    opacity:.80;
+    filter: alpha(opacity=80);
+}
+.white_content {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 200px;
+    transform: translate(-50%,-50%);
+    z-index: 30002;
+    overflow: auto;
+    background-color: #fff;
+    border-radius: 5px;
+}
+.white_content h2{
+    height: 27px;
+    font-size: 14px;
+    background-color: #3c9ccc;
+    position: relative;
+    padding-left: 10px;
+    line-height: 27px;
+    color: #fff;
+    border-radius: 5px 5px 0 0;
+    margin: 0;
+}
+.white_content h2 a{
+    position:absolute;
+    right:10px;
+    font-size:12px;
+    color:#fff;
+}
+.popupCon {
+    padding: 30px;
+    float: left;
+
+}
+.spanTxt, .spanFun{
+    float: left;
+    width: 100px;
+    text-align: right;
+    height: 25px;
+
+}
+.spanFun{
+	width: auto;
+}
+.add-input{
+    width: 205px;
+    height: 23px;
+    float: left;
+    line-height: 23px;
+    border: 1px solid #bbb;
+    border-radius: 3px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1) inset;
+    cursor: text;
+    padding: 0 5px;
+
+}
+.modal-footer{
+	position: absolute;
+	bottom: 30px;
+	text-align: center;
+	width: 100%;
+}
+.btn{
+    width: 100px;
+    padding: 0 20px;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 10px;
+    line-height: 20px;
+}
+.delNodeBtn{
+	background: url("../img/del.png") no-repeat center/cover!important;
+	display: none;
+	width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin: 0 10px;
+}

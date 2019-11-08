@@ -1,0 +1,2635 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="content" content="基于AWSUI-grid的主流前端响应式框架">
+    <meta name="keywords" content="数据表格 - AWSUI">
+    <title>grid</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../../css/awsui.css">
+    <link rel="stylesheet" href="../css/uidoc.css?v=1">
+    <link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+    <link rel="stylesheet" href="../../js/jquery/themes/default/ui/aws.pqgrid.css"/>
+    <link rel="stylesheet" href="../../js/jquery/themes/default/ui/aws.pqgrid.custom.css"/>
+</head>
+<body>
+    <div class="awsui-wrapper">
+        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 awsui-border-bottom">
+            <div class="awsui-markdown">
+                <h1 class="title2" id="grid">数据表格</h1>
+                <p class="awsui-margin-bottom-14">
+                    数据表格集合了数据的分页展示,搜索,排序,全/反选等功能。
+                </p>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+            <div class="awsui-code-title">
+                引入文件
+            </div>
+            <p class="awsui-margin-top-5">务必确保路径正确</p>
+            <div class="awsui-code-info">
+                <pre><code class="language-html">&lt;link rel="stylesheet" href="../commons/js/jquery/themes/default/ui/aws.pqgrid.css"/&gt;
+&lt;link rel="stylesheet" href="../commons/js/jquery/themes/default/ui/aws.pqgrid.custom.css"/&gt;
+
+&lt;script src="../commons/js/jquery/scripts/jQueryUI/jquery-ui.min.js"&gt;&lt;/script&gt;
+&lt;script src="../commons/js/jquery/scripts/ui/aws.pqgrid.js"&gt;&lt;/script&gt;
+&lt;script src="../commons/js/jquery/scripts/ui/aws.pqgrid.custom.js"&gt;&lt;/script&gt;
+</code></pre>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+            <div class="awsui-markdown">
+                <div class="awsui-code-title title2" id="Api">
+                    API
+                </div>
+                <ul>
+                    <li>$(el).awsGrid(config)</li>
+                </ul>
+                <p>config 参数如下：</p>
+            </div>
+            <table class="awsui-table awsui-margin-bottom-24">
+                <thead>
+                <tr>
+                    <th width="20%">参数</th>
+                    <th width="40%">说明</th>
+                    <th width="20%">类型</th>
+                    <th>默认值</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--<tr>
+                    <td>title</td>
+                    <td>鼠标划过各单元格的提示标题</td>
+                    <td>string</td>
+                    <td>-</td>
+                </tr>-->
+                <tr>
+                    <td>width</td>
+                    <td>表格的总宽度</td>
+                    <td>number</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>min-width</td>
+                    <td>表格单元格最小宽度</td>
+                    <td>number</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>height</td>
+                    <td>表格的总高度</td>
+                    <td>number</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>flexWidth</td>
+                    <td>表格的宽度自适应，将由内部的列宽决定</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>flexHeight</td>
+                    <td>表格的高度自适应，将由内部数据行的总高度决定</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>resizable</td>
+                    <td>表格是否可以拉伸</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>draggable</td>
+                    <td>表格是否可拖拽</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>topVisible</td>
+                    <td>顶部标题栏是否显示</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>bottomVisible</td>
+                    <td>底部菜单栏是否显示</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>columnBorders</td>
+                    <td>是否显示列边框</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>rowBorders</td>
+                    <td>是否显示行边框</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>numberCell</td>
+                    <td>是否显示行索引</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>numberCellWidth</td>
+                    <td>设置行的索引列的宽度</td>
+                    <td>number</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>numberCellTotal</td>
+                    <td>索引列是否显示总数</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>groupRow</td>
+                    <td>是否启用行分组</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>groupFileId</td>
+                    <td>当启用行分组时，用于分组的字段名称，字段名称在数据源中必须有效</td>
+                    <td>string</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>wrap</td>
+                    <td>内容超出列宽的时候为true时自动换行，反之自动隐藏</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>nowrapTitle</td>
+                    <td>显示不全的文本，鼠标悬浮是否以title的形式显示</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>sortable</td>
+                    <td>是否可以排序</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>oddRowsHighlight</td>
+                    <td>间隔行是否高亮显示</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>roundCorners</td>
+                    <td>边框是否启用圆角</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>freezeCols</td>
+                    <td>列锁的起始列数</td>
+                    <td>number</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>hoverMode</td>
+                    <td>行悬浮样式</td>
+                    <td>array</td>
+                    <td>["row", "cell"]</td>
+                </tr>
+                <tr>
+                    <td>selectionModel</td>
+                    <td>行的选择模式</td>
+                    <td>object</td>
+                    <td>{type:["row", "cell"], mode:["single", "range"]}</td>
+                </tr>
+                <tr>
+                    <td>scrollModel</td>
+                    <td>滚动条滚动模式</td>
+                    <td>object</td>
+                    <td>{pace:"fast", horizontal:true, autoFit:false}</td>
+                </tr>
+                <tr>
+                    <td>pace</td>
+                    <td>指滚动条实时滚动和超过一列的时候滚动,值为"fast"或者"optimum"</td>
+                    <td>string</td>
+                    <td>fast</td>
+                </tr>
+                <tr>
+                    <td>horizontal</td>
+                    <td>是否启用水平滚动条</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>autoFit</td>
+                    <td>是否开启自适应宽度</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>vertical</td>
+                    <td>是否启用竖直滚动条</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>editable</td>
+                    <td>开启编辑模式的总开关</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>editModel</td>
+                    <td>属性值结构为{type:["row", cell], clicksToEdit: 1, saveKey: ''}</td>
+                    <td>object</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>toolbar</td>
+                    <td>值结构为{cls:"ui-grid-toolbar"(toolbar的类样式),items:{}},toolbar:{items:{}}</td>
+                    <td>object</td>
+                    <td>toolbar:{items:{type:[],cls:"",style:"",options[],group:"",label:"",icon:"",render:fn}}</td>
+                </tr>
+                <tr>
+                    <td>dataModel</td>
+                    <td>结构值为{curPage:0,........}</td>
+                    <td>object</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>curPage</td>
+                    <td>为dataModel属性之一，表示当前页</td>
+                    <td>number</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>showRpp</td>
+                    <td>为dataModel属性之一，是否启用rPPOptions功能</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>rPP</td>
+                    <td>为dataModel属性之一，启用分页后，表示每页返回数据条数</td>
+                    <td>number</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>rPPOptions</td>
+                    <td>为dataModel属性之一，启用分页后，下拉框中每页显示的数量</td>
+                    <td>array</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>sorting</td>
+                    <td>为dataModel属性之一，排序形式local或remote</td>
+                    <td>string</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>sortIndx</td>
+                    <td>为dataModel属性之一,默认的排序列</td>
+                    <td>string</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>dataType</td>
+                    <td>为dataModel属性之一,值为["TEXT", "XML", "JSON"]</td>
+                    <td>array</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>method</td>
+                    <td>为dataModel属性之一,设置请求方式为 ["GET", "POST"]</td>
+                    <td>array</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>location</td>
+                    <td>为dataModel属性之一,值为 ["local", "remote"]</td>
+                    <td>array</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>paging</td>
+                    <td>为dataModel属性之一,值为 ["local", "remote"]</td>
+                    <td>array</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>data</td>
+                    <td>为dataModel属性之一,数据源形式分为两种，二维数组或Json数组</td>
+                    <td>object</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>getUrl()</td>
+                    <td>为dataModel属性之一,回调函数，返回与url和data相关的信息</td>
+                    <td>function</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>getData()</td>
+                    <td>为dataModel属性之一,回调函数，返回包含数据的对象、当前页 、总记录数</td>
+                    <td>function</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>beforeSend()</td>
+                    <td>为dataModel属性之一,回调函数，发请求前用来修改XMLHttpRequest的信息</td>
+                    <td>function</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>colModel</td>
+                    <td>属性值为Object</td>
+                    <td>object</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>align</td>
+                    <td>为colModel属性之一,属性值为String("left"/"right"/"center")定义文本的对其方式</td>
+                    <td>string</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>className</td>
+                    <td>为colModel属性之一,初始化列的类样式</td>
+                    <td>string</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>cellStyles</td>
+                    <td>为colModel属性之一,规定列的行内样式</td>
+                    <td>string</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>checkbox</td>
+                    <td>为colModel属性之一,启用checkbox需定义其id和表示列数的dataIndx属性式</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>colModel</td>
+                    <td>为colModel属性之一,用于列分组的情况</td>
+                    <td>array</td>
+                    <td>[]</td>
+                </tr>
+                <tr>
+                    <td>dataIndx</td>
+                    <td>为colModel属性之一,用于数据绑定若数据源为JSON数组，此属性为必须</td>
+                    <td>string</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>sortIndx</td>
+                    <td>为colModel属性之一,排序列</td>
+                    <td>string</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>dataType</td>
+                    <td>为colModel属性之一,用于确定排序规则。函数为实现，值选择"string" ,"integer", "float"，"function"</td>
+                    <td>string</td>
+                    <td>string</td>
+                </tr>
+                <tr>
+                    <td>dataType</td>
+                    <td>为colModel属性之一,用于确定排序规则。函数为实现，值选择"string" ,"integer", "float"，"function"</td>
+                    <td>string</td>
+                    <td>string</td>
+                </tr>
+                <tr>
+                    <td>editable</td>
+                    <td>为colModel属性之一,置该列是否可以被编辑</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>sortable</td>
+                    <td>为colModel属性之一,设置该列是否可以排序</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>hidden</td>
+                    <td>为colModel属性之一,设置当前列是否显示</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>showText</td>
+                    <td>为colModel属性之一,显示纯文本，否则以html代码显示到grid中</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>render()</td>
+                    <td>为colModel属性之一,回调函数，用于自定义显示单元格内容</td>
+                    <td>function</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>editor()</td>
+                    <td>为colModel属性之一,回调函数，用于显示单元格的自定义编辑器</td>
+                    <td>function</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>getEditCellData()</td>
+                    <td>为colModel属性之一,回调函数，用于保存自定义编辑器中的内容</td>
+                    <td>function</td>
+                    <td>-</td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="awsui-markdown">
+                <p class="awsui-code-title title2" id="gridFunction">表格方法</p>
+            </div>
+            <table class="awsui-table awsui-margin-bottom-24">
+                <thead>
+                <tr>
+                    <th width="30%">方法</th>
+                    <th width="40%">说明</th>
+                    <th>用例</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>destroy</td>
+                    <td>清除AWS Grid的功能</td>
+                    <td>$("selector").awsGrid("destroy")</td>
+                </tr>
+                <tr>
+                    <td>disable</td>
+                    <td>禁用AWS Grid的功能</td>
+                    <td>$("selector").awsGrid("disable")</td>
+                </tr>
+                <tr>
+                    <td>enable</td>
+                    <td>启用AWS Grid的功能</td>
+                    <td>$("selector").awsGrid("enable")</td>
+                </tr>
+                <tr>
+                    <td>editCell</td>
+                    <td>将一个单元格设为编辑状态</td>
+                    <td>$("selector").awsGrid("editCell",{rowIndx:2, colIndx:3})</td>
+                </tr>
+                <tr>
+                    <td>getCell</td>
+                    <td>获取单元格返回td对象</td>
+                    <td>$("selector").awsGrid("getCell",{rowIndx: 2,colIndx: 3})</td>
+                </tr>
+                <tr>
+                    <td>getCellIndices</td>
+                    <td>获取已知单元格的索引,返回一个行索引和列索引的对象</td>
+                    <td>
+                        var obj = $("selector").awsGrid( "getCellIndices", { $td: $td } );<br/>
+                        var colIndx=obj.colIndx,rowIndxPage=obj.rowIndxPage;
+                    </td>
+                </tr>
+                <tr>
+                    <td>getColIndx</td>
+                    <td>获取dataIndex属性的列的索引</td>
+                    <td>$("selector").awsGrid("getColIndx",{dataIndx:dataIndx })</td>
+                </tr>
+                <tr>
+                    <td>getEditCell</td>
+                    <td>获取正在编辑的单元格,返回null说明没有正在编辑的单元格</td>
+                    <td>var obj = $("selector").awsGrid( "getEditCell" );var $td=obj.$td;var $cell=obj.$cell;</td>
+                </tr>
+                <tr>
+                    <td>getEditCellData</td>
+                    <td>获取正在编辑的单元格中已/未保存的数据,返回null说明没有正在编辑的单元格</td>
+                    <td>var dataCell = $("selector").awsGrid( "getEditCellData" )</td>
+                </tr>
+                <tr>
+                    <td>getRow</td>
+                    <td>已知行的索引获取整个行，返回一个TR元素</td>
+                    <td>var $tr = $("selector").awsGrid( "getRow",{rowIndxPage:2})</td>
+                </tr>
+                <tr>
+                    <td>getRowData</td>
+                    <td>通过索引或id或rowData获取整个行数据</td>
+                    <td>var $tr = $("selector").awsGrid("getRowData",{rowIndx:rowIndx,rowIndxPage:rowIndxPage,recId:recId,rowData:rowData})</td>
+                </tr>
+                <tr>
+                    <td>addRow</td>
+                    <td>添加行，rowData:可以是数组,rowIndx:插入的位置,track是否标记为修改</td>
+                    <td>var $tr = $("selector").awsGrid( "addRow",{rowData:rowData,rowIndx:2,track:true})</td>
+                </tr>
+                <tr>
+                    <td>deleteRow</td>
+                    <td>根据行索引删除行（若为false则不存储编辑数据）</td>
+                    <td>var $tr=$("selector").awsGrid("deleteRow",{rowIndx:2,track:true}))</td>
+                </tr>
+                <tr>
+                    <td>commit</td>
+                    <td>提交修改过的行的数据</td>
+                    <td>var $tr=$("selector").awsGrid("commit",{ type:"add",rows:rows})</td>
+                </tr>
+                <tr>
+                    <td>updateRow</td>
+                    <td>根据行索引更新行</td>
+                    <td>var $tr = $("selector").awsGrid( "updateRow",{rowIndx:rowIndx,row:{ dataIndx1:value1,dataIndx2:value2,...},track:track})</td>
+                </tr>
+                <tr>
+                    <td>getChanges</td>
+                    <td>获取未保存且编辑过的行的数据</td>
+                    <td>var $tr = $("selector").awsGrid( "getChanges")</td>
+                </tr>
+                <tr>
+                    <td>isEditableCell</td>
+                    <td>根据全局和列的设置来检查单元格是否可编辑</td>
+                    <td>$("selector").awsGrid( "isEditableCell",{colIndx:3})</td>
+                </tr>
+                <tr>
+                    <td>quitEditMode</td>
+                    <td>单元格退出编辑状态</td>
+                    <td>$("selector").awsGrid( "quitEditMode" )</td>
+                </tr>
+                <tr>
+                    <td>option</td>
+                    <td>以键值对的方式获取当前awsGrid的配置信息</td>
+                    <td>var options = $("selector").awsGrid( "option" )</td>
+                </tr>
+                <tr>
+                    <td>option</td>
+                    <td>设置与提供的属性名称相关的属性值</td>
+                    <td>$("selector").awsGrid( "option", "disabled", true )</td>
+                </tr>
+                <tr>
+                    <td>option</td>
+                    <td>为AWS Grid设置一个或者多个配置属性</td>
+                    <td>$("selector").awsGrid( "option", {disabled: true} );</td>
+                </tr>
+                <tr>
+                    <td>refresh</td>
+                    <td>刷新AWS Grid</td>
+                    <td>$("selector").awsGrid( "refresh" )</td>
+                </tr>
+                <tr>
+                    <td>refreshColumn</td>
+                    <td>通过列的索引或键名刷新整个列</td>
+                    <td>$("selector").awsGrid( "refreshColumn", {colIndx:2} )</td>
+                </tr>
+                <tr>
+                    <td>refreshDataAndView</td>
+                    <td>刷新AWSGrid中的数据视图</td>
+                    <td>$("selector").awsGrid( "refreshDataAndView" );</td>
+                </tr>
+                <tr>
+                    <td>refreshRow</td>
+                    <td>刷新行,rowIndx和rowIndxPage都起作用</td>
+                    <td>$("selector").awsGrid( "refreshRow", {rowIndx:21} )</td>
+                </tr>
+                <tr>
+                    <td>saveEditCell</td>
+                    <td>保存当前正在编辑的单元格</td>
+                    <td>$("selector").awsGrid( "saveEditCell") </td>
+                </tr>
+                <tr>
+                    <td>setSelection</td>
+                    <td>选中/清除行或单元格</td>
+                    <td>$("selector").awsGrid( "setSelection",{rowIndx:rowIndx,rowIndxPage:rowIndxPage,colIndx:colIndx,focus:focus})</td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="awsui-markdown">
+                <p class="awsui-code-title title2" id="gridEvent">表格事件</p>
+            </div>
+            <table class="awsui-table awsui-margin-bottom-24">
+                <thead>
+                <tr>
+                    <th width="30%">事件名</th>
+                    <th width="40%">说明</th>
+                    <th>用例</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>beforeTableView</td>
+                    <td>展示awsGrid之前调用，可以用于更新记录后显示</td>
+                    <td>$(".selector" ).awsGrid({beforeTableView: function(event,ui){}})</td>
+                </tr>
+                <tr>
+                    <td>beforeSort</td>
+                    <td>对数据进行排序之前调用，如果返回false，排序行为终止</td>
+                    <td>$( ".selector" ).awsGrid({beforeSort: function( event, ui ) {}})</td>
+                </tr>
+                <tr>
+                    <td>cellClick</td>
+                    <td>单击单元格的时候触发</td>
+                    <td>$(".selector").awsGrid({cellClick: function(event,ui){}})</td>
+                </tr>
+                <tr>
+                    <td>cellEditKeyDown</td>
+                    <td>单元格编辑状态下按下键盘键的时候触发，若返回false，停止编辑事件</td>
+                    <td>$(".selector").awsGrid({cellEditKeyDown:function(event,ui){}})</td>
+                </tr>
+                <tr>
+                    <td>cellKeyDown</td>
+                    <td>单元格按下键盘键的时候触发</td>
+                    <td>$( ".selector" ).awsGrid({cellKeyDown:function(event,ui){}});</td>
+                </tr>
+                <tr>
+                    <td>cellSave</td>
+                    <td>AWS Grid中的单元格被保存后触发</td>
+                    <td>
+                        $(".selector").awsGrid({cellSave: function( event, ui ) {}})
+                    </td>
+                </tr>
+                <tr>
+                    <td>cellSelect</td>
+                    <td>选中单元格的时候触发</td>
+                    <td>$( ".selector" ).awsGrid({cellSelect:function(event,ui){}});</td>
+                </tr>
+                <tr>
+                    <td>cellUnSelect</td>
+                    <td>取消选中单元格的时候触发</td>
+                    <td>$(".selector").awsGrid({cellUnSelect: function( event, ui ) {}});</td>
+                </tr>
+                <tr>
+                    <td>load</td>
+                    <td>当加载完远程数据的时候执行</td>
+                    <td>$(".selector").awsGrid({load: function( event, ui ){}});</td>
+                </tr>
+                <tr>
+                    <td>create</td>
+                    <td>在AWS Grid创建后执行,如果是远程数据，方法要放到加载事件中</td>
+                    <td>$(".selector").awsGrid({create: function( event, ui ) {}});</td>
+                </tr>
+                <tr>
+                    <td>quitEditMode</td>
+                    <td>当一个单元格退出编辑状态时执行</td>
+                    <td>$(".selector").awsGrid({quitEditMode: function( event, ui ) {}});</td>
+                </tr>
+                <tr>
+                    <td>refresh</td>
+                    <td>网格刷新完之后触发</td>
+                    <td>$( ".selector" ).awsGrid({refresh: function( event, ui ) {}});</td>
+                </tr>
+                <tr>
+                    <td>rowClick</td>
+                    <td>单击一行后触发。它的事件顺序小于cellclick/td>
+                    <td>$( ".selector" ).awsGrid({rowClick: function( event, ui ) {}})</td>
+                </tr>
+                <tr>
+                    <td>rowDblClick</td>
+                    <td>双击一行后触发。它的事件顺序小于cellDblClick</td>
+                    <td>$(".selector").awsGrid({rowDblClick: function( event, ui ) {}});</td>
+                </tr>
+                <tr>
+                    <td>rowSelect</td>
+                    <td>选中一行后触发此事件</td>
+                    <td>$( ".selector" ).awsGrid({rowSelect: function( event, ui ) {}});</td>
+                </tr>
+                <tr>
+                    <td>rowUnSelect</td>
+                    <td>取消选中一行后触发此事件</td>
+                    <td>$(".selector").awsGrid({rowUnSelect: function( event, ui ) {}});</td>
+                </tr>
+                <tr>
+                    <td>sort</td>
+                    <td>Grid中用户排序完成后触发</td>
+                    <td>$(".selector").awsGrid({sort: function( event, ui ){}});</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+            <div class="awsui-code-title title2" id="event1">
+                标准网格
+            </div>
+            <p class="awsui-margin-top-5">最基本的网格。</p>
+            <div class="awsui-code-demo" style="overflow-x:auto;">
+                <div id="grid1"></div>
+            </div>
+            <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+            <div class="awsui-code-info">
+                <pre><code class="language-html">&lt;div class="awsui-code-demo" style="overflow-x:auto;"&gt;
+  &lt;div id="grid1"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+            <p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+            <div class="awsui-code-info">
+                <pre><code class="language-js">//国际化
+ var localization = function (obj,   lang) {
+    var languages = {
+        egional: {
+            'cn': {
+                "strLoading": "加载中", "strAdd": "添加",
+                "strEdit": "编辑", "strDelete": "删除", "strSearch": "搜索",
+                "strNothingFound": "暂无结果", "strNoRows": "暂无结果",
+                "strSelectedmatches": "选择{0}{1}匹配", "strPrevResult": "上一结果",
+                "strNextResult": "下一结果"
+            },
+            'big5': {
+                "strLoading": "加載中", "strAdd": "添加", "strEdit": "編輯",
+                "strDelete": "刪除", "strSearch": "搜索", "strNothingFound": "暫無結果",
+                "strNoRows": "暫無結果", "strSelectedmatches": "選擇{0}{1}匹配",
+                "strPrevResult": "上壹結果", "strNextResult": "下壹結果"
+            }
+        },
+        pagerRegional: {
+            'cn': {
+                "strPage": "第 {0} 页（共 {1} 页）", "strFirstPage": "第一页",
+                "strPrevPage": "上一页", "strNextPage": "下一页", "strLastPage": "尾页",
+                "strRefresh": "刷新", "strRpp": false, "strDisplay": "显示 {0} 到 {1} 条，共 {2} 条"
+            },
+            'big5': {
+                "strPage": "第 {0} 頁（共 {1} 頁）", "strFirstPage": "第壹頁",
+                "strPrevPage": "上壹頁", "strNextPage": "下壹頁", "strLastPage": "尾頁",
+                "strRefresh": "刷新", "strRpp": false, "strDisplay": "顯示 {0} 到 {1} 條，共 {2} 條"
+            }
+        }
+    };
+    $.extend(obj, languages.egional[lang]);
+    if (obj.pageModel) {
+        $.extend(obj.pageModel, languages.pagerRegional[lang]);
+    }
+};
+var grid1func = function() {
+    var data = [[1, '朱元璋', '皇帝', '36,130', '23,333'],
+        [2, '徐达', '魏国公', '11,231', '24,342'],
+        [3, '常遇春', '鄂国公', '25,311', '56,231.2'],
+        [4, '汤和', '信国公', '13,529', '72,456'],
+        [5, '李善长', '韩国公', '10,567', '52,934'],
+        [6, '李文忠', '曹国公', '14,099', '12,023.5'],
+        [7, '冯胜 ', '宋国公', '3,536.3', '42,734'],
+        [8, '邓愈', '卫国公', '12,119.6', '57,023.4'],
+        [9, '傅友德', '颖国公', '5,186.5', '13,043.8'],
+        [10, '沫英', '知西平侯', '2,024', '22,896'],
+        [11, '刘基', '诚意伯', '22,341', '71,923.4'],
+        [12, '汪广洋', '忠勤伯', '1,635', '16,912.5'],
+        [13, '宋濂', '翰林学士承旨', '1,525', '74,236.5'],
+        [14, '叶琛', '洪都知府', '8,958', '52,012'],
+        [15, '章溢', '御史中丞', '24,589', '90,342']];
+    var obj = {
+        title: "标准网格",
+        height: 441,
+        hoverMode: "row",
+        flexWidth: true,
+        collapsible: {on: false, collapsed: false, toggle: false},
+        scrollModel: {horizontal: false, vertical: false}
+    };
+    obj.colModel = [
+        {title: "序号", width: 90, align: 'center'},
+        {title: "姓名", width: 140, align: 'center'},
+        {title: "职位", width: 90, align: 'center'},
+        {title: "工资", width: 90, align: 'center'},
+        {title: "数值", width: 90, align: 'center'}
+    ];
+    localization(obj, "cn"); //国际化方法
+    obj.dataModel = {
+        data: data,
+        location: "local",
+        sorting: "local",
+        paging: "local",
+        curPage: 1,               //当前页
+        rPP: 12,                  //页数
+        sortIndx: "0",     //默认按那一列来排序
+        sortDir: "up"            //排序规则
+    };
+    var $grid = $("#grid1").awsGrid(obj);
+};
+$(document).ready(function() {
+    grid1func();
+});
+</code></pre>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+            <div class="awsui-code-title title2" id="event2">
+                多表头网格
+            </div>
+            <p class="awsui-margin-top-5">多表头网格。</p>
+            <div class="awsui-code-demo" style="overflow-x:auto;">
+                <div id="grid2"></div>
+            </div>
+            <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+            <div class="awsui-code-info">
+                <pre><code class="language-html">&lt;div class="awsui-code-demo" style="overflow-x:auto;"&gt;
+  &lt;div id="grid2"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+            <p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+            <div class="awsui-code-info">
+                <pre><code class="language-js">//国际化
+ var localization = function (obj,   lang) {
+    var languages = {
+        egional: {
+            'cn': {
+                "strLoading": "加载中", "strAdd": "添加",
+                "strEdit": "编辑", "strDelete": "删除", "strSearch": "搜索",
+                "strNothingFound": "暂无结果", "strNoRows": "暂无结果",
+                "strSelectedmatches": "选择{0}{1}匹配", "strPrevResult": "上一结果",
+                "strNextResult": "下一结果"
+            },
+            'big5': {
+                "strLoading": "加載中", "strAdd": "添加", "strEdit": "編輯",
+                "strDelete": "刪除", "strSearch": "搜索", "strNothingFound": "暫無結果",
+                "strNoRows": "暫無結果", "strSelectedmatches": "選擇{0}{1}匹配",
+                "strPrevResult": "上壹結果", "strNextResult": "下壹結果"
+            }
+        },
+        pagerRegional: {
+            'cn': {
+                "strPage": "第 {0} 页（共 {1} 页）", "strFirstPage": "第一页",
+                "strPrevPage": "上一页", "strNextPage": "下一页", "strLastPage": "尾页",
+                "strRefresh": "刷新", "strRpp": false, "strDisplay": "显示 {0} 到 {1} 条，共 {2} 条"
+            },
+            'big5': {
+                "strPage": "第 {0} 頁（共 {1} 頁）", "strFirstPage": "第壹頁",
+                "strPrevPage": "上壹頁", "strNextPage": "下壹頁", "strLastPage": "尾頁",
+                "strRefresh": "刷新", "strRpp": false, "strDisplay": "顯示 {0} 到 {1} 條，共 {2} 條"
+            }
+        }
+    };
+    $.extend(obj, languages.egional[lang]);
+    if (obj.pageModel) {
+        $.extend(obj.pageModel, languages.pagerRegional[lang]);
+    }
+};
+var grid2func = function(){
+    var data = [[1, '朱元璋', '皇帝', '36,130', '23,333'],
+        [2, '徐达', '魏国公', '11,231', '24,342'],
+        [3, '常遇春', '鄂国公', '25,311', '56,231.2'],
+        [4, '汤和', '信国公', '13,529', '72,456'],
+        [5, '李善长', '韩国公', '10,567', '52,934'],
+        [6, '李文忠', '曹国公', '14,099', '12,023.5'],
+        [7, '冯胜 ', '宋国公', '3,536.3', '42,734'],
+        [8, '邓愈', '卫国公', '12,119.6', '57,023.4'],
+        [9, '傅友德', '颖国公', '5,186.5', '13,043.8'],
+        [10, '沫英', '知西平侯', '2,024', '22,896'],
+        [11, '刘基', '诚意伯', '22,341', '71,923.4'],
+        [12, '汪广洋', '忠勤伯', '1,635', '16,912.5'],
+        [13, '宋濂', '翰林学士承旨', '1,525', '74,236.5'],
+        [14, '叶琛', '洪都知府', '8,958', '52,012'],
+        [15, '章溢', '御史中丞', '24,589', '90,342']];
+    var obj = {
+        title: "多表头网格",
+        height:441,
+        hoverMode: "row",
+        flexWidth:true,
+        collapsible: {on: false, collapsed: false, toggle: false}, //关闭收起，关闭全屏（复杂环境下会出现样式问题）
+        scrollModel:{horizontal:false,vertical:false}   //是否开启水平滚动
+    };
+    obj.colModel = [
+        { title: "AWSUI - 报表展示", width: 250,height:150, align:'center',
+            colModel:[
+                {
+                    title:"二级栏目1", align:'center',
+                    colModel:[
+                        {title:"三级栏目1",width:90, align:'center'},
+                        {title:"三级栏目2",width:90, align:'center'},
+                        {title:"三级栏目3",width:90, align:'center'}
+                    ]
+                },
+                {
+                    title:"二级栏目2", align:'center',
+                    colModel:[
+                        {title:"三级栏目1",width:100, align:'center'},
+                        {title:"三级栏目2",width:100, align:'center'}
+                    ]
+                }
+            ]
+        }
+    ];
+    localization(obj,"cn"); //国际化方法
+    obj.dataModel = {
+        data: data,
+        location: "local",
+        sorting: "local",
+        paging : "local",
+        curPage: 1,               //当前页
+        rPP: 12,                  //页数
+        sortIndx: "0",     //默认按那一列来排序
+        sortDir: "up"            //排序规则
+    };
+    $("#grid2").awsGrid(obj);
+};
+$(document).ready(function() {
+    grid2func();
+});
+</code></pre>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+            <div class="awsui-code-title title2" id="event3">
+                自适应网格
+            </div>
+            <p class="awsui-margin-top-5">多表头网格。</p>
+            <div class="awsui-code-demo" style="overflow-x:auto;">
+                <div id="grid3"></div>
+            </div>
+            <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+            <div class="awsui-code-info">
+                <pre><code class="language-html">&lt;div class="awsui-code-demo" style="overflow-x:auto;"&gt;
+  &lt;div id="grid3"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+            <p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+            <div class="awsui-code-info">
+                <pre><code class="language-js">//国际化
+ var localization = function (obj,   lang) {
+    var languages = {
+        egional: {
+            'cn': {
+                "strLoading": "加载中", "strAdd": "添加",
+                "strEdit": "编辑", "strDelete": "删除", "strSearch": "搜索",
+                "strNothingFound": "暂无结果", "strNoRows": "暂无结果",
+                "strSelectedmatches": "选择{0}{1}匹配", "strPrevResult": "上一结果",
+                "strNextResult": "下一结果"
+            },
+            'big5': {
+                "strLoading": "加載中", "strAdd": "添加", "strEdit": "編輯",
+                "strDelete": "刪除", "strSearch": "搜索", "strNothingFound": "暫無結果",
+                "strNoRows": "暫無結果", "strSelectedmatches": "選擇{0}{1}匹配",
+                "strPrevResult": "上壹結果", "strNextResult": "下壹結果"
+            }
+        },
+        pagerRegional: {
+            'cn': {
+                "strPage": "第 {0} 页（共 {1} 页）", "strFirstPage": "第一页",
+                "strPrevPage": "上一页", "strNextPage": "下一页", "strLastPage": "尾页",
+                "strRefresh": "刷新", "strRpp": false, "strDisplay": "显示 {0} 到 {1} 条，共 {2} 条"
+            },
+            'big5': {
+                "strPage": "第 {0} 頁（共 {1} 頁）", "strFirstPage": "第壹頁",
+                "strPrevPage": "上壹頁", "strNextPage": "下壹頁", "strLastPage": "尾頁",
+                "strRefresh": "刷新", "strRpp": false, "strDisplay": "顯示 {0} 到 {1} 條，共 {2} 條"
+            }
+        }
+    };
+    $.extend(obj, languages.egional[lang]);
+    if (obj.pageModel) {
+        $.extend(obj.pageModel, languages.pagerRegional[lang]);
+    }
+};
+var grid3func = function(){
+    //适应宽度
+    var data = [];
+    for(var i = 0; i < 100; i++){
+        var d = { rank: (i+1), company: '标题1-'+i, revenues: '标题2-'+i, profits: '标题3-1234',remark:"标题4-" + i};
+        data.push(d);
+    }
+    obj = {
+        width: "100%",  //宽度设为100%
+        title: "数据展示",
+        height:350,
+        wrap:true,
+        collapsible: {on: false, collapsed: false, toggle: false}, //关闭收起，关闭全屏（复杂环境下会出现样式问题）
+        selectionModel:{type:"none"},
+        scrollModel:{autoFit:true}   //开启自适应，如果自适应父级容器的宽度，width属性设置100%并且autoFit为true即可，个别列的宽度可自定义，如下colModel配置
+    };
+    localization(obj,"cn"); //国际化方法
+    obj.colModel = [
+        {title:"",checkbox:true, resizable:false,align:"center",width: 30},
+        { title: "序号", width: 40,sortable:false, dataType: "integer", dataIndx: "rank",resizable:true },
+        { title: "姓名", dataType: "string", dataIndx: "company" ,resizable:false},
+        { title: "职务", dataType: "float", align: "right", dataIndx: "revenues" },
+        { title: "工资", width: 80, dataIndx: "profits"},
+        { title: "备注", width: 180, dataIndx: "remark"}
+    ];
+    obj.dataModel = {
+        data: data,
+        location: "local",
+        sorting: "local"
+    };
+    $("#grid3").awsGrid(obj);
+};
+$(document).ready(function() {
+    grid3func();
+});
+</code></pre>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+            <div class="awsui-code-title title2" id="event4">
+                列锁定网格
+            </div>
+            <p class="awsui-margin-top-5">列锁定网格。</p>
+            <div class="awsui-code-demo" style="overflow-x:auto;">
+                <div id="grid4"></div>
+            </div>
+            <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+            <div class="awsui-code-info">
+                <pre><code class="language-html">&lt;div class="awsui-code-demo" style="overflow-x:auto;"&gt;
+  &lt;div id="grid4"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+            <p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+            <div class="awsui-code-info">
+                <pre><code class="language-js">//国际化
+ var localization = function (obj,   lang) {
+    var languages = {
+        egional: {
+            'cn': {
+                "strLoading": "加载中", "strAdd": "添加",
+                "strEdit": "编辑", "strDelete": "删除", "strSearch": "搜索",
+                "strNothingFound": "暂无结果", "strNoRows": "暂无结果",
+                "strSelectedmatches": "选择{0}{1}匹配", "strPrevResult": "上一结果",
+                "strNextResult": "下一结果"
+            },
+            'big5': {
+                "strLoading": "加載中", "strAdd": "添加", "strEdit": "編輯",
+                "strDelete": "刪除", "strSearch": "搜索", "strNothingFound": "暫無結果",
+                "strNoRows": "暫無結果", "strSelectedmatches": "選擇{0}{1}匹配",
+                "strPrevResult": "上壹結果", "strNextResult": "下壹結果"
+            }
+        },
+        pagerRegional: {
+            'cn': {
+                "strPage": "第 {0} 页（共 {1} 页）", "strFirstPage": "第一页",
+                "strPrevPage": "上一页", "strNextPage": "下一页", "strLastPage": "尾页",
+                "strRefresh": "刷新", "strRpp": false, "strDisplay": "显示 {0} 到 {1} 条，共 {2} 条"
+            },
+            'big5': {
+                "strPage": "第 {0} 頁（共 {1} 頁）", "strFirstPage": "第壹頁",
+                "strPrevPage": "上壹頁", "strNextPage": "下壹頁", "strLastPage": "尾頁",
+                "strRefresh": "刷新", "strRpp": false, "strDisplay": "顯示 {0} 到 {1} 條，共 {2} 條"
+            }
+        }
+    };
+    $.extend(obj, languages.egional[lang]);
+    if (obj.pageModel) {
+        $.extend(obj.pageModel, languages.pagerRegional[lang]);
+    }
+};
+var grid4func = function(){
+    //列锁定
+    var $grid4;
+    var data = [
+        { rank: 1, company: '朱元璋', revenues: '皇帝', profits: '36,130.0' },
+        { rank: 2, company: '徐达', revenues: '魏国公', profits: '11,231.0' },
+        { rank: 3, company: '常遇春', revenues: '鄂国公', profits: '25,311.0' },
+        { rank: 4, company: '汤和', revenues: '信国公', profits: '22,341.0' },
+        { rank: 5, company: '李善长', revenues: '韩国公', profits: '10,567.0' },
+        { rank: 6, company: '李文忠', revenues: '曹国公', profits: '14,099.0' },
+        { rank: 7, company: '冯胜', revenues: '宋国公', profits: '3,536.3' },
+        { rank: 8, company: '邓愈', revenues: '卫国公', profits: '12,119.6' },
+        { rank: 9, company: '蓝玉', revenues: '凉国公', profits: '2,024.0' },
+        { rank: 10, company: '傅友德', revenues: '颖国公', profits: '13,529.0' }
+    ];
+    var obj = {
+        flexWidth:true,
+        title: "列锁",
+        height:  400 ,
+        width:  "50%",
+        freezeCols:1,
+        wrap:false,
+        collapsible: {on: false, collapsed: false, toggle: false}, //关闭收起，关闭全屏（复杂环境下会出现样式问题）
+        selectionModel:{type:"cell"},
+        scrollModel:{horizontal:true,vertical:false},
+        hoverMode:"cell",
+        flexHeight:false,			//与height互斥 默认false
+        flexWidth:false,			//与height互斥 默认false
+        editModel:{clicksToEdit: 0 }  //点击单元格编辑模式[2-可编辑, 0不可编辑]
+    };
+    localization(obj,"cn"); //国际化方法
+    obj.colModel = [{ title: "序号", width: 40, dataType: "integer", dataIndx: "rank",resizable:true },
+        { title: "姓名", width: 250,dataType: "string", dataIndx: "company" ,resizable:false},
+        { title: "职位", width: 250, dataType: "float", align: "right", dataIndx: "revenues" },
+        { title: "收入", width: 250, dataType: "float", align: "right", dataIndx: "profits"},
+        { title: "操作1", width: 150, align: "center", sortable:false},
+        { title: "操作2", width: 150, align: "center", sortable:false},
+        { title: "操作3", width: 150, align: "center", sortable:false},
+        { title: "操作4", width: 150, align: "center", sortable:false},
+        { title: "操作5", width: 150, align: "center", sortable:false}
+    ];
+    obj.toolbar = {
+        cls: "ui-grid-toolbar",
+        items: [
+            {type:"<span>列锁从第几列开始：</span>"},
+            { type: 'select', style: "margin:0px 5px;", cls: "filterCondition",options: [ 1, 2, 3],listeners: [{ change: function(){
+                        $grid4.awsGrid("option", "freezeCols", $(this).val());
+                        $grid4.awsGrid("refresh");
+                    }}]
+            }
+        ]
+    };
+    obj.dataModel = {
+        data: data,
+        location: "local",
+        sorting: "local",
+        paging: "local",
+        curPage: 1,               //当前页
+        rPP: 10                  //页数
+    };
+    $("#grid4").awsGrid(obj);
+};
+$(document).ready(function() {
+    grid4func();
+});
+</code></pre>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+            <div class="awsui-code-title title2" id="event5">
+                求和网格
+            </div>
+            <p class="awsui-margin-top-5">求和网格。</p>
+            <div class="awsui-code-demo" style="overflow-x:auto;">
+                <div id="grid5"></div>
+            </div>
+            <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+            <div class="awsui-code-info">
+                <pre><code class="language-html">&lt;div class="awsui-code-demo" style="overflow-x:auto;"&gt;
+  &lt;div id="grid5"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+            <p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+            <div class="awsui-code-info">
+                <pre><code class="language-js">//国际化
+ var localization = function (obj,   lang) {
+    var languages = {
+        egional: {
+            'cn': {
+                "strLoading": "加载中", "strAdd": "添加",
+                "strEdit": "编辑", "strDelete": "删除", "strSearch": "搜索",
+                "strNothingFound": "暂无结果", "strNoRows": "暂无结果",
+                "strSelectedmatches": "选择{0}{1}匹配", "strPrevResult": "上一结果",
+                "strNextResult": "下一结果"
+            },
+            'big5': {
+                "strLoading": "加載中", "strAdd": "添加", "strEdit": "編輯",
+                "strDelete": "刪除", "strSearch": "搜索", "strNothingFound": "暫無結果",
+                "strNoRows": "暫無結果", "strSelectedmatches": "選擇{0}{1}匹配",
+                "strPrevResult": "上壹結果", "strNextResult": "下壹結果"
+            }
+        },
+        pagerRegional: {
+            'cn': {
+                "strPage": "第 {0} 页（共 {1} 页）", "strFirstPage": "第一页",
+                "strPrevPage": "上一页", "strNextPage": "下一页", "strLastPage": "尾页",
+                "strRefresh": "刷新", "strRpp": false, "strDisplay": "显示 {0} 到 {1} 条，共 {2} 条"
+            },
+            'big5': {
+                "strPage": "第 {0} 頁（共 {1} 頁）", "strFirstPage": "第壹頁",
+                "strPrevPage": "上壹頁", "strNextPage": "下壹頁", "strLastPage": "尾頁",
+                "strRefresh": "刷新", "strRpp": false, "strDisplay": "顯示 {0} 到 {1} 條，共 {2} 條"
+            }
+        }
+    };
+    $.extend(obj, languages.egional[lang]);
+    if (obj.pageModel) {
+        $.extend(obj.pageModel, languages.pagerRegional[lang]);
+    }
+};
+var grid5func = function(){
+    //求和
+    var arrayData = [
+        { rank: 1, company: 'Exxon Mobil', revenues: 339938.0, profits: 36130.0 },
+        { rank: 2, company: 'Wal-Mart Stores', revenues: 315654.0, profits: 11231.0 },
+        { rank: 3, company: 'Royal Dutch Shell', revenues: 306731.0, profits: 25311.0 },
+        { rank: 4, company: 'BP', revenues: 267600.0, profits: 22341.0 },
+        { rank: 5, company: 'General Motors', revenues: 192604.0, profits: -10567.0 },
+        { rank: 6, company: 'Chevron', revenues: 189481.0, profits: 14099.0 },
+        { rank: 7, company: 'DaimlerChrysler', revenues: 186106.3, profits: 3536.3 },
+        { rank: 8, company: 'Toyota Motor', revenues: 185805.0, profits: 12119.6 },
+        { rank: 9, company: 'Ford Motor', revenues: 177210.0, profits: 2024.0 },
+        { rank: 10, company: 'ConocoPhillips', revenues: 166683.0, profits: 13529.0 },
+        { rank: 11, company: 'General Electric', revenues: 157153.0, profits: 16353.0 },
+        { rank: 12, company: 'Total', revenues: 152360.7, profits: 15250.0 },
+        { rank: 13, company: 'ING Group', revenues: 138235.3, profits: 8958.9 },
+        { rank: 14, company: 'Citigroup', revenues: 131045.0, profits: 24589.0 },
+        { rank: 15, company: 'AXA', revenues: 129839.2, profits: 5186.5 },
+        { rank: 16, company: 'Allianz', revenues: 121406.0, profits: 5442.4 },
+        { rank: 17, company: 'Volkswagen', revenues: 118376.6, profits: 1391.7 },
+        { rank: 18, company: 'Fortis', revenues: 112351.4, profits: 4896.3 },
+        { rank: 19, company: 'Crédit Agricole', revenues: 110764.6, profits: 7434.3 },
+        { rank: 20, company: 'American Intl. Group', revenues: 108905.0, profits: 10477.0 }
+    ];
+    var totalData, averageData;
+
+    function calculateSummary() {
+        var revenueTotal = 0, profitTotal = 0;
+        for (var i = 0; i < arrayData.length; i++) {
+            var row = arrayData[i];
+            revenueTotal += parseFloat(row["revenues"]);
+            profitTotal += parseFloat(row["profits"]);
+        }
+        var revenueAverage = $.paramquery.formatCurrency(revenueTotal / arrayData.length);
+        var profitAverage = $.paramquery.formatCurrency(profitTotal / arrayData.length);
+
+        revenueTotal = $.paramquery.formatCurrency(revenueTotal);
+        profitTotal = $.paramquery.formatCurrency(profitTotal);
+
+        totalData = { rank: "<b>总计</b>", company: "", revenues: revenueTotal, profits: profitTotal, pq_rowcls: 'customCls1' };
+        averageData = { rank: "<b>平均值</b>", company: "", revenues: revenueAverage, profits: profitAverage, pq_rowcls: 'customCls2' };
+    }
+    var obj = {
+        width: "80%",
+        height: 400,
+        title: "求和示例",
+        resizable: true,
+        //freezeCols: 1,
+        collapsible: {on: false, collapsed: false, toggle: false}, //关闭收起，关闭全屏（复杂环境下会出现样式问题）
+        flexHeight: true
+    };
+    obj.columnTemplate = { width: '25%' };
+    obj.colModel = [
+        { title: "序号", align: "right", dataType: "integer", dataIndx: "rank", width: '15%' },
+        { title: "公司", dataIndx: "company", width: '35%' },
+        { title: "总收入 (百万美元)", align: "right", dataType: "float", dataIndx: "revenues" },
+        { title: "收益 (百万美元)", align: "right", dataType: "float", dataIndx: "profits" }
+    ];
+    obj.dataModel = {
+        data: arrayData
+    };
+    obj.pageModel = {
+        type: "local",
+        rPP: 10
+    };
+    localization(obj,"cn"); //国际化方法
+    var $summary = "";
+    obj.render = function (evt, ui) {
+        $summary = $("<div class='aws-grid-summary'  ></div>").prependTo($(".aws-grid-bottom", this));
+        calculateSummary();
+    };
+    obj.cellBeforeSave = function (evt, ui) {
+        var cd = ui.newVal;
+        if (cd == "") {
+            return false;
+        }
+    };
+    //当值有改变时，刷新统计值
+    obj.cellSave = function (evt, ui) {
+        calculateSummary();
+        obj.refresh.call(this);
+    };
+    obj.refresh = function (evt, ui) {
+        var data = [totalData, averageData];
+        var obj = { data: data, $cont: $summary }
+        $(this).awsGrid("createTable", obj);
+    };
+    $("#grid5").awsGrid(obj);
+};
+$(document).ready(function() {
+    grid5func();
+});
+</code></pre>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+            <div class="awsui-code-title title2" id="event6">
+                工具栏网格
+            </div>
+            <p class="awsui-margin-top-5">工具栏网格。</p>
+            <div class="awsui-code-demo" style="overflow-x:auto;">
+                <div id="grid6"></div>
+            </div>
+            <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+            <div class="awsui-code-info">
+                <pre><code class="language-html">&lt;div class="awsui-code-demo" style="overflow-x:auto;"&gt;
+  &lt;div id="grid6"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+            <p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+            <div class="awsui-code-info">
+                <pre><code class="language-js">//国际化
+ var localization = function (obj,   lang) {
+    var languages = {
+        egional: {
+            'cn': {
+                "strLoading": "加载中", "strAdd": "添加",
+                "strEdit": "编辑", "strDelete": "删除", "strSearch": "搜索",
+                "strNothingFound": "暂无结果", "strNoRows": "暂无结果",
+                "strSelectedmatches": "选择{0}{1}匹配", "strPrevResult": "上一结果",
+                "strNextResult": "下一结果"
+            },
+            'big5': {
+                "strLoading": "加載中", "strAdd": "添加", "strEdit": "編輯",
+                "strDelete": "刪除", "strSearch": "搜索", "strNothingFound": "暫無結果",
+                "strNoRows": "暫無結果", "strSelectedmatches": "選擇{0}{1}匹配",
+                "strPrevResult": "上壹結果", "strNextResult": "下壹結果"
+            }
+        },
+        pagerRegional: {
+            'cn': {
+                "strPage": "第 {0} 页（共 {1} 页）", "strFirstPage": "第一页",
+                "strPrevPage": "上一页", "strNextPage": "下一页", "strLastPage": "尾页",
+                "strRefresh": "刷新", "strRpp": false, "strDisplay": "显示 {0} 到 {1} 条，共 {2} 条"
+            },
+            'big5': {
+                "strPage": "第 {0} 頁（共 {1} 頁）", "strFirstPage": "第壹頁",
+                "strPrevPage": "上壹頁", "strNextPage": "下壹頁", "strLastPage": "尾頁",
+                "strRefresh": "刷新", "strRpp": false, "strDisplay": "顯示 {0} 到 {1} 條，共 {2} 條"
+            }
+        }
+    };
+    $.extend(obj, languages.egional[lang]);
+    if (obj.pageModel) {
+        $.extend(obj.pageModel, languages.pagerRegional[lang]);
+    }
+};
+var grid6func = function(){
+    //工具栏
+    var data = [
+        { rank: 1, company: '朱元璋11', revenues: '皇帝', profits: '36,130.0',remark:"明太祖朱元璋~~~~~~~~~~"},
+        { rank: 2, company: '徐达', revenues: '魏国公', profits: '11,231.0' ,remark:"明朝第一名将"},
+        { rank: 3, company: '常遇春', revenues: '鄂国公', profits: '25,311.0' ,remark:"明朝第一猛将"},
+        { rank: 4, company: '汤和', revenues: '信国公', profits: '22,341.0' ,remark:"--"},
+        { rank: 5, company: '李善长', revenues: '韩国公', profits: '10,567.0' ,remark:"太师中书左丞相兼太子少师韩国公"},
+        { rank: 6, company: '李文忠3', revenues: '曹国公', profits: '14,099.0' ,remark:"--"},
+        { rank: 7, company: '冯胜', revenues: '宋国公', profits: '3,536.3' ,remark:"--"},
+        { rank: 8, company: '邓愈', revenues: '卫国公', profits: '12,119.6' ,remark:"--"},
+        { rank: 9, company: '蓝玉', revenues: '凉国公', profits: '2,024.0' ,remark:"--"},
+        { rank: 10, company: '傅友德', revenues: '颖国公', profits: '13,529.0' ,remark:"--"},
+        { rank: 11, company: '刘基', revenues: '诚意伯', profits: '13,529.0' ,remark:"--"}
+    ];
+    var obj = {
+        width: "95%",
+        title: "工具条展示",
+        height:400,
+        wrap:false,
+        collapsible: {on: false, collapsed: false, toggle: false}, //关闭收起，关闭全屏（复杂环境下会出现样式问题）
+        flexHeight:false,			//与height互斥 默认false
+        editModel:{clicksToEdit: 0 },  //点击单元格编辑模式[2-可编辑, 0不可编辑]
+        scrollModel:{horizontal:false}   //是否开启水平滚动
+    };
+    localization(obj,"cn"); //国际化方法
+    obj.toolbar = {
+        cls: "ui-grid-toolbar",
+        items: [
+            { type: 'button', label: '按钮1',  listeners: [{click:filterhandler}] },
+            { type: 'separator' },
+            { type: 'button', label: '按钮2', cls: 'green', render: filterhandler}
+        ]
+    };
+    obj.colModel = [
+        {title:"",type:"checkBoxSelection", resizable:false,align:"center",width: 30},
+        { title: "序号", width: 40,sortable:false, dataType: "integer", dataIndx: "rank",resizable:true },
+        { title: "姓名", width: 150,dataType: "string", dataIndx: "company" ,resizable:false},
+        { title: "职务", width: 80, dataType: "float", align: "right", dataIndx: "revenues" },
+        { title: "工资", width: 150, dataIndx: "profits"},
+        { title: "备注", width: 150, dataIndx: "remark"}
+    ];
+    obj.selectionModel = {
+        type : "row"
+    };
+    obj.pageModel = {
+        type: "local",
+        curPage: 1,               //当前页
+        rPP: 5                 //页数
+    };
+    obj.dataModel = {
+        data: data,
+        location: "local",
+        sorting: "local"
+    };
+    localization(obj,"cn"); //国际化方法
+    $("#grid6").awsGrid(obj);
+};
+function filterhandler(){
+    alert("点击事件");
+    $grid.awsGrid("refreshDataAndView");
+    return;
+}
+$(document).ready(function() {
+    grid6func();
+});
+</code></pre>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+            <div class="awsui-code-title title2" id="event7">
+                编辑网格
+            </div>
+            <p class="awsui-margin-top-5">编辑网格。</p>
+            <div class="awsui-code-demo" style="overflow-x:auto;">
+                <div id="grid7"></div>
+            </div>
+            <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+            <div class="awsui-code-info">
+                <pre><code class="language-html">&lt;div class="awsui-code-demo" style="overflow-x:auto;"&gt;
+  &lt;div id="grid7"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+            <p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+            <div class="awsui-code-info">
+                <pre><code class="language-js">//国际化
+ var localization = function (obj,   lang) {
+    var languages = {
+        egional: {
+            'cn': {
+                "strLoading": "加载中", "strAdd": "添加",
+                "strEdit": "编辑", "strDelete": "删除", "strSearch": "搜索",
+                "strNothingFound": "暂无结果", "strNoRows": "暂无结果",
+                "strSelectedmatches": "选择{0}{1}匹配", "strPrevResult": "上一结果",
+                "strNextResult": "下一结果"
+            },
+            'big5': {
+                "strLoading": "加載中", "strAdd": "添加", "strEdit": "編輯",
+                "strDelete": "刪除", "strSearch": "搜索", "strNothingFound": "暫無結果",
+                "strNoRows": "暫無結果", "strSelectedmatches": "選擇{0}{1}匹配",
+                "strPrevResult": "上壹結果", "strNextResult": "下壹結果"
+            }
+        },
+        pagerRegional: {
+            'cn': {
+                "strPage": "第 {0} 页（共 {1} 页）", "strFirstPage": "第一页",
+                "strPrevPage": "上一页", "strNextPage": "下一页", "strLastPage": "尾页",
+                "strRefresh": "刷新", "strRpp": false, "strDisplay": "显示 {0} 到 {1} 条，共 {2} 条"
+            },
+            'big5': {
+                "strPage": "第 {0} 頁（共 {1} 頁）", "strFirstPage": "第壹頁",
+                "strPrevPage": "上壹頁", "strNextPage": "下壹頁", "strLastPage": "尾頁",
+                "strRefresh": "刷新", "strRpp": false, "strDisplay": "顯示 {0} 到 {1} 條，共 {2} 條"
+            }
+        }
+    };
+    $.extend(obj, languages.egional[lang]);
+    if (obj.pageModel) {
+        $.extend(obj.pageModel, languages.pagerRegional[lang]);
+    }
+};
+var grid7func = function(){
+    //编辑行
+    //此示例，展示2种数据的存储方式。一种是自动保存通过change事件，一种是通过按钮控制（部分代码需要再实现）。两种方式请根据需求来选择。
+    var obj = {
+        hwrap: false,
+        rowBorders: false,
+        width:"96.5%",
+        selectionModel : {
+            type:"row",
+            fireSelectChange:true //触发选中事件，选中行，显示按钮
+        },
+        collapsible: {on: false, collapsed: false, toggle: false}, //关闭收起，关闭全屏（复杂环境下会出现样式问题）
+        numberCell: { show: true },
+        trackModel: { on: true }, //编辑时记录修改的数据
+        toolbar: {
+            cls : "ui-grid-toolbar ",
+            items: [
+                { type: 'button',label: '新建数据', cls : "green", listener:
+                           { "click": function (evt, ui) {
+                                   //此方法新建数据后，会执行下方的change事件（change事件已执行ajax存储），可以根据需要执行是否自动保存新建数据
+                                   var rowData = { ProductName: 'new product', UnitPrice: 0.2 };
+                                   var rowIndx = $grid.awsGrid("addRow", { rowData: rowData });
+                                   $grid.awsGrid("goToPage", { rowIndx: rowIndx });
+                                   $grid.awsGrid("setSelection", null);
+                                   $grid.awsGrid("setSelection", { rowIndx: rowIndx, dataIndx: 'ProductName' });
+                                   $grid.awsGrid("editFirstCellInRow", { rowIndx: rowIndx });
+                               }
+                           }
+                },
+                { type: 'button',label: '删除数据', cls : "red",
+                    attr:{selectShow : true,style:'display:none;'}, //选中行，显示按钮
+                    listener:
+                           { "click": function (evt, ui) {
+                                   //此处只是另一个删除数据的途径，请根据需要选择
+                                   var rows = $grid.awsGrid( "selection",{ type: 'row', method: 'getSelection' });
+                                   if(rows.length == 0){
+                                       $.simpleAlert("至少选择一条数据","info",2000);
+                                       return;
+                                   }
+                                   function ajaxSaveSuccessCallback(){
+                                       $grid.awsGrid("deleteRows", {rows:rows});//删除行，页面上行删除
+                                       var changes = $grid.awsGrid("getChanges");
+                                       $grid.commit({ type: 'delete', rows: changes.deleteList }); //用于告知grid此次修改已完毕
+                                   }
+                                   //注意：如果存储，需要请求ajax，请求成功后再调ajaxSaveSuccessCallback 中的方法（切记），ajax示例在此省略，请自行实现。
+                                   ajaxSaveSuccessCallback()
+                               }
+                           }
+                },
+                { type: 'button',label: '查看修改的数据行(调试查看数据)', cls : "blue", listener:
+                           { "click": function (evt, ui) {
+                                   //此功能，可以用于提供保存按钮方式保存数据
+                                   console.log($grid.awsGrid("getChanges"));
+                               }
+                           }
+                }
+            ]
+        },
+        scrollModel: {
+            autoFit: true
+        },
+        editModel: {
+            //allowInvalid: true,
+            saveKey: $.ui.keyCode.ENTER,
+            uponSave: 'next'
+        },
+        editor: {
+            select: true
+        },
+        title: "<b>&nbsp;&nbsp;按钮控制 和 自动保存</b>",
+        change: function (evt, ui) {
+            //
+            if (ui.source == 'commit' || ui.source == 'rollback') {
+                return;
+            }
+            console.log(ui);
+            var $grid = $(this), grid = $grid.awsGrid('getInstance').grid;
+            var rowList = ui.rowList,recIndx = grid.option('dataModel').recIndx, addList = [], deleteList = [], updateList = [];
+            for (var i = 0; i < rowList.length; i++) {
+                var obj = rowList[i], rowIndx = obj.rowIndx, newRow = obj.newRow, type = obj.type, rowData = obj.rowData;
+                if (type == 'add') { //可以通过此方式自动提交删除数据（调用删除方法时自动调用此事件）
+                    var valid = grid.isValid({ rowData: newRow, allowInvalid: true }).valid; //校验数据
+                    if (valid) {
+                        addList.push(newRow);
+                    }
+                } else if (type == 'update') {
+                    var valid = grid.isValid({ rowData: rowData, allowInvalid: true }).valid; //校验数据
+                    if (valid) {
+                        if (rowData[recIndx] == null) {
+                            addList.push(rowData);
+                        } else {
+                            updateList.push(rowData);
+                        }
+                    }
+                } else if (type == 'delete') {//可以通过此方式自动提交删除数据（调用删除方法时自动调用此事件）
+                    if (rowData[recIndx] != null) {
+                        deleteList.push(rowData);
+                    }
+                }
+            }
+            if (addList.length || updateList.length || deleteList.length) {
+                //如果存在改动，则请求保存，！！！静态页面此请求无效（仅提供参考！）
+                $.ajax({
+                    url: './jd',
+                    data: {
+                        cmd : "my_test_save_grid_value_cmd",
+                        list: JSON.stringify({
+                            updateList: updateList,
+                            addList: addList,
+                            deleteList: deleteList
+                        })
+                    },
+                    dataType: "json",
+                    type: "POST",
+                    async: true,
+                    success: function (changes) {
+                        //提交更改（相当于清空编辑数据列表）.
+                        grid.commit({ type: 'add', rows: changes.addList });
+                        grid.commit({ type: 'update', rows: changes.updateList });
+                        grid.commit({ type: 'delete', rows: changes.deleteList });
+                    }
+                });
+            }
+        },
+        colModel: [
+            { title: "产品标识", dataType: "integer", dataIndx: "ProductID", editable: false, width: 80 },
+            { title: "产品名称", width: 165, dataType: "string", dataIndx: "ProductName",
+                validations: [
+                    { type: 'minLen', value: 1, msg: "不允许为空" },
+                    { type: 'maxLen', value: 40, msg: "不能超过40个字符" }
+                ]
+            },
+            { title: "数量及单位", width: 140, dataType: "string", align: "right", dataIndx: "QuantityPerUnit",
+                validations: [
+                    { type: 'minLen', value: 1, msg: "不允许为空" },
+                    { type: 'maxLen', value: 20, msg: "不能超过20个字符" }
+                ]
+            },
+            { title: "单价", width: 100, dataType: "float", align: "right", dataIndx: "UnitPrice",
+                validations: [ { type: 'nonEmpty', msg: "不允许为空" },
+                    { type: 'gt', value: 0.5, msg: "数值要大于0.5", warn: true}],
+                render: function (ui) {
+                    var cellData = ui.cellData;
+                    if (cellData != null) {
+                        return "$" + parseFloat(ui.cellData).toFixed(2);
+                    } else {
+                        return "";
+                    }
+                }
+            },
+            { title: "库存", width: 100, dataType: "integer", align: "right", dataIndx: "UnitsInStock",
+                validations: [{ type: 'gte', value: 0, msg: "不允许为空"}]
+            },
+            { title: "记录日期", width: 100, dataType: "string", align: "center", dataIndx: "createTime",
+                editor : {
+                    type : function(ui){
+                        var $cell = ui.$cell, dataCell =  ui.cellData != null ? ui.cellData : "", rowIndxPage = ui.rowIndxPage, dataIndx = ui.dataIndx;
+                        $cell.css('padding', '0');
+                        //此处注意needsave = ‘true‘ 属性和'class='pq-editor-focus' 属性
+                        //pq-editor-focus ：加入这个样式，可以使用grid自带的事件机制，功能比较丰富，缺点是在blur之前必须保证这个元素要回填数据完毕
+                        //needsave ：扩展的一个属性，用于一些复杂组件，不再触发blur的机制，此时会通过点击其他元素触发save回填
+                        var $inp = $("<input type='text' class='pq-editor-focus' needsave = 'true'   style='width:100%;padding:2px;border:0;height: "+$cell.parent().outerHeight()+"px;padding: 0px 3px 0px 3px;outline:none;'/>").appendTo($cell);
+                        $inp.val(dataCell).datepicker({
+                            changeMonth: true,
+                            changeYear: true,
+                            dateFmt:  'yyyy-MM-dd',
+                            onClose: function () {
+                                $inp.focus();
+                            }
+                        });
+                    },
+                    init : function(ui){
+                        //在type的function种已经init，此方法可以省略
+                    },
+                    getData : function(ui){
+                        var $cell = ui.$cell;
+                        if ($cell == null)
+                            return "";
+                        return $cell.children().val();
+                    }
+                }
+            }
+        ],
+        pageModel: { type: "local", rPP: 15 },//type: "local" 意味着翻页不再请求数据
+        dataModel: {
+            dataType: "JSON",
+            location: "remote",
+            recIndx: "ProductID",//主键
+            url: "../form/gridEditJson.json", // 获取数据,由于pageModel的type为local，所以翻页不再请求数据
+            getData: function (response) {
+                return { data: response.data };
+            }
+        }
+    };
+    localization(obj,"cn"); //国际化方法
+    var $grid = $("#grid7").awsGrid(obj);
+    $grid.on('awsgridselectchange', function (event, ui) {//触发选中事件，选中行，显示按钮
+        isShowButtonBySelected("selectchange", $(this), event, ui);
+    });
+    $grid.on("awsgrideditorblur",function(evt,ui){
+        //此事件对于一些复杂的可编辑的ui组件很重要，否则会造成选择数据时，触发blur，导致数据无法回填
+        if(ui.$cell.find(".pq-editor-focus").length == 0 || ui.$editor.attr("needsave") == "true"){//不使用blur触发save
+            return false;
+        }
+        return true
+    });
+    // 退出编辑状态时的事件(修改显示)
+    $grid.on("awsgrideditorend", function (evt, ui) {
+        // 不按Esc 或者 Tab
+        if (evt.keyCode != $.ui.keyCode.ESCAPE && evt.keyCode != $.ui.keyCode.TAB) {
+            if(ui.$editor.attr("needsave") == "true"){//不使用blur触发save
+                $grid.awsGrid("saveEditCell");
+            }
+        }
+    });
+};
+$(document).ready(function() {
+    grid7func();
+});
+</code></pre>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+            <div class="awsui-code-title title2" id="event8">
+                拖动行
+            </div>
+            <p class="awsui-margin-top-5">拖动行。</p>
+            <div class="awsui-code-demo" style="overflow-x:auto;">
+                <div id="grid8"></div>
+            </div>
+            <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+            <div class="awsui-code-info">
+                <pre><code class="language-html">&lt;div class="awsui-code-demo" style="overflow-x:auto;"&gt;
+  &lt;div id="grid8"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+            <p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+            <div class="awsui-code-info">
+                <pre><code class="language-js">//国际化
+ var localization = function (obj,   lang) {
+    var languages = {
+        egional: {
+            'cn': {
+                "strLoading": "加载中", "strAdd": "添加",
+                "strEdit": "编辑", "strDelete": "删除", "strSearch": "搜索",
+                "strNothingFound": "暂无结果", "strNoRows": "暂无结果",
+                "strSelectedmatches": "选择{0}{1}匹配", "strPrevResult": "上一结果",
+                "strNextResult": "下一结果"
+            },
+            'big5': {
+                "strLoading": "加載中", "strAdd": "添加", "strEdit": "編輯",
+                "strDelete": "刪除", "strSearch": "搜索", "strNothingFound": "暫無結果",
+                "strNoRows": "暫無結果", "strSelectedmatches": "選擇{0}{1}匹配",
+                "strPrevResult": "上壹結果", "strNextResult": "下壹結果"
+            }
+        },
+        pagerRegional: {
+            'cn': {
+                "strPage": "第 {0} 页（共 {1} 页）", "strFirstPage": "第一页",
+                "strPrevPage": "上一页", "strNextPage": "下一页", "strLastPage": "尾页",
+                "strRefresh": "刷新", "strRpp": false, "strDisplay": "显示 {0} 到 {1} 条，共 {2} 条"
+            },
+            'big5': {
+                "strPage": "第 {0} 頁（共 {1} 頁）", "strFirstPage": "第壹頁",
+                "strPrevPage": "上壹頁", "strNextPage": "下壹頁", "strLastPage": "尾頁",
+                "strRefresh": "刷新", "strRpp": false, "strDisplay": "顯示 {0} 到 {1} 條，共 {2} 條"
+            }
+        }
+    };
+    $.extend(obj, languages.egional[lang]);
+    if (obj.pageModel) {
+        $.extend(obj.pageModel, languages.pagerRegional[lang]);
+    }
+};
+var grid8func = function(){
+    //拖动行
+    var data = [
+        { rank: 1, company: '朱元璋', revenues: '皇帝', profits: '36,130.0' },
+        { rank: 2, company: '徐达', revenues: '魏国公', profits: '11,231.0' },
+        { rank: 3, company: '常遇春', revenues: '鄂国公', profits: '25,311.0' },
+        { rank: 4, company: '汤和', revenues: '信国公', profits: '22,341.0' },
+        { rank: 5, company: '李善长', revenues: '韩国公', profits: '10,567.0' },
+        { rank: 6, company: '李文忠', revenues: '曹国公', profits: '14,099.0' },
+        { rank: 7, company: '冯胜', revenues: '宋国公', profits: '3,536.3' },
+        { rank: 8, company: '邓愈', revenues: '卫国公', profits: '12,119.6' },
+        { rank: 9, company: '蓝玉', revenues: '凉国公', profits: '2,024.0' }
+    ];
+    var obj = {
+        width: "97%",
+        title: "拖拽行示例",
+        flexHeight:true,
+        minWidth: 30,
+        rowDrag : true,
+        swipeModel :{ on: false },//如果开启rowDrag，请关闭拖拽滚动
+        collapsible: {on: false, collapsed: false, toggle: false}, //关闭收起，关闭全屏（复杂环境下会出现样式问题）
+        editable:true,
+        selectionModel:{type:"none"},
+        flexHeight:false,			//与height互斥 默认false
+        scrollModel:{horizontal:false}   //是否开启水平滚动
+    };
+    obj.colModel = [{ title: "标识", width: 40, dataType: "integer", dataIndx: "rank",resizable:false,sortable:false },
+        { title: "姓名", width: 190,dataType: "string", dataIndx: "company" ,resizable:false},
+        { title: "职位", width: 150, dataType: "float", align: "right", dataIndx: "revenues" },
+        { title: "收入", width: 150, dataType: "float", align: "right", dataIndx: "profits"},
+        { title: "操作", width: 150, align: "center", sortable:false}
+    ];
+    obj.dataModel = {
+        data: data,
+        paging:"local",
+        location: "local",
+        sorting: "local"
+    };
+
+    $grid8 = $("#grid8").awsGrid(obj);
+
+    $grid8.awsGrid("option", "rowDragCallback", function(source, target){
+        console.log(source);
+        console.log(target);
+        return true;
+    });
+    $grid8.awsGrid("option", "rowDragSuccessCallback", function(source, target){
+        console.log("拖拽成功");
+        console.log(source);
+        console.log(target);
+        $.simpleAlert("拖拽成功");
+    });
+};
+$(document).ready(function() {
+    grid8func();
+});
+</code></pre>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+            <div class="awsui-code-title title2" id="event9">
+                分组
+            </div>
+            <p class="awsui-margin-top-5">分组。</p>
+            <div class="awsui-code-demo" style="overflow-x:auto;">
+                <div id="grid9"></div>
+            </div>
+            <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+            <div class="awsui-code-info">
+                <pre><code class="language-html">&lt;div class="awsui-code-demo" style="overflow-x:auto;"&gt;
+  &lt;div id="grid9"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+            <p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+            <div class="awsui-code-info">
+                <pre><code class="language-js">//国际化
+ var localization = function (obj,   lang) {
+    var languages = {
+        egional: {
+            'cn': {
+                "strLoading": "加载中", "strAdd": "添加",
+                "strEdit": "编辑", "strDelete": "删除", "strSearch": "搜索",
+                "strNothingFound": "暂无结果", "strNoRows": "暂无结果",
+                "strSelectedmatches": "选择{0}{1}匹配", "strPrevResult": "上一结果",
+                "strNextResult": "下一结果"
+            },
+            'big5': {
+                "strLoading": "加載中", "strAdd": "添加", "strEdit": "編輯",
+                "strDelete": "刪除", "strSearch": "搜索", "strNothingFound": "暫無結果",
+                "strNoRows": "暫無結果", "strSelectedmatches": "選擇{0}{1}匹配",
+                "strPrevResult": "上壹結果", "strNextResult": "下壹結果"
+            }
+        },
+        pagerRegional: {
+            'cn': {
+                "strPage": "第 {0} 页（共 {1} 页）", "strFirstPage": "第一页",
+                "strPrevPage": "上一页", "strNextPage": "下一页", "strLastPage": "尾页",
+                "strRefresh": "刷新", "strRpp": false, "strDisplay": "显示 {0} 到 {1} 条，共 {2} 条"
+            },
+            'big5': {
+                "strPage": "第 {0} 頁（共 {1} 頁）", "strFirstPage": "第壹頁",
+                "strPrevPage": "上壹頁", "strNextPage": "下壹頁", "strLastPage": "尾頁",
+                "strRefresh": "刷新", "strRpp": false, "strDisplay": "顯示 {0} 到 {1} 條，共 {2} 條"
+            }
+        }
+    };
+    $.extend(obj, languages.egional[lang]);
+    if (obj.pageModel) {
+        $.extend(obj.pageModel, languages.pagerRegional[lang]);
+    }
+};
+var grid9func = function(){
+    var data = [
+        { rank: 1, company: '朱元璋', revenues: '皇帝', profits: '36,130.0', level: "皇帝" },
+        { rank: 2, company: '徐达', revenues: '魏国公', profits: '11,231.0' , level: "公爵"},
+        { rank: 3, company: '常遇春', revenues: '鄂国公', profits: '25,311.0' , level: "公爵"},
+        { rank: 4, company: '汤和', revenues: '信国公', profits: '22,341.0' , level: "公爵"},
+        { rank: 5, company: '李善长', revenues: '韩国公', profits: '10,567.0' , level: "公爵"},
+        { rank: 6, company: '李文忠', revenues: '曹国公', profits: '14,099.0' , level: "公爵"},
+        { rank: 7, company: '傅友德', revenues: '颖国公', profits: '13,529.0' , level: "侯爵"},
+        { rank: 8, company: '冯胜', revenues: '宋国公', profits: '3,536.3' , level: "伯爵"},
+        { rank: 9, company: '邓愈', revenues: '卫国公', profits: '12,119.6' , level: "伯爵"},
+        { rank: 10, company: '刘基', revenues: '诚意伯', profits: '13,529.0' , level: "伯爵"}
+    ];
+    var obj = {
+        flexWidth:true,
+        title: "行分组展示",
+        bottomVisible:false,
+        minWidth: 30,
+        collapsible: {on: false, collapsed: false, toggle: false}, //关闭收起，关闭全屏（复杂环境下会出现样式问题）
+        flexHeight:true,
+        sortable:false,
+        editModel:{clicksToEdit: 0 },  //点击单元格编辑模式[2-可编辑, 0不可编辑]
+        scrollModel:{horizontal:false},   //是否开启水平滚动
+        groupModel:{  //行分组设置
+            dataIndx:["level"],
+            title:[ function(obj){
+                return  "官职  - " + obj.nextRowData['level'];
+            } ],
+            dir : ["down"]
+        }
+    };
+    obj.colModel = [
+        { title: "排名", width: 40,sortable:false, dataType: "integer", dataIndx: "rank",resizable:true },
+        { title: "姓名", width: 250,dataType: "string", dataIndx: "company" ,resizable:false},
+        { title: "职务", width: 250, dataType: "string", align: "right", dataIndx: "revenues" },
+        { title: "工资", width: 250, dataType: "float", align: "right", dataIndx: "profits"},
+        { title: "级别", width: 250, dataType: "string", align: "right", dataIndx: "level"}
+    ];
+    obj.dataModel = {
+        data: data,
+        location: "local",
+        sorting: "local"
+    };
+    $("#grid9").awsGrid(obj);
+};
+$(document).ready(function() {
+    grid9func();
+});
+</code></pre>
+            </div>
+        </div>
+    </div>
+    <div class="section_right">
+        <div class="nav">
+            <!-- 右侧导航 -->
+        </div>
+    </div>
+    <div class="navTop">
+        <img src="../img/top.png" alt=""/>
+    </div>
+    <script src="../../js/jquery/scripts/jquery.js"></script>
+    <script src="../../js/awsui.js"></script>
+    <script src="../prism/prism.js"></script>
+    <script src="../js/public.js?v=1"></script>
+    <script src="../../js/jquery/scripts/jQueryUI/jquery-ui.js"></script>
+    <script src="../../js/jquery/scripts/ui/aws.pqgrid.js"></script>
+    <script src="../../js/jquery/scripts/ui/aws.pqgrid.custom.js"></script>
+    <script type="text/javascript">
+        var localization = function (obj,   lang) {
+            var languages = {
+                egional: {
+                    'cn': {
+                        "strLoading": "加载中", "strAdd": "添加",
+                        "strEdit": "编辑", "strDelete": "删除", "strSearch": "搜索",
+                        "strNothingFound": "暂无结果", "strNoRows": "暂无结果",
+                        "strSelectedmatches": "选择{0}{1}匹配", "strPrevResult": "上一结果",
+                        "strNextResult": "下一结果"
+                    },
+                    'big5': {
+                        "strLoading": "加載中", "strAdd": "添加", "strEdit": "編輯",
+                        "strDelete": "刪除", "strSearch": "搜索", "strNothingFound": "暫無結果",
+                        "strNoRows": "暫無結果", "strSelectedmatches": "選擇{0}{1}匹配",
+                        "strPrevResult": "上壹結果", "strNextResult": "下壹結果"
+                    }
+                },
+                pagerRegional: {
+                    'cn': {
+                        "strPage": "第 {0} 页（共 {1} 页）", "strFirstPage": "第一页",
+                        "strPrevPage": "上一页", "strNextPage": "下一页", "strLastPage": "尾页",
+                        "strRefresh": "刷新", "strRpp": false, "strDisplay": "显示 {0} 到 {1} 条，共 {2} 条"
+                    },
+                    'big5': {
+                        "strPage": "第 {0} 頁（共 {1} 頁）", "strFirstPage": "第壹頁",
+                        "strPrevPage": "上壹頁", "strNextPage": "下壹頁", "strLastPage": "尾頁",
+                        "strRefresh": "刷新", "strRpp": false, "strDisplay": "顯示 {0} 到 {1} 條，共 {2} 條"
+                    }
+                }
+            };
+            $.extend(obj, languages.egional[lang]);
+            if (obj.pageModel) {
+                $.extend(obj.pageModel, languages.pagerRegional[lang]);
+            }
+        };
+        //demo1
+        var grid1func = function() {
+            //国际化
+            var data = [[1, '朱元璋', '皇帝', '36,130', '23,333'],
+                [2, '徐达', '魏国公', '11,231', '24,342'],
+                [3, '常遇春', '鄂国公', '25,311', '56,231.2'],
+                [4, '汤和', '信国公', '13,529', '72,456'],
+                [5, '李善长', '韩国公', '10,567', '52,934'],
+                [6, '李文忠', '曹国公', '14,099', '12,023.5'],
+                [7, '冯胜 ', '宋国公', '3,536.3', '42,734'],
+                [8, '邓愈', '卫国公', '12,119.6', '57,023.4'],
+                [9, '傅友德', '颖国公', '5,186.5', '13,043.8'],
+                [10, '沫英', '知西平侯', '2,024', '22,896'],
+                [11, '刘基', '诚意伯', '22,341', '71,923.4'],
+                [12, '汪广洋', '忠勤伯', '1,635', '16,912.5'],
+                [13, '宋濂', '翰林学士承旨', '1,525', '74,236.5'],
+                [14, '叶琛', '洪都知府', '8,958', '52,012'],
+                [15, '章溢', '御史中丞', '24,589', '90,342']];
+            var obj = {
+                title: "标准网格",
+                height: 441,
+                hoverMode: "row",
+                flexWidth: true,
+                collapsible: {on: false, collapsed: false, toggle: false},
+                scrollModel: {horizontal: false, vertical: false}
+            };
+            obj.colModel = [
+                {title: "序号", width: 90, align: 'center'},
+                {title: "姓名", width: 140, align: 'center'},
+                {title: "职位", width: 90, align: 'center'},
+                {title: "工资", width: 90, align: 'center'},
+                {title: "数值", width: 90, align: 'center'}
+            ];
+            localization(obj, "cn"); //国际化方法
+            obj.dataModel = {
+                data: data,
+                location: "local",
+                sorting: "local",
+                paging: "local",
+                curPage: 1,               //当前页
+                rPP: 12,                  //页数
+                sortIndx: "0",     //默认按那一列来排序
+                sortDir: "up"            //排序规则
+            };
+            var $grid = $("#grid1").awsGrid(obj);
+        };
+        //demo2
+        var grid2func = function(){
+            var data = [[1, '朱元璋', '皇帝', '36,130', '23,333'],
+                [2, '徐达', '魏国公', '11,231', '24,342'],
+                [3, '常遇春', '鄂国公', '25,311', '56,231.2'],
+                [4, '汤和', '信国公', '13,529', '72,456'],
+                [5, '李善长', '韩国公', '10,567', '52,934'],
+                [6, '李文忠', '曹国公', '14,099', '12,023.5'],
+                [7, '冯胜 ', '宋国公', '3,536.3', '42,734'],
+                [8, '邓愈', '卫国公', '12,119.6', '57,023.4'],
+                [9, '傅友德', '颖国公', '5,186.5', '13,043.8'],
+                [10, '沫英', '知西平侯', '2,024', '22,896'],
+                [11, '刘基', '诚意伯', '22,341', '71,923.4'],
+                [12, '汪广洋', '忠勤伯', '1,635', '16,912.5'],
+                [13, '宋濂', '翰林学士承旨', '1,525', '74,236.5'],
+                [14, '叶琛', '洪都知府', '8,958', '52,012'],
+                [15, '章溢', '御史中丞', '24,589', '90,342']];
+            var obj = {
+                title: "多表头网格",
+                height:441,
+                hoverMode: "row",
+                flexWidth:true,
+                collapsible: {on: false, collapsed: false, toggle: false}, //关闭收起，关闭全屏（复杂环境下会出现样式问题）
+                scrollModel:{horizontal:false,vertical:false}   //是否开启水平滚动
+            };
+            obj.colModel = [
+                { title: "AWSUI - 报表展示", width: 250,height:150, align:'center',
+                    colModel:[
+                        {
+                            title:"二级栏目1", align:'center',
+                            colModel:[
+                                {title:"三级栏目1",width:90, align:'center'},
+                                {title:"三级栏目2",width:90, align:'center'},
+                                {title:"三级栏目3",width:90, align:'center'}
+                            ]
+                        },
+                        {
+                            title:"二级栏目2", align:'center',
+                            colModel:[
+                                {title:"三级栏目1",width:100, align:'center'},
+                                {title:"三级栏目2",width:100, align:'center'}
+                            ]
+                        }]
+                }];
+            localization(obj,"cn"); //国际化方法
+            obj.dataModel = {
+                data: data,
+                location: "local",
+                sorting: "local",
+                paging : "local",
+                curPage: 1,               //当前页
+                rPP: 12,                  //页数
+                sortIndx: "0",     //默认按那一列来排序
+                sortDir: "up"            //排序规则
+            };
+            $("#grid2").awsGrid(obj);
+        };
+        //demo3
+        var grid3func = function(){
+            //适应宽度
+            var data = [];
+            for(var i = 0; i < 100; i++){
+                var d = { rank: (i+1), company: '标题1-'+i, revenues: '标题2-'+i, profits: '标题3-1234',remark:"标题4-" + i};
+                data.push(d);
+            }
+            obj = {
+                width: "100%",  //宽度设为100%
+                title: "数据展示",
+                height:350,
+                wrap:true,
+                collapsible: {on: false, collapsed: false, toggle: false}, //关闭收起，关闭全屏（复杂环境下会出现样式问题）
+                selectionModel:{type:"none"},
+                scrollModel:{autoFit:true}   //开启自适应，如果自适应父级容器的宽度，width属性设置100%并且autoFit为true即可，个别列的宽度可自定义，如下colModel配置
+            };
+            localization(obj,"cn"); //国际化方法
+            obj.colModel = [
+                {title:"",checkbox:true, resizable:false,align:"center",width: 30},
+                { title: "序号", width: 40,sortable:false, dataType: "integer", dataIndx: "rank",resizable:true },
+                { title: "姓名", dataType: "string", dataIndx: "company" ,resizable:false},
+                { title: "职务", dataType: "float", align: "right", dataIndx: "revenues" },
+                { title: "工资", width: 80, dataIndx: "profits"},
+                { title: "备注", width: 180, dataIndx: "remark"}
+            ];
+            obj.dataModel = {
+                data: data,
+                location: "local",
+                sorting: "local"
+            };
+            $("#grid3").awsGrid(obj);
+        };
+        //demo4
+        var grid4func = function(){
+            //列锁定
+            var $grid4;
+            var data = [
+                { rank: 1, company: '朱元璋', revenues: '皇帝', profits: '36,130.0' },
+                { rank: 2, company: '徐达', revenues: '魏国公', profits: '11,231.0' },
+                { rank: 3, company: '常遇春', revenues: '鄂国公', profits: '25,311.0' },
+                { rank: 4, company: '汤和', revenues: '信国公', profits: '22,341.0' },
+                { rank: 5, company: '李善长', revenues: '韩国公', profits: '10,567.0' },
+                { rank: 6, company: '李文忠', revenues: '曹国公', profits: '14,099.0' },
+                { rank: 7, company: '冯胜', revenues: '宋国公', profits: '3,536.3' },
+                { rank: 8, company: '邓愈', revenues: '卫国公', profits: '12,119.6' },
+                { rank: 9, company: '蓝玉', revenues: '凉国公', profits: '2,024.0' },
+                { rank: 10, company: '傅友德', revenues: '颖国公', profits: '13,529.0' }
+            ];
+            var obj = {
+                flexWidth:true,
+                title: "列锁",
+                height:  400 ,
+                width:  "50%",
+                freezeCols:1,
+                wrap:false,
+                collapsible: {on: false, collapsed: false, toggle: false}, //关闭收起，关闭全屏（复杂环境下会出现样式问题）
+                selectionModel:{type:"cell"},
+                scrollModel:{horizontal:true,vertical:false},
+                hoverMode:"cell",
+                flexHeight:false,			//与height互斥 默认false
+                flexWidth:false,			//与height互斥 默认false
+                editModel:{clicksToEdit: 0 }  //点击单元格编辑模式[2-可编辑, 0不可编辑]
+            };
+            localization(obj,"cn"); //国际化方法
+            obj.colModel = [{ title: "序号", width: 40, dataType: "integer", dataIndx: "rank",resizable:true },
+                { title: "姓名", width: 250,dataType: "string", dataIndx: "company" ,resizable:false},
+                { title: "职位", width: 250, dataType: "float", align: "right", dataIndx: "revenues" },
+                { title: "收入", width: 250, dataType: "float", align: "right", dataIndx: "profits"},
+                { title: "操作1", width: 150, align: "center", sortable:false},
+                { title: "操作2", width: 150, align: "center", sortable:false},
+                { title: "操作3", width: 150, align: "center", sortable:false},
+                { title: "操作4", width: 150, align: "center", sortable:false},
+                { title: "操作5", width: 150, align: "center", sortable:false}
+            ];
+            obj.toolbar = {
+                cls: "ui-grid-toolbar",
+                items: [
+                    {type:"<span>列锁从第几列开始：</span>"},
+                    { type: 'select', style: "margin:0px 5px;", cls: "filterCondition",options: [ 1, 2, 3],listeners: [{ change: function(){
+                                $grid4.awsGrid("option", "freezeCols", $(this).val());
+                                $grid4.awsGrid("refresh");
+                            }}]
+                    }
+                ]
+            };
+            obj.dataModel = {
+                data: data,
+                location: "local",
+                sorting: "local",
+                paging: "local",
+                curPage: 1,               //当前页
+                rPP: 10                  //页数
+            };
+            $("#grid4").awsGrid(obj);
+        };
+        //demo5
+        var grid5func = function(){
+            //求和
+            var arrayData = [
+                { rank: 1, company: 'Exxon Mobil', revenues: 339938.0, profits: 36130.0 },
+                { rank: 2, company: 'Wal-Mart Stores', revenues: 315654.0, profits: 11231.0 },
+                { rank: 3, company: 'Royal Dutch Shell', revenues: 306731.0, profits: 25311.0 },
+                { rank: 4, company: 'BP', revenues: 267600.0, profits: 22341.0 },
+                { rank: 5, company: 'General Motors', revenues: 192604.0, profits: -10567.0 },
+                { rank: 6, company: 'Chevron', revenues: 189481.0, profits: 14099.0 },
+                { rank: 7, company: 'DaimlerChrysler', revenues: 186106.3, profits: 3536.3 },
+                { rank: 8, company: 'Toyota Motor', revenues: 185805.0, profits: 12119.6 },
+                { rank: 9, company: 'Ford Motor', revenues: 177210.0, profits: 2024.0 },
+                { rank: 10, company: 'ConocoPhillips', revenues: 166683.0, profits: 13529.0 },
+                { rank: 11, company: 'General Electric', revenues: 157153.0, profits: 16353.0 },
+                { rank: 12, company: 'Total', revenues: 152360.7, profits: 15250.0 },
+                { rank: 13, company: 'ING Group', revenues: 138235.3, profits: 8958.9 },
+                { rank: 14, company: 'Citigroup', revenues: 131045.0, profits: 24589.0 },
+                { rank: 15, company: 'AXA', revenues: 129839.2, profits: 5186.5 },
+                { rank: 16, company: 'Allianz', revenues: 121406.0, profits: 5442.4 },
+                { rank: 17, company: 'Volkswagen', revenues: 118376.6, profits: 1391.7 },
+                { rank: 18, company: 'Fortis', revenues: 112351.4, profits: 4896.3 },
+                { rank: 19, company: 'Crédit Agricole', revenues: 110764.6, profits: 7434.3 },
+                { rank: 20, company: 'American Intl. Group', revenues: 108905.0, profits: 10477.0 }
+            ];
+            var totalData, averageData;
+
+            function calculateSummary() {
+                var revenueTotal = 0, profitTotal = 0;
+                for (var i = 0; i < arrayData.length; i++) {
+                    var row = arrayData[i];
+                    revenueTotal += parseFloat(row["revenues"]);
+                    profitTotal += parseFloat(row["profits"]);
+                }
+                var revenueAverage = $.paramquery.formatCurrency(revenueTotal / arrayData.length);
+                var profitAverage = $.paramquery.formatCurrency(profitTotal / arrayData.length);
+
+                revenueTotal = $.paramquery.formatCurrency(revenueTotal);
+                profitTotal = $.paramquery.formatCurrency(profitTotal);
+
+                totalData = { rank: "<b>总计</b>", company: "", revenues: revenueTotal, profits: profitTotal, pq_rowcls: 'customCls1' };
+                averageData = { rank: "<b>平均值</b>", company: "", revenues: revenueAverage, profits: profitAverage, pq_rowcls: 'customCls2' };
+            }
+            var obj = {
+                width: "80%",
+                height: 400,
+                title: "求和示例",
+                resizable: true,
+                //freezeCols: 1,
+                collapsible: {on: false, collapsed: false, toggle: false}, //关闭收起，关闭全屏（复杂环境下会出现样式问题）
+                flexHeight: true
+            };
+            obj.columnTemplate = { width: '25%' };
+            obj.colModel = [
+                { title: "序号", align: "right", dataType: "integer", dataIndx: "rank", width: '15%' },
+                { title: "公司", dataIndx: "company", width: '35%' },
+                { title: "总收入 (百万美元)", align: "right", dataType: "float", dataIndx: "revenues" },
+                { title: "收益 (百万美元)", align: "right", dataType: "float", dataIndx: "profits" }
+            ];
+            obj.dataModel = {
+                data: arrayData
+            };
+            obj.pageModel = {
+                type: "local",
+                rPP: 10
+            };
+            localization(obj,"cn"); //国际化方法
+            var $summary = "";
+            obj.render = function (evt, ui) {
+                $summary = $("<div class='aws-grid-summary'  ></div>").prependTo($(".aws-grid-bottom", this));
+                calculateSummary();
+            };
+            obj.cellBeforeSave = function (evt, ui) {
+                var cd = ui.newVal;
+                if (cd == "") {
+                    return false;
+                }
+            };
+            //当值有改变时，刷新统计值
+            obj.cellSave = function (evt, ui) {
+                calculateSummary();
+                obj.refresh.call(this);
+            };
+            obj.refresh = function (evt, ui) {
+                var data = [totalData, averageData];
+                var obj = { data: data, $cont: $summary }
+                $(this).awsGrid("createTable", obj);
+            };
+            $("#grid5").awsGrid(obj);
+        };
+        //demo6
+        var grid6func = function(){
+            //工具栏
+            var data = [
+                { rank: 1, company: '朱元璋11', revenues: '皇帝', profits: '36,130.0',remark:"明太祖朱元璋~~~~~~~~~~"},
+                { rank: 2, company: '徐达', revenues: '魏国公', profits: '11,231.0' ,remark:"明朝第一名将"},
+                { rank: 3, company: '常遇春', revenues: '鄂国公', profits: '25,311.0' ,remark:"明朝第一猛将"},
+                { rank: 4, company: '汤和', revenues: '信国公', profits: '22,341.0' ,remark:"--"},
+                { rank: 5, company: '李善长', revenues: '韩国公', profits: '10,567.0' ,remark:"太师中书左丞相兼太子少师韩国公"},
+                { rank: 6, company: '李文忠3', revenues: '曹国公', profits: '14,099.0' ,remark:"--"},
+                { rank: 7, company: '冯胜', revenues: '宋国公', profits: '3,536.3' ,remark:"--"},
+                { rank: 8, company: '邓愈', revenues: '卫国公', profits: '12,119.6' ,remark:"--"},
+                { rank: 9, company: '蓝玉', revenues: '凉国公', profits: '2,024.0' ,remark:"--"},
+                { rank: 10, company: '傅友德', revenues: '颖国公', profits: '13,529.0' ,remark:"--"},
+                { rank: 11, company: '刘基', revenues: '诚意伯', profits: '13,529.0' ,remark:"--"}
+            ];
+            var obj = {
+                width: "95%",
+                title: "工具条展示",
+                height:400,
+                wrap:false,
+                collapsible: {on: false, collapsed: false, toggle: false}, //关闭收起，关闭全屏（复杂环境下会出现样式问题）
+                flexHeight:false,			//与height互斥 默认false
+                editModel:{clicksToEdit: 0 },  //点击单元格编辑模式[2-可编辑, 0不可编辑]
+                scrollModel:{horizontal:false}   //是否开启水平滚动
+            };
+            localization(obj,"cn"); //国际化方法
+            obj.toolbar = {
+                cls: "ui-grid-toolbar",
+                items: [
+                    { type: 'button', label: '按钮1',  listeners: [{click:filterhandler}] },
+                    { type: 'separator' },
+                    { type: 'button', label: '按钮2', cls: 'green', render: filterhandler}
+                ]
+            };
+            obj.colModel = [
+                {title:"",type:"checkBoxSelection", resizable:false,align:"center",width: 30},
+                { title: "序号", width: 40,sortable:false, dataType: "integer", dataIndx: "rank",resizable:true },
+                { title: "姓名", width: 150,dataType: "string", dataIndx: "company" ,resizable:false},
+                { title: "职务", width: 80, dataType: "float", align: "right", dataIndx: "revenues" },
+                { title: "工资", width: 150, dataIndx: "profits"},
+                { title: "备注", width: 150, dataIndx: "remark"}
+            ];
+            obj.selectionModel = {
+                type : "row"
+            };
+            obj.pageModel = {
+                type: "local",
+                curPage: 1,               //当前页
+                rPP: 5                 //页数
+            };
+            obj.dataModel = {
+                data: data,
+                location: "local",
+                sorting: "local"
+            };
+            localization(obj,"cn"); //国际化方法
+            $("#grid6").awsGrid(obj);
+        };
+        function filterhandler(){
+            alert("点击事件");
+            $grid.awsGrid("refreshDataAndView");
+            return;
+        }
+        //demo7
+        var grid7func = function(){
+            //编辑行
+            //此示例，展示2种数据的存储方式。一种是自动保存通过change事件，一种是通过按钮控制（部分代码需要再实现）。两种方式请根据需求来选择。
+            var obj = {
+                hwrap: false,
+                rowBorders: false,
+                width:"96.5%",
+                selectionModel : {
+                    type:"row",
+                    fireSelectChange:true //触发选中事件，选中行，显示按钮
+                },
+                collapsible: {on: false, collapsed: false, toggle: false}, //关闭收起，关闭全屏（复杂环境下会出现样式问题）
+                numberCell: { show: true },
+                trackModel: { on: true }, //编辑时记录修改的数据
+                toolbar: {
+                    cls : "ui-grid-toolbar ",
+                    items: [
+                        { type: 'button',label: '新建数据', cls : "green", listener:
+                                   { "click": function (evt, ui) {
+                                           //此方法新建数据后，会执行下方的change事件（change事件已执行ajax存储），可以根据需要执行是否自动保存新建数据
+                                           var rowData = { ProductName: 'new product', UnitPrice: 0.2 };
+                                           var rowIndx = $grid.awsGrid("addRow", { rowData: rowData });
+                                           $grid.awsGrid("goToPage", { rowIndx: rowIndx });
+                                           $grid.awsGrid("setSelection", null);
+                                           $grid.awsGrid("setSelection", { rowIndx: rowIndx, dataIndx: 'ProductName' });
+                                           $grid.awsGrid("editFirstCellInRow", { rowIndx: rowIndx });
+                                       }
+                                   }
+                        },
+                        { type: 'button',label: '删除数据', cls : "red",
+                            attr:{selectShow : true,style:'display:none;'}, //选中行，显示按钮
+                            listener:
+                                   { "click": function (evt, ui) {
+                                           //此处只是另一个删除数据的途径，请根据需要选择
+                                           var rows = $grid.awsGrid( "selection",{ type: 'row', method: 'getSelection' });
+                                           if(rows.length == 0){
+                                               $.simpleAlert("至少选择一条数据","info",2000);
+                                               return;
+                                           }
+                                           function ajaxSaveSuccessCallback(){
+                                               $grid.awsGrid("deleteRows", {rows:rows});//删除行，页面上行删除
+                                               var changes = $grid.awsGrid("getChanges");
+                                               $grid.commit({ type: 'delete', rows: changes.deleteList }); //用于告知grid此次修改已完毕
+                                           }
+                                           //注意：如果存储，需要请求ajax，请求成功后再调ajaxSaveSuccessCallback 中的方法（切记），ajax示例在此省略，请自行实现。
+                                           ajaxSaveSuccessCallback()
+                                       }
+                                   }
+                        },
+                        { type: 'button',label: '查看修改的数据行(调试查看数据)', cls : "blue", listener:
+                                   { "click": function (evt, ui) {
+                                           //此功能，可以用于提供保存按钮方式保存数据
+                                           console.log($grid.awsGrid("getChanges"));
+                                       }
+                                   }
+                        }
+                    ]
+                },
+                scrollModel: {
+                    autoFit: true
+                },
+                editModel: {
+                    //allowInvalid: true,
+                    saveKey: $.ui.keyCode.ENTER,
+                    uponSave: 'next'
+                },
+                editor: {
+                    select: true
+                },
+                title: "<b>&nbsp;&nbsp;按钮控制 和 自动保存</b>",
+                change: function (evt, ui) {
+                    //
+                    if (ui.source == 'commit' || ui.source == 'rollback') {
+                        return;
+                    }
+                    console.log(ui);
+                    var $grid = $(this), grid = $grid.awsGrid('getInstance').grid;
+                    var rowList = ui.rowList,recIndx = grid.option('dataModel').recIndx, addList = [], deleteList = [], updateList = [];
+                    for (var i = 0; i < rowList.length; i++) {
+                        var obj = rowList[i], rowIndx = obj.rowIndx, newRow = obj.newRow, type = obj.type, rowData = obj.rowData;
+                        if (type == 'add') { //可以通过此方式自动提交删除数据（调用删除方法时自动调用此事件）
+                            var valid = grid.isValid({ rowData: newRow, allowInvalid: true }).valid; //校验数据
+                            if (valid) {
+                                addList.push(newRow);
+                            }
+                        } else if (type == 'update') {
+                            var valid = grid.isValid({ rowData: rowData, allowInvalid: true }).valid; //校验数据
+                            if (valid) {
+                                if (rowData[recIndx] == null) {
+                                    addList.push(rowData);
+                                } else {
+                                    updateList.push(rowData);
+                                }
+                            }
+                        } else if (type == 'delete') {//可以通过此方式自动提交删除数据（调用删除方法时自动调用此事件）
+                            if (rowData[recIndx] != null) {
+                                deleteList.push(rowData);
+                            }
+                        }
+                    }
+                    if (addList.length || updateList.length || deleteList.length) {
+                        //如果存在改动，则请求保存，！！！静态页面此请求无效（仅提供参考！）
+                        $.ajax({
+                            url: './jd',
+                            data: {
+                                cmd : "my_test_save_grid_value_cmd",
+                                list: JSON.stringify({
+                                    updateList: updateList,
+                                    addList: addList,
+                                    deleteList: deleteList
+                                })
+                            },
+                            dataType: "json",
+                            type: "POST",
+                            async: true,
+                            success: function (changes) {
+                                //提交更改（相当于清空编辑数据列表）.
+                                grid.commit({ type: 'add', rows: changes.addList });
+                                grid.commit({ type: 'update', rows: changes.updateList });
+                                grid.commit({ type: 'delete', rows: changes.deleteList });
+                            }
+                        });
+                    }
+                },
+                colModel: [
+                    { title: "产品标识", dataType: "integer", dataIndx: "ProductID", editable: false, width: 80 },
+                    { title: "产品名称", width: 165, dataType: "string", dataIndx: "ProductName",
+                        validations: [
+                            { type: 'minLen', value: 1, msg: "不允许为空" },
+                            { type: 'maxLen', value: 40, msg: "不能超过40个字符" }
+                        ]
+                    },
+                    { title: "数量及单位", width: 140, dataType: "string", align: "right", dataIndx: "QuantityPerUnit",
+                        validations: [
+                            { type: 'minLen', value: 1, msg: "不允许为空" },
+                            { type: 'maxLen', value: 20, msg: "不能超过20个字符" }
+                        ]
+                    },
+                    { title: "单价", width: 100, dataType: "float", align: "right", dataIndx: "UnitPrice",
+                        validations: [ { type: 'nonEmpty', msg: "不允许为空" },
+                            { type: 'gt', value: 0.5, msg: "数值要大于0.5", warn: true}],
+                        render: function (ui) {
+                            var cellData = ui.cellData;
+                            if (cellData != null) {
+                                return "$" + parseFloat(ui.cellData).toFixed(2);
+                            } else {
+                                return "";
+                            }
+                        }
+                    },
+                    { title: "库存", width: 100, dataType: "integer", align: "right", dataIndx: "UnitsInStock",
+                        validations: [{ type: 'gte', value: 0, msg: "不允许为空"}]
+                    },
+                    { title: "记录日期", width: 100, dataType: "string", align: "center", dataIndx: "createTime",
+                        editor : {
+                            type : function(ui){
+                                var $cell = ui.$cell, dataCell =  ui.cellData != null ? ui.cellData : "", rowIndxPage = ui.rowIndxPage, dataIndx = ui.dataIndx;
+                                $cell.css('padding', '0');
+                                //此处注意needsave = ‘true‘ 属性和'class='pq-editor-focus' 属性
+                                //pq-editor-focus ：加入这个样式，可以使用grid自带的事件机制，功能比较丰富，缺点是在blur之前必须保证这个元素要回填数据完毕
+                                //needsave ：扩展的一个属性，用于一些复杂组件，不再触发blur的机制，此时会通过点击其他元素触发save回填
+                                var $inp = $("<input type='text' class='pq-editor-focus' needsave = 'true'   style='width:100%;padding:2px;border:0;height: "+$cell.parent().outerHeight()+"px;padding: 0px 3px 0px 3px;outline:none;'/>").appendTo($cell);
+                                $inp.val(dataCell).datepicker({
+                                    changeMonth: true,
+                                    changeYear: true,
+                                    dateFmt:  'yyyy-MM-dd',
+                                    onClose: function () {
+                                        $inp.focus();
+                                    }
+                                });
+                            },
+                            init : function(ui){
+                                //在type的function种已经init，此方法可以省略
+                            },
+                            getData : function(ui){
+                                var $cell = ui.$cell;
+                                if ($cell == null)
+                                    return "";
+                                return $cell.children().val();
+                            }
+                        }
+                    }
+                ],
+                pageModel: { type: "local", rPP: 15 },//type: "local" 意味着翻页不再请求数据
+                dataModel: {
+                    dataType: "JSON",
+                    location: "remote",
+                    recIndx: "ProductID",//主键
+                    url: "../component/gridEditJson.json", // 获取数据,由于pageModel的type为local，所以翻页不再请求数据
+                    getData: function (response) {
+                        return { data: response.data };
+                    }
+                }
+            };
+            localization(obj,"cn"); //国际化方法
+            var $grid = $("#grid7").awsGrid(obj);
+            $grid.on('awsgridselectchange', function (event, ui) {//触发选中事件，选中行，显示按钮
+                isShowButtonBySelected("selectchange", $(this), event, ui);
+            });
+            $grid.on("awsgrideditorblur",function(evt,ui){
+                //此事件对于一些复杂的可编辑的ui组件很重要，否则会造成选择数据时，触发blur，导致数据无法回填
+                if(ui.$cell.find(".pq-editor-focus").length == 0 || ui.$editor.attr("needsave") == "true"){//不使用blur触发save
+                    return false;
+                }
+                return true
+            });
+            // 退出编辑状态时的事件(修改显示)
+            $grid.on("awsgrideditorend", function (evt, ui) {
+                // 不按Esc 或者 Tab
+                if (evt.keyCode != $.ui.keyCode.ESCAPE && evt.keyCode != $.ui.keyCode.TAB) {
+                    if(ui.$editor.attr("needsave") == "true"){//不使用blur触发save
+                        $grid.awsGrid("saveEditCell");
+                    }
+                }
+            });
+        };
+        //demo8
+        var grid8func = function(){
+            //拖动行
+            var data = [
+                { rank: 1, company: '朱元璋', revenues: '皇帝', profits: '36,130.0' },
+                { rank: 2, company: '徐达', revenues: '魏国公', profits: '11,231.0' },
+                { rank: 3, company: '常遇春', revenues: '鄂国公', profits: '25,311.0' },
+                { rank: 4, company: '汤和', revenues: '信国公', profits: '22,341.0' },
+                { rank: 5, company: '李善长', revenues: '韩国公', profits: '10,567.0' },
+                { rank: 6, company: '李文忠', revenues: '曹国公', profits: '14,099.0' },
+                { rank: 7, company: '冯胜', revenues: '宋国公', profits: '3,536.3' },
+                { rank: 8, company: '邓愈', revenues: '卫国公', profits: '12,119.6' },
+                { rank: 9, company: '蓝玉', revenues: '凉国公', profits: '2,024.0' }
+            ];
+            var obj = {
+                width: "97%",
+                title: "拖拽行示例",
+                flexHeight:true,
+                minWidth: 30,
+                rowDrag : true,
+                swipeModel :{ on: false },//如果开启rowDrag，请关闭拖拽滚动
+                collapsible: {on: false, collapsed: false, toggle: false}, //关闭收起，关闭全屏（复杂环境下会出现样式问题）
+                editable:true,
+                selectionModel:{type:"none"},
+                flexHeight:false,			//与height互斥 默认false
+                scrollModel:{horizontal:false}   //是否开启水平滚动
+            };
+            obj.colModel = [{ title: "标识", width: 40, dataType: "integer", dataIndx: "rank",resizable:false,sortable:false },
+                { title: "姓名", width: 190,dataType: "string", dataIndx: "company" ,resizable:false},
+                { title: "职位", width: 150, dataType: "float", align: "right", dataIndx: "revenues" },
+                { title: "收入", width: 150, dataType: "float", align: "right", dataIndx: "profits"},
+                { title: "操作", width: 150, align: "center", sortable:false}
+            ];
+            obj.dataModel = {
+                data: data,
+                paging:"local",
+                location: "local",
+                sorting: "local"
+            };
+
+            $grid8 = $("#grid8").awsGrid(obj);
+
+            $grid8.awsGrid("option", "rowDragCallback", function(source, target){
+                console.log(source);
+                console.log(target);
+                return true;
+            });
+            $grid8.awsGrid("option", "rowDragSuccessCallback", function(source, target){
+                console.log("拖拽成功");
+                console.log(source);
+                console.log(target);
+                $.simpleAlert("拖拽成功");
+            });
+        };
+        //demo9
+        var grid9func = function(){
+            var data = [
+                { rank: 1, company: '朱元璋', revenues: '皇帝', profits: '36,130.0', level: "皇帝" },
+                { rank: 2, company: '徐达', revenues: '魏国公', profits: '11,231.0' , level: "公爵"},
+                { rank: 3, company: '常遇春', revenues: '鄂国公', profits: '25,311.0' , level: "公爵"},
+                { rank: 4, company: '汤和', revenues: '信国公', profits: '22,341.0' , level: "公爵"},
+                { rank: 5, company: '李善长', revenues: '韩国公', profits: '10,567.0' , level: "公爵"},
+                { rank: 6, company: '李文忠', revenues: '曹国公', profits: '14,099.0' , level: "公爵"},
+                { rank: 7, company: '傅友德', revenues: '颖国公', profits: '13,529.0' , level: "侯爵"},
+                { rank: 8, company: '冯胜', revenues: '宋国公', profits: '3,536.3' , level: "伯爵"},
+                { rank: 9, company: '邓愈', revenues: '卫国公', profits: '12,119.6' , level: "伯爵"},
+                { rank: 10, company: '刘基', revenues: '诚意伯', profits: '13,529.0' , level: "伯爵"}
+            ];
+            var obj = {
+                flexWidth:true,
+                title: "行分组展示",
+                bottomVisible:false,
+                minWidth: 30,
+                collapsible: {on: false, collapsed: false, toggle: false}, //关闭收起，关闭全屏（复杂环境下会出现样式问题）
+                flexHeight:true,
+                sortable:false,
+                editModel:{clicksToEdit: 0 },  //点击单元格编辑模式[2-可编辑, 0不可编辑]
+                scrollModel:{horizontal:false},   //是否开启水平滚动
+                groupModel:{  //行分组设置
+                    dataIndx:["level"],
+                    title:[ function(obj){
+                        return  "官职  - " + obj.nextRowData['level'];
+                    } ],
+                    dir : ["down"]
+                }
+            };
+            obj.colModel = [
+                { title: "排名", width: 40,sortable:false, dataType: "integer", dataIndx: "rank",resizable:true },
+                { title: "姓名", width: 250,dataType: "string", dataIndx: "company" ,resizable:false},
+                { title: "职务", width: 250, dataType: "string", align: "right", dataIndx: "revenues" },
+                { title: "工资", width: 250, dataType: "float", align: "right", dataIndx: "profits"},
+                { title: "级别", width: 250, dataType: "string", align: "right", dataIndx: "level"}
+            ];
+            obj.dataModel = {
+                data: data,
+                location: "local",
+                sorting: "local"
+            };
+            $("#grid9").awsGrid(obj);
+        };
+        $(document).ready(function() {
+            grid1func();
+            grid2func();
+            grid3func();
+            grid4func();
+            grid5func();
+            grid6func();
+            grid7func();
+            grid8func();
+            grid9func();
+        });
+    </script>
+</body>
+</html>

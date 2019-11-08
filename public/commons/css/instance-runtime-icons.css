@@ -1,0 +1,158 @@
+.process {
+
+}
+.task {
+
+}
+
+.active {
+
+}
+.suspend {
+	background-color: rgba(255, 255, 0, 0.4);
+}
+.end {
+}
+.terminate {
+}
+.error {
+	color: #EC6363;
+}
+.complete {
+
+}
+.compensate {
+
+}
+.delete {
+	color: #A2A2A2;
+}
+.cancel {
+	color: #A2A2A2;
+}
+.terminate {
+
+}
+
+.icon {
+	width: 16px;
+	height: 16px;
+	margin-right: 3px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+/*进程实例状态：活动*/
+.process_icon_active {
+	background: url('../img/instance/process/active16.png') center no-repeat;
+	color:#0099cc;
+	border:0;
+}
+/*进程实例状态：挂起*/
+.process_icon_suspend {
+	color:#9900cc;
+	background: url('../img/instance/process/suspend16.png') center no-repeat;
+}
+/*进程实例状态：结束*/
+.process_icon_end {
+	font-weight: bold;
+	font-size: 18px;
+    color:#999999;
+	background: url('../img/instance/process/end16.png') center no-repeat;
+}
+/*进程实例状态：终止*/
+.process_icon_terminate {
+	font-weight: bold;
+	font-size: 18px;
+	color:#990000;
+	background: url('../img/instance/process/terminate16.png') center no-repeat;
+}
+/*进程实例状态：取消*/
+.process_icon_cancel {
+	color:#cccc00;
+	background: url('../img/instance/process/cancel16.png') center no-repeat;
+}
+/*任务实例状态：活动*/
+.task_icon_active {
+	color:#0099cc;
+	background: url('../img/instance/task/active16.png') center no-repeat;
+	border: 0;
+}
+/*任务实例状态：挂起*/
+.task_icon_suspend {
+	color:#9900cc;
+	background: url('../img/instance/task/suspend16.png') center no-repeat;
+}
+/*任务实例状态：出错*/
+.task_icon_error {
+	color:#990000;
+	background: url('../img/instance/task/error16.png') center no-repeat;
+}
+/*任务实例状态：完成*/
+.task_icon_complete {
+	color:#999999;
+	background: url('../img/instance/task/complete16.png') center no-repeat;
+}
+/*任务实例状态：取消*/
+.task_icon_cancel {
+	color:#cccc00;
+	background: url('../img/instance/task/cancel16.png') center no-repeat;
+}
+/*任务实例状态：补偿*/
+.task_icon_compensate {
+	color:#990000;
+	background: url('../img/instance/task/compensate16.png') center no-repeat;
+}
+/*进程实例状态：删除*/
+.task_icon_delete {
+	color:999900;
+	background: url('../img/instance/task/delete16.png') center no-repeat;
+}
+/*进程实例状态：终止*/
+.task_icon_terminate {
+	color:#990000;
+	background: url('../img/instance/task/terminate16.png') center no-repeat;
+}
+
+/*Business Rule Task*/
+.task_icon_activitytype_businessRuleTask{
+	background: url('../img/instance/businessRuleTask16') center no-repeat;
+}
+/*Call SubProcess Activity*/
+.task_icon_activitytype-callActivity{
+	color:#cccc00;
+	background: url('../img/instance/callActivity16.png') center no-repeat;
+}
+/*Script Task*/
+.task_icon_activitytype_scriptTask{
+	background: url('../img/instance/scriptTask16.png') center no-repeat;
+}
+/*Service Task*/
+.task_icon_activitytype_serviceTask{
+	color:#006633;
+	background: url('../img/instance/serviceTask16.png') center no-repeat;
+}
+/*Service Task*/
+.task_icon_activitytype_intermediateEvent{
+	color:#cccc00;
+	background: url('../img/instance/timerEvent16.png') center no-repeat;
+}
+/*发送任务*/
+.task_icon_activitytype_sendTask{
+	background: url('../img/instance/sendTask16.png') center no-repeat;
+}
+/*接受任务*/
+.task_icon_activitytype_receiveTask{
+	background: url('../img/instance/receiveTask16.png') center no-repeat;
+}
+/*人工任务*/
+.task_icon_activitytype_manualTask{
+	background: url('../img/instance/manualTask16.png') center no-repeat;
+}
+/*其他事件*/
+.task_icon_activitytype_event{
+	color:#cccc00;
+	background: url('../img/instance/event16.png') center no-repeat ;
+	
+}
+

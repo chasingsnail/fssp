@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="content" content="基于AWSUI-Accordion的主流前端响应式框架">
+        <meta name="keywords" content="手风琴 - AWSUI">
+        <title>Accordion</title>
+        <link rel="stylesheet" href="../css/bootstrap.css">
+        <link rel="stylesheet" href="../../css/awsui.css">
+        <link rel="stylesheet" href="../css/uidoc.css?v=1">
+        <link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+    </head>
+    <body>
+        <div class="awsui-wrapper">
+            <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 awsui-border-bottom">
+                <div class="awsui-markdown">
+                    <h1 class="title2" id="accordion">手风琴</h1>
+                    <p class="awsui-margin-bottom-14">手风琴允许用户切换一部分内容的显示。</p>
+                    <ul>
+                        <li>对复杂区域进行分组和隐藏，保持页面的整洁。</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-markdown">
+                    <div class="awsui-code-title">
+                        API
+                    </div>
+                    <ul>
+                        <li>$(el).accordions(config)</li>
+                    </ul>
+                    <p>config 参数如下：</p>
+                </div>
+                <table class="awsui-table awsui-margin-bottom-24">
+                    <thead>
+                        <tr>
+                            <th width="20%">参数</th>
+                            <th width="30%">说明</th>
+                            <th width="20%">类型</th>
+                            <th>默认值</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>background</td>
+                            <td>背景颜色</td>
+                            <td>string</td>
+                            <td>#f8f8f8</td>
+                        </tr>
+                        <tr>
+                            <td>color</td>
+                            <td>字体库图标颜色</td>
+                            <td>string</td>
+                            <td>#666</td>
+                        </tr>
+                        <tr>
+                            <td>fontSize</td>
+                            <td>字体库图标大小</td>
+                            <td>number</td>
+                            <td>16</td>
+                        </tr>
+                        <tr>
+                            <td>icon</td>
+                            <td>字体库图标</td>
+                            <td>string</td>
+                            <td>&amp;#xe716;</td>
+                        </tr>
+                        <tr>
+                            <td>currentIcon</td>
+                            <td>当前选中字体库图标</td>
+                            <td>string</td>
+                            <td>&amp;#xe717;</td>
+                        </tr>
+                        <tr>
+                            <td>list</td>
+                            <td>accordion列表</td>
+                            <td>Array</td>
+                            <td>[]</td>
+                        </tr>
+                        <tr>
+                            <td>expand</td>
+                            <td>展开形式, <code>all/first/collapse    全部展开、展开首个、全部收起</code></td>
+                            <td>string</td>
+                            <td>collapse</td>
+                        </tr>
+                        <tr>
+                            <td>speed</td>
+                            <td>收起/展开速度</td>
+                            <td>number</td>
+                            <td>0 <code>单位是ms</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>方法如下：</p>
+                <table class="awsui-table awsui-margin-bottom-24">
+                    <thead>
+                        <tr>
+                            <th width="40%">方法名</th>
+                            <th width="40%">说明</th>
+                            <th width="20%">类型</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>expand(index)</td>
+                            <td>展开指定区域</td>
+                            <td>function</td>
+                        </tr>
+                        <tr>
+                            <td>collapse(index)</td>
+                            <td>收起指定区域</td>
+                            <td>function</td>
+                        </tr>
+                        <tr>
+                            <td>expandAll()</td>
+                            <td>全部展开</td>
+                            <td>function</td>
+                        </tr>
+                        <tr>
+                            <td>collapseAll()</td>
+                            <td>全部收起</td>
+                            <td>function</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-code-title title2" id="event1">
+                    基础
+                </div>
+                <p class="awsui-margin-top-5">简单的手风琴。</p>
+                <div class="awsui-code-demo">
+                    <ul class="awsui-collapse" id="accordion1">
+                    </ul>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+                <div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;ul class="awsui-collapse" id="accordion1"&gt;&lt;/ul&gt;</code></pre>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+                <div class="awsui-code-info">
+                    <pre><code class="language-js">$(document).ready(function() {
+    $("#accordion1").accordions({
+        list:[
+            {title:"百度",content:"accordion内容接受任何布局或组件"},
+            {title:"腾讯",content:"accordion内容接受任何布局或组件"},
+            {title:"阿里",content:"accordion内容接受任何布局或组件"}
+        ]
+    });
+});
+</code></pre>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-code-title title2" id="event2">
+                    改变风格
+                </div>
+                <p class="awsui-margin-top-5">通过设置属性<code>background、color、icon、fontSize</code>来改变手风琴风格。</p>
+                <div class="awsui-code-demo">
+                    <ul class="awsui-collapse" id="accordion2">
+                    </ul>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+                <div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;ul class="awsui-collapse" id="accordion2"&gt;&lt;/ul&gt;</code></pre>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+                <div class="awsui-code-info">
+                    <pre><code class="language-js">$(document).ready(function() {
+    $("#accordion2").accordions({
+        background:"#4db763",
+        color:"#fff",
+        icon:"&amp;#58888;",
+        currentIcon:"&amp;#58936;",
+        fontSize:20,
+        expand:"all",
+        speed:500,
+        list:[
+            {title:"百度",content:"accordion内容接受任何布局或组件"},
+            {title:"腾讯",content:"accordion内容接受任何布局或组件"},
+            {title:"阿里",content:"accordion内容接受任何布局或组件"}
+        ]
+    });
+});
+</code></pre>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-code-title title2" id="event3">
+                    全部展开和全部收起
+                </div>
+                <p class="awsui-margin-top-5">全部展开和全部收起手风琴。</p>
+                <div class="awsui-code-demo">
+                    <button type="button" class="awsui-btn awsui-btn-blue" id="expandAll">全部展开</button>
+                    <button type="button" class="awsui-btn awsui-btn-blue" id="collapseAll">全部收起</button>
+                    <ul class="awsui-collapse" id="accordion3" style="margin-top:10px;">
+                    </ul>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+                <div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;button type="button" class="awsui-btn awsui-btn-blue" id="expandAll"&gt;全部展开&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-blue" id="collapseAll"&gt;全部收起&lt;/button&gt;
+&lt;ul class="awsui-collapse" id="accordion3" style="margin-top:10px;"&gt;
+&lt;/ul&gt;
+</code></pre>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+                <div class="awsui-code-info">
+                    <pre><code class="language-js">$(document).ready(function() {
+    var accordion =  $("#accordion3").accordions({
+        list:[
+            {title:"百度",content:"accordion内容接受任何布局或组件"},
+            {title:"腾讯",content:"accordion内容接受任何布局或组件"},
+            {title:"阿里",content:"accordion内容接受任何布局或组件"}
+        ],
+        speed:0
+    });
+    $("#expandAll").on('click',function () {
+        accordion.expandAll();
+    });
+    $("#collapseAll").on('click',function () {
+        accordion.collapseAll();
+    });
+});
+</code></pre>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-code-title title2" id="event4">
+                    指定区域展开和收起
+                </div>
+                <p class="awsui-margin-top-5">指定区域展开和收起。</p>
+                <div class="awsui-code-demo">
+                    <button type="button" class="awsui-btn awsui-btn-blue" id="expand">指定展开</button>
+                    <button type="button" class="awsui-btn awsui-btn-blue" id="collapse">指定收起</button>
+                    <ul class="awsui-collapse" id="accordion4" style="margin-top:10px;">
+                    </ul>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+                <div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;button type="button" class="awsui-btn awsui-btn-blue" id="expand"&gt;指定展开&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-blue" id="collapse"&gt;指定收起&lt;/button&gt;
+&lt;ul class="awsui-collapse" id="accordion4" style="margin-top:10px;"&gt;
+&lt;/ul&gt;
+</code></pre>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+                <div class="awsui-code-info">
+                    <pre><code class="language-js">$(document).ready(function() {
+    var accordion4 =  $("#accordion4").accordions({
+        list:[
+            {title:"百度",content:"accordion内容接受任何布局或组件"},
+            {title:"腾讯",content:"accordion内容接受任何布局或组件"},
+            {title:"阿里",content:"accordion内容接受任何布局或组件"}
+        ],
+        speed:500
+    });
+    $("#expand").on('click',function () {
+        var index = $("#accordion4").find("li").eq(1).index();
+        accordion4.expand(index);
+    });
+    $("#collapse").on('click',function () {
+        var index = $("#accordion4").find("li").eq(1).index();
+        accordion4.collapse(index);
+    });
+});
+</code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="section_right">
+            <div class="nav">
+                <!-- 右侧导航 -->
+            </div>
+        </div>
+        <div class="navTop">
+            <img src="../img/top.png" alt=""/>
+        </div>
+        <script src="../../js/jquery/scripts/jquery.js"></script>
+        <script src="../../js/awsui.js"></script>
+        <script src="../prism/prism.js"></script>
+        <script src="../js/public.js?v=1"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#accordion1").accordions({
+                    list:[
+                        {title:"百度",content:"accordion内容接受任何布局或组件"},
+                        {title:"腾讯",content:"accordion内容接受任何布局或组件"},
+                        {title:"阿里",content:"accordion内容接受任何布局或组件"}
+                    ]
+                });
+                $("#accordion2").accordions({
+                    background:"#4db763",
+                    color:"#fff",
+                    icon:"&#58888;",
+                    currentIcon:"&#58936;",
+                    fontSize:20,
+                    expand:"all",
+                    speed:500,
+                    list:[
+                        {title:"百度",content:"accordion内容接受任何布局或组件"},
+                        {title:"腾讯",content:"accordion内容接受任何布局或组件"},
+                        {title:"阿里",content:"accordion内容接受任何布局或组件"}
+                    ]
+                });
+                var accordion =  $("#accordion3").accordions({
+                    list:[
+                        {title:"百度",content:"accordion内容接受任何布局或组件"},
+                        {title:"腾讯",content:"accordion内容接受任何布局或组件"},
+                        {title:"阿里",content:"accordion内容接受任何布局或组件"}
+                    ],
+                    speed:0
+                });
+                $("#expandAll").on('click',function () {
+                    accordion.expandAll();
+                });
+                $("#collapseAll").on('click',function () {
+                    accordion.collapseAll();
+                });
+
+                var accordion4 =  $("#accordion4").accordions({
+                    list:[
+                        {title:"百度",content:"accordion内容接受任何布局或组件"},
+                        {title:"腾讯",content:"accordion内容接受任何布局或组件"},
+                        {title:"阿里",content:"accordion内容接受任何布局或组件"}
+                    ],
+                    speed:500
+                });
+                $("#expand").on('click',function () {
+                    var index = $("#accordion4").find("li").eq(1).index();
+                    accordion4.expand(index);
+                });
+                $("#collapse").on('click',function () {
+                    var index = $("#accordion4").find("li").eq(1).index();
+                    accordion4.collapse(index);
+                });
+            });
+        </script>
+    </body>
+</html>
+

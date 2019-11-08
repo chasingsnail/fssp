@@ -1,0 +1,103 @@
+.stateicon {
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 5px;
+}
+
+/******************************任务状态图标样色******************************/
+/* 执行类任务,群青色#4e72b8 */
+/* 信息类任务,黄金色#c37e00 */
+
+/*常规待办任务*/
+.icon_taskstate_1 {
+	background:
+		url('../../commons/img/worklist/taskstate/state_1.png')
+		no-repeat 0px 0px !important;
+}
+/*传阅任务*/
+.icon_taskstate_2 {
+	background:
+		url('../../commons/img/worklist/taskstate/state_2.png')
+		no-repeat 0px 0px !important;
+}
+/*任务执行完，从哪来回哪去*/
+.icon_taskstate_3 {
+	background:
+		url('../../commons/img/worklist/taskstate/state_3.png')
+		no-repeat 0px 0px !important;
+}
+/*等待任务，如加签等待*/
+.icon_taskstate_4 {
+	background:
+		url('../../commons/img/worklist/taskstate/state_4.png')
+		no-repeat 0px 0px !important;
+}
+/*系统通知类任务*/
+.icon_taskstate_9 {
+	background:
+		url('../../commons/img/worklist/taskstate/state_9.png')
+		no-repeat 0px 0px !important;
+}
+/*Ad-Hoc类的动态任务，如加签、协作*/
+.icon_taskstate_11 {
+	background:
+		url('../../commons/img/worklist/taskstate/state_11.png')
+		no-repeat 0px 0px !important;
+}
+/*待认领的共享任务*/
+.icon_taskstate_pool{
+	background:
+		url('../../commons/img/worklist/taskstate/pool.png')
+		no-repeat 0px 0px !important;
+}
+
+/*子流程*/
+.task_icon_activitytype_callActivity {
+    background: url('../../commons/img/instance/callActivity16.png') no-repeat 0px 0px !important;
+}
+.icon_taskstate_0,.icon_taskstate_6,.icon_taskstate_7,.icon_taskstate_8 {
+	width: 0px;
+	height: 0px;
+	margin-right: 0px;
+}
+/******************************任务行颜色样式，任务实例状态******************************/
+
+/*活动（运行中）*/
+.row-controlstate-active {
+	
+}
+/*挂起（暂停）*/
+.row-controlstate-suspend {
+	color: #999;
+}
+/*系统异常（非人类任务）*/
+.row-controlstate-error {
+	
+}
+/*完成【H表使用】*/
+.row-controlstate-complete {
+	
+}
+/*取消【H表使用】*/
+.row-controlstate-cancel {
+	
+}
+/*补偿被触发【H表使用】*/
+.row-controlstate-compensate {
+	
+}
+/*删除【H表使用】*/
+.row-controlstate-delete,.row-controlstate-delete td .owner{
+	color: #A2A2A2 !important;
+}
+/*终止结束【H表使用】*/
+.row-controlstate-terminate {
+	
+}
+
+/*子流程数据行专用*/
+.row-controlstate-callActivity {
+	color: #7144a2 !important;
+}

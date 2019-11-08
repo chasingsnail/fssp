@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="description" content="基于AWSUI-form的主流前端响应式框架">
+    <meta name="keywords" content="表单 - AWSUI">
+    <title>Form</title>
+    <link rel="stylesheet" href="../../css/awsui.css">
+    <link rel="stylesheet" href="../css/uidoc.css?v=1">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <script src="../../js/jquery/scripts/jquery.js"></script>
+	<script src="../js/public.js?v=1"></script>
+    <style>
+        *{
+            font-family: "Microsoft Yahei";
+        }
+        h2{
+            font-size: 24px;
+            color:#6472c6;
+        }
+        .title2{
+            display: inline-block;
+            font-size: 18px;
+        }
+        .title3{
+            margin-top:10px;
+            color: #39424b;
+            font-size: 14px;
+        }
+        .decripte{
+            font-size: 12px;
+            font-style: oblique;
+            color: #808080;
+        }
+        .img-responsive{
+            border-radius: 8px;
+        }
+        .describ{
+            float: left;
+            width:20px;
+            height:20px;
+            background: #2a8aff;
+            font-size: 16px;
+            color:white;
+            line-height:20px;
+            text-align: center;
+            border-radius: 50%;
+        }
+        .text{
+            font-size: 16px;
+            width:40px;
+            height:20px;
+            line-height:20px;
+            text-align: center;
+            float: left;
+            margin-left:40px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:20px;">
+            <table class="tab">
+                <tr>
+                    <td>
+                        <span class="title2" style="">表单</span>
+                        <span class="title3"style="display: block">表单设计了三种显示方式，供用户不同场景下使用最合适的</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3 col-md-3 col-lg-3 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:25px;">
+            <table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;">
+                <tr><td class="decripte">普通输入框风格</td></tr>
+            </table>
+            <table class="tab" cellspacing="40" cellpadding="10">
+                <tr>
+                    <td colspan="2">
+                        <img src="../img/form/putong.png" class="img-responsive">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-3 col-md-3 col-lg-3 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 middle " style="margin-top:25px;margin-left:4%;margin-right:4%;">
+            <table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;">
+                <tr><td class="decripte">斑马线风格</td></tr>
+            </table>
+            <table class="tab" cellspacing="40" cellpadding="10">
+                <tr>
+                    <td colspan="2">
+                        <img src="../img/form/banmaxian.png" class="img-responsive">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-3 col-md-3 col-lg-3" style="margin-top:25px;">
+            <table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;">
+                <tr><td class="decripte">简洁风格</td></tr>
+            </table>
+            <table class="tab" cellspacing="40" cellpadding="10">
+                <tr>
+                    <td colspan="2">
+                        <img src="../img/form/jianjie.png" class="img-responsive">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-10 col-md-10 col-lg-10 line-title  col-sm-offset-1 col-md-offset-1 col-lg-offset-1"  style="margin-top:30px;">
+            <tr>
+                <td colspan="3">
+                    <fieldset>
+                        <legend></legend>
+                    </fieldset>
+                </td>
+            </tr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-11 col-md-11 col-lg-11 col-sm-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <table class="tab">
+                <tr>
+                    <td>
+                        <span class="title3"style="display: block">信息项较多时，建议根据具体的信息内容和功能来分类展示。共提供四种展示方式作为参考</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-11 col-md-4 col-lg-4 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:25px;">
+            <table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;">
+                <tr><td class="decripte">分组显示——表单内容较多时，请分组显示</td></tr>
+            </table>
+            <table class="tab" cellspacing="40" cellpadding="10">
+                <tr>
+                    <td colspan="2">
+                        <img src="../img/form/fenzu.png" class="img-responsive">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-11 col-md-4 col-lg-4 col-sm-offset-1 col-md-offset-2 col-lg-offset-2" style="margin-top:25px;">
+            <table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;">
+                <tr><td class="decripte">新页签打开——表单详细内容过多时，建议用新页签打开。</td></tr>
+            </table>
+            <table class="tab" cellspacing="40" cellpadding="10">
+                <tr>
+                    <td colspan="2">
+                        <img src="../img/form/xinyeqian.png" class="img-responsive">
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-11 col-md-4 col-lg-4 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:35px;">
+            <table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;">
+                <tr><td class="decripte">导航树显示——多个表单一并填写建议用导航树，避免出错。</td></tr>
+            </table>
+            <table class="tab" cellspacing="40" cellpadding="10">
+                <tr>
+                    <td colspan="2">
+                        <img src="../img/form/nav.png" class="img-responsive">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-11 col-md-4 col-lg-4 col-sm-offset-1 col-md-offset-2 col-lg-offset-2" style="margin-top:35px;">
+            <table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;">
+                <tr><td class="decripte">盒子显示——当信息条目及分组都很多时，建议用盒子显示。</td></tr>
+            </table>
+            <table class="tab" cellspacing="40" cellpadding="10">
+                <tr>
+                    <td colspan="2">
+                        <img src="../img/form/box.png" class="img-responsive">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-10 col-md-10 col-lg-10 line-title col-sm-offset-1 col-md-offset-1 col-lg-offset-1"  style="margin-top:30px;">
+            <tr>
+                <td colspan="3">
+                    <fieldset>
+                        <legend></legend>
+                    </fieldset>
+                </td>
+            </tr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-11 col-md-11 col-lg-11 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <table class="tab">
+                <tr>
+                    <td>
+                        <span class="title3"style="display: block">用必要的帮助说明，引导用户理解和提供准确的数据项，提供2种提醒的设计建议</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 col-md-4 col-lg-4 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:25px;">
+            <table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;">
+                <tr><td class="decripte">空值提醒</td></tr>
+            </table>
+            <table class="tab" cellspacing="40" cellpadding="10">
+                <tr>
+                    <td colspan="2">
+                        <img src="../img/form/null.png" class="img-responsive">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4 col-sm-offset-2 col-md-offset-2 col-lg-offset-2" style="margin-top:25px;">
+            <table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;">
+                <tr><td class="decripte">鼠标提醒</td></tr>
+            </table>
+            <table class="tab" cellspacing="40" cellpadding="10">
+                <tr>
+                    <td colspan="2">
+                        <img src="../img/form/mouse.png" class="img-responsive">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="col-sm-10 col-md-10 col-lg-10 line-title col-sm-offset-1 col-md-offset-1 col-lg-offset-1"  style="margin-top:30px;">
+        <tr>
+            <td colspan="3">
+                <fieldset>
+                    <legend></legend>
+                </fieldset>
+            </td>
+        </tr>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <table class="tab">
+                <tr>
+                    <td>
+                        <span class="title2" style="">子表单</span>
+                        <span class="title3"style="display: block">子表单设计了三种布局方式，供用户在各种场景下能使用到最合适的</span>
+                    </td><title>Column One</title>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3 col-md-3 col-lg-3 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:25px;">
+            <table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;">
+                <tr><td class="decripte">普通子表单</td></tr>
+            </table>
+            <table class="tab" cellspacing="40" cellpadding="10">
+                <tr>
+                    <td colspan="2">
+                        <img src="../img/form/putong.png" class="img-responsive">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="middle col-sm-3 col-md-3 col-lg-3 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:25px;margin-left:4%;margin-right:4%;">
+            <table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;">
+                <tr><td class="decripte">AX自定义编辑子表单</td></tr>
+            </table>
+            <table class="tab" cellspacing="40" cellpadding="10">
+                <tr>
+                    <td colspan="2">
+                        <img src="../img/form/AXzibiaodan.png" class="img-responsive">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-3 col-md-3 col-lg-3" style="margin-top:25px;">
+            <table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;">
+                <tr><td class="decripte">折列子表单</td></tr>
+            </table>
+            <table class="tab" cellspacing="40" cellpadding="10">
+                <tr>
+                    <td colspan="2">
+                        <img src="../img/form/ZLZIBIAODAN.png" class="img-responsive">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-10 col-md-10 col-lg-10 line-title col-lg-offset-1"  style="margin-top:30px;">
+            <tr>
+                <td colspan="3">
+                    <fieldset>
+                        <legend></legend>
+                    </fieldset>
+                </td>
+            </tr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <table class="tab">
+                <tr>
+                    <td>
+                        <span class="title2" style="">间距布局</span>
+                        <span class="title3"style="display: block">根据规范调整页面背景区、
+表单区、内容区、标题区、表格行间距，内间距。使页面整齐简洁。</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 col-md-4 col-lg-4 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:20px;">
+            <table class="tab" cellspacing="40" cellpadding="10">
+                <tr>
+                    <td colspan="2">
+                        <img src="../img/form/flex.png" class="img-responsive">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-5 col-md-5 col-lg-5 col-sm-offset-2 col-md-offset-2 col-lg-offset-2" style="margin-top:25px;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="describ">1</div>
+                        <div class="text">20px</div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="describ">2</div>
+                        <div class="text">10px</div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid" style="margin-top:20px;">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="describ">3</div>
+                        <div class="text">30px</div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="describ">4</div>
+                        <div class="text">20px</div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid" style="margin-top:20px;">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="describ">5</div>
+                        <div class="text">20px</div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="describ">6</div>
+                        <div class="text">5px</div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid" style="margin-top:20px;">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="describ">7</div>
+                        <div class="text">10px</div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="describ">8</div>
+                        <div class="text">15px</div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid" style="margin-top:20px;">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="describ">9</div>
+                        <div class="text">5px</div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="describ">10</div>
+                        <div class="text">8px</div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid" style="margin-top:20px;">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="describ">11</div>
+                        <div class="text">15px</div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="describ">12</div>
+                        <div class="text">30px</div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid" style="margin-top:20px;">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="describ">13</div>
+                        <div class="text">30px</div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="describ">14</div>
+                        <div class="text">20px</div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid" style="margin-top:20px;">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="describ">15</div>
+                        <div class="text">30px</div>
+                    </div>
+
+                </div>
+            </div>
+            </div>
+        </div>
+    <div class="col-sm-10 col-md-10 col-lg-10 line-title col-sm-offset-1 col-md-offset-1 col-lg-offset-1"  style="margin-top:30px;">
+        <tr>
+            <td colspan="3">
+                <fieldset>
+                    <legend></legend>
+                </fieldset>
+            </td>
+        </tr>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <table class="tab">
+                <tr>
+                    <td>
+                        <span class="title2" style="">单表配色</span>
+                        <span class="title3"style="display: block">基于用户可能的基本需求——批评、表扬、单独强调等而给出六种配色；配合三种适合查阅、打印等 的显示方案共用户使用。</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom: 20px;">
+        <div class="col-sm-10 col-md-10 col-lg-10   col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:20px;margin-bottom:10px;">
+           <div class="container-fluid">
+               <div class="row">
+                   <div class="col-sm-2 col-md-2 col-lg-2">
+                       <img src="../img/form/default.png"/>
+                   </div>
+                   <div class="col-sm-2 col-md-2 col-lg-2">
+                       <img src="../img/form/green.png"/>
+                   </div>
+                   <div class="col-sm-2 col-md-2 col-lg-2">
+                       <img src="../img/form/yellow.png"/>
+                   </div>
+                   <div class="col-sm-2 col-md-2 col-lg-2">
+                       <img src="../img/form/black.png"/>
+                   </div>
+                   <div class="col-sm-2 col-md-2 col-lg-2">
+                       <img src="../img/form/blue.png"/>
+                   </div>
+                   <div class="col-sm-2 col-md-2 col-lg-2">
+                       <img src="../img/form/red%20(1).png"/>
+                   </div>
+               </div>
+           </div>
+        </div>
+    </div>
+</div>
+
+<div class="section_right">
+	<div class="nav" style="position: fixed;right:20px;">
+		<!-- 右侧导航 -->
+	</div>
+</div>
+<div class="navTop" style="position: fixed;bottom:40px;display: none">
+    <img src="../img/top.png" alt="" style="width: 45px"/>
+</div>
+
+</div>
+</body>
+</html>

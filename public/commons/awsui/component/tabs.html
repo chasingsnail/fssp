@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="content" content="基于AWSUI-tabs的主流前端响应式框架">
+	<meta name="keywords" content="选项卡 - AWSUI">
+	<title>tabs</title>
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../../css/awsui.css">
+	<link rel="stylesheet" href="../css/uidoc.css?v=1">
+	<link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+</head>
+	<body>
+		<div class="awsui-wrapper">
+			<div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 awsui-border-bottom">
+				<div class="awsui-markdown">
+					<h1 class="title2" id="tabs">选项卡</h1>
+					<p class="awsui-margin-bottom-14">
+						提供平级的区域将大块内容进行收纳和展现，保持界面整洁，选项卡片通过JavaScript控制，封装了增加，删除Tab等操作功能；提供了二种选项卡，分别用于不同的场景。
+					</p>
+					<ul>
+						<li>标准线条式页签，用于容器内部的主功能切换，这是最常用的 Tabs。</li>
+						<li>卡片式的页签，提供可关闭的样式，常用于容器顶部。</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-markdown">
+					<div class="awsui-code-title title2" id="API">
+						API
+					</div>
+					<ul>
+						<li>awsui.tabs.init($(el), config);</li>
+					</ul>
+					<p>config 参数如下：</p>
+				</div>
+				<table class="awsui-table awsui-margin-bottom-24">
+					<thead>
+					<tr>
+						<th width="20%">参数</th>
+						<th width="50%">说明</th>
+						<th>类型</th>
+						<th>默认值</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>contentPanel</td>
+						<td>若tab页下有内容(div、iframe)，此项参数是目标容器</td>
+						<td>object</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>tabPosition</td>
+						<td>页签位置，选择值有：<code>top、bottom</code></td>
+						<td>string</td>
+						<td>top</td>
+					</tr>
+					<tr>
+						<td>focusShowAfter</td>
+						<td>点击tab的回调函数:<code>focusShowAfter:function(item){ if(item.index == "tabTwo") alert("显示后触发"); }</code></td>
+						<td>function</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>onClick</td>
+						<td>点击tab触发的事件</td>
+						<td>function</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>onCloseTab</td>
+						<td>关闭Tab执行事件的功能</td>
+						<td>function</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>height</td>
+						<td>tab的高度</td>
+						<td>number</td>
+						<td>-</td>
+					</tr>
+					<!--<tr>
+						<td>noborder</td>
+						<td>是否启用tab的边框效果</td>
+						<td>boolean</td>
+						<td>false</td>
+					</tr>-->
+					</tbody>
+				</table>
+				<p>awsui.tabs.init($(el), config).method</p>
+				<table class="awsui-table awsui-margin-bottom-24">
+					<thead>
+					<tr>
+						<th width="20%">方法</th>
+						<th width="30%">说明</th>
+						<th>用例</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>addTab</td>
+						<td>
+							添加一个Tab页签<br/>
+							var setting = {<br/>
+							&nbsp;&nbsp;item:{<br/>
+							&nbsp;&nbsp;&nbsp;&nbsp;url:"地址",
+							&nbsp;&nbsp;&nbsp;&nbsp;title:"标题",
+							&nbsp;&nbsp;&nbsp;&nbsp;index:index,
+							&nbsp;&nbsp;&nbsp;&nbsp;content:"主体接受任何布局",
+							}, <br/>
+							&nbsp;&nbsp;contextMenu:false, //是否显示右键菜单,默认值为<code>false</code><br/>
+							&nbsp;&nbsp;contextMenuTarget:$(el), //需要的菜单目标<br/>
+							&nbsp;&nbsp;close:false, //是否显示关闭图标,默认值为<code>true</code><br/>
+							&nbsp;&nbsp;onCloseTab:function(){} //关闭Tab执行事件的功能<br/>
+							}
+						</td>
+						<td>
+							obj.addTab(setting);
+						</td>
+					</tr>
+					<tr>
+						<td>focusTab</td>
+						<td>定位当前活动的Tab</td>
+						<td>obj.focusTab()</td>
+					</tr>
+					<tr>
+						<td>getTabItem</td>
+						<td>获得Tab项</td>
+						<td>obj.getTabItem(index)</td>
+					</tr>
+					<tr>
+						<td>getTabFirst</td>
+						<td>获得第一个Tab</td>
+						<td>obj.getTabFirst()<</td>
+					</tr>
+					<tr>
+						<td>getTabLast</td>
+						<td>获得最后一个Tab</td>
+						<td>obj.getTabLast()</td>
+					</tr>
+					<tr>
+						<td>existsTab</td>
+						<td>判断指定的Tab是否存在</td>
+						<td>obj.existsTab(false)</td>
+					</tr>
+					<tr>
+						<td>setTitle</td>
+						<td>给指定的Tab,设置Title</td>-
+						<td>obj.setTitle(index,title)</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event1">
+					Tab简洁风格
+				</div>
+				<p class="awsui-margin-top-5">Tab简洁风格，默认选中第一项。</p>
+				<div class="awsui-code-demo">
+					<div class="awsui-simple-tab" contentid="BasicTabsPanel">
+						<a tit="tab1" class="active">标题一</a>
+						<a tit="tab2">标题二</a>
+						<a tit="tab3">标题二</a>
+					</div>
+					<div id="BasicTabsPanel" class="aws-simple-tab-content">
+						<div tit="tab1" class="awsui-tab-content-item show">
+							窗前明月光
+						</div>
+						<div tit="tab2" class="awsui-tab-content-item">
+							疑是地上霜
+						</div>
+						<div tit="tab3" class="awsui-tab-content-item">
+							举头望明月
+						</div>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;div class="awsui-simple-tab" contentid="BasicTabsPanel"&gt;
+	&lt;a tit="tab1" class="active"&gt;标题一&lt;/a&gt;
+	&lt;a tit="tab2"&gt;标题二&lt;/a&gt;
+	&lt;a tit="tab3"&gt;标题二&lt;/a&gt;
+&lt;/div&gt;
+&lt;div id="BasicTabsPanel" class="aws-simple-tab-content"&gt;
+	&lt;div tit="tab1" class="awsui-tab-content-item show"&gt;
+		窗前明月光
+	&lt;/div&gt;
+	&lt;div tit="tab2" class="awsui-tab-content-item"&gt;
+		疑是地上霜
+	&lt;/div&gt;
+	&lt;div tit="tab3" class="awsui-tab-content-item"&gt;
+		举头望明月
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event2">
+					卡片式页签
+				</div>
+				<p class="awsui-margin-top-5">另一种样式的页签。</p>
+				<div class="awsui-code-demo">
+					<div class="awsui-tab" id="cardTabs" >
+					</div>
+					<div id="cardTabsPanel" class="aws-simple-tab-content" style="height:50px;">
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;div class="awsui-tab" id="cardTabs" &gt;
+&lt;/div&gt;
+&lt;div id="cardTabsPanel" class="aws-simple-tab-content" style="height:50px;"&gt;
+&lt;/div&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$(document).ready(function() {
+	var awsuiTabs;
+	awsuiTabs = awsui.tabs.init($("#cardTabs"), {
+		height:35,
+		contentPanel : $("#cardTabsPanel"),
+		tabPosition : "top",
+		onClick:function(tab){
+			return true;
+		}
+	});
+	awsuiTabs.addTab({
+		item : {
+			color:"#108ee9",
+			index : 1,
+			title : "&lt;span class='awsui-tab-curent-text'&gt;Tabs1&lt;/span&gt;",
+			content:$("&lt;div class='awsui-tab-content-item' index='1'&gt;Content of Tab Pane 1&lt;/div&gt;")
+		},
+		close : false
+	});
+	awsuiTabs.addTab({
+		item : {
+			index : 2,
+			title : "&lt;span class='awsui-tab-curent-text'&gt;Tabs2&lt;/span&gt;",
+			content:$("&lt;div class='awsui-tab-content-item' index='2'&gt;Content of Tab Pane 2&lt;/div&gt;")
+		},
+		close : false
+	});
+	awsuiTabs.addTab({
+		item : {
+			index : 3,
+			title : "&lt;span class='awsui-tab-curent-text'&gt;Tabs3&lt;/span&gt;",
+			content:$("&lt;div class='awsui-tab-content-item' index='3'&gt;Content of Tab Pane 3&lt;/div&gt;"),
+			contextMenu:true,
+			contextMenuTarget:"contextMenu1"
+		},
+		close : false
+	});
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event3">
+					卡片式页签容器
+				</div>
+				<p class="awsui-margin-top-5">带边框的卡片式页签，需要一点额外的样式，在父级引用border类。</p>
+				<div class="awsui-code-demo">
+					<div class="awsui-public-border awsui-public-radius">
+						<div class="awsui-tab" id="cardBorderTabs" >
+						</div>
+						<div id="cardBorderTabsPanel" class="aws-simple-tab-content" style="height:200px; overflow: auto;">
+						</div>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;div class="awsui-tab" id="cardBorderTabs" &gt;
+&lt;/div&gt;
+&lt;div id="cardBorderTabsPanel" class="aws-simple-tab-content" style="height:50px;"&gt;
+&lt;/div&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$(document).ready(function() {
+	var awsuiTabs;
+	awsuiTabs = awsui.tabs.init($("#cardBorderTabs"), {
+		height:35,
+		contentPanel : $("#cardBorderTabsPanel"),
+		tabPosition : "top",
+		onClick:function(tab){
+			return true;
+		}
+	});
+	awsuiTabs.addTab({
+		item : {
+			color:"#108ee9",
+			index : 1,
+			title : "&lt;span class='awsui-tab-curent-text'&gt;Tabs1&lt;/span&gt;",
+			content:$("&lt;div class='awsui-tab-content-item' index='1'&gt;Content of Tab Pane 1&lt;/div&gt;")
+		},
+		close : false
+	});
+	awsuiTabs.addTab({
+		item : {
+			index : 2,
+			title : "&lt;span class='awsui-tab-curent-text'&gt;Tabs2&lt;/span&gt;",
+			content:$("&lt;div class='awsui-tab-content-item' index='2'&gt;Content of Tab Pane 2&lt;/div&gt;")
+		},
+		close : false
+	});
+	awsuiTabs.addTab({
+		item : {
+			index : 3,
+			title : "&lt;span class='awsui-tab-curent-text'&gt;Tabs3&lt;/span&gt;",
+			content:$("&lt;div class='awsui-tab-content-item' index='3'&gt;Content of Tab Pane 3&lt;/div&gt;"),
+			contextMenu:true,
+			contextMenuTarget:"contextMenu1"
+		},
+		close : false
+	});
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event4">
+					事件操作
+				</div>
+				<p class="awsui-margin-top-5">受控操作示例。</p>
+				<div class="awsui-code-demo">
+					<button id="addTabs" class="awsui-btn awsui-btn-blue">增加Tab</button>
+					<button id="removeTabs" class="awsui-btn awsui-btn-blue">删除当前Tab</button>
+					<button id="toFirseTabs" class="awsui-btn awsui-btn-blue">定位到第一个项</button>
+					<button id="toLastTabs" class="awsui-btn awsui-btn-blue">定位到最后一项</button>
+					<div class="awsui-public-border awsui-public-radius awsui-margin-top-10">
+						<div class="awsui-tab" id="cardTabsEvent" >
+						</div>
+						<div id="cardTabsEventPanel" class="aws-simple-tab-content" style="height:50px;">
+						</div>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;button id="addTabs" class="awsui-btn awsui-btn-blue"&gt;增加Tab&lt;/button&gt;
+&lt;button id="removeTabs" class="awsui-btn awsui-btn-blue"&gt;删除当前Tab&lt;/button&gt;
+&lt;button id="toFirseTabs" class="awsui-btn awsui-btn-blue"&gt;定位到第一个项&lt;/button&gt;
+&lt;button id="toLastTabs" class="awsui-btn awsui-btn-blue"&gt;定位到最后一项&lt;/button&gt;
+&lt;div class="awsui-public-border awsui-public-radius awsui-margin-top-10"&gt;
+	&lt;div class="awsui-tab" id="cardTabsEvent" &gt;
+	&lt;/div&gt;
+	&lt;div id="cardTabsEventPanel" class="aws-simple-tab-content" style="height:50px;"&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$(document).ready(function() {
+	var awsuiTabsEvent,index=1;
+	awsuiTabsEvent = awsui.tabs.init($("#cardTabsEvent"), {
+		height:35,
+		contentPanel : $("#cardTabsEventPanel"),
+		tabPosition : "top",
+		onClick:function(tab){
+			return true;
+		},
+		focusShowAfter: function (tab) {
+			console.log(tab.index);
+		}
+	});
+	awsuiTabsEvent.addTab({
+		item : {
+			color:"#108ee9",
+			index : 1,
+			title : "<span class='awsui-tab-curent-text'>Tabs1</span>",
+			content:$("<div class='awsui-tab-content-item' index='1'>Content of Tab Pane 1</div>")
+		},
+		close : false
+	});
+	awsuiTabsEvent.addTab({
+		item : {
+			index : 2,
+			title : "<span class='awsui-tab-curent-text'>Tabs2</span>",
+			content:$("<div class='awsui-tab-content-item' index='2'>Content of Tab Pane 2</div>")
+		},
+		close : false
+	});
+	$("#addTabs").on('click',function () {
+		addTab();
+	});
+	$("#removeTabs").on('click',function () {
+		removeTab();
+	});
+	$("#toFirseTabs").on('click',function () {
+		toFirst();
+	});
+	$("#toLastTabs").on('click',function () {
+		toLast();
+	});
+	function addTab(){
+		var time = (new Date()).valueOf();
+		var setting = {
+			item:{
+				color:"#3080D9",
+				url:"",
+				title:"<span class='awsui-tab-curent-text'>"+ index++ +"</span>",
+				index:index+1,
+				content:$("<div class='awsui-tab-content-item'>"+time+"</div>")
+			},
+			close:false,
+			onCloseTab:function(){
+			},
+			focusShowAfter: function (tab) {
+				awsuiTabsEvent.setTitle(tab.index,"凯文沃克"+tab.index);
+			}
+		};
+		awsuiTabsEvent.addTab(setting);
+	}
+	function removeTab(){
+		var index = awsuiTabsEvent.tabContainer.find(".current").attr("index");
+		awsuiTabsEvent.closeTab(index);
+	}
+	function toFirst(){
+		var obj = awsuiTabsEvent.getTabFirst();
+		awsuiTabsEvent.focusTab(obj);
+	}
+	function toLast(){
+		var obj = awsuiTabsEvent.getTabLast();
+		awsuiTabsEvent.focusTab(obj);
+	}
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event5">
+					带删除的Tab
+				</div>
+				<p class="awsui-margin-top-5">带删除的Tab。</p>
+				<div class="awsui-code-demo">
+					<div class="awsui-public-border awsui-public-radius awsui-margin-top-10">
+						<div class="awsui-tab" id="cardTabsDel" >
+						</div>
+						<div id="cardTabsDelPanel" class="aws-simple-tab-content" style="height:50px;">
+						</div>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;div class="awsui-public-border awsui-public-radius awsui-margin-top-10"&gt;
+	&lt;div class="awsui-tab" id="cardTabsDel" &gt;
+	&lt;/div&gt;
+	&lt;div id="cardTabsDelPanel" class="aws-simple-tab-content" style="height:50px;"&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$(document).ready(function() {
+	var awsuiTabs;
+	awsuiTabs = awsui.tabs.init($("#cardTabsDel"), {
+		height:35,
+		contentPanel : $("#cardTabsDelPanel"),
+		tabPosition : "top",
+		onClick:function(tab){
+			return true;
+		}
+	});
+	awsuiTabs.addTab({
+		item : {
+			color:"#108ee9",
+			index : 1,
+			title : "&lt;span class='awsui-tab-curent-text'&gt;Tabs1&lt;/span&gt;",
+			content:$("&lt;div class='awsui-tab-content-item' index='1'&gt;Content of Tab Pane 1&lt;/div&gt;")
+		},
+		close : true
+	});
+	awsuiTabs.addTab({
+		item : {
+			index : 2,
+			title : "&lt;span class='awsui-tab-curent-text'&gt;Tabs2&lt;/span&gt;",
+			content:$("&lt;div class='awsui-tab-content-item' index='2'&gt;Content of Tab Pane 2&lt;/div&gt;")
+		},
+		close : true
+	});
+	awsuiTabs.addTab({
+		item : {
+			index : 3,
+			title : "&lt;span class='awsui-tab-curent-text'&gt;Tabs3&lt;/span&gt;",
+			content:$("&lt;div class='awsui-tab-content-item' index='3'&gt;Content of Tab Pane 3&lt;/div&gt;"),
+			contextMenu:true,
+			contextMenuTarget:"contextMenu1"
+		},
+		close : true
+	});
+});
+</code></pre>
+				</div>
+			</div>
+		</div>
+		<div class="section_right">
+			<div class="nav">
+				<!-- 右侧导航 -->
+			</div>
+		</div>
+		<div class="navTop">
+			<img src="../img/top.png" alt=""/>
+		</div>
+		<script src="../../js/jquery/scripts/jquery.js"></script>
+		<script src="../../js/awsui.js"></script>
+		<script src="../prism/prism.js"></script>
+		<script src="../js/public.js?v=1"></script>
+		<script type="text/javascript">
+            $(document).ready(function() {
+                var awsuiTabs, index=1;
+                awsuiTabs = awsui.tabs.init($("#cardTabs"), {
+                    height:35,
+                    contentPanel : $("#cardTabsPanel"),
+                    tabPosition : "top",
+                    onClick:function(tab){
+                        return true;
+                    }
+                });
+                awsuiTabs.addTab({
+                    item : {
+                        color:"#108ee9",
+                        index : 1,
+                        title : "<span class='awsui-tab-curent-text'>Tabs1</span>",
+                        content:$("<div class='awsui-tab-content-item' index='1'>Content of Tab Pane 1</div>")
+                    },
+                    close : false
+                });
+                awsuiTabs.addTab({
+                    item : {
+                        index : 2,
+                        title : "<span class='awsui-tab-curent-text'>Tabs2</span>",
+                        content:$("<div class='awsui-tab-content-item' index='2'>Content of Tab Pane 2</div>")
+                    },
+                    close : false
+                });
+                awsuiTabs.addTab({
+                    item : {
+                        index : 3,
+                        title : "<span class='awsui-tab-curent-text'>Tabs3</span>",
+                        content:$("<div class='awsui-tab-content-item' index='3'>Content of Tab Pane 3</div>"),
+                        contextMenu:true,
+                        contextMenuTarget:"contextMenu1"
+                    },
+                    close : false
+                });
+                var awsuiTabsBorder = awsui.tabs.init($("#cardBorderTabs"), {
+                    height:35,
+                    contentPanel : $("#cardBorderTabsPanel"),
+                    tabPosition : "top",
+                    onClick:function(tab){
+                        return true;
+                    }
+                });
+                awsuiTabsBorder.addTab({
+                    item : {
+                        color:"#108ee9",
+                        index : 1,
+                        title : "<span class='awsui-tab-curent-text'>Tabs1</span>",
+                        content:$("<div class='awsui-tab-content-item' index='1'><iframe id='myframe' src='http://www.baidu.com' style='height:500px;'></iframe></div>")
+                    },
+                    close : false
+                });
+                awsuiTabsBorder.addTab({
+                    item : {
+                        index : 2,
+                        title : "<span class='awsui-tab-curent-text'>Tabs2</span>",
+                        content:$("<div class='awsui-tab-content-item' index='2'><iframe id='myframe' src='http://www.runoob.com' style='height:500px;'></iframe></div>")
+                    },
+                    close : false
+                });
+                awsuiTabsBorder.addTab({
+                    item : {
+                        index : 3,
+                        title : "<span class='awsui-tab-curent-text'>Tabs3</span>",
+                        content:$("<div class='awsui-tab-content-item' index='3'>Content of Tab Pane 3</div>"),
+                        contextMenu:true,
+                        contextMenuTarget:"contextMenu1"
+                    },
+                    close : false
+                });
+                var awsuiTabsEvent = awsui.tabs.init($("#cardTabsEvent"), {
+                    height:35,
+                    contentPanel : $("#cardTabsEventPanel"),
+                    tabPosition : "top",
+                    onClick:function(tab){
+                        return true;
+                    },
+                    focusShowAfter: function (tab) {
+                        console.log(tab.index);
+                    }
+                });
+                awsuiTabsEvent.addTab({
+                    item : {
+                        color:"#108ee9",
+                        index : 1,
+                        title : "<span class='awsui-tab-curent-text'>Tabs1</span>",
+                        content:$("<div class='awsui-tab-content-item' index='1'>Content of Tab Pane 1</div>")
+                    },
+                    close : false
+                });
+                awsuiTabsEvent.addTab({
+                    item : {
+                        index : 2,
+                        title : "<span class='awsui-tab-curent-text'>Tabs2</span>",
+                        content:$("<div class='awsui-tab-content-item' index='2'>Content of Tab Pane 2</div>")
+                    },
+                    close : false
+                });
+                $("#addTabs").on('click',function () {
+                    addTab();
+                });
+                $("#removeTabs").on('click',function () {
+                    removeTab();
+                });
+                $("#toFirseTabs").on('click',function () {
+                    toFirst();
+                });
+                $("#toLastTabs").on('click',function () {
+                    toLast();
+                });
+                $("#toLastTabs").on('click',function () {
+                    toLast();
+                });
+
+                function addTab(){
+                    var time = (new Date()).valueOf();
+					var setting = {
+                        item:{
+                            color:"#3080D9",
+                            url:"",
+                            title:"<span class='awsui-tab-curent-text'>"+ index++ +"</span>",
+                            index:index+1,
+                            content:$("<div class='awsui-tab-content-item'>"+time+"</div>")
+                        },
+                        close:false,
+                        onCloseTab:function(){
+                        },
+                        focusShowAfter: function (tab) {
+                            awsuiTabsEvent.setTitle(tab.index,"凯文沃克"+tab.index);
+                        }
+                    };
+                    awsuiTabsEvent.addTab(setting);
+                }
+                function removeTab(){
+                    var index = awsuiTabsEvent.tabContainer.find(".current").attr("index");
+                    awsuiTabsEvent.closeTab(index);
+                }
+                function toFirst(){
+                    var obj = awsuiTabsEvent.getTabFirst();
+                    awsuiTabsEvent.focusTab(obj);
+                }
+                function toLast(){
+                    var obj = awsuiTabsEvent.getTabLast();
+                    awsuiTabsEvent.focusTab(obj);
+                }
+
+                var awsuiTabsDel = awsui.tabs.init($("#cardTabsDel"), {
+                    height:35,
+                    contentPanel : $("#cardTabsDelPanel"),
+                    tabPosition : "top",
+                    onClick:function(tab){
+                        var curIndex = tab.index;
+                        return true;
+                    }
+                });
+                awsuiTabsDel.addTab({
+                    item : {
+                        color:"#108ee9",
+                        index : 1,
+                        title : "<span class='awsui-tab-curent-text'>Tabs1</span>",
+                        content:$("<div class='awsui-tab-content-item' index='1'>Content of Tab Pane 1</div>")
+                    },
+                    close : true
+                });
+                awsuiTabsDel.addTab({
+                    item : {
+                        index : 2,
+                        title : "<span class='awsui-tab-curent-text'>Tabs2</span>",
+                        content:$("<div class='awsui-tab-content-item' index='2'>Content of Tab Pane 2</div>")
+                    },
+                    close : true
+                });
+                awsuiTabsDel.addTab({
+                    item : {
+                        index : 3,
+                        title : "<span class='awsui-tab-curent-text'>Tabs3</span>",
+                        content:$("<div class='awsui-tab-content-item' index='3'>Content of Tab Pane 3</div>"),
+                        contextMenu:true,
+                        contextMenuTarget:"contextMenu1"
+                    },
+                    close : true
+                });
+            });
+            /*function onbeforechange(tab, contentTabId, newTabId) {
+                console.log("改变之前事件");
+                console.log("tab",tab);
+                console.log("contentTabId",contentTabId);
+                console.log("newTabId",newTabId);
+            }
+            function onchange(tab, newTabId) {
+                console.log("改变之后事件");
+                console.log("tab",tab);
+                console.log("newTabId",newTabId);
+            }*/
+		</script>
+	</body>
+</html>

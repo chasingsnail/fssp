@@ -1,0 +1,358 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="content" content="基于AWSUI-Address的主流前端响应式框架">
+	<meta name="keywords" content="地址簿组件 - AWSUI">
+	<title>Address</title>
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../../css/awsui.css">
+	<link rel="stylesheet" href="../css/uidoc.css?v=1">
+	<link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+	<link rel="stylesheet" href="../../js/jquery/themes/default/ui/aws.pqgrid.css"/>
+	<link rel="stylesheet" href="../../js/jquery/themes/default/ui/aws.pqgrid.custom.css"/>
+</head>
+<body>
+<div class="awsui-wrapper">
+	<div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 awsui-border-bottom">
+		<div class="awsui-markdown">
+			<h1 class="title2" id="milestone">地址簿</h1>
+			<p class="awsui-margin-bottom-14">
+				<code>AWSUI</code>地址簿组件为用户提供了人员地址簿、部门地址簿两种地址簿可供用户选择使用，其中人员地址簿中，可分为普通模式和高级模式，高级模式的回填内容较于普通模式要更丰富。
+			</p>
+		</div>
+	</div>
+	<div class="col-sm-12 col-md-12 col-xs-12">
+		<div class="awsui-markdown">
+			<div class="awsui-code-title title2" id="API">
+				API
+			</div>
+			<ul>
+				<li>$(el).address(config);</li>
+			</ul>
+			<p>config 参数如下：</p>
+		</div>
+		<table class="awsui-table awsui-margin-bottom-24">
+			<thead>
+			<tr>
+				<th width="20%">参数</th>
+				<th width="50%">说明</th>
+				<th>类型</th>
+				<th>默认值</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>callback</td>
+				<td>回调函数</td>
+				<td>function</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>filter</td>
+				<td style="padding:0;">
+					<table class="awsui-table awsui-children-table">
+						<tr>
+							<td colspan="2">addressType:地址簿类型，可选值<code>"user"（人员地址簿）、"dept"（部门地址簿）</code></td>
+						</tr>
+						<tr>
+							<td colspan="2">isAdvMode：是否启用高级模式</td>
+						</tr>
+						<tr>
+							<td colspan="2">addressSetting:地址簿设置，其值为对象(详解如下)</td>
+						</tr>
+						<tr>
+							<td width="40%">addressSetting</td>
+							<td  style="padding:0; border-left:1px solid #e9e9e9!important">
+								<table class="awsui-table awsui-children-table">
+									<tr>
+										<td>rootDetpId：根部门Id。值类型为String</td>
+									</tr>
+									<tr>
+										<td>isDisplayMap：是否显示兼职,默认值为<code>false</code></td>
+									</tr>
+									<tr>
+										<td>layerFrom 值类型为String</td>
+									</tr>
+									<tr>
+										<td>layerTo 值类型为String</td>
+									</tr>
+									<tr>
+										<td>range：分类显示范围，值为<code>"department(部门)|role(角色)|team(团队)"</code></td>
+									</tr>
+									<tr>
+										<td>choiceType：值为<code>"single"(单选)/"multiple"(多选)</code></td>
+									</tr>
+									<tr>
+										<td>leafType：叶子节点类型。值为<code>"user"(用户)/"dept"(部门)</code></td>
+									</tr>
+									<tr>
+										<td>filterClass：过滤事件Class</td>
+									</tr>
+									<tr>
+										<td>
+											sourceField:字典的数据源字段,通常是orguser表中的字段,回填值有<br/>
+											<code>
+												"COMPANYNAME"(单位名称)<br/>
+												"COMPANYID"(单位ID)<br/>
+												"COMPANYNO"(单位编码)<br/>
+												"DEPTNAME"(部门名称)<br/>
+												"DEPTID"(部门ID)<br/>
+												"DEPTNO"(部门编码)<br/>
+												"USERID"(用户ID)<br/>
+												"UID"(用户帐号)<br/>
+												"USERNAME"(用户姓名)<br/>
+												"USERNAMEALIAS"(用户全名)<br/>
+												"USERNO"(员工代码)<br/>
+												"ROLEID"(角色ID),<br/>
+												"POSITIONNAME"(职位名称)<br/>
+												"POSITIONNO"(职位编号)<br/>
+												"POSITIONLAYER"(职位等级)<br/>
+												"EMAIL"(邮箱)<br/>
+												"OFFICETEL"(电话)<br/>
+												"MOBILE"(手机)<br/>
+												"OFFICEFAX"(传真)<br/>
+												"EXT1"(扩展标记1)<br/>
+												"EXT2"(扩展标记2)<br/>
+												"EXT3"(扩展标记3)<br/>
+												"EXT4"(扩展标记4)<br/>
+												"EXT5"(扩展标记5)<br/>
+												"TEAMID"(团队ID(仅在回填团队时生效))<br/>
+												"TEAMNAME"(团队名称(仅在回填团队时生效))
+											</code>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+				<td>object</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>deptTargetField</td>
+				<td>部门回填字段</td>
+				<td>string</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>isLiveSearch</td>
+				<td>是否允许搜索</td>
+				<td>boolean</td>
+				<td>true</td>
+			</tr>
+			<tr>
+				<td>allowAnyValue</td>
+				<td>是否允许输入任意值</td>
+				<td>boolean</td>
+				<td>false</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="col-sm-12 col-md-12 col-xs-12">
+		<div class="awsui-code-title title2" id="event1">
+			基本
+		</div>
+		<p class="awsui-margin-top-5">最基本的用法。</p>
+		<div class="awsui-code-demo">
+			<img src="../img/address_user.png?v=1" class="img-responsive">
+		</div>
+		<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+		<div class="awsui-code-info">
+            <pre><code class="language-html">&lt;div class="awsui-code-demo"&gt;
+    &lt;input type="text" id="address1" class="awsui-input"/&gt;
+&lt;/div&gt;
+</code></pre>
+		</div>
+		<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+		<div class="awsui-code-info">
+            <pre><code class="language-js">$("#address1").address();</code></pre>
+		</div>
+	</div>
+	<div class="col-sm-12 col-md-12 col-xs-12">
+		<div class="awsui-code-title title2" id="event2">
+			高级地址簿
+		</div>
+		<p class="awsui-margin-top-5">高级地址簿。</p>
+		<div class="awsui-code-demo">
+			<input type="text" id="address1_1" class="awsui-input"/>
+			<img src="../img/address_user_adv.png?v=1" class="img-responsive">
+		</div>
+		<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+		<div class="awsui-code-info">
+            <pre><code class="language-html">&lt;div class="awsui-code-demo"&gt;
+    &lt;input type="text" id="address1_1" class="awsui-input"/&gt;
+&lt;/div&gt;
+</code></pre>
+		</div>
+		<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+		<div class="awsui-code-info">
+                    <pre><code class="language-js">var options = {
+	filter : {
+		addressType: "user",
+		isAdvMode: true,
+		addressSetting: {
+			layerFrom: "1",
+			layerTo: "3",
+			range: "department|role|team",
+			delimiter: " ",
+			choiceType: "single",
+			leafType: "user"
+		},
+		sourceField : "UID",
+		targetField : "address1_1"
+	}
+}；
+$("#address1_1").address(options);
+</code></pre>
+		</div>
+	</div>
+	<div class="col-sm-12 col-md-12 col-xs-12">
+		<div class="awsui-code-title title2" id="event3">
+			部门地址簿
+		</div>
+		<p class="awsui-margin-top-5">部门地址簿。</p>
+		<div class="awsui-code-demo">
+			<img src="../img/address_dept.png?v=1" class="img-responsive">
+		</div>
+		<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+		<div class="awsui-code-info">
+            <pre><code class="language-html">&lt;div class="awsui-code-demo"&gt;
+    &lt;input type="text" id="address_dept" class="awsui-input"/&gt;
+&lt;/div&gt;
+</code></pre>
+		</div>
+		<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+		<div class="awsui-code-info">
+                    <pre><code class="language-js">var options = {
+	filter : {
+		addressType: "dept",
+		deptSourceField : "DEPTID",
+		deptTargetField : "address_dept"
+	}
+}；
+$("#address_dept").address(options);
+</code></pre>
+		</div>
+	</div>
+	<div class="col-sm-12 col-md-12 col-xs-12">
+		<div class="awsui-code-title title2" id="event4">
+			地址簿完整配置
+		</div>
+		<p class="awsui-margin-top-5">地址簿完整配置。</p>
+		<div class="awsui-code-demo">
+		</div>
+		<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+		<div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;div class="awsui-code-demo"&gt;
+    &lt;input type="text" id="address_full" class="awsui-input"/&gt;
+&lt;/div&gt;
+</code></pre>
+		</div>
+		<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+		<div class="awsui-code-info">
+                    <pre><code class="language-js">var options = {
+	callback : null,
+	filter : {
+		addressType: "dept",//地址簿类型
+		isAdvMode: true,//是否启用高级模式
+		addressSetting: {
+			rootDetpId: "",
+			isDisplayMap: true,
+			isDisplayOtherMap: false,
+			layerFrom: "",
+			layerTo: "",
+			range: "department|role|team",//department:部门,role:角色,team:团队
+			delimiter: " ",
+			choiceType: "single",//single:单选; multiple:多选
+			leafType: "user",//叶子节点类型,user:用户;dept:部门
+			filterClass: ""//过滤事件
+		},
+		//字典的数据源字段，通常是orguser表中的字段 ,多个用逗号隔开;回填值选择：
+		sourceField: "",
+			COMPANYNAME,//单位名称
+			COMPANYID,//单位ID,
+			COMPANYNO,//单位编码
+			DEPTNAME,//部门名称
+			DEPTID,//部门ID
+			DEPTNO,//部门编码
+			USERID,//用户ID
+			UID,//用户帐号
+			USERNAME,//用户姓名
+			USERNAMEALIAS,//用户全名
+			USERNO,//员工代码
+			ROLEID,//角色ID
+			POSITIONNAME,//职位名称
+			POSITIONNO,//职位编号
+			POSITIONLAYER,//职位等级
+			EMAIL,//邮箱
+			OFFICETEL,//电话
+			MOBILE,//手机
+			OFFICEFAX,//传真
+			EXT1,//扩展标记1
+			EXT2,//扩展标记2
+			EXT3,//扩展标记3
+			EXT4,//扩展标记4
+			EXT5,//扩展标记5
+		//回填字段 targetField应与sourceField个数相匹配
+		targetField: "",
+		deptSourceField : "", //部门数据源字段
+			COMPANYNAME,//单位名称
+			COMPANYID,//单位ID,
+			COMPANYNO,//单位编码
+			DEPTNAME,//部门名称
+			DEPTID,//部门ID
+			DEPTNO,//部门编码
+			DEPTZONE,//区域划分
+			EXT1,//扩展标记A
+			EXT2,//扩展标记B
+		deptTargetField : ""  //部门回填字段
+	},
+	valueType : 0, //0:aliasname; 1:uid; 2:username
+	separator : " ", //逗号 空格……分隔符
+	inDialog : false,//是否在dialog内部
+	dialogId : "",//若地址簿在iframe下,应当配置dialogId来定位回填多个target
+	isGrid : false, //在grid中打开
+	gridId : "", //初始化grid的jquery对象
+	gridRowIndx : 0,//grid行索引
+    isClearData: true,//默认提供清空按钮
+    isLiveSearch: true, // 快速搜索
+    maxRowNumber: 0, // div最大显示几行，大于0生效
+    clearCallback: null
+};
+$("#address_full").address(options);
+</code></pre>
+		</div>
+	</div>
+</div>
+<div class="section_right">
+	<div class="nav">
+		<!-- 右侧导航 -->
+	</div>
+</div>
+<div class="navTop">
+	<img src="../img/top.png" alt=""/>
+</div>
+<script src="../../js/jquery/scripts/jquery.js"></script>
+<script src="../../js/awsui.js"></script>
+<script src="../prism/prism.js"></script>
+<script src="../js/public.js?v=1"></script>
+<script src="../../js/jquery/scripts/ui/slider/js/range.js"></script>
+<script src="../../js/jquery/scripts/ui/slider/js/timer.js"></script>
+<script src="../../js/jquery/scripts/ui/slider/js/slider.js"></script>
+<script type="text/javascript">
+    var 清空数据 = "清空数据";
+    var 确定 = "确定";
+    var 取消 = "取消";
+    var 快速搜索 = "快速搜索";
+    var 地址簿 = "地址簿";
+    var 人员 = "人员";
+    $(document).ready(function() {
+        //$("#address1").address();
+    });
+</script>
+</body>
+</html>

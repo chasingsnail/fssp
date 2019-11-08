@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="基于AWSUI-layout的主流前端响应式框架">
+		<meta name="keywords" content="布局 - AWSUI">
+		<title>Layout</title>
+		<link rel="stylesheet" href="../../css/awsui.css">
+		<link rel="stylesheet" href="../css/bootstrap.css">
+		<link rel="stylesheet" href="../css/uidoc.css?v=1">
+		<link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+		<style>
+			.awsui-demo1{
+				margin:0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="awsui-wrapper">
+			<div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 awsui-border-bottom">
+				<div class="awsui-markdown">
+					<h1 class="title2" id="layout">页面布局</h1>
+					<p class="awsui-margin-bottom-14">进行页面级整体合理布局。</p>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-markdown">
+					<div class="awsui-code-title">
+						API
+					</div>
+					<ul>
+						<li>$(el).layout(config)</li>
+					</ul>
+					<p> layout()方法，设置传入方法中的参数，即可进行页面布局，config 参数如下：</p>
+				</div>
+				<table class="awsui-table awsui-margin-bottom-24">
+					<thead>
+						<tr>
+							<th width="20%">参数</th>
+							<th width="40%">说明</th>
+							<th width="20%">类型</th>
+							<th>默认值</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>left</td>
+							<td>config属性之一，其结构为left:{target:""}</td>
+							<td>object</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>right</td>
+							<td>config属性之一，其结构为right:{target:""}</td>
+							<td>object</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>open</td>
+							<td>config属性之一，其结构为open:true/false</td>
+							<td>boolean</td>
+							<td>false</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event1">
+					上中下布局
+				</div>
+				<p class="awsui-margin-top-5">最基本的『上-中-下』布局。</p>
+				<p class="awsui-margin-top-5">一般主导航放置于页面的顶端，从左自右依次为：logo、一级导航项、辅助菜单（用户、设置、通知等）。上下级的结构符合用户上下浏览的习惯，也是较为经典的网站导航模式。页面上下切分的方式提高了主工作区域的信息展示效率，但在纵向空间上会有一些牺牲。此外，由于导航栏水平空间的限制，不适合那些一级导航项很多的信息结构。</p>
+				<div class="awsui-code-demo">
+					<div id="awsui-demo1" class="awsui-layout awsui-public-border">
+						<div class="awsui-header">
+							<div class="awsui-logo"></div>
+							<ul class="awsui-demo1">
+								<li class="awsui-header-nav awsui-header-this">nav1</li>
+								<li class="awsui-header-nav">nav2</li>
+								<li class="awsui-header-nav">nav3</li>
+							</ul>
+						</div>
+						<div class="awsui-content">
+							<div class="awsui-breadcrumb" style="padding:0 10px;">
+								<span class="awsui-breadcrumb-text">Home</span>
+								<span class="awsui-breadcrumb-separator">/</span>
+								<span class="awsui-breadcrumb-text">List</span>
+								<span class="awsui-breadcrumb-separator">/</span>
+								<span class="awsui-breadcrumb-text">App</span>
+							</div>
+							<div class="awsui-content-ifream" style="line-height: 450px;font-size: 40px;
+        color:rgba(0,0,0,.15);text-align: center">iframe</div>
+						</div>
+
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;div id="awsui-demo1" class="awsui-layout awsui-public-border"&gt;
+	&lt;div class="awsui-header"&gt;
+		&lt;div class="awsui-logo"&gt;&lt;/div&gt;
+		&lt;ul class="awsui-demo1"&gt;
+			&lt;li class="awsui-header-nav awsui-header-this"&gt;nav1&lt;/li&gt;
+			&lt;li class="awsui-header-nav"&gt;nav2&lt;/li&gt;
+			&lt;li class="awsui-header-nav"&gt;nav3&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;
+	&lt;div class="awsui-content"&gt;
+		&lt;div class="awsui-breadcrumb"&gt;
+			&lt;span class="awsui-breadcrumb-text"&gt;Home&lt;/span&gt;
+			&lt;span class="awsui-breadcrumb-separator"&gt;/&lt;/span&gt;
+			&lt;span class="awsui-breadcrumb-text"&gt;List&lt;/span&gt;
+			&lt;span class="awsui-breadcrumb-separator"&gt;/&lt;/span&gt;
+			&lt;span class="awsui-breadcrumb-text"&gt;App&lt;/span&gt;
+		&lt;/div&gt;
+		&lt;div class="awsui-content-ifream" style="line-height: 450px;font-size: 40px;
+		color:rgba(0,0,0,.15);text-align: center"&gt;
+			iframe
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$(".awsui-demo1 li").on("click",function(){
+    $(".awsui-demo1 li").each(function(){
+        $(this).removeClass("awsui-header-this");
+    });
+    $(this).addClass("awsui-header-this");
+})
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event2">
+					上左右布局
+				</div>
+				<p class="awsui-margin-top-5">同样拥有顶部导航及侧边栏，多用于应用型的网站。</p>
+				<div class="awsui-code-demo">
+					<div id="awsui-demo2" class="awsui-layout awsui-public-border" >
+						<div class="awsui-left">
+							<div class="awsui-left-header">
+								<div class="awsui-header-logo"></div>
+							</div>
+							<div class="awsui-left-menu">
+								<ul id="awsui-demo2-left">
+									<li>
+										<div class="awsui-left-slide">
+											<span class="awsui-iconfont awsui-left-nav-font">&#58893;</span>
+											<span class="awsui-left-nav-text">leftNav1</span>
+										</div>
+										<ul class="awsui-menuList">
+											<li class="awsui-left-bg-this"><span class="awsui-left-childText awsui-left-this">option1</span><span class="awsui-left-style awsui-left-nav-this"></span></li>
+											<li><span class="awsui-left-childText">option2</span><span class="awsui-left-style"></span></li>
+											<li><span class="awsui-left-childText">option3</span><span class="awsui-left-style"></span></li>
+										</ul>
+									</li>
+									<li>
+										<div class="awsui-left-slide">
+											<span class="awsui-iconfont awsui-left-nav-font">&#58959;</span>
+											<span class="awsui-left-nav-text">leftNav2</span>
+										</div>
+										<ul class="awsui-menuList">
+											<li><span class="awsui-left-childText">option4</span><span class="awsui-left-style "></span></li>
+											<li><span class="awsui-left-childText">option5</span><span class="awsui-left-style"></span></li>
+											<li><span class="awsui-left-childText">option6</span><span class="awsui-left-style"></span></li>
+										</ul>
+									</li>
+									<li>
+										<div class="awsui-left-slide">
+											<span class="awsui-iconfont awsui-left-nav-font">&#58901;</span>
+											<span class="awsui-left-nav-text">leftNav3</span>
+										</div>
+										<ul class="awsui-menuList">
+											<li><span class="awsui-left-childText">option7</span><span class="awsui-left-style"></span></li>
+											<li><span class="awsui-left-childText">option8</span><span class="awsui-left-style"></span></li>
+											<li><span class="awsui-left-childText">option9</span><span class="awsui-left-style"></span></li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="awsui-right">
+							<ul class="awsui-header awsui-demo2">
+								<li class="awsui-header-nav awsui-header-this">nav1</li>
+								<li class="awsui-header-nav">nav2</li>
+								<li class="awsui-header-nav">nav3</li>
+							</ul>
+							<div class="awsui-breadcrumb">
+								<span class="awsui-breadcrumb-text" style="margin-left:40px;">Home</span>
+								<span class="awsui-breadcrumb-separator">/</span>
+								<span class="awsui-breadcrumb-text">List</span>
+								<span class="awsui-breadcrumb-separator">/</span>
+								<span class="awsui-breadcrumb-text">App</span>
+							</div>
+							<div class="awsui-right-content" style="line-height: 450px;font-size: 40px;
+        color:rgba(0,0,0,.15);text-align: center">iframe</div>
+						</div>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;div id="awsui-demo2" class="awsui-layout awsui-public-border" &gt;
+	&lt;div class="awsui-left"&gt;
+		&lt;div class="awsui-left-header"&gt;
+			&lt;div class="awsui-header-logo"&gt;&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="awsui-left-menu"&gt;
+			&lt;ul id="awsui-demo2-left"&gt;
+				&lt;li&gt;
+					&lt;div class="awsui-left-slide"&gt;
+						&lt;span class="awsui-iconfont awsui-left-nav-font"&gt;&amp;#58893;&lt;/span&gt;
+						&lt;span class="awsui-left-nav-text"&gt;leftNav1&lt;/span&gt;
+					&lt;/div&gt;
+					&lt;ul class="awsui-menuList"&gt;
+						&lt;li class="awsui-left-bg-this"&gt;
+							&lt;span class="awsui-left-childText awsui-left-this"&gt;option1&lt;/span&gt;
+							&lt;span class="awsui-left-style awsui-left-nav-this"&gt;&lt;/span&gt;
+						&lt;/li&gt;
+						&lt;li&gt;
+							&lt;span class="awsui-left-childText"&gt;option2&lt;/span&gt;
+							&lt;span class="awsui-left-style"&gt;&lt;/span&gt;
+						&lt;/li&gt;
+						&lt;li&gt;
+							&lt;span class="awsui-left-childText"&gt;option3&lt;/span&gt;
+							&lt;span class="awsui-left-style"&gt;&lt;/span&gt;
+						&lt;/li&gt;
+					&lt;/ul&gt;
+				&lt;/li&gt;
+				&lt;li&gt;
+					&lt;div class="awsui-left-slide"&gt;
+						&lt;span class="awsui-iconfont awsui-left-nav-font"&gt;&amp;#58959;&lt;/span&gt;
+						&lt;span class="awsui-left-nav-text"&gt;leftNav2&lt;/span&gt;
+					&lt;/div&gt;
+					&lt;ul class="awsui-menuList"&gt;
+						&lt;li&gt;
+							&lt;span class="awsui-left-childText"&gt;option4&lt;/span&gt;
+							&lt;span class="awsui-left-style "&gt;&lt;/span&gt;
+						&lt;/li&gt;
+						&lt;li&gt;
+							&lt;span class="awsui-left-childText"&gt;option5&lt;/span&gt;
+							&lt;span class="awsui-left-style"&gt;&lt;/span&gt;
+						&lt;/li&gt;
+						&lt;li&gt;
+							&lt;span class="awsui-left-childText"&gt;option6&lt;/span&gt;
+							&lt;span class="awsui-left-style"&gt;&lt;/span&gt;
+						&lt;/li&gt;
+					&lt;/ul&gt;
+				&lt;/li&gt;
+				&lt;li&gt;
+					&lt;div class="awsui-left-slide"&gt;
+						&lt;span class="awsui-iconfont awsui-left-nav-font"&gt;&amp;#58901;&lt;/span&gt;
+						&lt;span class="awsui-left-nav-text"&gt;leftNav3&lt;/span&gt;
+					&lt;/div&gt;
+					&lt;ul class="awsui-menuList"&gt;
+						&lt;li&gt;
+							&lt;span class="awsui-left-childText"&gt;option7&lt;/span&gt;
+							&lt;span class="awsui-left-style"&gt;&lt;/span&gt;
+						&lt;/li&gt;
+						&lt;li&gt;
+							&lt;span class="awsui-left-childText"&gt;option8&lt;/span&gt;
+							&lt;span class="awsui-left-style"&gt;&lt;/span&gt;
+						&lt;/li&gt;
+						&lt;li&gt;
+							&lt;span class="awsui-left-childText"&gt;option9&lt;/span&gt;
+							&lt;span class="awsui-left-style"&gt;&lt;/span&gt;
+						&lt;/li&gt;
+					&lt;/ul&gt;
+				&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="awsui-right"&gt;
+		&lt;ul class="awsui-header awsui-demo2"&gt;
+			&lt;li class="awsui-header-nav awsui-header-this"&gt;nav1&lt;/li&gt;
+			&lt;li class="awsui-header-nav awsui-demo2"&gt;nav2&lt;/li&gt;
+			&lt;li class="awsui-header-nav awsui-demo2"&gt;nav3&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;div class="awsui-breadcrumb"&gt;
+			&lt;span class="awsui-breadcrumb-text" style="margin-left:40px;"&gt;Home&lt;/span&gt;
+			&lt;span class="awsui-breadcrumb-separator"&gt;/&lt;/span&gt;
+			&lt;span class="awsui-breadcrumb-text"&gt;List&lt;/span&gt;
+			&lt;span class="awsui-breadcrumb-separator"&gt;/&lt;/span&gt;
+			&lt;span class="awsui-breadcrumb-text"&gt;App&lt;/span&gt;
+		&lt;/div&gt;
+		&lt;div class="awsui-right-content" style="line-height: 450px;font-size: 40px;
+		color:rgba(0,0,0,.15);text-align: center"&gt;
+			iframe
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$(document).ready(function(){
+    $(".awsui-demo2 li").on("click",function(){
+        $(".awsui-demo2 li").each(function(){
+            $(this).removeClass("awsui-header-this");
+        });
+        $(this).addClass("awsui-header-this");
+    });
+    $("#awsui-demo2-left li").children("ul").children("li").on("click",function(){
+        $("#awsui-demo2-left li").children("ul").children("li").each(function(){
+            $(this).removeClass("awsui-left-bg-this");
+            $(this).children("span").eq(0).removeClass("awsui-left-this");
+            $(this).children("span").eq(1).removeClass("awsui-left-nav-this");
+        });
+        $(this).addClass("awsui-left-bg-this");
+        $(this).children("span").eq(0).addClass("awsui-left-this");
+        $(this).children("span").eq(1).addClass("awsui-left-nav-this");
+	});
+	$("#awsui-demo2-left li").children("div").on("click",function(){
+		$(this).next().slideToggle(500).parent($(this)).siblings().children('ul');
+	});
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event3">
+					左右布局
+				</div>
+				<p class="awsui-margin-top-5">侧边导航在页面布局上采用的是左右的结构，一般主导航放置于页面的左侧固定位置，辅助菜单放置于工作区顶部。内容根据浏览器终端进行自适应，能提高横向空间的使用率，但是整个页面排版不稳定。
+					侧边导航的模式层级扩展性强，一、二、三级导航项目可以更为顺畅且具关联性的被展示，同时侧边导航可以固定，使得用户在操作和浏览中可以快速的定位和切换当前位置，有很高的操作效率。
+				</p>
+				<div class="awsui-code-demo">
+					<div id="awsui-demo3" class="awsui-layout awsui-public-border" >
+						<div class="awsui-left">
+							<div class="awsui-left-header">
+								<div class="awsui-header-logo"></div>
+							</div>
+							<div class="awsui-left-menu">
+								<ul id="awsui-demo3-left">
+									<li>
+										<div class="awsui-left-slide">
+											<span class="awsui-iconfont awsui-left-nav-font awsui-left-this">&#58893;</span>
+											<span class="awsui-left-nav-text awsui-left-this">leftNav1</span>
+										</div>
+									</li>
+									<li>
+										<div class="awsui-left-slide">
+											<span class="awsui-iconfont awsui-left-nav-font">&#58959;</span>
+											<span class="awsui-left-nav-text">leftNav2</span>
+										</div>
+									</li>
+									<li>
+										<div class="awsui-left-slide">
+											<span class="awsui-iconfont awsui-left-nav-font">&#58901;</span>
+											<span class="awsui-left-nav-text">leftNav3</span>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="awsui-right">
+							<ul class="awsui-header" id="awsui-demo3-right">
+								<li class="awsui-scale" style=""><!--<img style="" src="/portal/commons/js/./a.png">--></li>
+							</ul>
+							<div class="awsui-right-content" style="line-height: 450px;font-size: 40px;
+        color:rgba(0,0,0,.15);text-align: center">
+								iframe
+							</div>
+						</div>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;div id="awsui-demo3" class="awsui-layout awsui-public-border" &gt;
+	&lt;div class="awsui-left"&gt;
+		&lt;div class="awsui-left-header"&gt;
+			&lt;div class="awsui-header-logo"&gt;&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="awsui-left-menu"&gt;
+			&lt;ul id="awsui-demo3-left"&gt;
+				&lt;li&gt;
+					&lt;div class="awsui-left-slide"&gt;
+					&lt;span class="awsui-iconfont awsui-left-nav-font awsui-left-this"&gt;
+					&amp;#58893;
+					&lt;/span&gt;
+					&lt;span class="awsui-left-nav-text awsui-left-this"&gt;leftNav1&lt;/span&gt;
+					&lt;/div&gt;
+				&lt;/li&gt;
+				&lt;li&gt;
+					&lt;div class="awsui-left-slide"&gt;
+					&lt;span class="awsui-iconfont awsui-left-nav-font"&gt;
+					&amp;#58959;
+					&lt;/span&gt;
+					&lt;span class="awsui-left-nav-text"&gt;leftNav2&lt;/span&gt;
+					&lt;/div&gt;
+				&lt;/li&gt;
+				&lt;li&gt;
+					&lt;div class="awsui-left-slide"&gt;
+					&lt;span class="awsui-iconfont awsui-left-nav-font"&gt;
+					&amp;#58901;
+					&lt;/span&gt;
+					&lt;span class="awsui-left-nav-text"&gt;leftNav3&lt;/span&gt;
+					&lt;/div&gt;
+				&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="awsui-right"&gt;
+		&lt;ul class="awsui-header" id="awsui-demo3-right"&gt;
+			&lt;li class="awsui-scale"&gt;&lt;!--img src="/portal/commons/js/./a.png"--&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;div class="awsui-right-content" style="line-height: 450px;font-size: 40px;color:rgba(0,0,0,.15);text-align: center"&gt;
+			iframe
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">var options = {
+	left:{
+		target:"awsui-demo3-left"
+	}
+};
+$("#awsui-demo3").layout(options);
+$("#" + options.left.target).children("li").children("div").on("click",function(){
+	$("#" + options.left.target).children("li").children("div").each(function(){
+		$(this).children("span").removeClass("awsui-left-this");
+	});
+	$(this).children("span").addClass("awsui-left-this");
+});
+</code></pre>
+				</div>
+			</div>
+		</div>
+		<div class="section_right">
+			<div class="nav">
+				<!-- 右侧导航 -->
+			</div>
+		</div>
+		<div class="navTop">
+			<img src="../img/top.png" alt=""/>
+		</div>
+		<script src="../../js/jquery/scripts/jquery.js"></script>
+		<script src="../../js/awsui.js"></script>
+		<script src="../prism/prism.js"></script>
+		<script src="../js/public.js?v=1"></script>
+		<script type="text/javascript">
+            $(document).ready(function() {
+                $(".awsui-demo1 li").on("click",function(){
+                    $(".awsui-demo1 li").each(function(){
+                        $(this).removeClass("awsui-header-this");
+                    });
+                    $(this).addClass("awsui-header-this")
+                });
+                $(".awsui-demo2 li").on("click",function(){
+                    $(".awsui-demo2 li").each(function(){
+                        $(this).removeClass("awsui-header-this");
+                    });
+                    $(this).addClass("awsui-header-this");
+                });
+                $("#awsui-demo2-left li").children("ul").children("li").on("click",function(){
+                    $("#awsui-demo2-left li").children("ul").children("li").each(function(){
+                        $(this).removeClass("awsui-left-bg-this");
+                        $(this).children("span").eq(0).removeClass("awsui-left-this");
+                        $(this).children("span").eq(1).removeClass("awsui-left-nav-this");
+                    });
+                    $(this).addClass("awsui-left-bg-this");
+                    $(this).children("span").eq(0).addClass("awsui-left-this");
+                    $(this).children("span").eq(1).addClass("awsui-left-nav-this");
+                });
+                $("#awsui-demo2-left li").children("div").on("click",function(){
+                    $(this).next().slideToggle(500).parent($(this)).siblings().children('ul');
+                });
+                //左右布局
+                var options = {
+                    left:{
+                        target:"awsui-demo3-left"
+                    }/*,
+                    right:{
+                        target:"awsui-demo3-right"
+                    },
+                    open:true*/
+                };
+                $("#awsui-demo3").layout(options);
+                $("#" + options.left.target).children("li").children("div").on("click",function(){
+                    $("#" + options.left.target).children("li").children("div").each(function(){
+                        $(this).children("span").removeClass("awsui-left-this");
+                    });
+                    $(this).children("span").addClass("awsui-left-this");
+                });
+            });
+		</script>
+	</body>
+</html>

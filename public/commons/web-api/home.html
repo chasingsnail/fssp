@@ -1,0 +1,76 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Home</title>
+<link rel="stylesheet" href="../css/awsui.css">
+<script src="../js/jquery/scripts/jquery.js"></script>
+<script src="../js/awsui.js"></script>
+<style type="text/css">
+h1 {
+  font-size: 24px;
+  line-height: 48px;
+  margin: 8px 0;
+  line-height: 1;
+  font-weight: normal;
+}
+.rubric {
+  font-size: 16px;
+  margin-top: 40px;
+  border-bottom: 1px solid #eee;
+  line-height: 2em;
+}
+.param_in{
+color:green;
+}
+.param_out{
+color:red;
+}
+.must{color:red;font-weight:bold;}
+.ui-accordion-title.current{background: #1e90ff;color:white;}
+#updateul{margin:12px 0;}
+#updateul .day{color:red;margin-right:6px;font-size:16px;}
+#updateul .outline{font-size:14px;}
+ul{padding:3px 0 0 0}
+li{padding:1px 0}
+</style>
+</head>
+<body>
+<div style="margin:25px;">
+<h1>更新</h1>
+<table class="awsui-ux">
+    <tbody><tr>
+        <td>
+          <table class="table table-bordered">
+              <tr>
+                <th width="120px">日期</th>
+                <th>说明</th>
+              </tr>
+              <tr>
+                <td width="120px" align="center">2018-10-18</td>
+                <td>HTTP API调整json序列化为fastjson，调用当前平台版本的用户请重新下载、更新aws-api-client.jar，更换jackson类库为fastjson。fastjson您可使用：bin/lib/json/fastjson-1.2.51.jar</td>
+              </tr>
+              <tr>
+                <td width="120px"  align="center">2015-08-13</td>
+                <td>HTTP API V1.0发布</td>
+              </tr>
+          </table>
+        </td>
+    </tr>
+</tbody></table>
+<br/>
+<p style='font-family:sans-serif;font-size:13px;'>相关链接：</p>
+<p style='font-weight: bold;color: #28a3ef;'><a href="./aws-api-client.jar">HTTP API Java客户端</a>
+	<ul><p>该客户端依赖：</p>
+		<li>webserver/webapps/portal/WEB-INF/lib/jackson-core-2.4.1.jar</li>
+		<li>webserver/webapps/portal/WEB-INF/lib/jackson-databind-2.4.1.jar</li>
+		<li>webserver/webapps/portal/WEB-INF/lib/jackson-module-jaxb-annotations-2.5.2.jar</li>
+		<li>webserver/webapps/portal/WEB-INF/lib/jackson-annotations-2.4.0.jar</li>
+	</ul>
+</p>
+<p style='font-weight: bold;color: #28a3ef;'><a href="./aws-api-client-source.jar">HTTP API Java客户端源代码</a></p>
+<p style='font-family:sans-serif;font-size:13px;margin-top:24px;'>更多文档：</p>
+<p style='font-weight: bold;color: #28a3ef;'><a href="https://docs.awspaas.com/reference-guide/aws-paas-api-guide/" target="_blank">https://docs.awspaas.com/reference-guide/aws-paas-api-guide/</a></p>
+</div>
+</body>
+</html>

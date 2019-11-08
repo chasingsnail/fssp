@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="content" content="基于AWSUI-atformula的主流前端响应式框架">
+		<meta name="keywords" content="公式编辑器 - AWSUI">
+		<title>atformula</title>
+		<link rel="stylesheet" href="../css/bootstrap.css">
+		<link rel="stylesheet" href="../../css/awsui.css">
+		<link rel="stylesheet" href="../css/uidoc.css?v=1">
+		<link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+		<link rel="stylesheet" href="../../js/jquery/themes/default/ui/aws.pqgrid.css"/>
+		<link rel="stylesheet" href="../../js/jquery/themes/default/ui/aws.pqgrid.custom.css"/>
+	</head>
+	<body>
+		<div class="awsui-wrapper">
+			<div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 awsui-border-bottom">
+				<div class="awsui-markdown">
+					<h1 class="title2" id="atformula">公式编辑器</h1>
+					<p class="awsui-margin-bottom-14">
+						<code>AWSUI</code>公式编辑器,适用于<code>input、textArea</code>。
+					</p>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event1">
+					内置编辑器
+				</div>
+				<p class="awsui-margin-top-5">内置编辑器。</p>
+				<div class="awsui-code-demo">
+					<input type="text"  class="awsui-input">
+					<span class="awsui-iconfont awsui-iconimg-right">&#59095;</span>
+					<img src="../img/form/@format.png" alt="" style="margin-top:10px;margin-bottom: 10px">
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;input type="text"  class="awsui-input"&gt;
+&lt;span class="awsui-iconfont awsui-iconimg-right"&gt;&amp;#59095;&lt;/span&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js"> $("#atFormula").atFormula({
+		sid:sid
+ });
+ //批量初始化
+ $('.awsui-at').atFormula({
+		sid:sid
+ });
+</code></pre>
+				</div>
+			</div>
+		</div>
+		<div class="section_right">
+			<div class="nav">
+				<!-- 右侧导航 -->
+			</div>
+		</div>
+		<div class="navTop">
+			<img src="../img/top.png" alt=""/>
+		</div>
+		<script src="../../js/jquery/scripts/jquery.js"></script>
+		<script src="../../js/awsui.js"></script>
+		<script src="../../js/jquery/scripts/ui/at.js"></script>
+		<script src="../prism/prism.js"></script>
+		<script src="../js/public.js?v=1"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+            $("#atFormula").atFormula({
+                sid:$("#atFormula")
+            });
+		});
+	</script>
+	</body>
+</html>

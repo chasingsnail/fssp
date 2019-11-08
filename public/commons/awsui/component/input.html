@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="基于AWSUI-Input的主流前端响应式框架">
+		<meta name="keywords" content="输入框 - AWSUI">
+		<title>input</title>
+		<link rel="stylesheet" href="../css/bootstrap.css">
+		<link rel="stylesheet" href="../../css/awsui.css">
+		<link rel="stylesheet" href="../css/uidoc.css?v=1">
+		<link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+	</head>
+	<body>
+		<div class="awsui-wrapper">
+			<div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 awsui-border-bottom">
+				<div class="awsui-markdown">
+					<h1 class="title2" id="">输入框</h1>
+					<p class="awsui-margin-bottom-14">在输入框中单击鼠标会出现插入点光标，我们可以直接在输入框中输入文字或文本信息。使用场景：</p>
+					<ul>
+						<li>需要用户输入表单域内容时。</li>
+						<li>提供组合型输入框，带图标（如搜索）的输入框，还可以进行大小选择。</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-markdown">
+					<div class="awsui-code-title">
+						CSS
+					</div>
+				</div>
+				<table class="awsui-table awsui-margin-bottom-24">
+					<thead>
+					<tr>
+						<th width="40%">class名称</th>
+						<th width="60%">说明</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>awsui-input</td>
+							<td>用于input元素上的主样式，也是默认样式</td>
+						</tr>
+						<tr>
+							<td>awsui-input-lg</td>
+							<td>控件大小。注：标准表单内的输入框大小限制为 large</td>
+						</tr>
+						<tr>
+							<td>awsui-input-sm</td>
+							<td>控件大小。注：标准表单内的输入框大小限制为 small</td>
+						</tr>
+						<tr>
+							<td>awsui-input-group</td>
+							<td>设置固定组合</td>
+						</tr>
+						<tr>
+							<td>awsui-input-group-addon</td>
+							<td>设置固定组合的前后置标签</td>
+						</tr>
+						<tr>
+							<td>awsui-input-wrapper</td>
+							<td>设置前后缀图标的父级元素</td>
+						</tr>
+						<tr>
+							<td>awsui-input-prefix</td>
+							<td>前缀图标</td>
+						</tr>
+						<tr>
+							<td>awsui-input-suffix</td>
+							<td>后缀图标</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-markdown">
+					<div class="awsui-code-title">
+						Attribute
+					</div>
+				</div>
+				<table class="awsui-table awsui-margin-bottom-24">
+					<thead>
+					<tr>
+						<th width="40%">属性名称</th>
+						<th width="60%">说明</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>disabled</td>
+							<td>禁用效果</td>
+						</tr>
+						<tr>
+							<td>readonly</td>
+							<td>只读效果</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event1">
+					基本使用
+				</div>
+				<p class="awsui-margin-top-5">基本使用。</p>
+				<div class="awsui-code-demo">
+					<input type="text" placeholder="Basic usage" class="awsui-input"/>
+				</div>
+				<div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;input type="text" placeholder="Basic usage" class="awsui-input"/&gt;
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event2">
+					三种大小
+				</div>
+				<p class="awsui-margin-top-5">我们为 &lt;Input /&gt; 输入框定义了三种尺寸（大<code>awsui-input-lg</code>、默认、小<code>awsui-input-sm</code>），高度分别为 32px、28px 和 22px。</p>
+				<p class="awsui-margin-top-5"> &lt;Input /&gt;宽度默认100%，若有特殊要求要指定宽度，请自行指定。</p>
+				<div class="awsui-code-demo">
+					<div class="awsui-example-input">
+						<input type="text" placeholder="large size" class="awsui-input awsui-input-lg">
+						<input type="text" placeholder="default size" class="awsui-input">
+						<input type="text" placeholder="small size" class="awsui-input awsui-input-sm">
+					</div>
+				</div>
+				<div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;div class="awsui-example-input"&gt;
+	&lt;input type="text" placeholder="large size" class="awsui-input awsui-input-lg"&gt;
+	&lt;input type="text" placeholder="default size" class="awsui-input"&gt;
+	&lt;input type="text" placeholder="small size" class="awsui-input awsui-input-sm"&gt;
+&lt;div&gt;
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event3">
+					前置/后置标签
+				</div>
+				<p class="awsui-margin-top-5">用于配置一些固定组合。</p>
+				<div class="awsui-code-demo">
+					<div class="awsui-margin-bottom-14">
+						<span class="awsui-input-group">
+							<span class="awsui-input-group-addon">
+								<span class="awsui-iconfont">&#58933;</span>
+							</span>
+							<input type="text" class="awsui-input" value="localhost"/>
+						</span>
+					</div>
+					<div class="awsui-margin-bottom-14">
+						<span class="awsui-input-group">
+							<input type="text" class="awsui-input" value="localhost"/>
+							<span class="awsui-input-group-addon">
+								<span class="awsui-iconfont">&#58933;</span>
+							</span>
+						</span>
+					</div>
+					<div class="awsui-margin-bottom-14">
+						<span class="awsui-input-group">
+							<span class="awsui-input-group-addon">Http://</span>
+							<input type="text" class="awsui-input" value="localhost"/>
+							<span class="awsui-input-group-addon">.com</span>
+						</span>
+					</div>
+					<div class="awsui-margin-bottom-14">
+						<span class="awsui-input-group">
+							<span class="awsui-input-group-addon awsui-select-group awsui-select-group-noborder-right"><select id="demo1"></select></span>
+							<input type="text" class="awsui-input" value="localhost"/>
+							<span class="awsui-input-group-addon awsui-select-group awsui-select-group-noborder-left"><select id="demo2"></select></span>
+						</span>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+                    <pre><code class="language-html">//前置标签
+&lt;span class="awsui-input-group"&gt;
+	&lt;span class="awsui-input-group-addon"&gt;
+		&lt;span class="awsui-iconfont"&gt;&amp;#58933;&lt;/span&gt;
+	&lt;/span&gt;
+	&lt;input type="text" class="awsui-input" value="localhost"/&gt;
+&lt;/span&gt;
+//后置标签
+&lt;span class="awsui-input-group"&gt;
+	&lt;input type="text" class="awsui-input" value="localhost"/&gt;
+	&lt;span class="awsui-input-group-addon"&gt;
+		&lt;span class="awsui-iconfont"&gt;&amp;#58933;&lt;/span&gt;
+	&lt;/span&gt;
+&lt;/span&gt;
+//前后置标签
+&lt;span class="awsui-input-group"&gt;
+	&lt;span class="awsui-input-group-addon"&gt;Http://&lt;/span&gt;
+	&lt;input type="text" class="awsui-input" value="localhost"/&gt;
+	&lt;span class="awsui-input-group-addon"&gt;.com&lt;/span&gt;
+&lt;/span&gt;
+//带select前后置标签
+&lt;span class="awsui-input-group"&gt;
+	&lt;span class="awsui-input-group-addon awsui-select-group awsui-select-group-noborder-right"&gt;&lt;select id="demo1"&gt;&lt;/select&gt;&lt;/span&gt;
+	&lt;input type="text" class="awsui-input" value="localhost"/&gt;
+	&lt;span class="awsui-input-group-addon awsui-select-group awsui-select-group-noborder-left"&gt;&lt;select id="demo2"&gt;&lt;/select&gt;&lt;/span&gt;
+&lt;/span&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+                    <pre><code class="language-js">$(document).ready(function() {
+	var opt = {
+		width: "100%",
+		data: [
+			{id: "http1", text: "Http://"},
+			{id: "http2", text: "Https://"},
+		]
+	};
+	$("#demo1").select2(opt);
+	var opt2 = {
+		width: "100%",
+		data: [
+			{id: "com1", text: ".com"},
+			{id: "com2", text: ".jp"},
+			{id: "com3", text: ".cn"},
+			{id: "com4", text: ".org"}
+		]
+	};
+	$("#demo2").select2(opt2);
+});
+</code></pre>
+			</div>
+		</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event4">
+					前缀和后缀
+				</div>
+				<p class="awsui-margin-top-5">在输入框上添加前缀或后缀图标。</p>
+				<div class="awsui-code-demo">
+					<div class="awsui-margin-bottom-14">
+						<span class="awsui-input-wrapper">
+							<span class="awsui-input-prefix">
+								<i class="awsui-iconfont">&#58906;</i>
+							</span>
+							<input type="text" placeholder="Enter your userName" value="" class="awsui-input" style="padding-left: 24px\9;"/>
+						</span>
+					</div>
+					<div class="awsui-margin-bottom-14">
+						<span class="awsui-input-wrapper">
+							<input type="text" placeholder="Enter your userName" value="" class="awsui-input" style="padding-right: 24px\9;"/>
+							<span class="awsui-input-suffix">
+								<i class="awsui-iconfont">&#59113;</i>
+							</span>
+						</span>
+					</div>
+				</div>
+				<div class="awsui-code-info">
+                    <pre><code class="language-html">//前缀
+&lt;span class="awsui-input-wrapper"&gt;
+	&lt;span class="awsui-input-prefix"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58906;&lt;/i&gt;
+	&lt;/span&gt;
+	&lt;input type="text" class="awsui-input" placeholder="Enter your userName" value=""/&gt;
+&lt;/span&gt;
+//后缀
+&lt;span class="awsui-input-wrapper"&gt;
+	&lt;input type="text" class="awsui-input" placeholder="Enter your userName" value=""/&gt;
+	&lt;span class="awsui-input-suffix"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#59113;&lt;/i&gt;
+	&lt;/span&gt;
+&lt;/span&gt;
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event5">
+					输入框组合
+				</div>
+				<p class="awsui-margin-top-5">输入框的组合展现。</p>
+				<p class="awsui-margin-top-5"><code>注意：使用 compact 模式时，不需要通过 Col 来控制宽度。</code></p>
+				<div class="awsui-code-demo">
+					<div class="awsui-margin-bottom-14">
+						<div class="awsui-input-group">
+							<span class="awsui-col-md-3 awsui-col-sm-3 awsui-col-xs-3">
+								<input type="text" value="123456" class="awsui-input"/>
+							</span>
+							<span class="awsui-col-md-6 awsui-col-sm-6 awsui-col-xs-6">
+								<input type="text" value="123456789" class="awsui-input"/>
+							</span>
+						</div>
+					</div>
+					<div class="awsui-margin-bottom-14">
+						<span class="awsui-input-group awsui-input-group-compact">
+							<input type="text" class="awsui-input awsui-border-no-right" value="1234" style="width: 20%;"/>
+							<input type="text" class="awsui-input" value="123456789" style="width: 30%;"/>
+						</span>
+					</div>
+					<div class="awsui-margin-bottom-14">
+						<span class="awsui-input-group awsui-input-group-compact">
+							<input type="text" class="awsui-input awsui-border-no-right" value="123" style="width: 20%;"/>
+							<input type="text" class="awsui-input" value="123456" style="width: 30%;"/>
+							<input type="text" class="awsui-input awsui-border-no-left" value="123456789" style="width: 40%;"/>
+						</span>
+					</div>
+				</div>
+				<div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;div class="awsui-input-group"&gt;
+	&lt;span class="awsui-col-md-3 awsui-col-sm-3 awsui-col-xs-3"&gt;
+		&lt;input type="text" value="123456" class="awsui-input"/&gt;
+	&lt;/span&gt;
+	&lt;span class="awsui-col-md-6 awsui-col-sm-6 awsui-col-xs-6"&gt;
+		&lt;input type="text" value="123456789" class="awsui-input"/&gt;
+	&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;span class="awsui-input-group awsui-input-group-compact"&gt;
+	&lt;input type="text" class="awsui-input awsui-border-no-right" value="1234" style="width: 20%;"/&gt;
+	&lt;input type="text" class="awsui-input" value="123456789" style="width: 30%;"/&gt;
+&lt;/span&gt;
+
+&lt;span class="awsui-input-group awsui-input-group-compact"&gt;
+	&lt;input type="text" class="awsui-input awsui-border-no-right" value="123" style="width: 20%;"/&gt;
+	&lt;input type="text" class="awsui-input" value="123456" style="width: 30%;"/&gt;
+	&lt;input type="text" class="awsui-input awsui-border-no-left" value="123456789" style="width: 40%;"/&gt;
+&lt;/span&gt;
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event6">
+					文本域
+				</div>
+				<p class="awsui-margin-top-5">用于多行输入，使用textarea标签,通过设置属性<code>rows=""</code>来指定行数。</p>
+				<div class="awsui-code-demo">
+					<textarea type="textarea" rows="4" class="awsui-input"></textarea>
+				</div>
+				<div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;textarea type="textarea" rows="4" class="awsui-input"&gt;&lt;/textarea&gt;
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event7">
+					禁用效果
+				</div>
+				<p class="awsui-margin-top-5">禁止和只读效果,添加属性<code>disabled和readonly</code>。</p>
+				<div class="awsui-code-demo">
+					<input type="text" value="禁止效果" disabled class="awsui-input"/>
+					<input type="text" value="只读效果" readonly class="awsui-input awsui-margin-top-10"/>
+				</div>
+				<div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;input type="text" value="禁止效果" disabled class="awsui-input"/&gt;
+&lt;input type="text" value="只读效果" readonly class="awsui-input"/&gt;
+</code></pre>
+				</div>
+			</div>
+		</div>
+		<div class="section_right">
+			<div class="nav">
+				<!-- 右侧导航 -->
+			</div>
+		</div>
+		<div class="navTop">
+			<img src="../img/top.png" alt=""/>
+		</div>
+		<script src="../../js/jquery/scripts/jquery.js"></script>
+		<script src="../../js/awsui.js"></script>
+		<script src="../prism/prism.js"></script>
+		<script src="../js/public.js?v=1"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+                var opt = {
+                    width: "100%",
+                    data: [
+                        {id: "http1", text: "Http://"},
+                        {id: "http2", text: "Https://"}
+                    ]
+                };
+                $("#demo1").select2(opt);
+                var opt2 = {
+                    width: "100%",
+                    data: [
+                        {id: "com1", text: ".com"},
+                        {id: "com2", text: ".jp"},
+                        {id: "com3", text: ".cn"},
+                        {id: "com4", text: ".org"}
+                    ]
+                };
+                $("#demo2").select2(opt2);
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="基于AWSUI-Box的主流前端响应式框架">
+        <meta name="keywords" content="盒子 - AWSUI">
+        <title>Box</title>
+        <link rel="stylesheet" href="../../css/awsui.css">
+        <link rel="stylesheet" href="../css/bootstrap.css">
+        <link rel="stylesheet" href="../css/uidoc.css?v=1">
+        <link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+    </head>
+    <body>
+        <div class="awsui-wrapper">
+            <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 awsui-border-bottom">
+                <div class="awsui-markdown">
+                    <h1 class="title2" id="box">盒子</h1>
+                    <p class="awsui-margin-bottom-14">日常生活中所见的盒子也就是能装东西的一种箱子，把HTML页面中的元素看作是一个矩形的盒子，也就是一个盛装内容的容器，称它为盒子模型。</p>
+                    <ul>
+                        <li>盒子区域，可以装载图片、文字等页面元素。</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-markdown">
+                    <div class="awsui-code-title">
+                        API
+                    </div>
+                    <ul>
+                        <li>$(el).box(config)</li>
+                    </ul>
+                    <p>config 参数如下：</p>
+                </div>
+                <table class="awsui-table awsui-margin-bottom-24">
+                    <thead>
+                        <tr>
+                            <th width="20%">参数</th>
+                            <th width="40%">说明</th>
+                            <th width="20%">类型</th>
+                            <th>默认值</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>id</td>
+                            <td>box的唯一标识，id</td>
+                            <td>string</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>width</td>
+                            <td>box的宽度</td>
+                            <td>number</td>
+                            <td>默认适应内容</td>
+                        </tr>
+                        <tr>
+                            <td>height</td>
+                            <td>box的高度</td>
+                            <td>number</td>
+                            <td>默认适应内容</td>
+                        </tr>
+                        <tr>
+                            <td>background</td>
+                            <td>box区域选中时背景颜色</td>
+                            <td>string</td>
+                            <td>#f9f9f9</td>
+                        </tr>
+                        <tr>
+                            <td>fontSize</td>
+                            <td>字体库图标大小</td>
+                            <td>number</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>color</td>
+                            <td>字体库图标颜色</td>
+                            <td>string</td>
+                            <td>#0ca72d</td>
+                        </tr>
+                        <tr>
+                            <td>icon</td>
+                            <td>字体库图标（默认的是选中图标，若想改图标请修改图标对应的Unicode字符）</td>
+                            <td>string</td>
+                            <td>&amp;#60017;</td>
+                        </tr>
+                        <tr>
+                            <td>isClickSelected</td>
+                            <td>点击当前区域是否选中，并显示选中图标</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                        </tr>
+                        <tr>
+                            <td>isSelected</td>
+                            <td>默认当前区域选中</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                        </tr>
+                        <tr>
+                            <td>isMultipleSelected</td>
+                            <td>是否允许多个box被选中</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                        </tr>
+                        <tr>
+                            <td>disabled</td>
+                            <td>box区域为只读效果</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                        </tr>
+                        <tr>
+                            <td>noBorder</td>
+                            <td>box区域无边框</td>
+                            <td>boolean</td>
+                            <td>false</td>
+                        </tr>
+                        <tr>
+                            <td>onClick</td>
+                            <td>box点击事件</td>
+                            <td>function</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="awsui-margin-top-5" style="margin-bottom: 0;">
+                    <code>
+                        <span class="awsui-iconfont"></span>
+                        <span>注意，禁用和只读效果，提供了快捷方式，如：</span>
+                    </code>
+                </p>
+                <p style="margin-bottom: 0;"><code>1、禁用效果，调用$(el).box("disabled",true)方法</code></p>
+                <p><code>2、只读效果，调用$(el).box("readonly",true)方法</code></p>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-code-title title2" id="event1">
+                    简单Box
+                </div>
+                <p class="awsui-margin-top-5">简单Box - 一个含有阴影背景的块。</p>
+                <div class="awsui-code-demo">
+                    <div class="awsui-layout-box awsui-public-box" style="width:100%;">
+                        <div class="awsui-public-box-main">
+                            <div class="awsui-public-box-title">这是标题</div>
+                            <div class="awsui-public-box-content">此处接受任何布局或组件</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;div class="awsui-layout-box awsui-public-box" style="width:100%;"&gt;
+    &lt;div class="awsui-public-box-main"&gt;
+        &lt;div class="awsui-public-box-title"&gt;这是标题&lt;/div&gt;
+        &lt;div class="awsui-public-box-content"&gt;此处接受任何布局或组件&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-code-title title2" id="event2">
+                    点击Box
+                </div>
+                <div class="awsui-markdown">
+                    <p class="awsui-margin-bottom-5">点击Box - 一个含有基本元素，支持鼠标hover和点击事件的box,可组合成如下场景：</p>
+                    <ul>
+                        <li>box区域宽度可自定义，设置属性<code>width</code>的值</li>
+                        <li>box区域选中时改变背景颜色，设置属性<code>background</code>的值
+                        </li>
+                        <li>设置属性<code>color</code>,即可改变字体图标的颜色</li>
+                        <li>设置属性<code>icon</code>,即可改变时字体图标</li>
+                        <li>设置属性<code>fontSize</code>,即可改变时字体图标大小</li>
+                        <li>设置属性<code>disabled为true</code>,即该区域为只读效果</li>
+                    </ul>
+                </div>
+                <div class="awsui-code-demo">
+                    <div class="awsui-layout-box awsui-public-box" id="clickBox1">
+                        <div class="awsui-public-box-main">
+                            <div class="awsui-public-box-title">这是标题</div>
+                            <div class="awsui-public-box-content">这是内容</div>
+                        </div>
+                    </div>
+                    <div class="awsui-layout-box awsui-public-box" id="clickBox2">
+                        <div class="awsui-public-box-main">
+                            <div class="awsui-public-box-title">这是标题</div>
+                            <div class="awsui-public-box-content">此处接受任何布局或组件</div>
+                        </div>
+                    </div>
+                    <div class="awsui-layout-box awsui-public-box" id="clickBox3">
+                        <div class="awsui-public-box-main">
+                            <div class="awsui-public-box-title">这是标题</div>
+                            <div class="awsui-public-box-content">此处接受任何布局或组件</div>
+                        </div>
+                    </div>
+                    <div class="awsui-layout-box awsui-public-box" id="clickBox4">
+                        <div class="awsui-public-box-main">
+                            <div class="awsui-public-box-title">这是标题</div>
+                            <div class="awsui-public-box-content">此处接受任何布局或组件</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+                <div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;div class="awsui-layout-box awsui-public-box" id="clickBox1"&gt;
+    &lt;div class="awsui-public-box-main"&gt;
+        &lt;div class="awsui-public-box-title"&gt;这是标题&lt;/div&gt;
+        &lt;div class="awsui-public-box-content"&gt;这是内容&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="awsui-layout-box awsui-public-box" id="clickBox2"&gt;
+    &lt;div class="awsui-public-box-main"&gt;
+        &lt;div class="awsui-public-box-title"&gt;这是标题&lt;/div&gt;
+        &lt;div class="awsui-public-box-content"&gt;此处接受任何布局或组件&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="awsui-layout-box awsui-public-box" id="clickBox3"&gt;
+    &lt;div class="awsui-public-box-main"&gt;
+        &lt;div class="awsui-public-box-title"&gt;这是标题&lt;/div&gt;
+        &lt;div class="awsui-public-box-content"&gt;此处接受任何布局或组件&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="awsui-layout-box awsui-public-box" id="clickBox4"&gt;
+    &lt;div class="awsui-public-box-main"&gt;
+        &lt;div class="awsui-public-box-title"&gt;这是标题&lt;/div&gt;
+        &lt;div class="awsui-public-box-content"&gt;此处接受任何布局或组件&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+                <div class="awsui-code-info">
+                    <pre><code class="language-js">$("#clickBox1").box({
+    width:300,
+    height:100,
+    onClick:onClick
+});
+$("#clickBox2").box({
+    width:300,
+    height:100,
+    background:"#b3e9f5",
+    onClick:onClick
+});
+$("#clickBox3").box({
+    width:300,
+    height:100,
+    icon:"&amp;#58889;",
+    color:"#ccc",
+    fontSize:30
+});
+$("#clickBox4").box({
+    width:300,
+    height:100,
+    disabled:true
+});
+function onClick() {
+    var id = $(this).attr("id");
+    console.log(id);
+    $.simpleAlert("Hello");
+}
+</code></pre>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-code-title title2" id="event3">
+                    选择Box
+                </div>
+                <div class="awsui-markdown">
+                    <p class="awsui-margin-bottom-5">选择Box - 一个含有基本元素，支持鼠标hover，点击被选中的Box,可组合成如下场景：</p>
+                    <ul>
+                        <li>box区域宽度可自定义，设置属性<code>width</code>的值</li>
+                        <li>box区域选中时改变背景颜色，设置属性<code>background</code>的值
+                        </li>
+                        <li>点击box区域选中时，设置属性<code>isClickSelected为true</code></li>
+                        <li>设置属性<code>color</code>,即可改变该区域选中时字体图标的颜色</li>
+                        <li>设置属性<code>fontSize</code>,即可改变时字体图标大小</li>
+                        <li>设置属性<code>disabled为true</code>,即该区域为只读效果</li>
+                    </ul>
+                </div>
+                <div class="awsui-code-demo">
+                    <div class="awsui-layout-box awsui-public-box" id="checkedBox1">
+                        <div class="awsui-public-box-main">
+                            <div class="awsui-public-box-title">这是标题</div>
+                            <div class="awsui-public-box-content">此处接受任何布局或组件</div>
+                        </div>
+                    </div>
+                    <div class="awsui-layout-box awsui-public-box" id="checkedBox2">
+                        <div class="awsui-public-box-main">
+                            <div class="awsui-public-box-title">这是标题</div>
+                            <div class="awsui-public-box-content">此处接受任何布局或组件</div>
+                        </div>
+                    </div>
+                    <div class="awsui-layout-box awsui-public-box" id="checkedBox3">
+                        <div class="awsui-public-box-main">
+                            <div class="awsui-public-box-title">这是标题</div>
+                            <div class="awsui-public-box-content">此处接受任何布局或组件</div>
+                        </div>
+                    </div>
+                    <div class="awsui-layout-box awsui-public-box" id="checkedBox4">
+                        <div class="awsui-public-box-main">
+                            <div class="awsui-public-box-title">这是标题</div>
+                            <div class="awsui-public-box-content">此处接受任何布局或组件</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+                <div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;div class="awsui-layout-box awsui-public-box" id="checkedBox1"&gt;
+    &lt;div class="awsui-public-box-main"&gt;
+        &lt;div class="awsui-public-box-title"&gt;这是标题&lt;/div&gt;
+        &lt;div class="awsui-public-box-content"&gt;此处接受任何布局或组件&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="awsui-layout-box awsui-public-box" id="checkedBox2"&gt;
+    &lt;div class="awsui-public-box-main"&gt;
+        &lt;div class="awsui-public-box-title"&gt;这是标题&lt;/div&gt;
+        &lt;div class="awsui-public-box-content"&gt;此处接受任何布局或组件&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="awsui-layout-box awsui-public-box" id="checkedBox3"&gt;
+    &lt;div class="awsui-public-box-main"&gt;
+        &lt;div class="awsui-public-box-title"&gt;这是标题&lt;/div&gt;
+        &lt;div class="awsui-public-box-content"&gt;此处接受任何布局或组件&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="awsui-layout-box awsui-public-box" id="checkedBox4"&gt;
+    &lt;div class="awsui-public-box-main"&gt;
+        &lt;div class="awsui-public-box-title"&gt;这是标题&lt;/div&gt;
+        &lt;div class="awsui-public-box-content"&gt;此处接受任何布局或组件&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+                <div class="awsui-code-info">
+                        <pre><code class="language-js">$("#checkedBox1").box({
+    width:300,
+    height:100,
+    isClickSelected:true,
+    onClick: onClick
+});
+$("#checkedBox2").box({
+    width:300,
+    height:100,
+    background:"#b3e9f5",
+    isClickSelected: true
+});
+$("#checkedBox3").box({
+    width:300,
+    height:100,
+    color:"#ff9421",
+    isClickSelected: true,
+    onClick: onClick
+});
+$("#checkedBox4").box({
+    width:300,
+    height:100,
+    isClickSelected:true,
+    disabled:true
+});
+function onClick() {
+    $.simpleAlert("Hello");
+}
+</code></pre>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-code-title title2" id="event3_mul">
+                    选择多个Box
+                </div>
+                <div class="awsui-markdown">
+                    <p class="awsui-margin-bottom-5">选择多个Box。</p>
+                    <ul>
+                        <li>选择box区域时，设置属性<code>multipleSelected为true</code></li>
+                    </ul>
+                </div>
+                <div class="awsui-code-demo">
+                    <div class="awsui-layout-box awsui-public-box" id="mulBox1">
+                        <div class="awsui-public-box-main">
+                            <div class="awsui-public-box-title">这是标题</div>
+                            <div class="awsui-public-box-content">此处接受任何布局或组件</div>
+                        </div>
+                    </div>
+                    <div class="awsui-layout-box awsui-public-box" id="mulBox2">
+                        <div class="awsui-public-box-main">
+                            <div class="awsui-public-box-title">这是标题</div>
+                            <div class="awsui-public-box-content">此处接受任何布局或组件</div>
+                        </div>
+                    </div>
+                    <div class="awsui-layout-box awsui-public-box" id="mulBox3">
+                        <div class="awsui-public-box-main">
+                            <div class="awsui-public-box-title">这是标题</div>
+                            <div class="awsui-public-box-content">此处接受任何布局或组件</div>
+                        </div>
+                    </div>
+                    <div class="awsui-layout-box awsui-public-box" id="mulBox4">
+                        <div class="awsui-public-box-main">
+                            <div class="awsui-public-box-title">这是标题</div>
+                            <div class="awsui-public-box-content">此处接受任何布局或组件</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+                <div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;div class="awsui-code-demo"&gt;
+    &lt;div class="awsui-layout-box awsui-public-box" id="mulBox1"&gt;
+        &lt;div class="awsui-public-box-main"&gt;
+            &lt;div class="awsui-public-box-title"&gt;这是标题&lt;/div&gt;
+            &lt;div class="awsui-public-box-content"&gt;此处接受任何布局或组件&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="awsui-layout-box awsui-public-box" id="mulBox2"&gt;
+        &lt;div class="awsui-public-box-main"&gt;
+            &lt;div class="awsui-public-box-title"&gt;这是标题&lt;/div&gt;
+            &lt;div class="awsui-public-box-content"&gt;此处接受任何布局或组件&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="awsui-layout-box awsui-public-box" id="mulBox3"&gt;
+        &lt;div class="awsui-public-box-main"&gt;
+            &lt;div class="awsui-public-box-title"&gt;这是标题&lt;/div&gt;
+            &lt;div class="awsui-public-box-content"&gt;此处接受任何布局或组件&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="awsui-layout-box awsui-public-box" id="mulBox4"&gt;
+        &lt;div class="awsui-public-box-main"&gt;
+            &lt;div class="awsui-public-box-title"&gt;这是标题&lt;/div&gt;
+            &lt;div class="awsui-public-box-content"&gt;此处接受任何布局或组件&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+                <div class="awsui-code-info">
+                    <pre><code class="language-js"> $("#mulBox1").box({
+    width:300,
+    height:100,
+    isClickSelected: true,
+    multipleSelected:true,
+    onClick: onClick
+});
+$("#mulBox2").box({
+    width:300,
+    height:100,
+    background:"#b3e9f5",
+    isClickSelected: true,
+    multipleSelected:true,
+    onClick: onClick
+});
+$("#mulBox3").box({
+    width:300,
+    height:100,
+    background:"red",
+    isClickSelected: true,
+    multipleSelected:true,
+    onClick: onClick
+});
+$("#mulBox4").box({
+    width:300,
+    height:100,
+    isClickSelected: true,
+    multipleSelected:true,
+    onClick: onClick
+});
+function onClick() {
+    var id = $(this).attr("id");
+    console.log(id);
+    $.simpleAlert("Hello");
+}
+</code></pre>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-code-title title2" id="event4">
+                    值选型Box
+                </div>
+                <div class="awsui-markdown">
+                    <p class="awsui-margin-bottom-5">基本box - 一个含有基本元素，高度宽度自适应，支持鼠标hover，点击被选中的Box,可组合成如下场景：</p>
+                    <ul>
+                        <li>默认当前box选中，设置属性<code>isSelected为true</code></li>
+                        <li>点击box区域选中时，设置属性<code>isClickSelected为true</code></li>
+                    </ul>
+                </div>
+                <div class="awsui-code-demo">
+                    <div class="awsui-layout-box awsui-public-box" id="payBox1">
+                        <div class="awsui-public-box-main">
+                            <div class="awsui-public-box-title">这是标题</div>
+
+                        </div>
+                    </div>
+                    <div class="awsui-layout-box awsui-public-box" id="payBox2">
+                        <div class="awsui-public-box-main">
+                            <div class="awsui-public-box-title">这是标题</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+                <div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;div class="awsui-layout-box awsui-public-box" id="payBox1"&gt;
+    &lt;div class="awsui-public-box-main"&gt;
+        &lt;div class="awsui-public-box-title"&gt;这是标题&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="awsui-layout-box awsui-public-box" id="payBox2"&gt;
+    &lt;div class="awsui-public-box-main"&gt;
+        &lt;div class="awsui-public-box-title"&gt;这是标题&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+                <div class="awsui-code-info">
+                    <pre><code class="language-js">$("#payBox1").box({
+    isSelected:true,
+    isClickSelected:true
+});
+$("#payBox2").box({
+    isClickSelected:true
+});
+</code></pre>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-code-title title2" id="event5">
+                    禁用box效果
+                </div>
+                <div class="awsui-markdown">
+                    <p class="awsui-margin-bottom-5">禁用Box - 禁止和只读效果,添加属性disable和readonly,简单使用可组合成如下场景：</p>
+                    <ul>
+                        <li>设置属性<code>disabled或readonly为true</code>,即该区域为禁止/只读效果
+                        </li>
+                    </ul>
+                </div>
+                <div class="awsui-code-demo">
+                    <div class="awsui-layout-box awsui-public-box" id="disabledBox1">
+                        <div class="awsui-public-box-main">
+                            <div class="awsui-public-box-title">这是标题</div>
+                            <div class="awsui-public-box-content">此处接受任何布局或组件</div>
+                        </div>
+                    </div>
+                    <div class="awsui-layout-box awsui-public-box" id="disabledBox2">
+                        <div class="awsui-public-box-main">
+                            <div class="awsui-public-box-title">这是标题</div>
+                            <div class="awsui-public-box-content">此处接受任何布局或组件</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+                <div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;div class="awsui-layout-box awsui-public-box" id="disabledBox1"&gt;
+    &lt;div class="awsui-public-box-main"&gt;
+        &lt;div class="awsui-public-box-title"&gt;这是标题&lt;/div&gt;
+        &lt;div class="awsui-public-box-content"&gt;此处接受任何布局或组件&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="awsui-layout-box awsui-public-box" id="disabledBox2"&gt;
+    &lt;div class="awsui-public-box-main"&gt;
+        &lt;div class="awsui-public-box-title"&gt;这是标题&lt;/div&gt;
+        &lt;div class="awsui-public-box-content"&gt;此处接受任何布局或组件&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+                <div class="awsui-code-info">
+                    <pre><code class="language-js">$("#disabledBox1").box("disabled", true);
+$("#disabledBox2").box({
+    width: 300,
+    height: 100,
+    onClick: onClick1
+});
+function onClick1() {
+    $("#disabledBox2").box("readonly", true);
+}
+</code></pre>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-code-title title2" id="event6">
+                    无边框box效果
+                </div>
+                <div class="awsui-markdown">
+                    <p class="awsui-margin-bottom-5">无边框box效果，鼠标滑过时出现边框，配置参数<code>noBorder:true</code>。</p>
+                </div>
+                <div class="awsui-code-demo">
+                    <div class="awsui-layout-box awsui-public-box" id="noBorderBox1">
+                        <div class="awsui-public-box-main">
+                            <div class="awsui-public-box-title">这是标题</div>
+                            <div class="awsui-public-box-content">此处接受任何布局或组件</div>
+                        </div>
+                    </div>
+                    <div class="awsui-layout-box awsui-public-box" id="noBorderBox2">
+                        <div class="awsui-public-box-main">
+                            <div class="awsui-public-box-title">这是标题</div>
+                            <div class="awsui-public-box-content">此处接受任何布局或组件</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+                <div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;div class="awsui-layout-box awsui-public-box" id="noBorderBox1"&gt;
+    &lt;div class="awsui-public-box-main"&gt;
+    &lt;div class="awsui-public-box-title"&gt;这是标题&lt;/div&gt;
+    &lt;div class="awsui-public-box-content"&gt;此处接受任何布局或组件&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="awsui-layout-box awsui-public-box" id="noBorderBox2"&gt;
+    &lt;div class="awsui-public-box-main"&gt;
+    &lt;div class="awsui-public-box-title"&gt;这是标题&lt;/div&gt;
+    &lt;div class="awsui-public-box-content"&gt;此处接受任何布局或组件&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+                <div class="awsui-code-info">
+                    <pre><code class="language-js">$("#noBorderBox1").box({
+    noBorder:true
+});
+$("#noBorderBox2").box({
+    noBorder:true
+});
+</code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="section_right">
+            <div class="nav">
+                <!-- 右侧导航 -->
+            </div>
+        </div>
+        <div class="navTop">
+            <img src="../img/top.png" alt=""/>
+        </div>
+        <script src="../../js/jquery/scripts/jquery.js"></script>
+        <script src="../../js/awsui.js"></script>
+        <script src="../prism/prism.js"></script>
+        <script src="../js/public.js?v=1"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#clickBox1").box({
+                    width:300,
+                    height:100,
+                    onClick:onClick
+                });
+                $("#clickBox2").box({
+                    width:300,
+                    height:100,
+                    background:"#b3e9f5",
+                    onClick:onClick
+                });
+                $("#clickBox3").box({
+                    width:300,
+                    height:100,
+                    icon:"&#58889;",
+                    color:"#ccc",
+                    fontSize:30,
+                    onClick: onClick
+                });
+                $("#clickBox4").box({
+                    width:300,
+                    height:100,
+                    disabled:true
+                });
+                $("#checkedBox1").box({
+                    width:300,
+                    height:100,
+                    isClickSelected:true,
+                    onClick: onClick
+                });
+                $("#checkedBox2").box({
+                    width:300,
+                    height:100,
+                    background:"#b3e9f5",
+                    isClickSelected: true,
+                    onClick: onClick
+                });
+                $("#checkedBox3").box({
+                    width:300,
+                    height:100,
+                    color:"#ff9421",
+                    isClickSelected: true,
+                    onClick: onClick
+                });
+                $("#checkedBox4").box({
+                    width:300,
+                    height:100,
+                    isClickSelected:true,
+                    disabled:true
+                });
+                $("#mulBox1").box({
+                    width:300,
+                    height:100,
+                    isClickSelected: true,
+                    multipleSelected:true,
+                    onClick: onClick
+                });
+                $("#mulBox2").box({
+                    width:300,
+                    height:100,
+                    background:"#b3e9f5",
+                    isClickSelected: true,
+                    multipleSelected:true,
+                    onClick: onClick
+                });
+                $("#mulBox3").box({
+                    width:300,
+                    height:100,
+                    background:"red",
+                    isClickSelected: true,
+                    multipleSelected:true,
+                    onClick: onClick
+                });
+                $("#mulBox4").box({
+                    width:300,
+                    height:100,
+                    isClickSelected: true,
+                    multipleSelected:true,
+                    onClick: onClick
+                });
+
+                $("#payBox1").box({
+                    isSelected:true,
+                    isClickSelected:true
+                });
+                $("#payBox2").box({
+                    isClickSelected:true
+                });
+                $("#disabledBox1").box("disabled", true);
+                $("#disabledBox2").box({
+                    width: 300,
+                    height: 100,
+                    onClick: onClick1
+                });
+                $("#noBorderBox1").box({
+                    noBorder:true
+                });
+                $("#noBorderBox2").box({
+                    noBorder:true
+                });
+                function onClick() {
+                    var id = $(this).attr("id");
+                    console.log(id);
+                    $.simpleAlert("Hello");
+                }
+                function onClick1() {
+                    $("#disabledBox2").box("readonly", true);
+                }
+            });
+        </script>
+    </body>
+</html>
+
+

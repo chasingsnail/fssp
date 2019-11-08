@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="基于AWSUI-MessagePage的主流前端响应式框架">
+	<meta name="keywords" content="向导对话框 - AWSUI">
+	<title>Wizard</title>
+	<link rel="stylesheet" href="../../css/awsui.css">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/uidoc.css?v=1">
+	<link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+</head>
+<body>
+<div class="awsui-wrapper">
+	<div class="col-sm-12 col-md-12 col-xs-12 awsui-border-bottom">
+		<div class="awsui-markdown">
+			<h1 class="title2" id="Wizard">向导对话框</h1>
+			<p class="awsui-margin-bottom-14">平台Wizard向导对话框组件(卡片布局)。</p>
+			<ul>
+				<li>用于引导教程、多页注册、上传等场景。</li>
+			</ul>
+		</div>
+	</div>
+	<div class="col-sm-12 col-md-12 col-xs-12">
+		<div class="awsui-markdown">
+			<div class="awsui-code-title">
+				API
+			</div>
+			<ul>
+				<li>$(el).wizard(config)</li>
+			</ul>
+			<p>config 参数如下：</p>
+		</div>
+		<table class="awsui-table awsui-margin-bottom-24">
+			<thead>
+			<tr>
+				<th width="20%">参数</th>
+				<th width="40%">说明</th>
+				<th width="20%">类型</th>
+				<th>默认值</th>
+			</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>width</td>
+					<td>设置宽度</td>
+					<td>number</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>height</td>
+					<td>设置高度</td>
+					<td>number</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>color</td>
+					<td>设置当前步骤和已完成步骤的颜色</td>
+					<td>string</td>
+					<td>#3983de</td>
+				</tr>
+				<tr>
+					<td>currentStep</td>
+					<td>当前步骤</td>
+					<td>number</td>
+					<td>0</td>
+				</tr>
+				<tr>
+					<td>nextLabel</td>
+					<td>下一步按钮的标签名</td>
+					<td>string</td>
+					<td>[下一步]</td>
+				</tr>
+				<tr>
+					<td>nextCls</td>
+					<td>下一步按钮的样式class名</td>
+					<td>string</td>
+					<td>button</td>
+				</tr>
+				<tr>
+					<td>prevLabel</td>
+					<td>上一步按钮的标签名</td>
+					<td>string</td>
+					<td>[上一步]</td>
+				</tr>
+				<tr>
+					<td>prevCls</td>
+					<td>上一步按钮的样式class名</td>
+					<td>string</td>
+					<td>button</td>
+				</tr>
+				<tr>
+					<td>finishLabel</td>
+					<td>完成按钮的标签名</td>
+					<td>string</td>
+					<td>button</td>
+				</tr>
+				<tr>
+					<td>finishCls</td>
+					<td>完成按钮的样式class名</td>
+					<td>string</td>
+					<td>button</td>
+				</tr>
+				<tr>
+					<td>items</td>
+					<td>
+						[
+						{title:"标题1",des:"内容1"},
+						{title:"标题2",des:"内容2"}
+						]
+					</td>
+					<td>Array</td>
+					<td>[]</td>
+				</tr>
+				<tr>
+					<td>onNext</td>
+					<td>点击下一步执行的事件,参数为组件配置参数和动态配置参数</td>
+					<td>function</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>onPrev</td>
+					<td>点击上一步执行的事件,参数为组件配置参数和动态配置参数</td>
+					<td>function</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>onFinish</td>
+					<td>点击完成按钮执行的事件,参数为组件配置参数和动态配置参数</td>
+					<td>function</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>btnHandle</td>
+					<td>显示和隐藏按钮方法</td>
+					<td>function</td>
+					<td>-</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="col-sm-12 col-md-12 col-xs-12">
+		<div class="awsui-code-title title2" id="event1">
+			引入文件
+		</div>
+		<p class="awsui-margin-top-5">务必确保路径正确</p>
+		<div class="awsui-code-info">
+			<pre><code class="language-html">&lt;script src="../commons/js/jquery/scripts/ui/aws.wizard.js"&gt;&lt;/script&gt;</code></pre>
+		</div>
+	</div>
+	<div class="col-sm-12 col-md-12 col-xs-12">
+		<div class="awsui-code-title title2" id="event2">
+			标准wizard
+		</div>
+		<p class="awsui-margin-top-5">最标准的用法。</p>
+		<p class="awsui-margin-top-5" style="margin-bottom: 0;">
+			<code>
+				<span class="awsui-iconfont"></span>
+				<span>注意</span>
+			</code>
+		</p>
+		<p><code>1、要给dialog()配置参数，必须先调用$(el).dialog()方法，再调用$(el).wizard()方法</code></p>
+		<p><code>2、若<b style="color:#3983de">不</b>给dialog()配置参数，<b style="color:#3983de">不要</b>调用$(el).dialog()方法，直接调用$(el).wizard()方法</code></p>
+		<div class="awsui-code-demo">
+			<button type="button" class="awsui-btn awsui-btn-blue" id="show">显示wizard</button>
+			<div title="这是一个标准的wizard" class="awsui-size-large awsui-hide" id="wizard-dig">
+				<div id="awsui-wizard" class="awsui-wizard">
+					<div class="awsui-wizard-content" style="height: 300px;">
+						<div class="awsui-wizard-content-item">
+							<p>这是第一步的内容,接受任何布局或组件</p>
+						</div>
+						<div style="display: none;" class="awsui-wizard-content-item">
+							<p>这是第二步的内容，接受任何布局或组件</p>
+						</div>
+						<div style="display: none;" class="awsui-wizard-content-item">
+							<p>这是第三步的内容，接受任何布局或组件</p>
+						</div>
+						<div style="display: none;" class="awsui-wizard-content-item">
+							<p>这是第四步的内容，接受任何布局或组件</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+		<div class="awsui-code-info">
+				<pre><code class="language-html">&lt;div title="这是一个标准的wizard" class="awsui-hide" id="wizard-dig"&gt;
+	&lt;div id="awsui-wizard" class="awsui-wizard"&gt;
+		&lt;div class="awsui-wizard-content" style="height: 300px;"&gt;
+			&lt;div class="awsui-wizard-content-item"&gt;
+				&lt;p&gt;这是第一步的内容,接受任何布局或组件&lt;/p&gt;
+			&lt;/div&gt;
+			&lt;div style="display: none;" class="awsui-wizard-content-item"&gt;
+				&lt;p&gt;这是第二步的内容，接受任何布局或组件&lt;/p&gt;
+			&lt;/div&gt;
+			&lt;div style="display: none;" class="awsui-wizard-content-item"&gt;
+				&lt;p&gt;这是第三步的内容，接受任何布局或组件&lt;/p&gt;
+			&lt;/div&gt;
+			&lt;div style="display: none;" class="awsui-wizard-content-item"&gt;
+				&lt;p&gt;这是第四步的内容，接受任何布局或组件&lt;/p&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+		</div>
+		<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+		<div class="awsui-code-info">
+			<pre><code class="language-js">&lt;script type="text/javascript"&gt;
+    var 下一步 = "下一步";
+    var 上一步 = "上一步";
+    var 完成 = "完成";
+    $(document).ready(function() {
+        var options = {
+            color:"#3983de",
+            currentStep:2,
+            items:[
+                {title:"第一步",des:"这是第一步加载的内容"},
+                {title:"第二步",des:""},
+                {title:"第三步",des:"这是第三步加载"},
+                {title:"第四步",des:""}
+            ],
+            onNext:function(options){
+                $.simpleAlert("进行到第" + (options.currentStep + 2) + "步");
+                return true;
+            },
+            onPrev:function(options){
+                $.simpleAlert("进行到第" + (options.currentStep) + "步");
+                return true;
+            },
+            onFinish:function(options){
+                $.simpleAlert("进行到第" +(options.currentStep+1)+"步，3秒钟后关闭", "info",3000, {callback:function(){
+                        $("#wizard-dig").dialog("close");}
+                });
+                return true;
+            }
+        };
+
+        $("#show").on("click", function(){
+            $("#awsui-wizard").wizard(options);
+        });
+    });
+&lt;/script&gt;
+</code></pre>
+		</div>
+	</div>
+	<div class="col-sm-12 col-md-12 col-xs-12">
+		<div class="awsui-code-title title2" id="event3">
+			显示和隐藏按钮
+		</div>
+		<p class="awsui-margin-top-5">显示和隐藏按钮方法。</p>
+		<div class="awsui-code-demo">
+			<button type="button" class="awsui-btn awsui-btn-blue" id="show1">显示wizard</button>
+			<div title="这是一个标准的wizard" class="awsui-size-large awsui-hide" id="wizard-dig1">
+				<div id="awsui-wizard1" class="awsui-wizard">
+					<div class="awsui-wizard-content" style="height: 300px;">
+						<div class="awsui-wizard-content-item">
+							<p>这是第一步的内容,接受任何布局或组件</p>
+						</div>
+						<div style="display: none;" class="awsui-wizard-content-item">
+							<p>这是第二步的内容，接受任何布局或组件</p>
+						</div>
+						<div style="display: none;" class="awsui-wizard-content-item">
+							<p>这是第三步的内容，接受任何布局或组件</p>
+						</div>
+					</div>
+					<button type="button" class="awsui-btn awsui-btn-blue" id="showBtn">显示按钮</button>
+					<button type="button" class="awsui-btn awsui-btn-blue" id="hideBtn">隐藏按钮</button>
+				</div>
+			</div>
+		</div>
+		<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+		<div class="awsui-code-info">
+				<pre><code class="language-html">&lt;button type="button" class="awsui-btn awsui-btn-blue" id="show1"&gt;显示wizard&lt;/button&gt;
+&lt;div title="这是一个标准的wizard" class="awsui-hide" id="wizard-dig1"&gt;
+	&lt;div id="awsui-wizard1" class="awsui-wizard"&gt;
+		&lt;div class="awsui-wizard-content" style="height: 300px;"&gt;
+			&lt;div class="awsui-wizard-content-item"&gt;
+				&lt;p&gt;这是第一步的内容,接受任何布局或组件&lt;/p&gt;
+			&lt;/div&gt;
+			&lt;div style="display: none;" class="awsui-wizard-content-item"&gt;
+				&lt;p&gt;这是第二步的内容，接受任何布局或组件&lt;/p&gt;
+			&lt;/div&gt;
+			&lt;div style="display: none;" class="awsui-wizard-content-item"&gt;
+				&lt;p&gt;这是第三步的内容，接受任何布局或组件&lt;/p&gt;
+			&lt;/div&gt;
+			&lt;div style="display: none;" class="awsui-wizard-content-item"&gt;
+				&lt;p&gt;这是第四步的内容，接受任何布局或组件&lt;/p&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;button type="button" class="awsui-btn awsui-btn-blue" id="showBtn"&gt;显示按钮&lt;/button&gt;
+		&lt;button type="button" class="awsui-btn awsui-btn-blue" id="hideBtn"&gt;隐藏按钮&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+		</div>
+		<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+		<div class="awsui-code-info">
+			<pre><code class="language-js">&lt;script type="text/javascript"&gt;
+    var 下一步 = "下一步";
+    var 上一步 = "上一步";
+    var 完成 = "完成";
+    $(document).ready(function() {
+        var options = {
+            color:"#3983de",
+            currentStep:2,
+            items:[
+                {title:"第一步",des:"这是第一步加载的内容"},
+                {title:"第二步",des:""},
+                {title:"第三步",des:"这是第三步加载"},
+                {title:"第四步",des:""}
+            ],
+            onNext:function(options){
+                $.simpleAlert("进行到第" + (options.currentStep + 2) + "步");
+                return true;
+            },
+            onPrev:function(options){
+                $.simpleAlert("进行到第" + (options.currentStep) + "步");
+                return true;
+            },
+            onFinish:function(options){
+                $.simpleAlert("进行到第" +(options.currentStep+1)+"步，3秒钟后关闭", "info",3000, {callback:function(){
+                        $("#wizard-dig").dialog("close");}
+                });
+                return true;
+            }
+        };
+
+        $("#show1").on("click", function(){
+            $("#awsui-wizard1").wizard(options);
+        });
+    });
+&lt;/script&gt;
+</code></pre>
+		</div>
+	</div>
+</div>
+<div class="section_right">
+	<div class="nav">
+		<!-- 右侧导航 -->
+	</div>
+</div>
+<div class="navTop">
+	<img src="../img/top.png" alt=""/>
+</div>
+<script src="../../js/jquery/scripts/jquery.js"></script>
+<script src="../../js/awsui.js"></script>
+<script src="../prism/prism.js"></script>
+<script src="../js/public.js?v=1"></script>
+<script src="../../js/jquery/scripts/ui/aws.wizard.js"></script>
+<script type="text/javascript">
+    var 下一步 = "下一步";
+    var 上一步 = "上一步";
+    var 完成 = "完成";
+    $(document).ready(function() {
+        var wizard;
+        var options = {
+            color:"#3983de",
+            currentStep:2,
+            items:[
+                {title:"第一步",des:"这是第一步加载的内容"},
+                {title:"第二步",des:""},
+                {title:"第三步",des:"这是第三步加载"},
+                {title:"第四步",des:""}
+            ],
+            onNext:function(options){
+                $.simpleAlert("进行到第" + (options.currentStep + 2) + "步");
+                return true;
+            },
+            onPrev:function(options){
+                $.simpleAlert("进行到第" + (options.currentStep) + "步");
+                return true;
+            },
+            onFinish:function(options){
+                $.simpleAlert("进行到第" +(options.currentStep+1)+"步，3秒钟后关闭", "info",3000, {callback:function(){
+                        $("#wizard-dig").dialog("close");}
+                });
+                return true;
+            }
+        };
+
+        $("#show").on("click", function(){
+            /*$("#wizard-dig").dialog({
+                height: 500,
+                width: 800
+            });*/
+            //在dialog中直接配置
+            $("#awsui-wizard").wizard(options);
+        });
+        $("#show1").on("click", function(){
+            wizard = $("#awsui-wizard1").wizard(options);
+            wizard.btnHandle("hide");
+        });
+        $("#showBtn").on("click", function(){
+            wizard.btnHandle("show");
+        });
+        $("#hideBtn").on("click", function(){
+            wizard.btnHandle("hide");
+        });
+    });
+</script>
+</body>
+</html>

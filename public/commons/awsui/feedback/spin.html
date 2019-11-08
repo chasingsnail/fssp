@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="基于AWSUI-MessagePage的主流前端响应式框架">
+	<meta name="keywords" content="加载中 - AWSUI">
+	<title>Spin</title>
+	<link rel="stylesheet" href="../../css/awsui.css">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/uidoc.css?v=1">
+	<link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+</head>
+<body>
+	<div class="awsui-wrapper">
+		<div class="col-sm-12 col-md-12 col-xs-12 awsui-border-bottom">
+			<div class="awsui-markdown">
+				<h1 class="title2" id="loading">加载中</h1>
+				<p class="awsui-margin-bottom-14">页面局部处于等待异步数据或正在渲染过程时，合适的加载动效会有效缓解用户的焦虑。</p>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-markdown">
+	        	<div class="awsui-code-title">
+		        	API
+		        </div>
+				<ul>
+					<li>$(el).loading(config)</li>
+				</ul>
+				<p>config 参数如下：</p>
+		    </div>
+	        <table class="awsui-table awsui-margin-bottom-24">
+	        	<thead>
+	        		<tr>
+	        			<th width="20%">参数</th>
+	        			<th width="40%">说明</th>
+	        			<th width="20%">类型</th>
+	        			<th>默认值</th>
+	        		</tr>
+	        	</thead>
+	        	<tbody>
+		        	<tr>
+	        			<td>size</td>
+	        			<td>组件大小，可选值为 <code>small default large</code></td>
+	        			<td>string</td>
+	        			<td>default</td>
+		        	</tr>
+		        	<tr>
+	        			<td>description</td>
+	        			<td>当作为包裹元素时，可以自定义描述文案</td>
+	        			<td>string</td>
+	        			<td>-</td>
+		        	</tr>
+		        	<tr>
+	        			<td>color</td>
+	        			<td>描述文案字体颜色</td>
+	        			<td>string</td>
+	        			<td>-</td>
+		        	</tr>
+		        	<tr>
+	        			<td>delay</td>
+	        			<td>延迟显示加载效果的时间</td>
+	        			<td>number(毫秒)</td>
+	        			<td>-</td>
+		        	</tr>
+		        	<tr>
+	        			<td>hidden</td>
+	        			<td>是否隐藏loading</td>
+	        			<td>boolean</td>
+	        			<td>false</td>
+		        	</tr>
+		        </tbody>
+	        </table>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event1">
+	        	基本用法
+	        </div>
+	        <p class="awsui-margin-top-5">一个简单的 loading 状态。</p>
+        	<div class="awsui-code-demo" id="loading-demo-basic">
+        	</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;div class="awsui-code-demo" id="loading-demo-basic"&gt;&lt;/div&gt;
+</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-js">$("#loading-demo-basic").loading();</code></pre>
+			</div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event2">
+	        	各种大小
+	        </div>
+	        <p class="awsui-margin-top-5">小的用于文本加载，默认用于卡片容器级加载，大的用于页面级加载。</p>
+        	<div class="awsui-code-demo" id="loading-demo-size">
+        	</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;div class="awsui-code-demo" id="loading-demo-size"&gt;&lt;/div&gt;
+</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+				<pre><code class="language-js">$("#loading-demo-size").loading({
+    size:'small'
+});
+$("#loading-demo-size").loading({
+    size:'default'
+});
+$("#loading-demo-size").loading({
+    size:'large'
+});
+</code></pre>
+			</div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event3">
+	        	自定义提示语
+	        </div>
+	        <p class="awsui-margin-top-5">自定义描述loading文案。</p>
+        	<div class="awsui-code-demo awsui-align-center" id="loading-demo-custom">
+        	</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;div class="awsui-code-demo awsui-align-center" id="loading-demo-custom"&gt;&lt;/div&gt;
+</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+				<pre><code class="language-js">$("#loading-demo-custom").loading({
+    description:"loading",
+    color:'#3983de'
+});
+</code></pre>
+			</div>
+        </div>	
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event4">
+	        	延迟
+	        </div>
+	        <p class="awsui-margin-top-5">延迟显示 loading 效果。</p>
+        	<div class="awsui-code-demo awsui-align-center" id="loading-demo-delay">
+        	</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;div class="awsui-code-demo awsui-align-center" id="loading-demo-delay"&gt;&lt;/div&gt;
+</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+				<pre><code class="language-js">$("#loading-demo-delay").loading({
+    delay:2000
+});
+</code></pre>
+			</div>
+        </div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-code-title title2" id="event5">
+				窗口加载
+			</div>
+			<p class="awsui-margin-top-5">窗口loading。</p>
+			<div class="awsui-code-demo awsui-align-center" id="loading-demo-window">
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;div class="awsui-code-demo awsui-align-center" id="loading-demo-window"&gt;&lt;/div&gt;
+</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+				<pre><code class="language-js">$("#loading-demo-window").loading();
+</code></pre>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-code-title title2" id="event6">
+				弹出框加载
+			</div>
+			<p class="awsui-margin-top-5">弹出框loading，一般适用于查询信息。</p>
+			<div class="awsui-code-demo" id="loading-demo-search">
+				<button type="button" class="awsui-btn type" value="loading">loading</button>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;div class="awsui-code-demo" id="loading-demo-search"&gt;
+	&lt;button type="button" class="awsui-btn type" value="loading"&gt;loading&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+				<pre><code class="language-js">$("#loading-demo-search").find("button").on("click", function(){
+	$.simpleAlert("正在查询......",'loading');
+	setTimeout('$.simpleAlert("close")',5000);
+});
+</code></pre>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event7">
+	        	loading消失
+	        </div>
+	        <p class="awsui-margin-top-5">设置属性<code>hidden为true</code>，则不显示 loading 状态。</p>
+        	<div class="awsui-code-demo awsui-align-center" id="loading-demo-hide">
+        	</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;div class="awsui-code-demo awsui-align-center" id="loading-demo-hide"&gt;&lt;/div&gt;
+</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+				<pre><code class="language-js">$("#loading-demo-hide").loading({
+    hidden:true
+});
+</code></pre>
+			</div>
+        </div>	
+	</div>
+	<div class="section_right">
+		<div class="nav">
+			<!-- 右侧导航 -->
+		</div>
+    </div>
+	<div class="navTop">
+		<img src="../img/top.png" alt=""/>
+	</div>
+	<script src="../../js/jquery/scripts/jquery.js"></script>
+	<script src="../../js/awsui.js"></script>
+	<script src="../prism/prism.js"></script>
+	<script src="../js/public.js?v=1"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#loading-demo-basic").loading();
+			$("#loading-demo-size").loading({
+				size:'small'
+			});
+			$("#loading-demo-size").loading({
+				size:'default awsui-margin-left-10'
+			});
+			$("#loading-demo-size").loading({
+				size:'large awsui-margin-left-10'
+			});
+			$("#loading-demo-custom").loading({
+				description:"loading",
+			    color:'#3983de'
+			});
+			$("#loading-demo-delay").loading({
+				delay:2000
+			});
+            $("#loading-demo-window").loading();
+            $("#loading-demo-search").find("button").on("click", function(){
+                $.simpleAlert("正在查询......",'loading');
+                setTimeout('$.simpleAlert("close")',5000);
+			});
+			$("#loading-demo-hide").loading({
+				hidden:true
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>HtmlEdit</title>
+
+<link rel="stylesheet" href="../../css/awsui.css">
+<link rel="stylesheet" href="../css/uidoc.css?v=1">
+<script src="../../js/jquery/scripts/jquery.js"></script>
+<script src="../../js/awsui.js"></script>
+
+<link rel="stylesheet" type="text/css" href="../dlhighlight/style.css"
+	media="all" />
+	<link rel="stylesheet" href="../css/bootstrap.css">
+<script src="../dlhighlight/highlight.js"></script>
+<script src="../dlhighlight/lang-js.js"></script>
+<script src="../clipboard/clipboard.min.js"></script>
+<script src="../js/public.js?v=1"></script>
+<script type="text/javascript" src="../wangEditor-master/release/wangEditor.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+        var E = window.wangEditor
+        var editor = new E('#editor')
+        // 或者 var editor = new E( document.getElementById('editor') )
+        editor.create()
+	});
+</script>
+	<style>
+		.title2{
+			display: inline-block;
+			font-size: 18px;
+		}
+		.title3{
+			margin-top:5px;
+			color: #39424b;
+			font-size: 14px;
+		}
+		.code{
+			max-width: 100%!important;
+		}
+		.code a{
+			border: 0px!important;
+			top: -5px!important;
+		}
+
+		pre{
+			border: 0px!important;
+			background: #ffffff!important;
+			overflow: hidden !important;
+		}
+		.nav {
+			width: auto;
+			height: auto;
+			position: fixed;
+			right: 30px;
+			top:25%;
+			opacity: .95;
+			z-index: 9999;
+			border: 0 !important;
+		}
+		.navTop{
+			width: 50px;
+			height: 50px;
+			position: fixed;
+			right: 45px;
+			opacity: .95;
+			z-index: 9999;
+			border: 0!important;
+		}
+		.navTop > img {
+			cursor: pointer;
+		}
+
+	</style>
+</head>
+<body>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:25px;">
+			<span class="title2" id="desc1">富文本编辑器组件</span>
+			<span class="title3"style="display: block">为网站提供导航功能的菜单。</span>
+		</div>
+	</div>
+	<div class="row" style="margin-top:25px;">
+		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+			<table class="tab">
+				<tr>
+					<td>
+						<span class="title2" id="easydo">引入文件</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="row" style="margin-top:20px">
+		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-12 col-md-12 col-lg-12"
+						 style="border:1px solid #f2f2f2;font-size:16px;">
+
+<pre class="code" id="import_code" style="height:30px;">
+<script type="text/javascript" src="../wangEditor-master/release/wangEditor.min.js"></script>
+		</pre>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row" style="margin-top:10px;">
+		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+			 style="margin-top:20px;">
+			<table class="tab">
+				<tr>
+					<td>
+						<span class="title2" id="useComponent">标准编辑器</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="row" style="margin-top: 20px">
+		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+			 style="background:#F2F2F2;">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-12 col-md-12 col-lg-12"
+						 style="margin-bottom:1px;padding-left:15px;line-height:44px;font-size:16px;height:45px;">
+						示例
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:10px;">
+			<div id="editor"></div>
+		</div>
+	</div>
+	<div class="row" style="margin-top:10px">
+		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+			 style="background:#F2F2F2;;">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-12 col-md-12 col-lg-12"
+						 style="padding-left:15px;line-height:44px;font-size:16px;height:45px;">
+						示例代码
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row" >
+		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="border:1px solid #f2f2f2;border-top: 0px;">
+       <pre class="code" id="demo2_code" style="height:122px">
+ <div id="slider1" class="ui-slider"></div>
+ $(document).ready(function() {
+        var E = window.wangEditor
+        var editor = new E('#editor')
+        editor.create()
+ });
+		</pre>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:15px;margin-bottom: 20px">
+			<span class="title3"style="display: block">更多文档请参考<a href="https://www.kancloud.cn/wangfupeng/wangeditor3" target="_blank">API文档</a></span>
+		</div>
+	</div>
+
+</div>
+
+	<!--<div class="section_right">
+		<div class="nav">
+			&lt;!&ndash; 右侧导航 &ndash;&gt;
+		</div>
+	</div>-->
+</body>
+</html>

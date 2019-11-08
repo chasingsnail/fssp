@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum=1.0,user-scalable=no">
+<meta name="format-detection" content="telephone=no, email=no">
+	<script type="text/javascript" src="aws.mobile.api.js"></script>
+<script>
+
+
+function closeWebview()
+{
+	alert("closeWebview");
+awsWebview.closeCurrentWebview();
+}
+
+function onCallBack(result) {
+	alert(result);
+}
+
+function executePreviousJs() {
+	alert("executePreviousJs");
+	awsWebview.executeJsInPreviousWebview('testCallBack()', 'onCallBack');
+}
+
+function executePreviousJsOld() {
+	alert("executePreviousJsOld");
+	awsWebview.executeJsInPreviousWebview2('testCallBack()');
+}
+
+</script>
+</head>
+<body>
+
+<button onclick="closeWebview()">关闭页面</button>
+<button onclick="executePreviousJs()">executePreviousJs</button>
+<button onclick="executePreviousJsOld()">executePreviousJsOld</button>
+
+</body>

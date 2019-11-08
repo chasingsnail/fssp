@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="基于AWSUI-Sidebar的主流前端响应式框架">
+	<meta name="keywords" content="侧边栏 - AWSUI">
+	<title>sidebar</title>
+	<link rel="stylesheet" href="../../css/awsui.css">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/uidoc.css?v=1">
+	<link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+</head>
+<body>
+	<div class="awsui-wrapper">
+		<div class="col-sm-12 col-md-12 col-xs-12 awsui-border-bottom">
+			<div class="awsui-markdown">
+				<h1 class="title2" id="sidebar">侧边栏</h1>
+				<p class="awsui-margin-bottom-14">一种页面展现方式，从屏幕侧面划出。使用简单，可以快速的制作出侧边栏展开收缩js特效。你可以在同一个页面实例化多个侧边栏实例，还可以设置侧边栏的响应式宽度，自定义侧边栏样式等。</p>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-markdown">
+				<div class="awsui-code-title" id="description">
+					API
+				</div>
+				<ul>
+					<li>$.openSidebar(config)</li>
+				</ul>
+				<p>config 参数如下：</p>
+			</div>
+			<table class="awsui-table awsui-margin-bottom-24">
+				<thead>
+				<tr>
+					<th width="20%">参数</th>
+					<th width="40%">说明</th>
+					<th width="20%">类型</th>
+					<th>默认值</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>url</td>
+					<td>侧边栏需要展示的URL地址</td>
+					<td>string</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>title</td>
+					<td>侧边栏头部的标题</td>
+					<td>string</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>closeText</td>
+					<td>侧边栏头部的关闭按钮的提示文字</td>
+					<td>string</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>width</td>
+					<td>宽度，支持百分比和固定数字</td>
+					<td>string</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>isMode</td>
+					<td>是否打开遮罩</td>
+					<td>boolean</td>
+					<td>false</td>
+				</tr>
+				<tr>
+					<td>duration</td>
+					<td>侧边栏展开速度</td>
+					<td>string</td>
+					<td>slow</td>
+				</tr>
+				<tr>
+					<td>iframeId</td>
+					<td>使用iframe容器时指定对应iframe的ID</td>
+					<td>string</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>containerId</td>
+					<td>使用div容器时指定对应div的ID</td>
+					<td>string</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>color</td>
+					<td>头部的颜色</td>
+					<td>string</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>buttons</td>
+					<td>头部按钮</td>
+					<td>Array</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>complete</td>
+					<td>在动画完成时执行的函数</td>
+					<td>function</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>onClose</td>
+					<td>侧边栏收起时的回调函数</td>
+					<td>function</td>
+					<td>-</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<p class="awsui-margin-top-5">
+				<code>
+					<span class="awsui-iconfont"></span>
+					<span>注意</span>
+				</code>
+			</p>
+			<p><code>iframe和div两种容器各对应了一个id，即iframeId和containerId，两种容器方式选择一种，两个同时设置默认使用iframeId。</code></p>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-code-title title2" id="event1">
+				基本用法
+			</div>
+			<p class="awsui-margin-top-5">最简单的用法。</p>
+			<div class="awsui-code-demo">
+				<button type="button" class="awsui-btn awsui-btn-blue" id="basic_demo">侧边栏打开炎黄盈动官网</button>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;button type="button" class="awsui-btn awsui-btn-blue" id="basic_demo"&gt;侧边栏打开炎黄盈动官网&lt;/button&gt;
+</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-js">$("#basic_demo").on("click", function(){
+	$.openSidebar({
+		url : "http://www.actionsoft.com.cn",
+		title : "炎黄盈动官方网站",
+		closeText : "收起",
+		width : "80%",
+		isMode : false,
+		duration : "slow",
+		color:"#fff",
+		iframeId : "iframeId",
+		onClose : function(){
+			console.log("I was closed.");
+		}
+	});
+});
+</code></pre>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-code-title title2" id="event2">
+				打开带有遮罩的侧边栏
+			</div>
+			<p class="awsui-margin-top-5">打开带有遮罩的侧边栏，配置属性<code>isMode : true</code>，并展示页面内容。</p>
+			<div class="awsui-code-demo">
+				<button type="button" class="awsui-btn awsui-btn-blue" id="shade_demo">打开带有遮罩的侧边栏</button>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;button type="button" class="awsui-btn awsui-btn-blue" id="shade_demo"&gt;打开带有遮罩的侧边栏&lt;/button&gt;
+</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-js">$("#shade_demo").on("click", function(){
+	$.openSidebar({
+		url : "",
+		title : "一个DIV容器的侧边栏",
+		closeText : "收起",
+		width : "40%",
+		isMode : true,
+		parent : parent,
+		color : "#ffffff",
+		duration : "slow",
+		containerId : "sidebar_content",
+		complete : function() {
+			window.parent.document.getElementById("sidebar_content").innerHTML="<br/><div style='text-align:center;'>我是侧边栏内容</div>";
+		}
+	});
+});
+</code></pre>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-code-title title2" id="event3">
+				打开带有按钮的侧边栏
+			</div>
+			<p class="awsui-margin-top-5">打开带有按钮的侧边栏，配置属性<code>buttons</code>，来完成按钮配置。</p>
+			<div class="awsui-code-demo">
+				<button type="button" class="awsui-btn awsui-btn-blue" id="button_demo">打开带有按钮的侧边栏</button>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+				<pre><code class="language-html">&lt;button type="button" class="awsui-btn awsui-btn-blue" id="button_demo"&gt;打开带有按钮的侧边栏&lt;/button&gt;
+	</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+				<pre><code class="language-js">$("#button_demo").on("click", function(){
+	$.openSidebar({
+		url : "http://www.actionsoft.com.cn",
+		title : "测试侧边栏",
+		closeText : "收起",
+		width : "60%",
+		isMode : false,
+		duration : "slow",
+		iframeId : "frameId",
+		topZone:"show",
+		color : "#fff",
+		buttons: [
+			{
+				id: "prev",
+				text: "上一页",
+				display: true,
+				click: function () {
+					alert(1)
+				}
+			},
+			{
+				id: "next",
+				text: "下一页",
+				display: true,
+				click: function () {
+					alert(2)
+				}
+			}
+		],
+		complete : function() {
+			//侧边栏加载完毕的回调函数
+		}
+	});
+});
+</code></pre>
+			</div>
+		</div>
+	</div>
+	<div class="section_right">
+		<div class="nav">
+			<!-- 右侧导航 -->
+		</div>
+    </div>
+	<div class="navTop">
+		<img src="../img/top.png" alt=""/>
+	</div>
+	<script src="../../js/jquery/scripts/jquery.js"></script>
+	<script src="../../js/awsui.js"></script>
+	<script src="../prism/prism.js"></script>
+	<script src="../js/public.js?v=1"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#basic_demo").on("click", function(){
+			    $.openSidebar({
+			        url : "http://www.actionsoft.com.cn",
+			        title : "炎黄盈动官方网站",
+			        closeText : "收起",
+			        width : "80%",
+			        isMode : false,
+			        duration : "slow",
+			        color:"#fff",
+			        parent : window,
+			        iframeId : "iframeId",
+			        onClose : function(){
+			            console.log("I was closed.");
+			        }
+			    });
+			});
+			$("#shade_demo").on("click", function(){
+			    $.openSidebar({
+			        url : "",
+			        title : "一个DIV容器的侧边栏",
+			        closeText : "收起",
+			        width : "40%",
+			        isMode : true,
+			        parent : parent,
+			        color : "#ffffff",
+			        duration : "slow",
+			        containerId : "sidebar_content",
+			        complete : function() {
+						window.parent.document.getElementById("sidebar_content").innerHTML="<br/><div style='text-align:center;'>我是侧边栏内容</div>";
+					}
+			    });
+			});
+			$("#button_demo").on("click", function(){
+			    $.openSidebar({
+			        url : "http://www.actionsoft.com.cn",
+			        title : "测试侧边栏",
+			        closeText : "收起",
+			        width : "60%",
+			        isMode : false,
+			        duration : "slow",
+			        iframeId : "frameId",
+			        topZone:"show",
+			        color : "#fff",
+			        buttons: [
+			            {
+			                id: "prev",
+			                text: "上一页",
+			                display: true,
+			                click: function () {
+			                    alert(1)
+			                }
+			            },
+			            {
+			                id: "next",
+			                text: "下一页",
+			                display: true,
+			                click: function () {
+			                    alert(2)
+			                }
+			            }
+			        ],
+			        complete : function() {
+			            //侧边栏加载完毕的回调函数
+			        }
+			    });
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+/**
+ * plugin.js
+ *
+ * Copyright, Moxiecode Systems AB
+ * Released under LGPL License.
+ *
+ * License: http://www.tinymce.com/license
+ * Contributing: http://www.tinymce.com/contributing
+ */
+
+/*global tinymce:true */
+
+tinymce.PluginManager.add('accordion', function(editor) {
+	function showDialog() {
+		editor.windowManager.open({
+			title: "手风琴",
+			items: {
+					type: 'form',
+					layout: 'grid',
+					columns: 1,
+					defaults: {
+						type: 'textbox',
+						maxWidth: 450
+					},
+					items: [
+						{label: 'Width', name: 'width'},
+						{label: 'Height', name: 'height'}
+					]
+				},
+			
+		/*	body: {
+				type: 'textbox',
+				name: 'accordion',
+				label:'accordion'
+				
+				
+				
+				
+			}*/
+			
+			onSubmit: function(e) {
+				editor.focus();
+				var html="<a>accordion</a>";
+				editor.insertContent(html);
+			}
+		});
+	}
+	editor.addCommand("mceAccordion", showDialog);
+	
+	editor.addButton('accordion', {
+		text:'accordion',
+		icon: false,
+		onclick: showDialog
+	});
+
+	editor.addMenuItem('accordion', {
+		icon: false,
+		text: 'Accordion',
+		context: 'tools',
+		onclick: showDialog
+	});
+});

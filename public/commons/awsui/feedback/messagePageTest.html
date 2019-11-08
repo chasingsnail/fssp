@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="基于AWSUI-MessagePage的主流前端响应式框架">
+	<meta name="keywords" content="反馈信息 - AWSUI">
+	<title>消息页面</title>
+	<link rel="stylesheet" href="../../css/awsui.css">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/uidoc.css?v=1">
+	<link rel="stylesheet" type="text/css" href="../dlhighlight/style.css"/>
+
+</head>
+<body>
+	<div class="awsui-code-demo" style="padding:0;height: 300px;">
+		<div class="awsui-message-page" style="display:none;">
+			<div class="content">
+				<span class="icon" message-type="error"></span>
+				<span class="title">访问被拒绝(403)</span>
+			</div>
+		</div>
+		<button type="button" class="awsui-btn awsui-btn-blue awsui-margin-top-10" id="toggle">toggle</button>
+	</div>
+	<script src="../../js/jquery/scripts/jquery.js"></script>
+	<script src="../../js/awsui.js"></script>
+	<script src="../dlhighlight/highlight.js"></script>
+	<script src="../dlhighlight/lang-js.js"></script>
+	<script src="../clipboard/clipboard.min.js"></script>
+	<script src="../js/public.js?v=1"></script>
+	<script>
+        $(document).ready(function() {
+			$("#toggle").on("click", function(){
+                $(".awsui-message-page").toggle();
+            });
+        });
+	</script>
+</body>
+</html>

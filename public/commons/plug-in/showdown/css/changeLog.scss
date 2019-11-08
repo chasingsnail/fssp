@@ -1,0 +1,371 @@
+#changeLogDialog{
+    article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+        display: block
+    }
+
+    audio, canvas, progress, video {
+        display: inline-block;
+        vertical-align: baseline
+    }
+
+    audio:not([controls]) {
+        display: none;
+        height: 0
+    }
+
+    [hidden], template {
+        display: none
+    }
+
+    a {
+        background-color: transparent
+    }
+
+    a:active, a:hover {
+        outline: 0
+    }
+
+    abbr[title] {
+        border-bottom: 1px dotted
+    }
+
+    b, strong {
+        font-weight: 700
+    }
+
+    dfn {
+        font-style: italic
+    }
+
+    mark {
+        background: #ffff00;
+        color: #000000
+    }
+
+    small {
+        font-size: 80%
+    }
+
+    sub, sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline
+    }
+
+    sup {
+        top: -.5em
+    }
+
+    sub {
+        bottom: -.25em
+    }
+
+    img {
+        border: 0
+    }
+
+    svg:not(:root) {
+        overflow: hidden
+    }
+
+    figure {
+        margin: 1em 40px
+    }
+
+    hr {
+        box-sizing: content-box
+    }
+
+    code, kbd, pre, samp {
+        font-family: monospace, monospace;
+        font-size: 1em
+    }
+
+    legend {
+        border: 0;
+        padding: 0
+    }
+
+    textarea {
+        overflow: auto
+    }
+
+    optgroup {
+        font-weight: 700
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0
+    }
+
+    table {
+        margin: 1.6em 0;
+        max-width: 90%;
+        width: 90%;
+        background-color: transparent
+    }
+
+    table td, table th {
+        padding: 8px;
+        vertical-align: middle;
+        text-align: left;
+        line-height: 20px
+    }
+
+    table {
+        background-color: #ffffff
+    }
+
+    td, th {
+        padding: 0
+    }
+
+    *, :after, :before {
+        box-sizing: border-box;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none
+    }
+
+    ::-moz-selection {
+        background: #b4d6f3
+    }
+
+    ::selection {
+        background: #b4d6f3
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        margin: 0 0 .3em;
+        color: #242628;
+        line-height: 1.15em;
+        text-rendering: optimizeLegibility
+    }
+
+    h1 {
+        text-indent: -1px;
+        font-size: 5rem
+    }
+
+    h2 {
+        text-indent: -1px;
+        font-size: 4.2rem
+    }
+
+    h3 {
+        font-size: 3.8rem
+    }
+
+    h4 {
+        font-size: 3.1rem
+    }
+
+    h5 {
+        font-size: 2.8rem
+    }
+
+    h6 {
+        font-size: 2.2rem
+    }
+
+    dl, ol, p, ul {
+        margin: 0 0 1.7em
+    }
+
+    ol, ul {
+        padding-left: 2.5em
+    }
+
+    ol ol, ol ul, ul ol, ul ul {
+        margin: 0 0 .4em;
+        padding-left: 2em;
+        font-size: .9em
+    }
+
+    mark {
+        background-color: #fdffb6
+    }
+
+    a {
+        color: #5ba4e5;
+        text-decoration: none;
+        transition: background .3s, color .3s
+    }
+
+    a:hover {
+        text-decoration: none;
+        transition: background .1s, color .1s
+    }
+
+    hr {
+        display: block;
+        margin: 3.2em 0;
+        padding: 0;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid #dfe1e3
+    }
+
+    dl {
+        margin: 1.6em 0
+    }
+
+    dl dt {
+        float: left;
+        clear: left;
+        overflow: hidden;
+        margin-bottom: 1em;
+        width: 180px;
+        text-align: right;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: 700
+    }
+
+    dl dd {
+        margin-bottom: 1em;
+        margin-left: 200px
+    }
+
+    blockquote {
+        margin: 1.6em 0;
+        padding: 0 1.6em;
+        border-left: #dfe1e3 .6em solid
+    }
+
+    blockquote p {
+        margin: .8em 0;
+        font-size: 1.2em;
+        font-weight: 300
+    }
+
+    blockquote small {
+        display: inline-block;
+        margin: .8em 0 .8em 1.5em;
+        color: #7d878a;
+        font-size: .9em
+    }
+
+    blockquote small:before {
+        content: "\2014 \00A0"
+    }
+
+    blockquote cite {
+        font-weight: 700
+    }
+
+    blockquote cite a {
+        font-weight: 400
+    }
+
+    code, pre, tt {
+        font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace
+    }
+
+    code, tt {
+        padding: .2rem .3rem .1rem;
+        border: 1px solid #d8e0e4;
+        background: #f5f7f8;
+        border-radius: 2px;
+        color: #cc2255;
+        vertical-align: middle;
+        white-space: pre-wrap;
+        font-size: .8em;
+        line-height: 1em
+    }
+
+    pre {
+        overflow: auto;
+        margin: 1.6em 0;
+        padding: 10px;
+        width: 100%;
+        border: 1px solid #d8e0e4;
+        background: #f5f7f8;
+        border-radius: 3px;
+        white-space: pre;
+        font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: .9em
+    }
+
+    pre code, pre tt {
+        padding: 0;
+        border: none;
+        background: 0 0;
+        color: inherit;
+        white-space: pre-wrap;
+        font-size: inherit
+    }
+
+    kbd {
+        display: inline-block;
+        margin-bottom: .4em;
+        padding: 1px 8px;
+        border: 1px solid #cccccc;
+        background: #f4f4f4;
+        border-radius: 4px;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, .2), 0 1px 0 0 #ffffff inset;
+        color: #242628;
+        text-shadow: #ffffff 0 1px 0;
+        font-size: .9em;
+        font-weight: 700
+    }
+
+    button {
+        padding: 0;
+        outline: 0;
+        border: none;
+        background: 0 0;
+        box-shadow: none
+    }
+
+    i {
+        display: block
+    }
+
+    img {
+        max-width: 100%
+    }
+
+    form * {
+        -webkit-user-select: text;
+        -moz-user-select: text;
+        -ms-user-select: text;
+        user-select: text
+    }
+
+    form label {
+        display: block;
+        color: #242628;
+        font-size: 1.3rem;
+        font-weight: 700
+    }
+
+    fieldset {
+        margin: 0 0 3em;
+        padding: 0;
+        border: none
+    }
+
+    legend {
+        display: block;
+        margin: 2em 0;
+        width: 100%;
+        border-bottom: #dfe1e3 1px solid;
+        color: #b1b1b1;
+        font-size: 1.2em;
+        line-height: 2em
+    }
+
+    ul{
+        list-style: outside;
+    }
+
+    li{
+        list-style: outside;
+        height: 30px;
+    }
+
+}

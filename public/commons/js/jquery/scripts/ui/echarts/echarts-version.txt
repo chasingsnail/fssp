@@ -1,0 +1,25 @@
+echarts 4.2.1-rc.1
+
+echarts.common.min.js 常用
+包含常用的图表组件
+折 柱 饼 散点 图例
+工具栏 标注 标线
+数据区域缩放
+
+echarts.simple.min.js 精简
+只包含基础图表
+折 柱 饼
+
+echarts.min.js 完整
+包含所有图表组件
+
+echarts.js 源码
+包含所有图表组件的源码，常见的警告和错误提示
+
+
+改动说明：
+
+1.  window.requestAnimationFrame.bind 在IE8下 报错
+    在min的JS中  增加判断  && window.requestAnimationFrame.bind
+    在源码的JS中 增加判断  && window.requestAnimationFrame.bind
+    可能在后续版本中存在此bug，如遇到需更改源码(请直接查找关键字修改)。

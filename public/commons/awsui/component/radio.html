@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="content" content="基于AWSUI-Radio的主流前端响应式框架">
+		<meta name="keywords" content="单选框 - AWSUI">
+		<title>Radio</title>
+		<link rel="stylesheet" href="../css/bootstrap.css">
+		<link rel="stylesheet" href="../../css/awsui.css">
+		<link rel="stylesheet" href="../css/uidoc.css?v=1">
+		<link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+	</head>
+	<body>
+		<div class="awsui-wrapper">
+			<div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 awsui-border-bottom">
+				<div class="awsui-markdown">
+					<h1 class="title2" id="radio">Radio单选框</h1>
+					<p class="awsui-margin-bottom-14">用于在多个备选项中选中单个状态。</p>
+					<ul>
+						<li>Radio 所有选项默认可见，方便用户在比较中选择，因此选项不宜过多。</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-markdown">
+					<div class="awsui-code-title" id="numberApi">
+						API
+					</div>
+					<ul>
+						<li>$(el).check(config)</li>
+					</ul>
+					<p>config 参数如下：</p>
+				</div>
+				<table class="awsui-table awsui-margin-bottom-24">
+					<thead>
+						<tr>
+							<th width="20%">参数</th>
+							<th width="35%">说明</th>
+							<th>默认值</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>radioClass</td>
+							<td>改变radio的风格，使用类iradio_minimal-(grey/blue/green/aero)等。</td>
+							<td>iradio_minimal-grey</td>
+						</tr>
+						<tr>
+							<td>labelHover</td>
+							<td>移入文字时是否改变radio的样式</td>
+							<td>true</td>
+						</tr>
+						<tr>
+							<td>labelHoverClass</td>
+							<td>移入文字时radio的样式</td>
+							<td>hover</td>
+						</tr>
+					</tbody>
+				</table>
+				<p>下面这些方法可以用来通过编程方式改变input状态，方法如下：</p>
+				<table class="awsui-table awsui-margin-bottom-24">
+					<thead>
+						<tr>
+							<th width="20%">参数</th>
+							<th width="35%">说明</th>
+							<th>用例</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>check</td>
+							<td>指定当前为选中</td>
+							<td><code>$(el).check("check")</code></td>
+						</tr>
+						<tr>
+							<td>uncheck</td>
+							<td>移除 checked 状态</td>
+							<td><code>$(el).check("uncheck")</code></td>
+						</tr>
+						<tr>
+							<td>disable</td>
+							<td>设置不可用</td>
+							<td><code>$(el).check("disable")</code></td>
+						</tr>
+						<tr>
+							<td>enable</td>
+							<td>设置可用</td>
+							<td><code>$(el).check("enable")</code></td>
+						</tr>
+						<tr>
+							<td>toggle</td>
+							<td>切换状态</td>
+							<td><code>$(el).check("toggle")</code></td>
+						</tr>
+						<tr>
+							<td>update</td>
+							<td>同步状态</td>
+							<td><code>$(el).check("update")</code></td>
+						</tr>
+						<tr>
+							<td>destroy</td>
+							<td>移除样式</td>
+							<td><code>$(el).check("destroy")</code></td>
+						</tr>
+					</tbody>
+				</table>
+				<p>事件如下：</p>
+				<table class="awsui-table awsui-margin-bottom-24">
+					<thead>
+						<tr>
+							<th width="25%">事件名</th>
+							<th width="30%">说明</th>
+							<th width="45%">用例</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>ifClicked</td>
+							<td>被点击时触发</td>
+							<td><code>$(el).on("ifClicked",function(){})</code></td>
+						</tr>
+						<tr>
+							<td>ifChanged</td>
+							<td>选中或状态改变时触发</td>
+							<td><code>$(el).on("ifChanged",function(){})</code></td>
+						</tr>
+						<tr>
+							<td>ifChecked</td>
+							<td>选中触发</td>
+							<td><code>$(el).on("ifChecked",function(){})</code></td>
+						</tr>
+						<tr>
+							<td>ifUnchecked</td>
+							<td>取消选中触发</td>
+							<td><code>$(el).on("ifUnchecked",function(){})</code></td>
+						</tr>
+						<tr>
+							<td>ifToggled</td>
+							<td>状态变化</td>
+							<td><code>$(el).on("ifToggled",function(){})</code></td>
+						</tr>
+						<tr>
+							<td>ifDisabled</td>
+							<td>设置不可用时</td>
+							<td><code>$(el).on("ifDisabled",function(){})</code></td>
+						</tr>
+						<tr>
+							<td>ifEnabled</td>
+							<td>设置可用时</td>
+							<td><code>$(el).on("ifEnabled",function(){})</code></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event1">
+					基本
+				</div>
+				<p class="awsui-margin-top-5">最简单的用法，指定当前是否选中。</p>
+				<div class="awsui-code-demo">
+					<input class="awsui-radio" name="radiox1" id="radio1" value="123456" type="radio" >
+					<label class="awsui-radio-label" for="radio1">选项1</label>
+					<input class="awsui-radio" name="radiox1" id="radio2" value="123456" type="radio">
+					<label class="awsui-radio-label" for="radio2">选项2</label>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;input class="awsui-radio" name="radiox1" id="radio1" value="123456" type="radio" &gt;
+&lt;label class="awsui-radio-label" for="radio1"&gt;选项1&lt;/label&gt;
+&lt;input class="awsui-radio" name="radiox1" id="radio2" value="123456" type="radio"&gt;
+&lt;label class="awsui-radio-label" for="radio2"&gt;选项2&lt;/label&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$("#radio2").check("check");</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event2">
+					不可用
+				</div>
+				<p class="awsui-margin-top-5">Radio 不可用。</p>
+				<div class="awsui-code-demo">
+					<input class="awsui-radio" disabled="disabled" name="radioDisabled" id="radioDisabled1" value="123456" type="radio"/>
+					<label class="awsui-radio-label" for="radioDisabled1">选项1</label>
+					<input class="awsui-radio" disabled="disabled" name="radioDisabled" id="radioDisabled2" value="123456" type="radio"/>
+					<label class="awsui-radio-label" for="radioDisabled2">选项2</label>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;input class="awsui-radio" disabled="disabled" name="radioDisabled" id="radioDisabled1" value="123456" type="radio"/&gt;
+&lt;label class="awsui-radio-label" for="radioDisabled1"&gt;选项1&lt;/label&gt;
+&lt;input class="awsui-radio" disabled="disabled" name="radioDisabled" id="radioDisabled2" value="123456" type="radio"/&gt;
+&lt;label class="awsui-radio-label" for="radioDisabled2"&gt;选项2&lt;/label&gt;
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event3">
+					启用禁用
+				</div>
+				<p class="awsui-margin-top-5">启/禁用单选框。</p>
+				<div class="awsui-code-demo">
+					<input class="awsui-radio" id="radioAble" value="123456" checked type="radio">
+					<label class="awsui-radio-label" for="radioAble">选项1</label>
+					<p>
+						<button type="button" id="btnEnable" class="awsui-btn awsui-btn-blue">启用</button>
+						<button type="button" id="btnDisable" class="awsui-btn awsui-btn-danger">禁用</button>
+					</p>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;input class="awsui-radio" id="radioAble" value="123456" checked type="radio"&gt;
+&lt;label class="awsui-radio-label" for="radioAble"&gt;选项1&lt;/label&gt;
+&lt;p&gt;
+	&lt;button type="button" id="btnEnable" class="awsui-btn awsui-btn-blue"&gt;启用&lt;/button&gt;
+	&lt;button type="button" id="btnDisable" class="awsui-btn awsui-btn-danger"&gt;禁用&lt;/button&gt;
+&lt;/p&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$("#btnEnable").on("click", function(){
+	$("#radioAble").check("enable");
+});
+$("#btnDisable").on("click", function(){
+	$("#radioAble").check("disable");
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event4">
+					RadioGroup 组合
+				</div>
+				<p class="awsui-margin-top-5">一组互斥的 Radio 配合使用。</p>
+				<div class="awsui-code-demo">
+					<input class="awsui-radio" id="radioGroup1" name="radioGroup" value="A" type="radio"/>
+					<label class="awsui-radio-label" for="radioGroup1">A</label>
+					<input class="awsui-radio" id="radioGroup2" name="radioGroup" value="B" type="radio"/>
+					<label class="awsui-radio-label" for="radioGroup2">B</label>
+					<input class="awsui-radio" id="radioGroup3" name="radioGroup" value="C" type="radio"/>
+					<label class="awsui-radio-label" for="radioGroup3">C</label>
+					<input class="awsui-radio" id="radioGroup4" name="radioGroup" value="D" type="radio"/>
+					<label class="awsui-radio-label" for="radioGroup4">D</label>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+						<pre><code class="language-html">&lt;input class="awsui-radio" id="radioGroup1" name="radioGroup" value="A" type="radio"/&gt;
+&lt;label class="awsui-radio-label" for="radioGroup1"&gt;A&lt;/label&gt;
+&lt;input class="awsui-radio" id="radioGroup2" name="radioGroup" value="B" type="radio"/&gt;
+&lt;label class="awsui-radio-label" for="radioGroup2"&gt;B&lt;/label&gt;
+&lt;input class="awsui-radio" id="radioGroup3" name="radioGroup" value="C" type="radio"/&gt;
+&lt;label class="awsui-radio-label" for="radioGroup3"&gt;C&lt;/label&gt;
+&lt;input class="awsui-radio" id="radioGroup4" name="radioGroup" value="D" type="radio"/&gt;
+&lt;label class="awsui-radio-label" for="radioGroup4"&gt;D&lt;/label&gt;
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event5">
+					RadioGroup 垂直
+				</div>
+				<p class="awsui-margin-top-5">垂直的 RadioGroup，配合更多输入框选项。</p>
+				<div class="awsui-code-demo">
+					<p>
+						<input class="awsui-radio" id="radioGroupV1" name="radioGroupV" value="radioA" type="radio"/>
+						<label class="awsui-radio-label" for="radioGroup1">radioA</label>
+					</p>
+					<p>
+						<input class="awsui-radio" id="radioGroupV2" name="radioGroupV" value="radioB" type="radio"/>
+						<label class="awsui-radio-label" for="radioGroup2">radioB</label>
+					</p>
+					<p>
+						<input class="awsui-radio" id="radioGroupV3" name="radioGroupV" value="radioC" type="radio"/>
+						<label class="awsui-radio-label" for="radioGroup3">radioC</label>
+					</p>
+					<p>
+						<input class="awsui-radio" id="radioGroupV4" name="radioGroupV" value="radioD" type="radio"/>
+						<label class="awsui-radio-label" for="radioGroup4">radioD</label>
+					</p>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+						<pre><code class="language-html">&lt;p&gt;
+	&lt;input class="awsui-radio" id="radioGroupV1" name="radioGroupV" value="radioA" type="radio"/&gt;
+	&lt;label class="awsui-radio-label" for="radioGroup1"&gt;radioA&lt;/label&gt;
+&lt;/p&gt;
+&lt;p&gt;
+	&lt;input class="awsui-radio" id="radioGroupV2" name="radioGroupV" value="radioB" type="radio"/&gt;
+	&lt;label class="awsui-radio-label" for="radioGroup2"&gt;radioB&lt;/label&gt;
+&lt;/p&gt;
+&lt;p&gt;
+	&lt;input class="awsui-radio" id="radioGroupV3" name="radioGroupV" value="radioC" type="radio"/&gt;
+	&lt;label class="awsui-radio-label" for="radioGroup3"&gt;radioC&lt;/label&gt;
+&lt;/p&gt;
+&lt;p&gt;
+	&lt;input class="awsui-radio" id="radioGroupV4" name="radioGroupV" value="radioD" type="radio"/&gt;
+	&lt;label class="awsui-radio-label" for="radioGroup4"&gt;radioD&lt;/label&gt;
+&lt;/p&gt;
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event6">
+					不同风格
+				</div>
+				<p class="awsui-margin-top-5">Radio单选框的风格,配置radioClass属性。</p>
+				<div class="awsui-code-demo">
+					<input class="awsui-radio" checked  value="1" type="radio">
+					<label class="awsui-radio-label">默认</label>
+					<input class="awsui-radio" checked id="radioStyle1" name="radioStyle1" value="1" type="radio">
+					<label class="awsui-radio-label" for="radioStyle1">蓝色</label>
+					<input class="awsui-radio" checked id="radioStyle2" name="radioStyle2" value="1" type="radio">
+					<label class="awsui-radio-label" for="radioStyle2">绿色</label>
+					<input class="awsui-radio" checked id="radioStyle3" name="radioStyle3" value="1" type="radio">
+					<label class="awsui-radio-label" for="radioStyle3">红色</label>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;input class="awsui-radio" checked id="radioStyle" name="radioStyle" value="1" type="radio"&gt;
+&lt;label class="awsui-radio-label" for="radioStyle"&gt;默认&lt;/label&gt;
+&lt;input class="awsui-radio" checked id="radioStyle1" name="radioStyle1" value="1" type="radio"&gt;
+&lt;label class="awsui-radio-label" for="radioStyle1"&gt;蓝色&lt;/label&gt;
+&lt;input class="awsui-radio" checked id="radioStyle2" name="radioStyle2" value="1" type="radio"&gt;
+&lt;label class="awsui-radio-label" for="radioStyle2"&gt;绿色&lt;/label&gt;
+&lt;input class="awsui-radio" checked id="radioStyle3" name="radioStyle3" value="1" type="radio"&gt;
+&lt;label class="awsui-radio-label" for="radioStyle3"&gt;红色&lt;/label&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$("#radioStyle1").check({
+	radioClass : 'iradio_minimal-blue',
+	labelHover: false
+});
+$("#radioStyle2").check({
+	radioClass : 'iradio_minimal-green'
+});
+$("#radioStyle3").check({
+	radioClass : 'iradio_minimal-red'
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event7">
+					点击事件
+				</div>
+				<p class="awsui-margin-top-5">点击事件使用。</p>
+				<div class="awsui-code-demo">
+					<input class="awsui-radio" id="radioClick" value="1" type="radio">
+					<label class="awsui-radio-label" for="radioClick">事件</label>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;input class="awsui-radio" id="radioClick" value="1" type="radio"&gt;
+&lt;label class="awsui-radio-label" for="radioClick"&gt;事件&lt;/label&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$("#radioClick").on("ifClicked",function(){
+	$.simpleAlert("已被点击")
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event8">
+					change事件
+				</div>
+				<p class="awsui-margin-top-5">change事件。</p>
+				<div class="awsui-code-demo">
+					<input class="awsui-radio" id="radioChange1" name="radioChange" value="1" type="radio">
+					<label class="awsui-radio-label" for="radioChange1">选项1</label>
+					<input class="awsui-radio" id="radioChange2" name="radioChange" value="1" type="radio">
+					<label class="awsui-radio-label" for="radioChange2">选项2</label>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;input class="awsui-radio" id="radioChange1" name="radioChange" value="1" type="radio"&gt;
+&lt;label class="awsui-radio-label" for="radioChange1"&gt;选项1&lt;/label&gt;
+&lt;input class="awsui-radio" id="radioChange2" name="radioChange" value="1" type="radio"&gt;
+&lt;label class="awsui-radio-label" for="radioChange2"&gt;选项2&lt;/label&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$("input[name='radioChange']").on("ifChanged",function(){
+	$.simpleAlert($(this).attr("id") + "被选中");
+});
+</code></pre>
+				</div>
+			</div>
+		</div>
+		<div class="section_right">
+			<div class="nav">
+				<!-- 右侧导航 -->
+			</div>
+		</div>
+		<div class="navTop">
+			<img src="../img/top.png" alt=""/>
+		</div>
+		<script src="../../js/jquery/scripts/jquery.js"></script>
+		<script src="../../js/awsui.js"></script>
+		<script src="../prism/prism.js"></script>
+		<script src="../js/public.js?v=1"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("#radio2").check("check");
+				$("#btnEnable").on("click", function(){
+					$("#radioAble").check("enable");
+				});
+				$("#btnDisable").on("click", function(){
+					$("#radioAble").check("disable");
+				});
+				$("#radioStyle1").check({
+					radioClass : 'iradio_minimal-blue',
+					labelHover: false
+				});
+				$("#radioStyle2").check({
+					radioClass : 'iradio_minimal-green'
+				});
+				$("#radioStyle3").check({
+					radioClass : 'iradio_minimal-red'
+				});
+				$("#radioClick").on("ifClicked",function(){
+					$.simpleAlert("已被点击");
+				});
+				$("input[name='radioChange']").on("ifChanged",function(){
+					$.simpleAlert($(this).attr("id") + "被选中");
+				});
+			});
+		</script>
+	</body>
+</html>

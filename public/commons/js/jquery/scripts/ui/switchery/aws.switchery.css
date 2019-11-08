@@ -1,0 +1,121 @@
+/*
+ *
+ * Main stylesheet for Switchery.
+ * http://abpetkov.github.io/switchery/
+ *
+ */
+
+/* Switchery defaults. */
+
+.switchery {
+	background-color: #fff;
+	border: 1px solid #dfdfdf;
+	border-radius: 20px;
+	cursor: pointer;
+	display: inline-block;
+	height: 30px;
+	position: relative;
+	vertical-align: middle;
+	width: 80px;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	box-sizing: content-box;
+	background-clip: content-box;
+}
+
+.switchery > small {
+	background: #fff;
+	border-radius: 100%;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+	height: 30px;
+	position: absolute;
+	top: 0;
+	width: 30px;
+}
+
+.switchery > span.left {
+	font-weight: bold;
+	line-height: 30px;
+	height: 30px;
+	color:white;
+	position: absolute;
+	left: 0 !important;
+	padding-left: 10px;
+}
+
+.switchery > span.right {
+	font-weight: bold;
+	line-height: 30px;
+	height: 30px;
+	color:#c0c0c0;
+	position: absolute;
+	right: 0 !important;
+	padding-right: 10px;
+}
+
+/* Switchery sizes. */
+
+.switchery-small {
+	border-radius: 20px;
+	height: 20px;
+	width: 60px;
+}
+
+.switchery-small > small {
+	height: 20px;
+	width: 20px;
+}
+.switchery > span.left.small {
+	font-weight: bold;
+	line-height: 20px;
+	height: 20px;
+	color:white;
+	position: absolute;
+	left: 0 !important;
+	padding-left: 10px;
+}
+
+.switchery > span.right.small {
+	font-weight: bold;
+	line-height: 20px;
+	height: 20px;
+	color:#c0c0c0;
+	position: absolute;
+	right: 0 !important;
+	padding-right: 10px;
+}
+	
+
+.switchery-large {
+	border-radius: 40px;
+	height: 40px;
+	width: 100px;
+}
+
+.switchery-large > small {
+	height: 40px;
+	width: 40px;
+}
+.switchery > span.left.large {
+	font-weight: bold;
+	line-height: 40px;
+	height: 40px;
+	color:white;
+	position: absolute;
+	left: 0 !important;
+	padding-left: 10px;
+}
+
+.switchery > span.right.large {
+	font-weight: bold;
+	line-height: 40px;
+	height: 40px;
+	color:#c0c0c0;
+	position: absolute;
+	right: 0 !important;
+	padding-right: 10px;
+}
+	

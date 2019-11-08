@@ -1,0 +1,427 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="description" content="基于AWSUI-Scene的主流前端响应式框架">
+	<meta name="keywords" content="场景 - AWSUI">
+<title>Scene</title>
+
+<link rel="stylesheet" href="../../css/awsui.css">
+<link rel="stylesheet" href="../css/uidoc.css?v=1">
+<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../../css/awsui.css">
+	<script src="../../js/jquery/scripts/jquery.js"></script>
+	<script src="../clipboard/clipboard.min.js"></script>
+	<script src="../../js/awsui.js"></script>
+	<script src="../js/public.js?v=1"></script>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			font-family: "Microsoft Yahei";
+		}
+		h2{
+			font-size: 24px;
+			color:#6472c6;
+		}
+		.title2{
+			display: inline-block;
+			font-size: 18px;
+			font-family: "Microsoft Yahei";
+
+		}
+		.title3{
+			margin-top:15px;
+			color: #39424b;
+			font-size: 14px;
+		}
+       .descripte{
+		   font-size: 12px;
+		   font-style: oblique;
+		   color: #808080;
+	   }
+
+
+	</style>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row" style="margin-top:20px;">
+			<div class="col-sm-4 col-md-4 col-lg-4 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:1%">
+				<span id="easydo" class="title2" style="margin-top:50px;">任务处理场景</span>
+				<span class="title3"style="display: block">左侧有导航，右边为内容详情，点击会以其它合适的形式展现详细内容</span>
+			</div>
+			<div class="col-sm-4 col-md-4 col-lg-4 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+				<img src="../img/scene/task.png" class="img-responsive">
+			</div>
+			<div class="col-sm-10 col-md-10 col-lg-10 line-title col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:30px">
+					<tr>
+						<td colspan="3">
+							<fieldset>
+								<legend></legend>
+							</fieldset>
+						</td>
+					</tr>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-4 col-md-4 col-lg-4 col-lg-4 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:10px;">
+				<table class="tab" cellspacing="40" cellpadding="10">
+					<tr>
+						<td colspan="2">
+							<img src="../img/scene/information_push.png" class="img-responsive">
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-sm-4 col-md-4 col-lg-4 col-sm-offset-2 col-md-offset-2 col-lg-offset-2" style="margin-top:8%">
+				<table class="tab">
+					<tr>
+						<td>
+							<span class="title2" id="信息推送场景" style="">信息推送场景</span>
+							<span class="title3"style="display: block">有新消息提示时，从页面底部弹出信息通知</span>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-sm-10 col-md-10 col-lg-10 line-title col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:30px">
+				<tr>
+					<td colspan="3">
+						<fieldset>
+							<legend></legend>
+						</fieldset>
+					</td>
+				</tr>
+			</div>
+		</div>
+
+
+		<div class="row">
+			<div class="col-sm-11 col-md-11 col-lg-11 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top: 5px;">
+				<table class="tab">
+					<tr>
+						<td>
+							<span class="title2" id="数据表单场景" style="">数据表单场景</span>
+							<span class="title3"style="display: block">清晰的表单内容，自上而下的信息清晰明确</span>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+
+		<div class="row">
+			<div class="col-sm-3 col-md-3 col-lg-3 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:25px;">
+				<table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;">
+					<tr><td class="descripte">传统布局——编辑、查询数据量较大</td></tr>
+				</table>
+				<table class="tab" cellspacing="40" cellpadding="10">
+					<tr>
+						<td colspan="2">
+							<img src="../img/scene/old.png" class="img-responsive">
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="middle col-sm-3 col-md-3 col-lg-3 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:25px;margin-left:4%;margin-right:4%;">
+				<table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;">
+					<tr><td class="descripte">导航树布局——数据量大，分类较多</td></tr>
+				</table>
+				<table class="tab" cellspacing="40" cellpadding="10">
+					<tr>
+						<td colspan="2">
+							<img src="../img/scene/nav.png" class="img-responsive">
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-sm-3 col-md-3 col-lg-3" style="margin-top:25px;">
+				<table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;">
+					<tr><td class="descripte">单记录布局——快速调用除本身外的数据查询</td></tr>
+				</table>
+				<table class="tab" cellspacing="40" cellpadding="10">
+					<tr>
+						<td colspan="2">
+							<img src="../img/scene/single.png" class="img-responsive">
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+
+		<div class="row">
+			<div class="col-sm-3 col-md-3 col-lg-3 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:25px;">
+				<table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;">
+					<tr><td class="descripte">URL布局——快速调用外部资源信息网站</td></tr>
+				</table>
+				<table class="tab" cellspacing="40" cellpadding="10">
+					<tr>
+						<td colspan="2">
+							<img src="../img/scene/url.png" class="img-responsive">
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="middle col-sm-3 col-md-3 col-lg-3 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:25px;margin-left:4%;margin-right:4%;">
+				<table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;">
+					<tr><td class="descripte">嵌套DW场景——快速将页面进行嵌套显示</td></tr>
+				</table>
+				<table class="tab" cellspacing="40" cellpadding="10">
+					<tr>
+						<td colspan="2">
+							<img src="../img/scene/ifreame.png" class="img-responsive">
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-sm-3 col-md-3 col-lg-3" style="margin-top:25px;">
+				<table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;">
+					<tr><td class="descripte">单页布局——快速查看数据列表内容显示</td></tr>
+				</table>
+				<table class="tab" cellspacing="40" cellpadding="10">
+					<tr>
+						<td colspan="2">
+							<img src="../img/scene/onePage.png" class="img-responsive">
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-sm-10 col-md-10 col-lg-10 line-title col-sm-offset-1 col-md-offset-1 col-lg-offset-1"  style="margin-top:35px;">
+				<tr>
+					<td colspan="3">
+						<fieldset>
+							<legend></legend>
+						</fieldset>
+					</td>
+				</tr>
+			</div>
+		</div>
+
+
+		<div class="row">
+			<div class="col-sm-11 col-md-11 col-lg-11 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top: 6px;">
+				<table class="tab">
+					<tr>
+						<td>
+							<span class="title1" ></span>
+							<span class="title2" id="DW数据图表场景" style="">DW数据图表场景</span>
+							<span class="title3"style="display: block">用图表形式展现数据内容，清晰明确数据信息内容</span>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="row">
+				<div class="col-sm-3 col-md-3 col-lg-3 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:25px;">
+					<table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;">
+						<tr><td class="descripte">仪表盘</td></tr>
+					</table>
+					<table class="tab" cellspacing="40" cellpadding="10">
+						<tr>
+							<td colspan="2">
+								<img src="../img/scene/gauge.png" class="img-responsive">
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="middle col-sm-3 col-md-3 col-lg-3 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:25px;margin-left:4%;margin-right:4%;">
+					<table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;">
+						<tr><td class="descripte">饼图</td></tr>
+					</table>
+					<table class="tab" cellspacing="40" cellpadding="10">
+						<tr>
+							<td colspan="2">
+								<img src="../img/scene/pie.png" class="img-responsive">
+
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="col-sm-3 col-md-3 col-lg-3" style="margin-top:25px;">
+					<table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;">
+						<tr><td class="descripte">雷达图</td></tr>
+					</table>
+					<table class="tab" cellspacing="40" cellpadding="10">
+						<tr>
+							<td colspan="2">
+								<img src="../img/scene/radar.png" class="img-responsive">
+							</td>
+						</tr>
+					</table>
+				</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3 col-md-3 col-lg-3 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:25px;">
+				<table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;">
+					<tr><td class="descripte">散点图</td></tr>
+				</table>
+				<table class="tab" cellspacing="40" cellpadding="10">
+					<tr>
+						<td colspan="2">
+
+							<img src="../img/scene/scatter.png" class="img-responsive">
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="middle col-sm-3 col-md-3 col-lg-3 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:25px;margin-left:4%;margin-right:4%;">
+				<table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;">
+					<tr><td class="descripte">折线图</td></tr>
+				</table>
+				<table class="tab" cellspacing="40" cellpadding="10">
+					<tr>
+						<td colspan="2">
+							<img src="../img/scene/line.png" class="img-responsive">
+
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-sm-3 col-md-3 col-lg-3" style="margin-top:25px;">
+				<table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;">
+					<tr><td class="descripte">柱状图</td></tr>
+				</table>
+				<table class="tab" cellspacing="40" cellpadding="10">
+					<tr>
+						<td colspan="2">
+							<img src="../img/scene/bar.png" class="img-responsive">
+						</td>
+					</tr>
+				</table>
+			</div>
+
+
+		</div>
+		<div class="row">
+			<div class="col-sm-3 col-md-3 col-lg-3 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:25px;">
+				<table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;">
+					<tr><td class="descripte">地图</td></tr>
+				</table>
+				<table class="tab" cellspacing="40" cellpadding="10">
+					<tr>
+						<td colspan="2">
+							<img src="../img/scene/map.png" class="img-responsive">
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="middle col-sm-3 col-md-3 col-lg-3" style="margin-top:25px;margin-left:4%;margin-right:4%;">
+				<table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;">
+					<tr><td class="descripte">漏斗图</td></tr>
+				</table>
+				<table class="tab" cellspacing="40" cellpadding="10">
+					<tr>
+						<td colspan="2">
+
+							<img src="../img/scene/funnel.png" class="img-responsive">
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-sm-3 col-md-3 col-lg-3" style="margin-top:25px;">
+				<table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;">
+					<tr><td class="descripte">矩阵数图</td></tr>
+				</table>
+				<table class="tab" cellspacing="40" cellpadding="10">
+					<tr>
+						<td colspan="2">
+							<img src="../img/scene/matrrx.png" class="img-responsive">
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-sm-10 col-md-10 col-lg-10 line-title col-sm-offset-1 col-md-offset-1 col-lg-offset-1"  style="margin-top:35px;">
+				<tr>
+					<td colspan="3">
+						<fieldset>
+							<legend></legend>
+						</fieldset>
+					</td>
+				</tr>
+			</div>
+
+
+		</div>
+		<div class="row">
+			<div class="col-sm-4 col-md-4 col-lg-4 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:8%;">
+				<table class="tab">
+					<tr>
+						<td>
+							<span class="title2" id="页面切换场景">页面切换场景</span>
+							<span class="title3"style="display: block">呼出侧边栏——不用关闭相关弹窗，直接跳转和详情查看，方便快速录入信息内容</span>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-sm-4 col-md-4 col-lg-4 col-sm-offset-2 col-md-offset-2 col-lg-offset-2" style="margin-top:10px;">
+				<table class="tab" cellspacing="40" cellpadding="10">
+					<tr>
+						<td colspan="2">
+							<img src="../img/scene/pageCut.png" class="img-responsive">
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="row" style="margin-bottom: 20px;">
+			<div class="col-sm-3 col-md-3 col-lg-3 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:25px;">
+				<table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;">
+					<tr><td class="descripte">内部页签打开</td></tr>
+				</table>
+				<table class="tab" cellspacing="40" cellpadding="10">
+					<tr>
+						<td colspan="2">
+							<img src="../img/scene/openPage.png" class="img-responsive">
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="middle col-sm-3 col-md-3 col-lg-3 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:25px;margin-left:4%;margin-right:4%;">
+				<table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;margin-left:4%;margin-right:4%;">
+					<tr><td class="descripte">浏览器页签打开</td></tr>
+				</table>
+				<table class="tab" cellspacing="40" cellpadding="10">
+					<tr>
+						<td colspan="2">
+							<img src="../img/scene/openBrowser.png" class="img-responsive">
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-sm-3 col-md-3 col-lg-3" style="margin-top:25px;">
+				<table class="tab" cellspacing="40" cellpadding="10" style="margin-bottom:10px;margin-left:9%;margin-right:9%;">
+					<tr><td class="descripte">浏览器对话窗口打开</td></tr>
+				</table>
+				<table class="tab" cellspacing="40" cellpadding="10">
+					<tr>
+						<td colspan="2">
+							<img src="../img/scene/browserTalk.png" class="img-responsive">
+						</td>
+					</tr>
+				</table>
+			</div>
+
+
+		</div>
+		<div class="section_right">
+			<div class="nav" style="position: fixed;right:20px;">
+				<!-- 右侧导航 -->
+			</div>
+		</div>
+		<div class="navTop" style="position: fixed;bottom:40px;display: none">
+			<img src="../img/top.png" alt="" style="width: 45px"/>
+		</div>
+
+	</div>
+
+</body>
+</html>
+<script>
+	var winWidth = $("#right",parent.document).width();
+	var winHeight = $(window).height();
+	$(".container-fluid").width((winWidth));
+	$(".container-fluid").height((winHeight));
+</script>

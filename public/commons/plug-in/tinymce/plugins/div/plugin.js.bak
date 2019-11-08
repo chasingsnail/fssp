@@ -1,0 +1,56 @@
+/**
+ * plugin.js
+ *
+ * Copyright, Moxiecode Systems AB
+ * Released under LGPL License.
+ *
+ * License: http://www.tinymce.com/license
+ * Contributing: http://www.tinymce.com/contributing
+ */
+
+/*global tinymce:true */
+
+tinymce.PluginManager.add('div', function(editor) {
+	function showDialog() {
+		editor.windowManager.open({
+			title: "层",
+			items: {
+					type: 'form',
+					layout: 'grid',
+					columns: 1,
+					defaults: {
+						type: 'textbox',
+						maxWidth: 450
+					},
+					items: [
+						{label: 'Width', name: 'width'},
+						{label: 'Height', name: 'height'}
+					]
+				},
+			onSubmit: function(e) {
+				editor.focus();
+				var data = this.toJSON();
+				var html="<div style='height:"+data.height+"px;width:"+data.width+"px; border:1px dashed black;'></div>";
+				editor.insertContent(html);
+			}
+		});
+	}
+		
+		
+		
+	}
+	editor.addCommand("mceDiv", showDialog);
+	
+	editor.addButton('div', {
+		text:'div',
+		icon: false,
+		onclick: showDialog
+	});
+
+	editor.addMenuItem('div', {
+		icon: false,
+		text: 'Div',
+		context: 'tools',
+		onclick: showDialog
+	});
+});

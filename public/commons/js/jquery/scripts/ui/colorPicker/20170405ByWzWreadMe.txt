@@ -1,0 +1,2 @@
+现在仅引用了 JQuery_implementation 下的js文件
+其中jqColor.js里有控制弹窗位置的代码（有中文注释）

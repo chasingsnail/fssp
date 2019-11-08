@@ -1,0 +1,80 @@
+/* CSS Document */
+@import url("menu.css");
+.menu h1 {
+	color: rgba(0, 0, 0, 0.54);
+	padding-left: 20px;
+	font-family: Liberation Sans;
+}
+.menu li {
+	line-height: 42px;
+	vertical-align: top;
+	font-size: 16px;
+}
+.menu li a {
+	display: block;
+	padding: 0 35px;
+}
+.menu li a:active {
+	color: #2196f3;
+}
+.menu .selected a {
+	color: #2196f3;
+	background-color: #e7e7e7;
+}
+.menu .divider {
+	margin: 0;
+	padding: 0;
+	display: block;
+	width: 100%;
+	height: 1px !important;
+	border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+/* CSS Ripple */
+[ripple] {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	width: 100%;
+}
+[ripple]::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 30%;
+	background-color: currentColor;
+	height: 100%;
+	width: 50%;
+	border-radius: 0.75em /2em;
+	-webkit-transition: width 0.2s, height 0.2s, border-radius 0.2s, left 0.2s, top 0.2s, opacity 0.1s;
+	transition: width 0.2s, height 0.2s, border-radius 0.2s, left 0.2s, top 0.2s, opacity 0.1s;
+	text-align: center;
+	pointer-events: none;
+	opacity: 0;
+}
+[ripple]:active::after {
+	width: 100% !important;
+	left: 0;
+	top: 0 !important;
+	height: 100% !important;
+	opacity: 0.12;
+	border-radius: 0 !important;
+}
+.awsui-layout-left {
+  overflow: scroll;
+} 
+
+.awsui-layout-left-title {
+	font-weight: 500;
+	font-size: 27px;
+	color: rgba(0, 0, 0, 0.54);
+	padding: 20px 0 20px 20px;
+	font-family: Liberation Sans;
+}
+.awsui-layout-left-op{
+	top: 16px;
+}
+.awsui-layout-separater {
+	border: 0px;
+	box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.26);
+}

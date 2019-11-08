@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="content" content="基于AWSUI-Checkbox的主流前端响应式框架">
+		<meta name="keywords" content="复选框 - AWSUI">
+		<title>Checkbox</title>
+		<link rel="stylesheet" href="../css/bootstrap.css">
+		<link rel="stylesheet" href="../../css/awsui.css">
+		<link rel="stylesheet" href="../css/uidoc.css?v=1">
+		<link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+	</head>
+	<body>
+		<div class="awsui-wrapper">
+			<div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 awsui-border-bottom">
+				<div class="awsui-markdown">
+					<h1 class="title2" id="radio">Checkbox复选框</h1>
+					<p class="awsui-margin-bottom-14">在一组可选项中进行多项选择时。</p>
+					<ul>
+						<li>单独使用可以表示两种状态之间的切换，和 switch 类似。区别在于切换 switch 会直接触发状态改变，而 checkbox 一般用于状态标记，需要和提交操作配合。</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-markdown">
+					<div class="awsui-code-title" id="numberApi">
+						API
+					</div>
+					<ul>
+						<li>$(el).check(config)</li>
+					</ul>
+					<p>config 参数如下：</p>
+				</div>
+				<table class="awsui-table awsui-margin-bottom-24">
+					<thead>
+					<tr>
+						<th width="20%">参数</th>
+						<th width="35%">说明</th>
+						<th>默认值</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>checkboxClass</td>
+						<td>改变checkbox的风格，使用类icheckbox_minimal-(grey/blue/green/yellow/aero)等。</td>
+						<td>icheckbox_minimal-grey</td>
+					</tr>
+					<tr>
+						<td>labelHover</td>
+						<td>移入文字时是否改变radio的样式</td>
+						<td>true</td>
+					</tr>
+					<tr>
+						<td>labelHoverClass</td>
+						<td>移入文字时radio的样式</td>
+						<td>hover</td>
+					</tr>
+					</tbody>
+				</table>
+				<p>下面这些方法可以用来通过编程方式改变input状态，方法如下：</p>
+				<table class="awsui-table awsui-margin-bottom-24">
+					<thead>
+					<tr>
+						<th width="20%">参数</th>
+						<th width="35%">说明</th>
+						<th>用例</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>check</td>
+						<td>指定当前为选中</td>
+						<td><code>$(el).check("check")</code></td>
+					</tr>
+					<tr>
+						<td>uncheck</td>
+						<td>移除 checked 状态</td>
+						<td><code>$(el).check("uncheck")</code></td>
+					</tr>
+					<tr>
+						<td>disable</td>
+						<td>设置不可用</td>
+						<td><code>$(el).check("disable")</code></td>
+					</tr>
+					<tr>
+						<td>enable</td>
+						<td>设置可用</td>
+						<td><code>$(el).check("enable")</code></td>
+					</tr>
+					<tr>
+						<td>toggle</td>
+						<td>切换状态</td>
+						<td><code>$(el).check("toggle")</code></td>
+					</tr>
+					<tr>
+						<td>update</td>
+						<td>同步状态</td>
+						<td><code>$(el).check("update")</code></td>
+					</tr>
+					<tr>
+						<td>destroy</td>
+						<td>移除样式</td>
+						<td><code>$(el).check("destroy")</code></td>
+					</tr>
+					</tbody>
+				</table>
+				<p>事件如下：</p>
+				<table class="awsui-table awsui-margin-bottom-24">
+					<thead>
+					<tr>
+						<th width="25%">事件名</th>
+						<th width="30%">说明</th>
+						<th width="45%">用例</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>ifClicked</td>
+						<td>被点击时触发</td>
+						<td><code>$(el).on("ifClicked",function(){})</code></td>
+					</tr>
+					<tr>
+						<td>ifChanged</td>
+						<td>选中或状态改变时触发</td>
+						<td><code>$(el).on("ifChanged",function(){})</code></td>
+					</tr>
+					<tr>
+						<td>ifChecked</td>
+						<td>选中触发</td>
+						<td><code>$(el).on("ifChecked",function(){})</code></td>
+					</tr>
+					<tr>
+						<td>ifUnchecked</td>
+						<td>取消选中触发</td>
+						<td><code>$(el).on("ifUnchecked",function(){})</code></td>
+					</tr>
+					<tr>
+						<td>ifToggled</td>
+						<td>状态变化</td>
+						<td><code>$(el).on("ifToggled",function(){})</code></td>
+					</tr>
+					<tr>
+						<td>ifDisabled</td>
+						<td>设置不可用时</td>
+						<td><code>$(el).on("ifDisabled",function(){})</code></td>
+					</tr>
+					<tr>
+						<td>ifEnabled</td>
+						<td>设置可用时</td>
+						<td><code>$(el).on("ifEnabled",function(){})</code></td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event1">
+					基本
+				</div>
+				<p class="awsui-margin-top-5">最简单的用法，指定当前是否选中。</p>
+				<div class="awsui-code-demo">
+					<input class="awsui-checkbox" id="ck1" value="123456" type="checkbox" >
+					<label class="awsui-checkbox-label" for="ck1">选项1</label>
+					<input class="awsui-checkbox large" id="ck2" value="123456" type="checkbox" >
+					<label class="awsui-checkbox-label" for="ck2">选项2</label>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+							<pre><code class="language-html">&lt;input class="awsui-checkbox" id="ck1" value="123456" type="checkbox" &gt;
+&lt;label class="awsui-checkbox-label" for="ck1"&gt;选项1&lt;/label&gt;
+&lt;input class="awsui-checkbox large" id="ck2" value="123456" type="checkbox" &gt;
+&lt;label class="awsui-checkbox-label" for="ck2"&gt;选项2&lt;/label&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$("#ck1").check("check");</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event2">
+					不可用
+				</div>
+				<p class="awsui-margin-top-5">Checkbox 不可用。</p>
+				<div class="awsui-code-demo">
+					<input class="awsui-checkbox" disabled="disabled" checked name="checkboxDisabled" id="checkboxDisabled1" value="123456" type="checkbox"/>
+					<label class="awsui-checkbox-label" for="checkboxDisabled1">选项1</label>
+					<input class="awsui-checkbox" disabled="disabled" name="checkboxDisabled" id="checkboxDisabled2" value="123456" type="checkbox"/>
+					<label class="awsui-checkbox-label" for="checkboxDisabled2">选项2</label>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+							<pre><code class="language-html">&lt;input class="awsui-checkbox" disabled="disabled" name="checkboxDisabled" id="checkboxDisabled1" value="123456" type="checkbox"/&gt;
+&lt;label class="awsui-checkbox-label" for="checkboxDisabled1"&gt;选项1&lt;/label&gt;
+&lt;input class="awsui-checkbox" disabled="disabled" checked name="checkboxDisabled" id="checkboxDisabled2" value="123456" type="checkbox"/&gt;
+&lt;label class="awsui-checkbox-label" for="checkboxDisabled2"&gt;选项2&lt;/label&gt;
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event3">
+					受控的 Checkbox
+				</div>
+				<p class="awsui-margin-top-5">受控的 Checkbox。</p>
+				<div class="awsui-code-demo">
+					<input class="awsui-checkbox" checked id="checkboxOpt" value="123456" type="checkbox"/>
+					<label class="awsui-checkbox-label" id="checkboxLabel" for="checkboxOpt">checked</label>
+					<p>
+						<button type="button" id="btnChecked" class="awsui-btn awsui-btn-blue">取消选中</button>
+						<button type="button" id="btnDisabled" class="awsui-btn awsui-btn-danger">禁用</button>
+					</p>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;input class="awsui-checkbox" checked id="checkboxOpt" value="123456" type="checkbox"&gt;
+&lt;label class="awsui-checkbox-label" id="checkboxLabel" for="checkboxOpt"&gt;checked&lt;/label&gt;
+&lt;p&gt;
+	&lt;button type="button" id="btnChecked" class="awsui-btn awsui-btn-blue"&gt;取消选中&lt;/button&gt;
+	&lt;button type="button" id="btnDisabled" class="awsui-btn awsui-btn-danger"&gt;禁用&lt;/button&gt;
+&lt;/p&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$("#btnChecked").on("click", function(){
+	if ($("#checkboxOpt").prop("checked")) {
+		$("#checkboxOpt").check("uncheck");
+		$("#checkboxLabel").html("unchecked");
+		$("#btnChecked").text("选中");
+	} else {
+		$("#checkboxOpt").check("check");
+		$("#checkboxLabel").html("checked");
+		$("#btnChecked").text("取消选中");
+	}
+});
+$("#btnDisabled").on("click", function(){
+	if ($("#checkboxOpt").parent().hasClass("disabled")) {
+		$("#checkboxOpt").check("enable");
+		$("#btnDisabled").text("禁用");
+	} else {
+		$("#checkboxOpt").check("disable");
+		$("#btnDisabled").text("启用");
+	}
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event4">
+					Checkbox 组
+				</div>
+				<p class="awsui-margin-top-5">Checkbox 组合使用。</p>
+				<div class="awsui-code-demo">
+					<input class="awsui-checkbox" id="checkboxGroup1" value="A" type="checkbox"/>
+					<label class="awsui-checkbox-label" for="checkboxGroup1">A</label>
+					<input class="awsui-checkbox" id="checkboxGroup2" value="B" type="checkbox"/>
+					<label class="awsui-checkbox-label" for="checkboxGroup2">B</label>
+					<input class="awsui-checkbox" id="checkboxGroup3" value="C" type="checkbox"/>
+					<label class="awsui-checkbox-label" for="checkboxGroup3">C</label>
+					<input class="awsui-checkbox" id="checkboxGroup4" value="D" type="checkbox"/>
+					<label class="awsui-checkbox-label" for="checkboxGroup4">D</label>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;input class="awsui-checkbox" id="checkboxGroup1" value="A" type="checkbox"/&gt;
+&lt;label class="awsui-checkbox-label" for="checkboxGroup1"&gt;A&lt;/label&gt;
+&lt;input class="awsui-checkbox" id="checkboxGroup2" value="B" type="checkbox"/&gt;
+&lt;label class="awsui-checkbox-label" for="checkboxGroup2"&gt;B&lt;/label&gt;
+&lt;input class="awsui-checkbox" id="checkboxGroup3" value="C" type="checkbox"/&gt;
+&lt;label class="awsui-checkbox-label" for="checkboxGroup3"&gt;C&lt;/label&gt;
+&lt;input class="awsui-checkbox" id="checkboxGroup4" value="D" type="checkbox"/&gt;
+&lt;label class="awsui-checkbox-label" for="checkboxGroup4"&gt;D&lt;/label&gt;
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event5">
+					不同风格
+				</div>
+				<p class="awsui-margin-top-5">Checkbox的风格,配置CheckboxClass属性。</p>
+				<div class="awsui-code-demo">
+					<input class="awsui-checkbox" checked id="checkboxStyle" value="1" type="checkbox"/>
+					<label class="awsui-checkbox-label" for="checkboxStyle">默认</label>
+					<input class="awsui-checkbox" checked id="checkboxStyle1" value="1" type="checkbox"/>
+					<label class="awsui-checkbox-label" for="checkboxStyle1">蓝色</label>
+					<input class="awsui-checkbox" checked id="checkboxStyle2" value="1" type="checkbox"/>
+					<label class="awsui-checkbox-label" for="checkboxStyle2">绿色</label>
+					<input class="awsui-checkbox" checked id="checkboxStyle3" value="1" type="checkbox"/>
+					<label class="awsui-checkbox-label" for="checkboxStyle3">红色</label>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;input class="awsui-checkbox" checked id="checkboxStyle" value="1" type="checkbox"/&gt;
+&lt;label class="awsui-checkbox-label" for="checkboxStyle"&gt;默认&lt;/label&gt;
+&lt;input class="awsui-checkbox" checked id="checkboxStyle1" value="1" type="checkbox"/&gt;
+&lt;label class="awsui-checkbox-label" for="checkboxStyle1"&gt;蓝色&lt;/label&gt;
+&lt;input class="awsui-checkbox" checked id="checkboxStyle2" value="1" type="checkbox"/&gt;
+&lt;label class="awsui-checkbox-label" for="checkboxStyle2"&gt;绿色&lt;/label&gt;
+&lt;input class="awsui-checkbox" checked id="checkboxStyle3" value="1" type="checkbox"/&gt;
+&lt;label class="awsui-checkbox-label" for="checkboxStyle3"&gt;红色&lt;/label&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$("#checkboxStyle1").check({
+	checkboxClass : 'icheckbox_minimal-blue'
+});
+$("#checkboxStyle2").check({
+	checkboxClass : 'icheckbox_minimal-green'
+});
+$("#checkboxStyle3").check({
+	checkboxClass : 'icheckbox_minimal-red'
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event6">
+					全选
+				</div>
+				<p class="awsui-margin-top-5">实现全选效果。</p>
+				<div class="awsui-code-demo">
+					<p>
+						<input class="awsui-checkbox" id="checkboxAll" value="" type="checkbox"/>
+						<label class="awsui-checkbox-label">Check all</label>
+					</p>
+					<p class="checkAll">
+						<input class="awsui-checkbox" value="Apple" type="checkbox"/>
+						<label class="awsui-checkbox-label">Apple</label>
+						<input class="awsui-checkbox" value="Pear" type="checkbox"/>
+						<label class="awsui-checkbox-label">Pear</label>
+						<input class="awsui-checkbox" value="Orange" type="checkbox"/>
+						<label class="awsui-checkbox-label">Orange</label>
+					</p>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;p&gt;
+	&lt;input class="awsui-checkbox" id="checkboxAll" value="" type="checkbox"/&gt;
+	&lt;label class="awsui-checkbox-label"&gt;Check all&lt;/label&gt;
+&lt;/p&gt;
+&lt;p class="checkAll"&gt;
+	&lt;input class="awsui-checkbox" value="Apple" type="checkbox"/&gt;
+	&lt;label class="awsui-checkbox-label"&gt;Apple&lt;/label&gt;
+	&lt;input class="awsui-checkbox" value="Pear" type="checkbox"/&gt;
+	&lt;label class="awsui-checkbox-label"&gt;Pear&lt;/label&gt;
+	&lt;input class="awsui-checkbox" value="Orange" type="checkbox"/&gt;
+	&lt;label class="awsui-checkbox-label"&gt;Orange&lt;/label&gt;
+&lt;/p&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">$("#checkboxAll").on("ifClicked", function(event){
+	var $checkbox = $(".checkAll").find(".awsui-checkbox");
+	if(event.target.checked){
+		$checkbox.iCheck('uncheck');
+	}else{
+		$checkbox.iCheck('check');
+	}
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event7">
+					点击事件
+				</div>
+				<p class="awsui-margin-top-5">点击事件使用。</p>
+				<div class="awsui-code-demo">
+					<input class="awsui-checkbox" id="checkboxClick" value="1" type="checkbox"/>
+					<label class="awsui-checkbox-label" for="checkboxClick">事件</label>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;input class="awsui-checkbox" id="checkboxClick" value="1" type="checkbox"/&gt;
+&lt;label class="awsui-checkbox-label" for="checkboxClick"&gt;事件&lt;/label&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$("#checkboxClick").on("ifClicked",function(){
+	if($(this).prop("checked")){
+		$.simpleAlert("不选中");
+	} else {
+		$.simpleAlert("已选中");
+	}
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event8">
+					change事件
+				</div>
+				<p class="awsui-margin-top-5">change事件。</p>
+				<div class="awsui-code-demo">
+					<input class="awsui-checkbox" id="checkboxChange1" name="checkboxChange" value="1" type="checkbox"/>
+					<label class="awsui-checkbox-label" for="checkboxChange1">选项1</label>
+					<input class="awsui-checkbox" id="checkboxChange2" name="checkboxChange" value="1" type="checkbox"/>
+					<label class="awsui-checkbox-label" for="checkboxChange2">选项2</label>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;input class="awsui-checkbox" id="checkboxChange1" name="checkboxChange" value="1" type="checkbox"/&gt;
+&lt;label class="awsui-checkbox-label" for="checkboxChange1"&gt;选项1&lt;/label&gt;
+&lt;input class="awsui-checkbox" id="checkboxChange2" name="checkboxChange" value="1" type="checkbox"/&gt;
+&lt;label class="awsui-checkbox-label" for="checkboxChange2"&gt;选项2&lt;/label&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$("input[name='checkboxChange']").on("ifChanged",function(){
+	if($(this).prop("checked")){
+		$.simpleAlert($(this).attr("id") + "被选中");
+	} else {
+		$.simpleAlert($(this).attr("id") + "被取消选中");
+	}
+});
+</code></pre>
+				</div>
+			</div>
+		</div>
+		<div class="section_right">
+			<div class="nav">
+				<!-- 右侧导航 -->
+			</div>
+		</div>
+		<div class="navTop">
+			<img src="../img/top.png" alt=""/>
+		</div>
+		<script src="../../js/jquery/scripts/jquery.js"></script>
+		<script src="../../js/awsui.js"></script>
+		<script src="../prism/prism.js"></script>
+		<script src="../js/public.js?v=1"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("#ck2").check("check");
+				$("#btnChecked").on("click", function(){
+				    if ($("#checkboxOpt").prop("checked")) {
+                        $("#checkboxOpt").check("uncheck");
+                        $("#checkboxLabel").html("unchecked");
+                        $("#btnChecked").text("选中");
+					} else {
+                        $("#checkboxOpt").check("check");
+                        $("#checkboxLabel").html("checked");
+                        $("#btnChecked").text("取消选中");
+					}
+				});
+				$("#btnDisabled").on("click", function(){
+                    if ($("#checkboxOpt").parent().hasClass("disabled")) {
+                        $("#checkboxOpt").check("enable");
+                        $("#btnDisabled").text("禁用");
+                    } else {
+                        $("#checkboxOpt").check("disable");
+                        $("#btnDisabled").text("启用");
+					}
+				});
+				$("#checkboxStyle1").check({
+                    checkboxClass : 'icheckbox_minimal-blue'
+				});
+				$("#checkboxStyle2").check({
+                    checkboxClass : 'icheckbox_minimal-green'
+				});
+				$("#checkboxStyle3").check({
+					checkboxClass : 'icheckbox_minimal-red'
+				});
+                $("#checkboxAll").on("ifClicked", function(event){
+                    var $checkbox = $(".checkAll").find(".awsui-checkbox");
+                    if(event.target.checked){
+                        $checkbox.iCheck('uncheck');
+                    }else{
+                        $checkbox.iCheck('check');
+                    }
+                });
+                $("#checkboxClick").on("ifClicked",function(){
+                    if($(this).prop("checked")){
+                        $.simpleAlert("不选中");
+                    } else {
+                        $.simpleAlert("已选中");
+                    }
+                });
+				$("input[name='checkboxChange']").on("ifChanged",function(){
+                    if($(this).prop("checked")){
+                        $.simpleAlert($(this).attr("id") + "被选中");
+                    } else {
+                        $.simpleAlert($(this).attr("id") + "被取消选中");
+                    }
+				});
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="description" content="基于AWSUI-toolbar的主流前端响应式框架">
+	<meta name="keywords" content="工具栏 - AWSUI">
+<title>Toolbar</title>
+
+<link rel="stylesheet" href="../../css/awsui.css">
+<link rel="stylesheet" href="../css/uidoc.css?v=1">
+	<link rel="stylesheet" href="../../css/font/iconfont.css">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+<script src="../../js/jquery/scripts/jquery.js"></script>
+<script src="../../js/awsui.js"></script>
+<link rel="stylesheet" type="text/css" href="../dlhighlight/style.css"
+	media="all" />
+<script src="../dlhighlight/highlight.js"></script>
+<script src="../dlhighlight/lang-js.js"></script>
+<script src="../clipboard/clipboard.min.js"></script>
+<script src="../js/public.js?v=1"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#menu").click(function(){
+			$("#myMenu").menu({
+				target:$("#menu")
+			})
+		});
+
+	});
+</script>
+	<style>
+		.title2{
+			display: inline-block;
+			font-size: 18px;
+		}
+		.title3{
+			margin-top:5px;
+			color: #39424b;
+			font-size: 14px;
+		}
+		.code{
+			max-width: 100%!important;
+		}
+		.code a{
+			border: 0px!important;
+			top: -5px!important;
+		}
+
+		pre{
+			border: 0px!important;
+			background: #ffffff!important;
+			overflow: hidden !important;
+		}
+		.nav {
+			width: auto;
+			height: auto;
+			position: fixed;
+			right: 30px;
+			top:25%;
+			opacity: .95;
+			z-index: 9999;
+			border: 0 !important;
+		}
+		.navTop{
+			width: 50px;
+			height: 50px;
+			position: fixed;
+			right: 45px;
+			opacity: .95;
+			z-index: 9999;
+			border: 0!important;
+		}
+		.navTop > img {
+			cursor: pointer;
+		}
+		.awsui-toolbar{
+			height:39px!important;
+		}
+	</style>
+</head>
+<body>
+<div class="container-fluid" style="margin-bottom:20px">
+	<div class="row">
+		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:25px;">
+			<span class="title2" id="desc">工具栏组件</span>
+			<span class="title3"style="display: block">工具栏能够装载各种样式的文本信息、按钮、菜单、查询框等组件。</span>
+		</div>
+	</div>
+	<div class="row" style="margin-top:10px;">
+		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+			 style="margin-top:20px;">
+			<table class="tab">
+				<tr>
+					<td>
+						<span class="title2" id="useComponent">空工具栏</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="row" style="margin-top: 20px">
+		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+			 style="background:#F2F2F2;">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-12 col-md-12 col-lg-12"
+						 style="padding-left:15px;line-height:44px;font-size:16px;height:45px;">
+						示例
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+			 style="border:1px solid #f2f2f2;border-top:0;">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-12 col-md-12 col-lg-12" style="font-size:14px;height:100px;background: white;border:1px solid #e2e2e2">
+						<div style="width: 100%;line-height: 29px;" class="awsui-toolbar">
+							此处可加载按钮，下拉框，菜单，弹出框等组件
+						</div>
+						<p style="height:60px;line-height: 60px;padding-left: 9px;">工具栏下的其他内容</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+			 style="background:#F2F2F2;;">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-12 col-md-12 col-lg-12"
+						 style="padding-left:15px;line-height:44px;font-size:16px;height:45px;">
+						示例代码
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-12 col-md-12 col-lg-12" style="border:1px solid #f2f2f2;border-top:0;font-size:16px;">
+						<div style="width:99%;float: left;">
+<pre class="code" id="button" style="height:92px;line-height: 20px;">
+ <div style="width: 100%" class="awsui-toolbar">
+	此处可加载按钮，下拉框，菜单，弹出框等组件
+ </div>
+ <p style="height:60px;line-height: 60px;padding-left: 9px;">工具栏下的其他内容</p>
+								</pre>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row" style="margin-top:10px;">
+		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+			 style="margin-top:20px;">
+			<table class="tab">
+				<tr>
+					<td>
+						<span class="title2" id="useComponent1">标准工具栏</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="row" style="margin-top: 20px">
+		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+			 style="background:#F2F2F2;">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-12 col-md-12 col-lg-12"
+						 style="padding-left:15px;line-height:44px;font-size:16px;height:45px;">
+						示例
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+			 style="border:1px solid #f2f2f2;border-top:0;">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-12 col-md-12 col-lg-12" style="height:100px;font-size:14px;background: white;border: 1px solid #e5e5e5;padding-bottom: 15px;">
+						<div style="width: 100%;" class="awsui-toolbar">
+							<div class="awsui-button-group" style="float: left">
+								<button type="button" class="awsui-btn"><i class="awsui-iconfont" style="font-size: 14px">&#58910;</i></button>
+								<button type="button" class="awsui-btn"><i class="awsui-iconfont" style="font-size: 14px">&#58920;</i></button>
+								<button type="button" class="awsui-btn"><i class="awsui-iconfont" style="font-size: 14px">&#58918;</i></button>
+								<button type="button" class="awsui-btn"><i class="awsui-iconfont" style="font-size: 14px">&#59178;</i></button>
+							</div>
+							<button type="button" class="awsui-btn align-right" ><i class="awsui-iconfont" style="font-size: 14px">&#58987;</i></button>
+						</div>
+						<p style="height:60px;line-height: 60px;padding-left: 9px">工具栏下的其他内容</p>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+			 style="background:#F2F2F2;;">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-12 col-md-12 col-lg-12"
+						 style="padding-left:15px;line-height:44px;font-size:16px;height:45px;">
+						示例代码
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-12 col-md-12 col-lg-12" style="border:1px solid #f2f2f2;border-top:0;font-size:16px;">
+						<div style="width:99%;float: left;">
+<pre class="code" id="button1" style="height:414px;line-height: 20px;">
+ <div style="width: 100%;" class="awsui-toolbar">
+	<div class="awsui-button-group" style="float: left">
+		<button type="button" class="awsui-btn">
+			<i class="awsui-iconfont" style="font-size: 14px">&#58910;</i>
+		</button>
+		<button type="button" class="awsui-btn">
+			<i class="awsui-iconfont" style="font-size: 14px">&#58920;</i>
+		</button>
+		<button type="button" class="awsui-btn">
+			<i class="awsui-iconfont" style="font-size: 14px">&#58918;</i>
+		</button>
+		<button type="button" class="awsui-btn">
+			<i class="awsui-iconfont" style="font-size: 14px">&#59178;</i>
+		</button>
+	</div>
+	<button type="button" class="awsui-btn align-right" >
+		<i class="awsui-iconfont" style="font-size: 14px">&#58987;</i>
+	</button>
+ </div>
+ <p style="height:60px;line-height: 60px;padding-left: 9px">工具栏下的其他内容</p>
+
+
+								</pre>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row" style="margin-bottom: 10px">
+		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-12 col-md-12 col-lg-12" style="background: #f2f2f2;height:70px;border: 1px solid #e2e2e2;border-bottom:0px;margin-top:20px;">
+						<div style="width:100%;">
+							<div style="width:auto;height:35px;border-bottom: 1px solid #f2f2f2">
+								<span class="awsui-iconfont" style="font-weight: 550;display:block;float:left;height:35px;width:50px;font-size: 25px;color:#E9405D;padding-left: 15px;">&#59198;</span>
+								<span style="display:block;height:35px;width:45px;float:left;line-height:35px;font-size: 16px;color:#E9405D;font-weight: 549">注意</span>
+							</div>
+						</div>
+						<div style="padding-left:15px;width:100%;float: left;font-size: 14px;height:25px;line-height: 25px;">
+							<code>toolbar</code>工具栏内部可以放置所需要的元素，比如下拉框，菜单，按钮等
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="section_right">
+		<div class="nav" style="position: fixed;right:20px;">
+			<!-- 右侧导航 -->
+		</div>
+	</div>
+	<div class="navTop" style="position: fixed;bottom:40px;display: none">
+		<img src="../img/top.png" alt="" style="width: 45px"/>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+</body>
+</html>

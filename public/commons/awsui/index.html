@@ -1,0 +1,582 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title class="link-title">QuickStart - AWSUI</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="../css/font/iconfont.css">
+    <link rel="stylesheet" href="../css/awsui.css">
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+        ul {
+            margin-bottom: 0px;
+        }
+    </style>
+</head>
+<body style="overflow: hidden" class="big_body">
+
+<div class="mprotal_top_nav">
+    <ul>
+        <li class="dis top_img" style="float: left;"><img id="dis" src="img/aws-display.png" alt=""/></li>
+        <li class="title" style="width:auto;height:50px;float: left;">入门</li>
+    </ul>
+</div>
+
+
+<div class="menu">
+    <ul>
+        <li>
+            <div class="silde">
+                <span>介绍</span>
+                <span class="engT">Intoduction</span>
+                <span class="flexBtn"><img src="img/flex_down.png" alt=""/></span>
+            </div>
+            <ul class="menuList">
+                <li>
+                    <a href="#basic/quickstart">
+                        <span class="text">入门</span>
+                        <span class="eng">QuickStart</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#basic/icon">
+                        <span class="text">图标</span>
+                        <span class="eng">Icons</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#basic/colors">
+                        <span class="text">颜色</span>
+                        <span class="eng">Colors</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#basic/modifier">
+                        <span class="text">修饰</span>
+                        <span class="eng">Modifier</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#basic/scene">
+                        <span class="text">场景</span>
+                        <span class="eng">Scene</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#basic/form">
+                        <span class="text">表单</span>
+                        <span class="eng">Form</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#basic/interactive">
+                        <span class="text">交互</span>
+                        <span class="eng">Interactive</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#basic/communicate">
+                        <span class="text">沟通</span>
+                        <span class="eng">Communicate</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <div class="silde">
+                <span>布局</span>
+                <span class="engT">Layout</span>
+                <span class="flexBtn"><img src="img/flex_down.png" alt=""/></span>
+            </div>
+            <ul class="menuList">
+                <li>
+                    <a href="#layout/layout">
+                        <span class="text">布局</span>
+                        <span class="eng">Layout</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#layout/column">
+                        <span class="text">栅格</span>
+                        <span class="eng">Column</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#layout/columForm">
+                        <span class="text">表单</span>
+                        <span class="eng">ColumnForm</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#layout/pagination">
+                        <span class="text">分页</span>
+                        <span class="eng">Pagination</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#layout/table">
+                        <span class="text">表格</span>
+                        <span class="eng">Table</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#layout/panels">
+                        <span class="text">面板</span>
+                        <span class="eng">Panels</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#layout/box">
+                        <span class="text">盒子</span>
+                        <span class="eng">Box</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#layout/accordion">
+                        <span class="text">手风琴</span>
+                        <span class="eng">Accordion</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <div class="silde">
+                <span>组件</span>
+                <span class="engT">Component</span>
+                <span class="flexBtn"><img src="img/flex_down.png" alt=""/></span>
+            </div>
+            <ul class="menuList">
+                <li>
+                    <a href="#component/button">
+                        <span class="text">按钮</span>
+                        <span class="eng">Button</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#component/toolbar">
+                        <span class="text">工具栏</span>
+                        <span class="eng">Toolbar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#component/menu">
+                        <span class="text">菜单</span>
+                        <span class="eng">Menu</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#component/tabs">
+                        <span class="text">选项卡</span>
+                        <span class="eng">Tabs</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#component/input">
+                        <span class="text">输入框</span>
+                        <span class="eng">Input</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#component/numberbox">
+                        <span class="text">数字输入框</span>
+                        <span class="eng">NumberBox</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#component/select2">
+                        <span class="text">高级列表</span>
+                        <span class="eng">Select2</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#component/checkbox">
+                        <span class="text">复选框</span>
+                        <span class="eng">Checkbox</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#component/radio">
+                        <span class="text">单选框</span>
+                        <span class="eng">Radio</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#component/switchbutton">
+                        <span class="text">开关</span>
+                        <span class="eng">SwitchButton</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#component/datepicker">
+                        <span class="text">日期</span>
+                        <span class="eng">DatePicker</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#component/datezone">
+                        <span class="text">日期范围</span>
+                        <span class="eng">DateZone</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#component/editHtml">
+                        <span class="text">富文本编辑</span>
+                        <span class="eng">EditHtml</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#component/chart">
+                        <span class="text">图表</span>
+                        <span class="eng">Chart</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#component/slider">
+                        <span class="text">滑块</span>
+                        <span class="eng">Slider</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#component/tree">
+                        <span class="text">树</span>
+                        <span class="eng">Tree</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#component/grid">
+                        <span class="text">网格</span>
+                        <span class="eng">Grid</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#component/milestone">
+                        <span class="text">里程碑</span>
+                        <span class="eng">Milestone</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#component/address">
+                        <span class="text">地址簿</span>
+                        <span class="eng">Address</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#component/fileupload">
+                        <span class="text">文件上传</span>
+                        <span class="eng">FileUpload</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#component/fileupload">
+                        <span class="text">授权</span>
+                        <span class="eng">AC</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#component/atformula">
+                        <span class="text">@公式</span>
+                        <span class="eng">AtFormula</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <div class="silde">
+                <span>反馈</span>
+                <span class="engT">Feedback</span>
+                <span class="flexBtn"><img src="img/flex_down.png" alt=""/></span>
+            </div>
+            <ul class="menuList">
+                <li>
+                    <a href="#feedback/messagePage">
+                        <span class="text">消息页面</span>
+                        <span class="eng">MessagePage</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#feedback/message">
+                        <span class="text">消息提示</span>
+                        <span class="eng">Message</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#feedback/scopedNotifications">
+                        <span class="text">区域提示</span>
+                        <span class="eng">ScopedNotifications</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#feedback/notification">
+                        <span class="text">通知提醒</span>
+                        <span class="eng">Notification</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#feedback/dialog">
+                        <span class="text">对话框</span>
+                        <span class="eng">Dialog</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#feedback/wizard">
+                        <span class="text">向导对话框</span>
+                        <span class="eng">Wizard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#feedback/confirm">
+                        <span class="text">确认框</span>
+                        <span class="eng">Confirm</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#feedback/popConfirm">
+                        <span class="text">气泡确认框</span>
+                        <span class="eng">PopConfirm</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#feedback/popbox">
+                        <span class="text">气泡框</span>
+                        <span class="eng">Popbox</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#feedback/tooltip">
+                        <span class="text">文字提示</span>
+                        <span class="eng">Tooltip</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#feedback/progress">
+                        <span class="text">进度条</span>
+                        <span class="eng">Progress</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#feedback/spin">
+                        <span class="text">加载中</span>
+                        <span class="eng">Spin</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#feedback/sidebar">
+                        <span class="text">侧边栏</span>
+                        <span class="eng">SideBar</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!-- <li>
+             <div class="silde">
+                 <span class="sign" style="background: #333"></span>
+                 <span style="margin-left:10px;color:#333">图表</span>
+                 &lt;!&ndash;<span class="awsui-line">-</span>&ndash;&gt;
+                 <span class="engT">Chart</span>
+                 <span class="flexBtn"><img src="img/flex_down.png" alt=""/></span>
+             </div>
+             <ul class="menuList">
+                 <a href="#chart/line"><span class="sign"></span><span class="text">折线图</span><span class="line">-</span><span
+                         class="eng">Line</span></a>
+                 <a href="#chart/bar"><span class="sign"></span><span class="text">柱状图</span><span
+                         class="line"></span><span class="eng">Bar</span></a>
+                 <a href="#chart/pie"><span class="sign"></span><span class="text">饼图</span><span
+                         class="line"></span><span class="eng">Pie</span></a>
+                 <a href="#chart/scatter"><span class="sign"></span><span class="text">散点图</span><span
+                         class="line"></span><span class="eng">Scatter</span></a>
+             </ul>
+         </li> -->
+    </ul>
+</div>
+<div id="right" style="margin-left:232px;width:auto;overflow: hidden">
+    <iframe id="main" frameborder="0" index="form_0" height="auto" class="awsui-layout-iframe">
+    </iframe>
+</div>
+</body>
+</html>
+<script src="../js/jquery/scripts/jquery.js"></script>
+<script src="../js/awsui.js"></script>
+<script>
+    $(document).ready(function () {
+        var flag = true;
+        var totate = true;
+        var winWidth = $(window).width();
+        var winHeight = $(window).height();
+        $(".menu").height((winHeight - 55));
+        $("#right").height((winHeight - 55));
+        $("#main").width((winWidth - 232));
+        $("#main").height((winHeight - 55));
+        $(window).resize(function () {
+            var winHeight = $(window).height();
+            var winWidth = $(window).width();
+            $(".menu").height((winHeight - 55));
+            $("#right").height((winHeight - 55));
+            $("#main").width((winWidth - 232));
+            $("#main").height((winHeight - 55));
+        });
+        //右上角图片点击事件
+
+        $('.top_img').on('click', function () {
+            if (flag) {
+                if ($("#dis").attr("src") == "img/aws-display.png") {
+                    $("#dis").attr("src", "img/aws-block.png");
+                } else {
+                    $("#dis").attr("src", "img/aws-display.png");
+                }
+                $(".mprotal_top_nav").css("background", "#3383da");
+                $(".mprotal_top_nav").css("border", "0px");
+
+                $(".design").css("display", "none");
+                $(".header_right").css("margin-left", "55px");
+                $(".menu").css("display", "none");
+                $(".header_right").css("height", "50px");
+                $(".title").css("height", "50px");
+                $(".title").css("font-size", "20px");
+                $(".title").css("line-height", "50px");
+                $("#right").css("margin-left", "0px");
+                var height = $("right").height();
+                $(".menu").height((winHeight));
+                $("#right").height((winHeight - 65));
+                $("#main").width((winWidth));
+                $("#main").height(height);
+                flag = false;
+            } else {
+                $("#dis").attr("src", "img/aws-display.png");
+                $(".mprotal_top_nav").css("background", "#FFFFFF");
+                //$(".mprotal_top_nav").css("border", "1px solid #ADADAD");
+                $(".top_img").css("border-right", "0px");
+                $(".design").css("display", "block");
+                $(".header_right").css("margin-left", "232px");
+                $(".menu").css("display", "block");
+                $(".header_right").css("height", "50px");
+                $(".title").css("height", "50px");
+                $(".title").css("font-size", "20 px");
+                $(".title").css("line-height", "50px");
+                $("#right").css("margin-left", "232px");
+                $(".menu").height((winHeight - 55));
+                $("#right").height((winHeight - 55));
+                $("#main").width((winWidth - 232));
+                $("#main").height((winHeight - 55));
+                flag = true;
+            }
+        });
+        //导航菜单
+        $(".menu a").on("mouseover", function () {
+            $(this).css("color", "#3983de");
+            $(this).find(".eng").css("color", "#3983de");
+        });
+        $(".menu a").on("mouseout", function () {
+            var _this = $(this);
+            $(".menu a").each(function (i, el) {
+                $(el).css("color", "#666");
+                $(el).find(".eng").css("color", "#999");
+                if ($(el).hasClass('active')) {
+                    $(el).css("color", "#3983de");
+                    $(el).find(".eng").css("color", "#3983de");
+                }
+            });
+
+        });
+        $(".menu a").on("click", function () {
+            $(".menu a").parent("li").siblings().removeClass("active");
+            $(".menu a").parent("li").siblings().find("a").removeClass("active");
+            $(this).addClass("active");
+            $(this).parent("li").addClass("active");
+            var src = $(this).attr("href").replace("#", "");
+            src = src + ".html";
+            $("#main", parent.document.body).attr("src", src);
+            var txt1 = $(this).find(".text").text();
+            var txt2 = $(this).find(".eng").text();
+            var name = txt2 + "- AWSUI";
+            $(".mprotal_top_nav .title").text(txt1);
+            $(".link-title").text(name);
+        });
+        /*$(".menu a").on("click", function () {
+            var _this = $(this);
+            var txt1 = $(this).find(".text").text();
+            var txt2 = $(this).find(".eng").text();
+            $(".title").text(txt1);
+            var name=txt2+"- AWSUI"
+            $(".link-title").text(name);
+            $(".menuList a").each(function (i,el) {
+                $(el).removeClass("active");
+                $(el).parent("li").removeClass("active");
+                if ($(el).text() == $(_this).text()) {
+                    $(_this).addClass("active");
+                    $(_this).parent("li").addClass("active");
+                }
+            });
+            // $(".ln").removeClass("ln");
+            // $(".selected").removeClass("selected");
+            // $(this).children("span").eq(1).addClass("selected");
+            // $(".selectedTitle").removeClass("selectedTitle");
+            // $(".ttl").removeClass("ttl");
+            var src = $(this).attr("href").replace("#", "");
+            src = src + ".html";
+            $("#main", parent.document.body).attr("src", src);
+        });*/
+        $('.menu .silde').on('click', function () {
+            if (totate) {
+                if ($.browser.isIE8 || $.browser.isIE9) {
+                    $(this).children().next().children("img").css("filter", "progid:DXImageTransform.Microsoft.BasicImage(rotation:2)");
+                } else {
+                    $(this).children().next().children("img").css({
+                        "transition": "all 0.8s ease 0s",
+                        "-webkit-transition": "0.8s ease 0s",
+                        "-trident-transition": "0.8s ease 0s",
+                        "-gecko-transition": "0.8s ease 0s",
+                        "transform": "rotate(180deg)", /*旋转180度*/
+                        "-webkit-transform": "rotate(180deg)",
+                        "-trident-transform": "rotate(180deg)",
+                        "-gecko-transform": "rotate(180deg)"
+                    });
+                }
+                totate = false;
+            } else {
+                if ($.browser.isIE8 || $.browser.isIE9) {
+                    $(this).children().next().children("img").css("filter", "progid:DXImageTransform.Microsoft.BasicImage(rotation:0)");
+                } else {
+                    $(this).children().next().children("img").css({
+                        "transition": "all 0.8s ease 0s",
+                        "-webkit-transition": "0.8s ease 0s",
+                        "-trident-transition": "0.8s ease 0s",
+                        "-gecko-transition": "0.8s ease 0s",
+                        "transform": "rotate(-180deg)", /*旋转180度*/
+                        "-webkit-transform": "rotate(0deg)",
+                        "-trident-transform": "rotate(0deg)",
+                        "-gecko-transform": "rotate(0deg)"
+                    });
+                }
+                totate = true;
+            }
+            $(this).next().stop().slideToggle(500).parent($(this)).siblings();
+        });
+        //通过url定位当前位置
+        var text = [];
+        var hash = window.location.hash ? window.location.hash : "basic/quickstart";
+        var b = hash;
+        var c
+        b = b.split("/");
+        for (var i = 0; i < b.length; i++) {
+            if (b[i] == "#layout") {
+                c = hash.replace("#layout/", "")
+            } else if (b[i] == "#basic") {
+                c = hash.replace("#basic/", "")
+            } else if (b[i] == "#form") {
+                c = hash.replace("#component/", "")
+            }
+        }
+        var src;
+        hash = hash.replace("#", "");
+        if (hash != "basic/quickstart.html") {
+            src = hash + ".html";
+        } else {
+            src = hash;
+        }
+        //$(".menu a[href='#basic" + hash + "']");
+        $("#main", parent.document.body).attr("src", src);
+    })
+
+</script>

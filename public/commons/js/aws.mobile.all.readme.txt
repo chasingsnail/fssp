@@ -1,0 +1,17 @@
+aws.mobile.all.debug.js是手机端引用的js文件的调试版本
+aws.mobile.all.js是手机端真正引用的js文件
+
+上述两个文件需要使用YUI压缩工具合并压缩得到：
+运行commons\yuicompressor目录下的3.aws.mobile.js.merge.compressor.cmd(sh)
+
+该js文件是多个平台js文件的合并版本，文件列表如下：
+..\..\..\portal\commons\js\jquery\scripts\jquery.ui.core.js
+..\..\..\portal\commons\js\jquery\scripts\jquery.ui.widget.js
+..\..\..\portal\commons\js\jquery\scripts\ui\check\icheck.debug.js
+..\..\..\portal\commons\js\jquery\scripts\ui\aws.util.debug.js
+..\..\..\portal\commons\js\jquery\scripts\ui\upfile\jquery.fileupload.js
+..\..\..\portal\commons\js\jquery\scripts\ui\upfile\jquery.fileupload-process.js
+..\..\..\portal\commons\js\jquery\scripts\ui\upfile\jquery.fileupload-ui.js
+..\..\..\portal\commons\js\jquery\scripts\ui\aws.upfile.debug.js
+..\..\..\portal\commons\js\jquery\scripts\ui\switchery\jquery.switchery.js
+..\..\..\portal\commons\js\jquery\scripts\ui\aws.address.debug.js

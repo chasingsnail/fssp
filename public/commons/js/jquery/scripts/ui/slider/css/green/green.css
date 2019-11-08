@@ -1,0 +1,101 @@
+﻿.dynamic-slider-control {
+	position: relative;
+	background-color: transparent;
+	-moz-user-focus: normal;
+	cursor: default;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+}
+
+.horizontal {
+	width: 120px;
+	height: 2px;
+}
+
+.vertical {
+	width: 29px;
+	height: 200px;
+}
+
+.dynamic-slider-control input {
+	display: none;
+}
+
+.dynamic-slider-control .handle {
+	position: absolute;
+	font-size: 2px;
+	overflow: hidden;
+	-moz-user-select: none;
+	cursor: pointer;
+}
+
+.dynamic-slider-control.horizontal .handle {/* 滑块颜色  横向 */
+	width: 15px;
+	height: 25px;
+	background: #2E8B57;
+}
+
+.dynamic-slider-control.horizontal .handle div {
+}
+.dynamic-slider-control.horizontal .handle.hover {/* 当鼠标放到滑块上面的颜色  横向 */
+	background: #8FBC8F;
+}
+
+.dynamic-slider-control.vertical .handle {/* 滑块颜色  纵向 */
+	width: 25px;
+	height: 15px;
+	background: #2E8B57;
+}
+
+.dynamic-slider-control.vertical .handle.hover {/* 当鼠标放到滑块上面的颜色  纵向 */
+	background: #8FBC8F;
+}
+
+.dynamic-slider-control .line {
+	position: absolute;
+	font-size: 0.01mm;
+	overflow: hidden;
+	border: 0px solid;
+	border-color: ThreeDShadow ThreeDHighlight ThreeDHighlight ThreeDShadow;
+	-moz-border-radius: 50%;
+	behavior: url("css/boxsizing.htc"); /* ie path bug */
+	box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	background: #EBEBEB;
+}
+.dynamic-slider-control.vertical .line {
+	width: 18px;
+}
+
+.dynamic-slider-control.horizontal .line {
+	height: 18px;
+}
+
+.dynamic-slider-control .line div {
+	display: none;
+}
+
+.dynamic-slider-control-text {
+	cursor: default;
+	width: 120px;
+	border: 0px #EBEBEB solid;
+	float: left;
+	height: 38px;
+	line-height: 38px;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+}
+
+.dynamic-slider-control-text .val {
+	font-size: 20px;
+}
+
+.dynamic-slider-control-text .unit {
+	font-size: 20px;
+}

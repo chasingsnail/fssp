@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum=1.0,user-scalable=no">
+<meta name="format-detection" content="telephone=no, email=no">
+	<script type="text/javascript" src="aws.mobile.api.js"></script>
+<script>
+function hideTitle()
+{
+	alert("a");
+awsWebview.hideTitle();
+}
+
+function hideMenu()
+{
+	alert("b");
+awsWebview.hideMenu();
+}
+
+function showMenu()
+{
+	alert("c");
+awsWebview.showMenu();
+}
+
+function closeWebview()
+{
+	alert("d");
+awsWebview.closeCurrentWebview();
+}
+
+function uploadPhoto()
+{
+	alert("e");
+awsWebview.uploadPhoto();
+}
+
+function openProcess()
+{
+	alert("f");
+awsWebview.openProcessCenter();
+}
+
+function openCanledar()
+{
+	alert("g");
+awsWebview.openCanledar();
+}
+
+function openAppDetail()
+{
+	alert("h");
+awsWebview.openCanledarDetail('0023266a-f576-4141-a0a8-805613678b7b');
+}
+
+
+
+function openWebview(){
+	alert("openWebview");
+	awsWebview.openWebview("http://192.168.0.213:8088/portal/commons/js/webapi2.html?v=5");
+}
+
+function testCallBack(){
+	
+	return 'lalalaCallBack';
+}
+
+</script>
+</head>
+<body>
+
+
+<button onclick="hideTitle()">隐藏title</button>
+<button onclick="hideMenu()">隐藏菜单</button>
+<button onclick="showMenu()">显示菜单</button>
+<button onclick="closeWebview()">关闭页面</button>
+<button onclick="openProcess()">打开流程中心</button>
+<button onclick="openCanledar()">打开日程</button>
+<button onclick="openAppDetail()">打开日程详情</button>
+<button onclick="openWebview()">打开新窗口</button>
+
+</body>

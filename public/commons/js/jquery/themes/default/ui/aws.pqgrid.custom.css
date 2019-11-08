@@ -1,0 +1,703 @@
+/*!
+ * =====================================================
+ * aws.grid.customize.css
+ * =====================================================
+ */
+div.aws-grid {
+	color: #333;
+	/*border: 1px solid #ccc;*/
+	border: 1px solid #dddddd;
+	box-shadow: 1px 1px 15px #DDD;
+}
+
+div.aws-grid-top {
+	color: #000; /*文字颜色*/
+	background-color: #f5f5f5;
+	/*background: -webkit-linear-gradient(top,#fefefe 0,#efefef 100%);
+	background: -moz-linear-gradient(top,#fefefe 0,#efefef 100%);
+	background: -o-linear-gradient(top,#fefefe 0,#efefef 100%);
+	background: linear-gradient(to bottom,#fefefe 0,#efefef 100%);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#fefefe,endColorstr=#efefef,GradientType=0);*/
+	background: -webkit-linear-gradient(top, #fefefe 0, #fefefe 100%);
+	background: -moz-linear-gradient(top, #fefefe 0, #fefefe 100%);
+	background: -o-linear-gradient(top, #fefefe 0, #fefefe 100%);
+	background: linear-gradient(to bottom, #fefefe 0, #fefefe 100%);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#fefefe, endColorstr=#fefefe, GradientType=0);
+}
+
+div.aws-grid-title {
+	font-size: 13px;
+	height: 25px;
+	line-height: 25px !important;
+}
+
+div.ui-grid-toolbar {
+	padding: 5px 8px 3px
+}
+
+div.aws-grid-bottom {
+	/*background: #eee;*/
+	background: #fefefe;
+	color: #333;
+}
+
+.aws-grid div.pq-header-outer {
+	/*background: #eee;*/
+	background: #fefefe;
+	overflow: hidden;
+	border-bottom: 1px solid #c5c5c5;
+}
+
+.aws-grid span.aws-grid-header {
+	/*background: url('images/grid/column-header-bg.png');
+	background-image: linear-gradient(#fefefe,#e6e6e6);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fefefe', endColorstr='#e6e6e6');
+	background: -webkit-gradient(linear, left top, left bottom, from(#fefefe), to(#e6e6e6));
+	background: -moz-linear-gradient(top,  #fefefe,  #e6e6e6);*/
+	top: -1px;
+	background-image: linear-gradient(#fefefe, #fefefe);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fefefe', endColorstr='#fefefe');
+	background: -webkit-gradient(linear, left top, left bottom, from(#fefefe), to(#fefefe));
+	background: -moz-linear-gradient(top, #fefefe, #fefefe); /* for firefox 3.6+ */
+}
+
+table.aws-grid-header-table div.pq-td-div {
+	padding: 4px 5px;
+}
+
+.aws-grid-col.pq-align-center.pq-left-col.aws-grid-col-leaf input[type=checkbox] {
+	/*	margin-top:4px;*/
+}
+
+.aws-grid td.aws-grid-col { /*header cell*/
+	font-weight: bold;
+	color: #000;
+	text-shadow: 0 1px 0 #fff;
+	border-bottom-width: 0px;
+}
+
+.aws-grid.gridNoBorder td.aws-grid-col { /*header cell*/
+	font-weight: bold;
+	color: #000;
+	text-shadow: 0 1px 0 #fff;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+}
+
+.aws-grid table.aws-grid-table td.pq-last-freeze-col {
+	border-right: 1px solid #d0d0d0;
+}
+
+.aws-grid.gridNoBorder table.aws-grid-table td.pq-last-freeze-col {
+	border-right-width: 0px;
+}
+
+.aws-grid select {
+	outline: none;
+	margin: 0px;
+}
+
+.aws-grid .grid-required {
+	position: relative;
+}
+
+.aws-grid .grid-required:after {
+	content: '*';
+	margin-top: 3px;
+	margin-left: 1px;
+	position: absolute;
+	color: #ff0000;
+}
+
+div.pq-cont {
+	background: #fff;
+}
+
+div.pq-cont * {
+	font-weight: normal;
+}
+
+td.aws-grid-cell {
+	background-color: #fff;
+	color: #333;
+}
+
+tr.aws-grid-oddRow td {
+	background: #fafafa;
+}
+
+div.pq-hvscroll-square {
+	background: #eee;
+}
+
+tr.aws-grid-row-hover td {
+	/*background-color: #d8e8fa;*/
+	background-color: #f5f5f5;
+}
+
+tr.pq-row-select td {
+	/*background-color:#6699cc;*/
+	/*background-color: #8cbff4;*/
+	background-color: #FFFFCA !important; /*强制选中颜色*/
+	/* color: #fff; */
+}
+
+div.aws-grid tr td.aws-grid-cell-hover {
+	background-color: #d8e8fa;
+	border-width: 0px; /*TR*/
+}
+
+.aws-grid tr td.aws-grid-number-cell.ui-state-default {
+	background: #fefefe;
+	color: #333;
+	text-align: center;
+	border-top: 0px;
+	border-right: 1px solid #d0d0d0;
+	border-bottom: 1px solid #f1f1f1
+}
+
+.aws-grid.gridNoBorder tr td.aws-grid-number-cell.ui-state-default {
+	border-left: 0px;
+	border-right: 0px;
+}
+
+div.aws-grid tr td.pq-cell-select {
+	background-color: #8cbff4;
+}
+
+.aws-grid div.pq-loading-mask {
+	background-color: #ffffff;
+	border: 1px solid #e9e9e9;
+	color: #333;
+	font-weight: normal;
+	border-radius: 4px;
+	box-shadow: 0 0 30px rgba(31, 31, 31, 0.2);
+	z-index: 2;
+	width: 115px;
+	/*height: 35px;*/
+}
+
+.aws-grid div.pq-loading-mask div {
+	font-size: 15px;
+	width: 115px;
+	height: 30px;
+	line-height: 30px !important;
+	/*padding-left: 41px;*/
+}
+
+.ui-grid-toolbar {
+	border-bottom: 1px solid #c5c5c5;
+	overflow: hidden;
+	margin: 0;
+	height: 30px;
+	position: relative;
+	/*样式*/
+	background-color: #f5f5f5;
+	/*background: -webkit-linear-gradient(top,#fefefe 0,#efefef 100%);
+	background: -moz-linear-gradient(top,#fefefe 0,#efefef 100%);
+	background: -o-linear-gradient(top,#fefefe 0,#efefef 100%);
+	background: linear-gradient(to bottom,#fefefe 0,#efefef 100%);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#fefefe,endColorstr=#efefef,GradientType=0);*/
+	/*background: -webkit-linear-gradient(top,#fefefe 0,#fefefe 100%);
+	background: -moz-linear-gradient(top,#fefefe 0,#fefefe 100%);
+	background: -o-linear-gradient(top,#fefefe 0,#fefefe 100%);
+	background: linear-gradient(to bottom,#fefefe 0,#fefefe 100%);*/
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#fefefe, endColorstr=#fefefe, GradientType=0);
+}
+
+.ui-grid-toolbar .form {
+	border: 1px solid #bbb;
+	display: inline-block;
+	outline: none;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	border-radius: 3px;
+	margin: 7px 3px 0px 4px;
+	padding: 1px 5px;
+}
+
+.ui-grid-toolbar .textbox {
+
+}
+
+.ui-grid-toolbar .select {
+
+}
+
+.ui-grid-toolbar .awsgridsep {
+	height: 20px;
+	width: 20px;
+	margin: 0px 7px;
+	border-left: 1px solid #ddd;
+}
+
+.ui-grid-toolbar .button {
+	font-family: "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", 微软雅黑, Arial, sans-serif;
+	font-size: 13px !important;
+	height: 26px;
+	line-height: 18px !important;
+	padding: 3px 18px;
+	display: inline-block;
+	vertical-align: middle;
+	font-weight: normal;
+	border-radius: 2px;
+	margin: 0px 8px 0px 3px;
+}
+
+.ui-grid-toolbar .button.hide {
+	display: none;
+}
+
+.ui-grid-toolbar .button-group {
+	margin: 0px 8px 0px 3px;
+	display: inline-block;
+	line-height: 30px;
+}
+
+.ui-grid-toolbar .button-group .button {
+	border-left-width: 0px;
+	border-radius: 0px;
+	margin: 0px !important;
+	float: left;
+}
+
+.ui-grid-toolbar .button-group .button:first-child {
+	border-left-width: 1px !important;
+}
+
+.ui-grid-toolbar .text {
+	font-size: 13px;
+	font-weight: normal;
+	margin-left: 8px;
+}
+
+div.aws-grid-summary div.pq-td-div {
+	min-height: 19px;
+}
+
+div.pq-cell-selected-border-edit {
+	border: 1px solid #63abf7;
+	height: 20px;
+}
+
+div.pq-editor-outer {
+	border: 1px solid #63abf7;
+	height: 20px;
+	display: block;
+	overflow: hidden;
+	background-color: white;
+}
+
+div.pq-editor-inner {
+	display: block;
+	height: 100%;
+}
+
+.aws-grid-editor-default {
+	width: 95%;
+	height: auto;
+	border: 0px;
+	margin: 4px 2px 0px 2px;
+	outline: none;
+}
+
+.aws-grid-editor-default:focus {
+	outline: none;
+}
+
+.aws-grid-after-edit {
+	background: url(images/grid/dirty.png) no-repeat 0 0 !important;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 5px;
+	height: 5px;
+}
+
+div.aws-grid td.checkboxColumn {
+	border: 1px solid #d3d3d3;
+	border-left: 0px;
+	border-top: 0px;
+}
+
+td.checkboxColumn input[type=checkbox] {
+	margin-top: 6px;
+}
+
+.grid-icon {
+}
+
+.grid-icon.grid-icon-edit {
+	background: url(images/grid/edit.png) no-repeat;
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	margin-top: 3px;
+}
+
+.aws-grid-moveObj {
+	display: none;
+	position: absolute;
+	height: 25px;
+	border: 1px solid #ccc;
+	background: #fff url(images/grid/tick1.png) no-repeat 8px 3px;
+	line-height: 25px;
+	padding-left: 30px;
+	padding-right: 7px;
+	font-size: 13px;
+	box-shadow: 1px 2px 5px #bbb;
+}
+
+.nowraptitle {
+	position: absolute;
+	left: -500px;
+	top: -500px;
+}
+
+.aws-grid input[type=checkbox] {
+	-webkit-appearance: none;
+	appearance: none;
+	outline: none;
+	width: 13px;
+	height: 13px;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+	vertical-align: middle;
+	background: #fff;
+	border: 1px solid #dcdcdc;
+	border-radius: 1px;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.aws-grid input[type=checkbox]:active {
+	border-color: #9b9b9b;
+	background: #ebebeb;
+}
+
+.aws-grid input[type=checkbox]:hover {
+	border-color: #b2b2b2;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.aws-grid input[type=checkbox]:checked {
+	background: #fff;
+}
+
+.aws-grid input[type=checkbox]:checked::after {
+	content: url(./images/forms/checkmark.png);
+	display: block;
+	position: absolute;
+	top: -6px;
+	left: -5px;
+}
+
+.aws-grid input[type=checkbox]:focus {
+	outline: none;
+	border-color: #4d90fe;
+}
+
+/*重写grid样式*/
+.aws-grid-new {
+	overflow: visible !important;
+}
+
+div.pq-cont-right {
+	overflow: visible;
+}
+
+div.aws-grid-right {
+	overflow: visible;
+}
+
+div.aws-grid-inner {
+	overflow: visible;
+}
+
+div.pq-header-outer {
+	/*overflow: visible;*//*这行打开后会让有滚动条的表头遮不住*/
+}
+
+div.pq-cont {
+	overflow: visible;
+}
+
+.awsui-wizard-content-item {
+	overflow: visible;
+}
+
+div.gridNoBorder td.aws-grid-number-col {
+	border-top: 0px;
+	border-right: 0px;
+	text-align: center;
+}
+
+td.aws-grid-number-col {
+	border-top: 0px;
+	text-align: center;
+}
+
+table.aws-grid-header-table div.aws-grid-header-table-div {
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+.awsui-wizard-content {
+	overflow: visible !important;
+}
+
+.awsui-wizard-content-item {
+	overflow: visible !important;
+}
+
+.aws-grid .aws-grid-header-table td.aws-grid-col {
+	/*border-top: 0px;*/
+}
+
+/*覆盖滚动条*/
+.pq-sb-slider-h .horiz-slider-left, .pq-sb-slider-h .horiz-slider-right, .pq-sb-slider .vert-slider-top, .pq-sb-slider .vert-slider-bottom {
+	background: rgb(206, 206, 206);
+}
+
+/*左箭头*/
+.pq-sb-horiz-wt div.left-btn {
+	left: 3px;
+	top: 2px;
+	width: 13px;
+	height: 13px;
+	background: url(images/grid/triangle-left.png) no-repeat 4px 2px;
+}
+
+/*→箭头*/
+.pq-sb-horiz-wt div.right-btn {
+	top: 1px;
+	right: 3px;
+	width: 13px;
+	height: 13px;
+	background: url(images/grid/triangle-right.png) no-repeat 5px 2px;
+
+}
+
+/*上箭头*/
+.pq-sb-vert-wt div.top-btn {
+	left: 2px;
+	top: 2px;
+	width: 13px;
+	height: 13px;
+	background: url(images/grid/triangle-up.png) no-repeat 3px 2px;
+}
+
+/*下箭头*/
+.pq-sb-vert-wt div.bottom-btn {
+	left: 2px;
+	bottom: 2px;
+	width: 13px;
+	height: 13px;
+	background: url(images/grid/triangle-down.png) no-repeat 3px 2px;
+}
+
+.pq-sb-slider-h .horiz-slider-center {
+	display: none;
+}
+
+.pq-sb-slider .vert-slider-center {
+	display: none;
+}
+
+.pq-sb-horiz-wt .pq-sb-slider-h .horiz-slider-bg {
+	background: rgb(206, 206, 206);
+}
+
+.pq-sb-horiz-wt .pq-sb-slider-h .horiz-slider-bg {
+	background: rgb(206, 206, 206);
+}
+
+.pq-sb-vert-wt .pq-sb-slider .vert-slider-bg {
+	background: rgb(206, 206, 206);
+}
+
+.pq-sb-vert-wt .pq-sb-slider .vert-slider-bg {
+	background: rgb(206, 206, 206);
+}
+
+/*其他*/
+
+.ui-grid-toolbar.pq-toolbar .button {
+	margin-right: 8px;
+}
+
+.ui-grid-toolbar.pq-toolbar {
+	padding: 8px 8px 4px;
+	background-color: #f5f5f5;
+}
+
+/*隐藏列锁定线*/
+.aws-grid div.aws-grid-vert-frozen-line {
+	display: none;
+}
+
+.aws-grid table.aws-grid-table td.pq-last-frozen-col {
+	border-right: 1px solid #D0D0D0;
+}
+
+.aws-grid button.ui-button-icon-only {
+	padding: 0.2em 0em;
+	background-color: #fff;
+	border: 1px solid #d3d3d3;
+	border-radius: 1px;
+}
+
+.aws-grid button.ui-button-icon-only:hover {
+	border: 1px solid #999;
+}
+
+tr.pq-group-row td span {
+	margin-top: -0.5px;
+}
+
+div.aws-grid *:focus {
+	outline: 0px dotted gray;
+}
+
+/*表头排序样式*/
+
+.pq-col-sort-icon.sortdefault {
+	vertical-align: top;
+	background-image: url(../../../../../css/jQueryUI/images/ui-icons_444444_256x240.png);
+	background-position: -129px -16px;
+	display: inline;
+	padding-right: 8px !important;
+}
+
+td.pq-col-sort-asc .pq-col-sort-icon, td.pq-col-sort-desc .pq-col-sort-icon {
+	background-image: url(../../../scripts/ui/datepicker/images/ui-icons_2e83ff_256x240.png);
+	vertical-align: top;
+	padding-right: 8px;
+}
+
+td.pq-col-sort-asc .pq-td-div, td.pq-col-sort-desc .pq-td-div {
+	color: #3688ff;
+}
+
+.aws-grid .aws-grid-header-table td.aws-grid-col {
+	background: none;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+	border: 0px;
+	background: none;
+}
+
+.ui-widget-header .ui-icon.ui-icon-seek-next {
+	background: url(../../default/ui/images/grid/page-next-gray.gif);
+	background-position: 1px -0px;
+}
+
+.ui-widget-header .ui-icon.ui-icon-seek-prev {
+	background: url(../../default/ui/images/grid/page-prev-gray.gif);
+	background-position: 1px -0px;
+}
+
+.ui-widget-header .ui-icon.ui-icon-seek-end {
+	background: url(../../default/ui/images/grid/page-last-gray.gif);
+	background-position: 1px -0px;
+}
+
+.ui-widget-header .ui-icon.ui-icon-seek-first {
+	background: url(../../default/ui/images/grid/page-first-gray.gif);
+	background-position: 1px -0px;
+}
+
+.ui-widget-header .ui-icon.ui-icon-refresh {
+	background: url(../../default/ui/images/grid/refresh.gif);
+	background-position: 1px -0px;
+}
+
+.pq-page-placeholder .ui-corner-all {
+	border-radius: 1px;
+}
+
+.pq-slider-icon .pq-max, .pq-slider-icon .pq-collapse {
+	border: 1px solid #f5f5f500;
+}
+
+.pq-slider-icon .pq-max.ui-state-hover, .pq-slider-icon .pq-collapse.ui-state-hover {
+	border: 1px solid #ccc;
+}
+
+/*合计的边框*/
+.aws-grid tr.pq-summary-row td.aws-grid-number-cell.ui-state-default, .aws-grid .pq-summary-row td.aws-grid-cell {
+	border-top: 0;
+}
+
+/*合计的边框*/
+.aws-grid tr.pq-summary-row.first-summary td.aws-grid-number-cell.ui-state-default, .aws-grid .pq-summary-row.first-summary td.aws-grid-cell {
+	border-top: 1px solid #D0D0D0;
+}
+
+.aws-grid-summary .aws-grid-table {
+	background-color: #f1f1f1;
+}
+
+.aws-grid-summary .aws-grid-table {
+	margin-top: 0px;
+}
+
+.aws-grid .aws-grid-summary div.pq-cont-inner {
+	top: 1px;
+}
+
+.aws-grid .aws-grid-summary div.pq-cont-inner:first-child {
+	padding-top: 1px;
+}
+
+span.pq-tooltip-icon {
+	top: 1px;
+}
+
+/*
+#3688ff pq-td-div
+portal\commons\js\jquery\scripts\ui\datepicker\images\ui-icons_2e83ff_256x240.png
+sort_down.png
+sort_up.png
+sort_default.png
+*/
+.awsui-toolbar .arrow {
+	margin-top: 2px !important;
+}
+
+.pq-toolbar .arrow, .awsui-toolbar .arrow {
+	float: left;
+	cursor: pointer;
+	height: 20px;
+	margin-top: 5px;
+}
+
+.pq-toolbar .disable, .awsui-toolbar .disable {
+	color: #DEDEDE;
+}
+
+.pq-toolbar .right, .awsui-toolbar .right {
+	float: right;
+}
+
+.pq-toolbar #toolDiv, .awsui-toolbar #toolDiv {
+	float: left;
+	height: 26px;
+	overflow: hidden;
+}
+
+.pq-toolbar #scroll, .awsui-toolbar #scroll {
+	position: relative;
+	left: 0px;
+	height: 26px;
+	display: block;
+	margin: 0px;
+	padding: 0px;
+}

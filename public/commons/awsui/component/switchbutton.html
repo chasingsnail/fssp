@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="content" content="基于AWSUI-switchButton的主流前端响应式框架">
+		<meta name="keywords" content="开关 - AWSUI">
+		<title>switchButton</title>
+		<link rel="stylesheet" href="../css/bootstrap.css">
+		<link rel="stylesheet" href="../../css/awsui.css">
+		<link rel="stylesheet" href="../css/uidoc.css?v=1">
+		<link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+	</head>
+	<body>
+		<div class="awsui-wrapper">
+			<div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 awsui-border-bottom">
+				<div class="awsui-markdown">
+					<h1 class="title2" id="switchButton">开关</h1>
+					<p class="awsui-margin-bottom-14">开关选择器，切换开关会直接触发状态改变。</p>
+					<ul>
+						<li>需要表示开关状态/两种状态之间的切换时。</li>
+						<li>和 checkbox的区别是，切换 switchButton 会直接触发状态改变，而 checkbox 一般用于状态标记，需要和提交操作配合。</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-markdown">
+					<div class="awsui-code-title" id="Api">
+						API
+					</div>
+					<ul>
+						<li>$(el).switchButton(config)</li>
+					</ul>
+					<p>config 参数如下：</p>
+				</div>
+				<table class="awsui-table awsui-margin-bottom-24">
+					<thead>
+					<tr>
+						<th width="30%">参数</th>
+						<th width="30%">说明</th>
+						<th width="20%">类型</th>
+						<th>默认值</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>color</td>
+						<td>打开状态背景颜色</td>
+						<td>string</td>
+						<td>#64bd63</td>
+					</tr>
+					<tr>
+						<td>secondaryColor</td>
+						<td>关闭状态背景色</td>
+						<td>string</td>
+						<td>#dfdfdf</td>
+					</tr>
+					<tr>
+						<td>jackColor</td>
+						<td>开关按钮颜色</td>
+						<td>string</td>
+						<td>#ffffff</td>
+					</tr>
+					<tr>
+						<td>onColor</td>
+						<td>开字体颜色</td>
+						<td>string</td>
+						<td>#ffffff</td>
+					</tr>
+					<tr>
+						<td>offColor</td>
+						<td>关字体颜色</td>
+						<td>string</td>
+						<td>#000000</td>
+					</tr>
+					<tr>
+						<td>className</td>
+						<td>开关类名</td>
+						<td>string</td>
+						<td>Switchery</td>
+					</tr>
+					<tr>
+						<td>showtextflag</td>
+						<td>是否显示开关文字</td>
+						<td>boolean</td>
+						<td>true</td>
+					</tr>
+					<tr>
+						<td>disabled</td>
+						<td>不可用</td>
+						<td>boolean</td>
+						<td>false</td>
+					</tr>
+					<tr>
+						<td>disabledOpacity</td>
+						<td>不可用透明度<code>(disabled为true)</code>才有效</td>
+						<td>number</td>
+						<td>0.5</td>
+					</tr>
+					<tr>
+						<td>speed</td>
+						<td>开关切换时间(0.1的偶数倍)</td>
+						<td>string</td>
+						<td>0.1s</td>
+					</tr>
+					<tr>
+						<td>ontext</td>
+						<td>开显示文字</td>
+						<td>string</td>
+						<td>开</td>
+					</tr>
+					<tr>
+						<td>offtext</td>
+						<td>关显示文字</td>
+						<td>string</td>
+						<td>关</td>
+					</tr>
+					<tr>
+						<td>swwidth</td>
+						<td>宽度</td>
+						<td>numbert</td>
+						<td>80</td>
+					</tr>
+					<tr>
+						<td>swheight</td>
+						<td>高度</td>
+						<td>numbert</td>
+						<td>28</td>
+					</tr>
+					<tr>
+						<td>fontSize</td>
+						<td>字体大小</td>
+						<td>numbert</td>
+						<td>13</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event1">
+					基本
+				</div>
+				<p class="awsui-margin-top-5">最简单的用法。</p>
+				<div class="awsui-code-demo">
+					<div class="col-sm-12 col-md-12 col-xs-12">
+						<input type="checkbox" id="switchBasic"/>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;input type="checkbox" id="switchBasic"/&gt;</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$("#switchBasic").switchButton();</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event2">
+					不可用
+				</div>
+				<p class="awsui-margin-top-5">switchButton 失效状态。</p>
+				<div class="awsui-code-demo">
+					<div class="col-sm-12 col-md-12 col-xs-12">
+						<input type="checkbox" id="switchDisabled"/>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;input type="checkbox" id="switchDisabled"/&gt;</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$("#switchDisabled").switchButton({
+	disabled : true,
+	disabledOpacity : 0.5
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event3">
+					自定义开关
+				</div>
+				<p class="awsui-margin-top-5">switchButton 自定义开关。</p>
+				<div class="awsui-code-demo">
+					<div class="col-sm-12 col-md-12 col-xs-12">
+						<input type="checkbox" id="switchCustom"/>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;input type="checkbox" id="switchCustom"/&gt;</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$("#switchCustom").switchButton({
+	showtextflag : true,//显示文字
+	color : '#5FB878',//开背景色
+	secondaryColor : '#f5f5f5',//关背景色
+	jackColor : '#FFFFFF',//按钮色
+	onColor : '#fff', //开字体颜色
+	offColor : '#000',//关字体颜色
+	ontext : "打开",//开显示文字
+	offtext : "关闭",//关显示文字
+	swwidth : 80,//宽度
+	swheight : 30,//高度
+	fontSize : 13//字体大小
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event4">
+					获取开关状态
+				</div>
+				<p class="awsui-margin-top-5">switchButton 获取开关状态。</p>
+				<div class="awsui-code-demo">
+					<div class="col-sm-12 col-md-12 col-xs-12">
+						<p>
+							<input type="checkbox" id="switchStatus"/>
+						</p>
+						<p>
+							<input type="text" id="statusText"/>
+						</p>
+						<button id="getStauts" type="button" class="awsui-btn awsui-btn-blue">
+							获取状态
+						</button>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;p&gt;
+	&lt;input type="checkbox" id="switchStatus"/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+	&lt;input type="text" id="statusText"/&gt;
+&lt;/p&gt;
+&lt;button id="getStauts" type="button" class="awsui-btn awsui-btn-blue"&gt;
+	获取状态
+&lt;/button&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$("#switchStatus").switchButton({
+	change : function() {
+		$("#statusText").val($("#switchStatus").prop("checked"));
+	}
+});
+$("#getStauts").on("click", function() {
+	alert("checked: " + $("#switchStatus")[0].checked);
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event5">
+					文字和图标
+				</div>
+				<p class="awsui-margin-top-5">带有文字和图标。</p>
+				<div class="awsui-code-demo">
+					<div class="col-sm-12 col-md-12 col-xs-12">
+						<input type="checkbox" id="switchSetNoFont"/>
+						<input type="checkbox" id="switchSetFont"/>
+						<input type="checkbox" id="switchSetNum"/>
+						<input type="checkbox" id="switchSetIcon"/>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;input type="checkbox" id="switchSetNoFont"/&gt;
+&lt;input type="checkbox" id="switchSetFont"/&gt;
+&lt;input type="checkbox" id="switchSetNum"/&gt;
+&lt;input type="checkbox" id="switchSetIcon"/&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$("#switchSetNoFont").switchButton({
+	ontext : "",//开显示文字
+	offtext : ""
+});
+$("#switchSetFont").switchButton({
+	ontext : "开",//开显示文字
+	offtext : "关",
+	offColor : '#666',//关字体颜色
+	fontSize : 12//字体大小
+});
+$("#switchSetNum").switchButton({
+	ontext : "1",//开显示文字
+	offtext : "0",
+	offColor : '#666',//关字体颜色
+	fontSize : 16//字体大小
+});
+$("#switchSetIcon").switchButton({
+	ontext : "&lt;i class='awsui-iconfont'&gt;&amp;#xe639;&lt;/i&gt;",//开显示文字
+	offtext : "&lt;i class='awsui-iconfont' style='font-size: 10px;'&gt;&amp;#59134;&lt;/i&gt;",
+	offColor : '#666'//关字体颜色
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event6">
+					改变风格
+				</div>
+				<p class="awsui-margin-top-5">不同风格。</p>
+				<div class="awsui-code-demo">
+					<div class="col-sm-12 col-md-12 col-xs-12">
+						<input type="checkbox" id="switchGrayStyle"/>
+						<input type="checkbox" id="switchGreenStyle"/>
+						<input type="checkbox" id="switchBlueStyle"/>
+						<input type="checkbox" id="switchRedStyle"/>
+						<input type="checkbox" id="switchOrangeStyle"/>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;input type="checkbox" id="switchGrayStyle"/&gt;
+&lt;input type="checkbox" id="switchGreenStyle"/&gt;
+&lt;input type="checkbox" id="switchBlueStyle"/&gt;
+&lt;input type="checkbox" id="switchRedStyle"/&gt;
+&lt;input type="checkbox" id="switchOrangeStyle"/&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$("#switchGrayStyle").switchButton({
+	color : '#666',//开背景色
+	secondaryColor : '#666',//关背景色
+	offColor : '#fff'//关字体颜色
+});
+$("#switchGreenStyle").switchButton({
+	color : '#009b52',//开背景色
+	secondaryColor : '#009b52',//关背景色
+	offColor : '#fff'//关字体颜色
+});
+$("#switchBlueStyle").switchButton({
+	color : '#3383da',//开背景色
+	secondaryColor : '#3383da',//关背景色
+	offColor : '#fff'//关字体颜色
+});
+$("#switchRedStyle").switchButton({
+	color : '#dc4f39',//开背景色
+	secondaryColor : '#dc4f39',//关背景色
+	offColor : '#fff'//关字体颜色
+});
+$("#switchOrangeStyle").switchButton({
+	color : '#ff9421',//开背景色
+	secondaryColor : '#ff9421',//关背景色
+	offColor : '#fff'//关字体颜色
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event7">
+					设置大小
+				</div>
+				<p class="awsui-margin-top-5">设置大小。</p>
+				<div class="awsui-code-demo">
+					<div class="col-sm-12 col-md-12 col-xs-12">
+						<input type="checkbox" id="switchLargeSize"/>
+						<input type="checkbox" id="switchSize"/>
+						<input type="checkbox" id="switchSmallSize"/>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;input type="checkbox" id="switchLargeSize"/&gt;
+&lt;input type="checkbox" id="switchSize"/&gt;
+&lt;input type="checkbox" id="switchSmallSize"/&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$("#switchLargeSize").switchButton({
+	showtextflag : false,
+	color : '#3383da',//开背景色
+	secondaryColor : '#b6b6b6',//关背景色
+	swwidth : 100,//宽度
+	swheight : 30//高度
+});
+$("#switchSize").switchButton({
+	showtextflag : false,
+	color : '#3383da',//开背景色
+	secondaryColor : '#b6b6b6',//关背景色
+	swwidth : 70,//宽度
+	swheight : 20//高度
+});
+$("#switchSmallSize").switchButton({
+	showtextflag : false,
+	color : '#3383da',//开背景色
+	secondaryColor : '#b6b6b6',//关背景色
+	swwidth : 40,//宽度
+	swheight : 10//高度
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event8">
+					默认打开
+				</div>
+				<p class="awsui-margin-top-5">默认打开。</p>
+				<div class="awsui-code-demo">
+					<div class="col-sm-12 col-md-12 col-xs-12">
+						<input type="checkbox" id="switchDefaultOn"/>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;input type="checkbox" id="switchDefaultOn"/&gt;</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">var defaultOn = $("#switchDefaultOn").switchButton();
+defaultOn.changeStatus(true);
+</code></pre>
+				</div>
+			</div>
+		</div>
+		<div class="section_right">
+			<div class="nav">
+				<!-- 右侧导航 -->
+			</div>
+		</div>
+		<div class="navTop">
+			<img src="../img/top.png" alt=""/>
+		</div>
+		<script src="../../js/jquery/scripts/jquery.js"></script>
+		<script src="../../js/awsui.js"></script>
+		<script src="../prism/prism.js"></script>
+		<script src="../js/public.js?v=1"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("#switchBasic").switchButton();
+				$("#switchDisabled").switchButton({
+                    disabled : true,
+                    disabledOpacity : 0.5
+				});
+				$("#switchCustom").switchButton({
+                    showtextflag : true,//显示文字
+                    color : '#5FB878',//开背景色
+                    secondaryColor : '#f5f5f5',//关背景色
+                    jackColor : '#FFFFFF',//按钮色
+                    onColor : '#fff', //开字体颜色
+                    offColor : '#000',//关字体颜色
+                    ontext : "打开",//开显示文字
+                    offtext : "关闭",//关显示文字
+                    swwidth : 80,//宽度
+                    swheight : 30,//高度
+                    fontSize : 13//字体大小
+				});
+                $("#switchStatus").switchButton({
+                    change : function() {
+                        $("#statusText").val($("#switchStatus").prop("checked"));
+                    }
+				});
+                $("#getStauts").on("click", function() {
+                    alert("checked: " + $("#switchStatus")[0].checked);
+                });
+                $("#switchSetNoFont").switchButton({
+                    showtextflag : false
+                });
+                $("#switchSetFont").switchButton({
+                    ontext : "开",//开显示文字
+                    offtext : "关",
+                    offColor : '#666',//关字体颜色
+                    fontSize : 12//字体大小
+				});
+                $("#switchSetNum").switchButton({
+                    ontext : "1",//开显示文字
+                    offtext : "0",
+                    offColor : '#666',//关字体颜色
+                    fontSize : 16//字体大小
+                });
+                $("#switchSetIcon").switchButton({
+                    ontext : "<i class='awsui-iconfont'>&#xe639;</i>",//开显示文字
+                    offtext : "<i class='awsui-iconfont' style='font-size: 10px;'>&#59134;</i>",
+                    offColor : '#666'//关字体颜色
+                });
+                $("#switchGrayStyle").switchButton({
+                    color : '#b6b6b6',//开背景色
+                    secondaryColor : '#b6b6b6',//关背景色
+                    offColor : '#fff'//关字体颜色
+                });
+                $("#switchGreenStyle").switchButton({
+                    color : '#009b52',//开背景色
+                    secondaryColor : '#009b52',//关背景色
+                    offColor : '#fff'//关字体颜色
+                });
+                $("#switchBlueStyle").switchButton({
+                    color : '#3383da',//开背景色
+                    secondaryColor : '#3383da',//关背景色
+                    offColor : '#fff'//关字体颜色
+                });
+                $("#switchRedStyle").switchButton({
+                    color : '#dc4f39',//开背景色
+                    secondaryColor : '#dc4f39',//关背景色
+                    offColor : '#fff'//关字体颜色
+                });
+                $("#switchOrangeStyle").switchButton({
+                    color : '#ff9421',//开背景色
+                    secondaryColor : '#ff9421',//关背景色
+                    offColor : '#fff'//关字体颜色
+                });
+                $("#switchLargeSize").switchButton({
+                    showtextflag : false,
+                    color : '#3383da',//开背景色
+                    secondaryColor : '#b6b6b6',//关背景色
+                    swwidth : 100,//宽度
+                    swheight : 30//高度
+                });
+                $("#switchSize").switchButton({
+                    showtextflag : false,
+                    color : '#3383da',//开背景色
+                    secondaryColor : '#b6b6b6',//关背景色
+                    swwidth : 70,//宽度
+                    swheight : 20//高度
+                });
+                $("#switchSmallSize").switchButton({
+                    showtextflag : false,
+                    color : '#3383da',//开背景色
+                    secondaryColor : '#b6b6b6',//关背景色
+                    swwidth : 40,//宽度
+                    swheight : 10//高度
+                });
+                var defaultOn = $("#switchDefaultOn").switchButton();
+                defaultOn.changeStatus(true);
+			});
+		</script>
+	</body>
+</html>

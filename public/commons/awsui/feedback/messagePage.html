@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="基于AWSUI-MessagePage的主流前端响应式框架">
+	<meta name="keywords" content="反馈信息 - AWSUI">
+	<title>消息页面</title>
+	<link rel="stylesheet" href="../../css/awsui.css">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/uidoc.css?v=1">
+	<link rel="stylesheet" type="text/css" href="../dlhighlight/style.css"/>
+</head>
+<body>
+	<div class="awsui-wrapper">
+		<div class="col-sm-12 col-md-12 col-xs-12 awsui-border-bottom">
+			<div class="awsui-markdown">
+				<h1 class="title2" id="messagePage">消息页面</h1>
+				<p class="awsui-margin-bottom-14">使用页面反馈重要信息。通常适用于用户提交某项操作时，返回特定页面提醒，使用<code>message-type="no_content"</code>、<code>message-type="no_search"</code>提供更加友好的引导语，并且根据<code>父级元素的高度</code>来按比例缩小的，在使用代码时父级元素一定要设定高度。适用场景如：</p>
+				<ul>
+					<li>操作被拒绝</li>
+					<li>无用户数据/信息</li>
+					<li>没有查询到结果</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-markdown">
+	        	<div class="awsui-code-title title2" id="description">
+		        	Type
+		        </div>
+		    </div>
+	        <table class="awsui-table awsui-margin-bottom-24">
+	        	<thead>
+	        		<tr>
+	        			<th width="90px">图标</th>
+	        			<th width="20%">message-type</th>
+	        			<th>场景</th>
+	        		</tr>
+	        	</thead>
+	        	<tbody id="messagePageTbody">
+		        </tbody>
+	        </table>
+        </div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-markdown">
+				<div class="awsui-code-title">
+					API
+				</div>
+				<ul>
+					<li>awsuiMessagePage()</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-code-title">
+				<code>注意</code>
+			</div>
+			<p class="awsui-margin-top-5" style="margin-bottom: 0;">
+				<code>
+					<span class="awsui-iconfont"></span>
+					<span>如果是js渲染的html代码，请渲染代码完成后调用 awsuiMessagePage()方法；若html代码直接写在页面中的，不需要调用此方法。 如下：</span>
+				</code>
+			</p>
+			<!--<div class="awsui-code-demo" style="height: 300px;" id="oMessagePage"></div>-->
+			<div class="awsui-code-info">
+        		<pre><code class="language-js">var html = $('&lt;div class="awsui-message-page"&gt;'+
+'&lt;div class="content"&gt;'+
+	'&lt;span class="icon" message-type="ok"&gt;&lt;/span&gt;'+
+	'&lt;span class="title"&gt;已完成&lt;/span&gt;'+
+	'&lt;/div&gt;'+
+'&lt;/div&gt;');
+$(el).append(html);
+</code>
+<code style="color:#d44836;">awsuiMessagePage();
+</code></pre>
+			</div>
+		</div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event1">
+	        	示例1
+	        </div>
+        	<div class="awsui-code-demo" style="height: 300px;">
+        		<div class="awsui-message-page">
+					<div class="content">
+						<span class="icon" message-type="ok"></span>
+						<span class="title">已完成</span>
+						<span class="description">订单[1234567]成功下单</span>
+					</div>
+				</div>
+        	</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+        	<div class="awsui-code-info">
+        		<pre class="code messagePageCode" id="ok">
+				</pre>
+			</div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event2">
+	        	示例2
+	        </div>
+        	<div class="awsui-code-demo" style="height: 300px;">
+        		<div class="awsui-message-page">
+					<div class="content">
+						<span class="icon" message-type="error"></span>
+						<span class="title">访问被拒绝(403)</span>
+					</div>
+				</div>
+        	</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+        	<div class="awsui-code-info">
+        		<pre class="code messagePageCode" id="error">
+				</pre>
+			</div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event3">
+	        	示例3
+	        </div>
+        	<div class="awsui-code-demo" style="height: 300px;">
+
+				<iframe name="myiframe" id="myrame" src="messagePageTest.html" frameborder="0" align="left" width="100%" height="100%" scrolling="no">
+				</iframe>
+        	</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+        	<div class="awsui-code-info">
+        		<pre class="code messagePageCode" id="no_search">
+				</pre>
+			</div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event4">
+	        	示例4
+	        </div>
+	        <p class="awsui-margin-top-5" style="margin-bottom: 0;">
+                <code>
+                	<span class="awsui-iconfont"></span>
+                	<span>使用自定义图片</span>
+                </code>
+            </p>
+        	<pre class="code" id="img" style="background:none;color:#d44836; padding:4px;">1.使用 <img src="XXX" alt=""/>，在XXX中填写的是图片路径</pre>
+        	<p><code>2.建议254*254透明背景的png图片</code></p>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+        	<div class="awsui-code-info">
+        		<pre class="code messagePageCode" id="custom">
+				</pre>
+			</div>
+        </div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-code-title title2" id="event5">
+				示例5
+			</div>
+			<div class="awsui-code-demo" style="height: 60px;">
+				<div class="awsui-message-page">
+					<div class="content">
+						<span class="icon" message-type="warning"></span>
+						<span class="title">缩小比例</span>
+					</div>
+				</div>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre class="code messagePageCode" id="auto">
+				</pre>
+			</div>
+		</div>
+	</div>
+	<div class="section_right">
+		<div class="nav">
+			<!-- 右侧导航 -->
+		</div>
+	</div>
+	<div class="navTop">
+		<img src="../img/top.png" alt=""/>
+	</div>
+	<script src="../../js/jquery/scripts/jquery.js"></script>
+	<script src="../../js/awsui.js"></script>
+	<script type="text/javascript">
+		 $(document).ready(function() {
+		 	var imgRootPath = "../../js/jquery/themes/default/ui/images/messagePage/";
+		 	var sceneIconArr = [
+				{'id':'ok','description':'通用。适合成功、完成类操作场景。如<code>任务已完成</code><br/>JavaAPI - <code>SDK.getPortalAPI().getMessagePageOfOk(title, desc);</code>'},
+				{'id':'error','description':'通用。适合错误、出错、拒绝类操作场景。如<code>访问被拒绝(403)</code><br/>JavaAPI - <code>SDK.getPortalAPI().getMessagePageOfError(title, desc);</code>'},
+				{'id':'warning','description':'通用。适合警告、违约类操作场景。如<code>用户名或密码错误</code><br/>JavaAPI - <code>SDK.getPortalAPI().getMessagePageOfWarning(title, desc);</code>'},
+				{'id':'info','description':'通用。适合提示类操作场景。如<code>订单[1234567]已安排采购</code><br/>JavaAPI - <code>SDK.getPortalAPI().getMessagePageOfInfo(title, desc);</code>'},
+				{'id':'authority','description':'适合权限、身份、安全类警告操作场景。如<code>访问权限不足，暂时不能访问</code><br/>JavaAPI - <code>SDK.getPortalAPI().getMessagePageOfAuthority(title, desc);</code>'},
+				{'id':'wait','description':'适合对暂时不能访问、正在处理类操作重试场景。如<code>正在计算2019年9月薪资表(1200/20000)，请稍后再访问</code><br/>JavaAPI - <code>SDK.getPortalAPI().getMessagePageOfWait(title, desc);</code>'},
+				{'id':'not_found','description':'适合访问文档、数据、对象、页面不存在场景。如<code>要处理的订单[1234567]不存在</code>'},
+				{'id':'exec','description':'适合进入下一阶段、传递类场景。如<code>已向张飞催办订单[1234567]</code>'},
+				{'id':'service','description':'适合服务状态类操作场景。如<code>服务正在启动，请稍后重试</code>'},
+				{'id':'no_content','description':'适合无数据、空记录场景。如<code>没有要处理的任务了</code><br/>JavaAPI - <code>SDK.getPortalAPI().getMessagePageOfNoContent(title, desc);</code>'},
+				{'id':'no_search','description':'适合搜索结果无数据场景。如<code>没有查询到结果</code><br/>JavaAPI - <code>SDK.getPortalAPI().getMessagePageOfNoSearch(title, desc);</code>'}
+			];
+		 	fillHtmlToTable();
+		 	fillHtmlToCode();
+		 	function fillHtmlToTable() {
+		 		$.each(sceneIconArr,function(i,el){
+		 			var sHtml = $('<tr><td>'+
+		                	'<div class="awsui-message-page-icon">'+
+		                		'<img src="'+imgRootPath+el.id+'.png" alt="">'+
+		                	'</div>'+
+		                '</td><td>'+el.id+'</td><td>'+el.description+'</td></tr>');
+		            $("#messagePageTbody").append(sHtml);
+		 		});
+		 	}
+		 	function fillHtmlToCode() {
+				var statusJSON = {};
+				$.each($(".messagePageCode"),function(i,el){
+					var description = "";
+					var imgUrl = "";
+					statusJSON.type = "message-type="+el.id;
+					if (el.id == 'ok') {
+						statusJSON.title = "已完成";
+						statusJSON.contents = "订单[1234567]成功下单";
+					} else if (el.id == 'error') {
+						statusJSON.title = "访问被拒绝(403)";
+						statusJSON.contents = "";
+					} else if (el.id == 'no_search') {
+						statusJSON.title = "没有查询到结果";
+						statusJSON.contents = "";
+					} else if (el.id == 'custom') {
+						statusJSON.type = "";
+						statusJSON.title = "此处放写图片主标题";
+						statusJSON.contents = "此处放该图片主要适应场景描述";
+						imgUrl = '\n            <img src="图片地址" alt=""/>\n        ';
+					} else if (el.id == 'auto') {
+                        statusJSON.type = "message-type=warning";
+						statusJSON.title = "缩小比例";
+                        statusJSON.contents = "";
+					}
+					if (statusJSON.contents != "") {
+						description = '        <span class="description">'+statusJSON.contents+'</span>\n';
+					}
+					$(el).html('<div class="awsui-message-page">\n'+
+						'    <div class="content">\n'+
+						'        <span class="icon" '+statusJSON.type+'>'+imgUrl+'</span>\n'+
+						'        <span class="title">'+statusJSON.title+'</span>\n'+description+
+						'    </div>\n'+
+					'</div>');
+				});
+				$(".messagePageCode").find("awsui-message-page .content").removeAttr('style');
+			}
+
+            /* var html = $('<div class="awsui-message-page">'+
+                    '<div class="content">'+
+                    '<span class="icon" message-type="ok"></span>'+
+                    '<span class="title">已完成</span>'+
+                    '</div>'+
+                    '</div>');
+		 	$("#oMessagePage").append(html);
+             awsuiMessagePage();*/
+		 });
+	</script>
+	<script src="../dlhighlight/highlight.js"></script>
+	<script src="../dlhighlight/lang-js.js"></script>
+	<script src="../clipboard/clipboard.min.js"></script>
+	<script src="../js/public.js?v=1"></script>
+</body>
+</html>

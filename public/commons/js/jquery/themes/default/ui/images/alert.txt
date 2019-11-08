@@ -1,0 +1,4 @@
+Ã· æ info-circle              #4696DD     30x30
+æØ∏Ê exclamation-triangle     #FFA500     30x30
+¥ÌŒÛ times-circle             #df5555     30x30
+ok   check-alt                #00b086     30x30

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="format-detection" content="telephone=no, email=no">
+<!--   <script type="text/javascript" src="../../jquery/scripts/jquery.js"></script> -->
+  <script type="text/javascript" src="android/www/lib/jquery/jquery-1.11.0.min.js"></script>
+<script>
+
+var browser = {
+		versions: function () {
+			var u = navigator.userAgent, app = navigator.appVersion;
+			return {// 移动终端浏览器版本信息
+				trident: u.indexOf('Trident') > -1, // IE内核
+				nokia: u.toUpperCase().indexOf("NOKI") > -1, // nokia
+				symbian: u.toUpperCase().indexOf("SYMBIAN") > -1, // symbian
+				presto: u.indexOf('Presto') > -1, // opera内核
+				webKit: u.indexOf('AppleWebKit') > -1, // 苹果、谷歌内核
+				gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, // 火狐内核
+				mobile: !!u.match(/AppleWebKit.*Mobile.*/) || !!u.match(/Mobile/), // 是否为移动终端||!!u.match(/AppleWebKit/)
+				ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), // ios终端
+				linux: u.indexOf('Linux') > -1,
+				android: u.indexOf('Android') > -1, // android终端或者uc浏览器
+				iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, // 是否为iPhone或者QQHD浏览器
+				iPad: u.indexOf('iPad') > -1, // 是否iPad
+				surface: u.indexOf('Trident') > -1 && u.indexOf('Touch') > -1 && u.indexOf('Tablet PC') > -1, // 是否surface
+				webApp: u.indexOf('Safari') == -1
+				// 是否web应该程序，没有头部与底部
+			};
+		}(),
+		language: (navigator.browserLanguage || navigator.language).toLowerCase()
+	};
+
+$(document).ready(function(){
+	
+	var script = document.createElement("script");
+	script.type = "text/javascript";
+	if (browser.versions.mobile && (navigator.userAgent.indexOf('iPhone') > -1 || navigator.userAgent.indexOf('iPad') > -1)) {
+		script.src = "ios/www/cordova.js";
+	} else if (browser.versions.mobile && browser.versions.android) {
+		script.src = "android/www/cordova.js";
+	}
+	document.body.appendChild(script);
+});
+
+
+
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+  $("#startGeolocationg").on("click", startGeolocationg);
+  $("#stopGeolocationg").on("click", stopGeolocationg);
+  $("#getCurrentPosition").on("click", getCurrentPosition);
+}
+
+function startGeolocationg() {
+  alert('startGeolocationg');
+  var element = document.getElementById('geovals');
+  element.innerHTML = 'Finding geolocation every 30 seconds...'
+  var options = { enableHighAccuracy: true, timeout: 30000 };
+  watchGeoID = navigator.geolocation.watchPosition(onGeoSuccess, onGeoError, options);
+}
+
+function onGeoSuccess(position) {
+  var element = document.getElementById('geovals');
+  element.innerHTML = 
+  '<strong>Latitude:</strong> ' + position.coords.latitude + '<br />' +
+  '<strong>Longitude: </strong> ' + position.coords.longitude + ' <br />' +
+  '<strong>Altitude</strong> (in meters): ' + position.coords.altitude + ' <br />' +
+  '<strong>Accuracy</strong> (in meters): ' + position.coords.accuracy + ' <br />' +
+  '<strong>Altitude Accuracy:</strong> ' + position.coords.altitudeAccuracy + ' <br />' +
+  '<strong>Heading</strong> (direction of travel): ' + position.coords.heading + ' <br />' +
+  '<strong>Speed</strong> (meters per second): ' + position.coords.speed + ' <br />' +
+  '<strong>Timestamp:</strong> ' + position.timestamp + ' <br />';
+}
+function onGeoError(error) {
+  var element = document.getElementById('geovals');
+  element.innerHTML =+ '<br>' + error.code + error.message;
+}
+
+function stopGeolocationg() {
+  alert('stopGeolocationg');
+
+  var element = document.getElementById('geovals');
+  element.innerHTML = '<span style="color:red">Geolocation turned off.</span>';
+  if (watchGeoID) {
+    navigator.geolocation.clearWatch(watchGeoID);
+    watchGeoID = null;
+  }
+}
+
+function getCurrentPosition() {
+  alert('getCurrentPosition');
+  navigator.geolocation.getCurrentPosition(onPositionSuccess, onPositionError);
+}
+function onPositionSuccess(position) {
+  var element = document.getElementById('geovals');
+  
+  alert('Latitude: ' + position.coords.latitude + '\n' + 
+          'Longitude: ' + position.coords.longitude + '\n');
+  
+};
+function onPositionError(error) {
+  var element = document.getElementById('geovals');
+  element.innerHTML =+('Error getting GPS Data');
+}
+
+
+</script>
+</head>
+<body>
+
+<button id="startGeolocationg">开始定位</button>
+<button id="stopGeolocationg">停止定位</button>
+<button id="getCurrentPosition">定位</button>
+
+<div id="geovals">Waiting for geolocation...</div>
+</body>

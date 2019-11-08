@@ -1,0 +1,155 @@
+
+div.navigationDatepickerDivAws {
+	font-family: "微软雅黑","Helvetica Neue",Helvetica,Arial,sans-serif;
+	border: 1px solid #aaaaaa;
+	width: 625px;
+	background:#F7F7F7;
+	font-size:13px;
+	left: 100px;
+    position: absolute;
+    top: 100px;
+}
+
+.dateSet{
+	float: left;
+	width: 255px;
+	height: 34px;
+	border: 1px dotted #666666;
+	padding-left: 2px;
+    padding-top: 2px;
+}
+.dateSet span{
+	display: block;
+	float:left;
+	margin-left: 5px;
+	line-height: 17px;
+}
+
+.dateSet .tip{
+	float: left;
+}
+
+.dateSet .options{
+	float: right;
+	width: 185px;
+}
+
+.dateSet .options span:hover{
+	background:#DDDDDD;
+	cursor: pointer;
+}
+
+.dateValue{
+	float: left;
+	margin-left: 26px;
+	margin-top: 6px;
+	height:30px;
+	width: 180px;
+}
+
+.dateValue span input{
+	width: 70px !important;
+	min-width: 70px !important;
+	text-align: center;
+	font-size: 12px;
+}
+
+.dateButton{
+	margin-top: 10px;
+	height: 30px;
+	width: 125px;
+	min-width: 115px;
+	float: right;
+}
+.dateButton span{
+}
+
+.state-default {
+	border: 1px solid #D3D3D3;
+	color: #555555;
+	font-weight: normal;
+}
+.state-active {
+	border: 1px solid #AAAAAA;
+	font-weight: normal;
+	color: #FFFFFF;
+	background:#0077CC;
+}
+.state-second{
+	border: 1px solid #AAAAAA;
+	font-weight: normal;
+	color: #FFFFFF;
+	background: #ed7e17;
+}
+.state-three{
+	border: 1px solid #AAAAAA;
+	font-weight: normal;
+	color: #FFFFFF;
+	background: #00b1ab;
+}
+.inputSelect{
+	border: 1px solid #0077CC;
+}
+.dateBlockArea{
+	font-size: 76.5%;/* 62.5%;*/
+
+}
+.compare-no-active{
+	display: none;
+}
+input.default {
+border: #ddd solid 1px;
+color: #aaa;
+}
+
+.report-navigation-time-interval {
+    border: 1px solid #d2d2d2;
+    color: #1C2E3D;
+    cursor: pointer;
+    font-size: 13px;
+    /*font-weight: bold;*/
+    height: 22px;
+    width: 270px;
+	white-space:normal;
+}
+.report-navigation-time-interval-line {
+    font-size: 13px;
+    padding: 0 2px;
+}
+.report-navigation-time-interval-downarrow {
+    background-color: #FFF;
+    display: block;
+    float: right;
+    height: 20px;
+    width: 12px;
+}
+.report-navigation-icon-downarrow-black-down {
+/*	wangshibao 和select保持统一样式*/
+/*    background: url("./images/arrow_down_gray.gif") no-repeat scroll 50% 50% transparent;*/
+    background: url("./images/select-arrow-down.gif") no-repeat scroll 50% 50% transparent;
+    border: 0 none;
+}
+.report-navigation-icon-downarrow-black-up {
+/*    background: url("./images/arrow_top_gray.gif") no-repeat scroll 50% 50% transparent;*/
+    background: url("./images/select-arrow-up.gif") no-repeat scroll 50% 50% transparent;
+    border: 0 none;
+}
+.report-navigation-condition {
+    display: block;
+    font-size: 15px;
+    height: 24px;
+    line-height: 22px;
+    text-align: center;
+	color: #333333;
+    font-family: "微软雅黑","宋体",Verdana,Arial !important;
+}
+.report-navigation-time-interval-downarrow {
+    background-color: #F7F7F7;
+    display: block;
+    float: right;
+    height: 20px;
+    width: 12px;
+}
+.report-navigation-time-interval span {
+    padding: 0 2px;
+}

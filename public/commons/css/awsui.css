@@ -1,0 +1,10 @@
+/* CSS Document */
+/* 新css文件到本文件统一注册；各css文件严格按照.awsui-规范书写，严防各种冲突、覆盖 */
+/*日期组件使用*/
+@import url("./jQueryUI/jquery-ui.min.css");
+@import url("../js/jquery/themes/default/public.css");
+@import url("../js/jquery/scripts/ui/select2/css/select2.min.css");
+@import url("../js/jquery/scripts/ui/check/skins/all.css");
+@import url("../js/jquery/themes/default/ui/aws.ui.all.css");
+@import url("../js/jquery/scripts/ui/fancybox/fancybox.css");
+@import url("font/iconfont.css");

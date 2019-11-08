@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>您的浏览器不支持</title>
+  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ 
+<link type='text/css' rel='stylesheet' href='../apps/_bpm.platform/js/designer/themes/default/global.css'/>
+<link type='text/css' rel='stylesheet' href='../apps/_bpm.platform/js/designer/themes/default/diagraming/ui.css'/>
+<script type="text/javascript" src="../commons/js/jquery/scripts/jquery.js"></script>
+	<script type="text/javascript">
+		var 取消关注 = "<I18N#取消关注>";
+		var 关注中 = "<I18N#关注中>";
+		var 暂时无法处理您的请求请稍候重试 = "<I18N#暂时无法处理您的请求请稍候重试。>";
+		var 模型受管操作被拒绝 = "<I18N#模型受管操作被拒绝>";
+		var 检测用户时 = "<I18N#检测用户时>";
+		var 这个用户会话不存在或会话已经断开与服务器的连接将提示您重新登录 = "<I18N#这个用户会话不存在或会话已经断开与服务器的连接将提示您重新登录>";
+		var 可能是服务未启动或网络异常 = "<I18N#可能是服务未启动或网络异常>";
+		var 向服务建立连接时失败可能是服务未启动或网络异常将提示您重新登录 = "<I18N#向服务建立连接时失败可能是服务未启动或网络异常将提示您重新登录>";
+		var 暂时无法处理请求请稍候重试 = "<I18N#暂时无法处理请求请稍候重试>";
+	</script>
+<script type='text/javascript' charset='UTF-8' src='../apps/_bpm.platform/js/designer/scripts/util.js'></script>
+<script>
+
+	//初始化计算高度
+	$(function(){
+		var parentHeight=$("#nonSupportMask").parent().parent().parent().height();
+		$("#nonSupportMask").height(parentHeight-2);
+		//判断是否是64位
+		var userAgent = window.navigator.userAgent;
+		if(userAgent.indexOf("MSIE 8.0") > -1 && userAgent.indexOf("Win64") > -1 && userAgent.indexOf("x64") > -1){
+			$("#tex").html("需要下载谷歌框架进行支持<br/>（谷歌框架仅支持32位Internet Explorer浏览器）");
+			$("#ie8must32").html("当前使用64位Internet Explorer浏览器，请安装完毕后启动<font style='font-size:16px;'> 32位Internet Explorer</font>浏览器，或者<font style='font-size:16px;'>升级更高版本浏览器</font>。");
+		}
+	});
+	function reloadHtml(){
+        window.location.reload();
+	} 
+</script>
+<style>
+.buttonDiv{
+    font-size: 12px;
+    margin-top: 11px;
+}
+</style>
+</head>
+<body>
+ 
+<div id="nonSupportMask" class="non_support_mask" style="border: 1px solid #FFFFFF;background: #ffffff;">
+	<div class="no_sup_mask_main">
+		<h1>您的浏览器版本低</h1>
+		<p>您的浏览器版本过低，为了达到更佳体验，<span id="tex">请下载谷歌框架进行支持。</span><br/>点击下方的图标安装此插件。</p>
+		<div class="bs_logo_list">
+			<a class="sup_chrome" title="GoogleChromeframeStandaloneEnterprise" href="./plug-in/chromeframe/GoogleChromeframeStandaloneEnterprise.4144293914.msi" target="_blank"></a>
+		</div>
+		<div class="buttonDiv">
+			<span style="color:red;" id="ie8must32">安装完毕后请重启浏览器。</span>
+		</div>
+	</div>
+</div>
+ <!-- 
+1.  Uninstall Chrome and other Google products from the machine if they're already there (other products use GU too).  You can probably do this via Add/Remove Programs.
+2.  In the registry, remove HKEY_LOCAL_MACHINE\SOFTWARE\Google\Update\
+3.  In the registry, remove HKEY_CURRENT_USER\Software\Google\Update
+4.  In the registry, remove HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Update
+5.  Remove the directory C:\Program Files\Google\Update\
+6.  Try running the MSI again.
+  -->
+</body>
+</html>

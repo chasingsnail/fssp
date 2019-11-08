@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="content" content="基于AWSUI-slider的主流前端响应式框架">
+		<meta name="keywords" content="滑块 - AWSUI">
+		<title>slider</title>
+		<link rel="stylesheet" href="../css/bootstrap.css">
+		<link rel="stylesheet" href="../../css/awsui.css">
+		<link rel="stylesheet" href="../css/uidoc.css?v=1">
+		<link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+		<link rel="stylesheet" href="../../js/jquery/scripts/ui/slider/css/green/green.css"/>
+	</head>
+	<body>
+		<div class="awsui-wrapper">
+			<div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 awsui-border-bottom">
+				<div class="awsui-markdown">
+					<h1 class="title2" id="slider">滑块</h1>
+					<p class="awsui-margin-bottom-14">
+						当用户需要在数值区间/自定义区间内进行选择时，可为连续或离散值。
+					</p>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title">
+					引入文件
+				</div>
+				<p class="awsui-margin-top-5">务必确保路径正确</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;script src="../commons/js/jquery/scripts/ui/slider/css/green/green.css"&gt;&lt;/script&gt;
+&lt;script src="../commons/js/jquery/scripts/ui/slider/js/range.js"&gt;&lt;/script&gt;
+&lt;script src="../commons/js/jquery/scripts/ui/slider/js/timer.js"&gt;&lt;/script&gt;
+&lt;script src="../commons/js/jquery/scripts/ui/slider/js/slider.js"&gt;&lt;/script&gt;
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-markdown">
+					<div class="awsui-code-title title2" id="API">
+						API
+					</div>
+					<ul>
+						<li>var slider = new Slider($(parentElement)[0], $(childElement)[0]);</li>
+					</ul>
+					<p>属性如下：</p>
+				</div>
+				<table class="awsui-table awsui-margin-bottom-24">
+					<thead>
+					<tr>
+						<th width="30%">属性</th>
+						<th width="40%">说明</th>
+						<th width="20%">类型</th>
+						<th>默认值</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>placeholder</td>
+						<td>组件提示信息</td>
+						<td>string</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>style</td>
+						<td>组件样式</td>
+						<td>string</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>title</td>
+						<td>大部分组件会将该属性渲染成提示框</td>
+						<td>string</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>min</td>
+						<td>设置表示最低位置的数字</td>
+						<td>number</td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<td>max</td>
+						<td>设置表示最高位置的数字</td>
+						<td>number</td>
+						<td>100</td>
+					</tr>
+					</tbody>
+				</table>
+				<p>方法如下：</p>
+				<table class="awsui-table awsui-margin-bottom-24">
+					<thead>
+					<tr>
+						<th width="30%">方法名</th>
+						<th width="30%">说明</th>
+						<th width="40%">用例</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>setValue</td>
+						<td>赋值方法</td>
+						<td>slider.setValue(val)</td>
+					</tr>
+					<tr>
+						<td>getValue</td>
+						<td>获取值</td>
+						<td>slider.getValue()</td>
+					</tr>
+					<tr>
+						<td>setMinimum</td>
+						<td>设置最小值</td>
+						<td>slider.setMinimum(minVal)</td>
+					</tr>
+					<tr>
+						<td>getMinimum</td>
+						<td>获取最小值</td>
+						<td>slider.getMinimum()</td>
+					</tr>
+					<tr>
+						<td>setMaximum</td>
+						<td>设置最大值</td>
+						<td>slider.setMaximum(maxVal)</td>
+					</tr>
+					<tr>
+						<td>getMaximum</td>
+						<td>获取最大值</td>
+						<td>slider.getMaximum()</td>
+					</tr>
+					<tr>
+						<td>setBlockIncrement</td>
+						<td>设置最小位移量</td>
+						<td>slider.setBlockIncrement(val)</td>
+					</tr>
+					<tr>
+						<td>onchange</td>
+						<td>监听滑块change事件</td>
+						<td>slider.onchange=function(){}</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event1">
+					基本
+				</div>
+				<p class="awsui-margin-top-5">水平滑块。</p>
+				<div class="awsui-code-demo">
+					<div class="awsui-slider" style="width:400px;" id="demo1">
+						<input class="slider-input" id="demo1_input"/>
+					</div>
+					<div class='dynamic-slider-control-text awsui-slider-txt'>
+						<font id='slider-demo1-value' class='val'>0</font>
+					</div>
+				</div>
+				<div class="awsui-code-demo">
+					<div class="awsui-slider" style="width:400px;" id="demo2">
+						<input class="slider-input" id="demo2_input"/>
+					</div>
+					<div class='dynamic-slider-control-text awsui-slider-txt'>
+						<font id='slider-demo2-value' class='val'>30</font>
+					</div>
+				</div>
+				<div class="awsui-code-demo">
+					<div class="awsui-slider" style="width:400px;" id="demo3">
+						<input class="slider-input" id="demo3_input"/>
+					</div>
+					<div class='dynamic-slider-control-text awsui-slider-txt'>
+						<font id='slider-demo3-value' class='val'>60</font>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;div class="awsui-code-demo"&gt;
+	&lt;div class="awsui-slider" style="width:400px;" id="demo1"&gt;
+		&lt;input class="slider-input" id="demo1_input"/&gt;
+	&lt;/div&gt;
+	&lt;div class='dynamic-slider-control-text awsui-slider-txt'&gt;
+		&lt;font id='slider-demo1-value' class='val'&gt;0&lt;/font&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="awsui-code-demo"&gt;
+	&lt;div class="awsui-slider" style="width:400px;" id="demo2"&gt;
+		&lt;input class="slider-input" id="demo2_input"/&gt;
+	&lt;/div&gt;
+	&lt;div class='dynamic-slider-control-text awsui-slider-txt'&gt;
+		&lt;font id='slider-demo2-value' class='val'&gt;30&lt;/font&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="awsui-code-demo"&gt;
+	&lt;div class="awsui-slider" style="width:400px;" id="demo3"&gt;
+		&lt;input class="slider-input" id="demo3_input"/&gt;
+	&lt;/div&gt;
+	&lt;div class='dynamic-slider-control-text awsui-slider-txt'&gt;
+		&lt;font id='slider-demo3-value' class='val'&gt;60&lt;/font&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">var slider1 = new Slider($("#demo1")[0], $("#demo1_input")[0]);
+slider1.setMinimum(0);
+slider1.setMaximum(100);
+slider1.setBlockIncrement(1);
+slider1.onchange = function () {
+	slider1.setBlockIncrement(1);
+	$("#slider-demo1-value").html(slider1.getValue());
+	$("#demo1").find(".handle").attr('title',slider1.getValue());
+};
+var slider11 = new Slider($("#demo2")[0], $("#demo2_input")[0]);
+slider11.setMinimum(0);
+slider11.setMaximum(100);
+slider11.setBlockIncrement(1);
+slider11.setValue(30);
+slider11.onchange = function () {
+	slider11.setBlockIncrement(1);
+	$("#slider-demo2-value").html(slider11.getValue());
+	$("#demo2").find(".handle").attr('title',slider11.getValue());
+};
+var slider111 = new Slider($("#demo3")[0], $("#demo3_input")[0]);
+slider111.setMinimum(0);
+slider111.setMaximum(100);
+slider111.setBlockIncrement(1);
+slider111.setValue(60);
+slider111.onchange = function () {
+	slider111.setBlockIncrement(1);
+	$("#slider-demo3-value").html(slider111.getValue());
+	$("#demo3").find(".handle").attr('title',slider111.getValue());
+};
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event2">
+					垂直滑块
+				</div>
+				<p class="awsui-margin-top-5">垂直方向的 Slider。</p>
+				<div class="awsui-code-demo">
+					<div class="ausui-slider-vertical">
+						<div class="awsui-slider" style="height:300px;" id="verticalSlide1">
+							<input class="slider-input" id="verticalSlide1_input" />
+						</div>
+						<div class='dynamic-slider-control-text'>
+							<font id='verticalSlide1-value' class='val'>0</font>
+						</div>
+					</div>
+					<div class="ausui-slider-vertical">
+						<div class="awsui-slider" style="height:300px;" id="verticalSlide2">
+							<input class="slider-input" id="verticalSlide2_input" />
+						</div>
+						<div class='dynamic-slider-control-text'>
+							<font id='verticalSlide2-value' class='val'>30</font>
+						</div>
+					</div>
+					<div class="ausui-slider-vertical">
+						<div class="awsui-slider" style="height:300px;" id="verticalSlide3">
+							<input class="slider-input" id="verticalSlide3_input" />
+						</div>
+						<div class='dynamic-slider-control-text'>
+							<font id='verticalSlide3-value' class='val'>60</font>
+						</div>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;div class="ausui-slider-vertical"&gt;
+	&lt;div class="awsui-slider" style="height:300px;" id="verticalSlide1"&gt;
+		&lt;input class="slider-input" id="verticalSlide1_input" /&gt;
+	&lt;/div&gt;
+	&lt;div class='dynamic-slider-control-text'&gt;
+		&lt;font id='verticalSlide1-value' class='val'&gt;0&lt;/font&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="ausui-slider-vertical"&gt;
+	&lt;div class="awsui-slider" style="height:300px;" id="verticalSlide2"&gt;
+		&lt;input class="slider-input" id="verticalSlide2_input" /&gt;
+	&lt;/div&gt;
+	&lt;div class='dynamic-slider-control-text'&gt;
+		&lt;font id='verticalSlide2-value' class='val'&gt;30&lt;/font&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="ausui-slider-vertical"&gt;
+	&lt;div class="awsui-slider" style="height:300px;" id="verticalSlide3"&gt;
+		&lt;input class="slider-input" id="verticalSlide3_input" /&gt;
+	&lt;/div&gt;
+	&lt;div class='dynamic-slider-control-text'&gt;
+		&lt;font id='verticalSlide3-value' class='val'&gt;60&lt;/font&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">var slider2 = new Slider($("#verticalSlide1")[0], $("#verticalSlide1_input")[0], "vertical");
+slider2.setMinimum(0);
+slider2.setMaximum(100);
+slider2.setBlockIncrement(1);
+slider2.onchange = function () {
+	slider2.setBlockIncrement(1);
+	$("#verticalSlide1-value").html(slider2.getValue());
+	$("#verticalSlide1").val(slider2.getValue());
+};
+var slider22 = new Slider($("#verticalSlide2")[0], $("#verticalSlide2_input")[0], "vertical");
+slider22.setMinimum(0);
+slider22.setMaximum(100);
+slider22.setValue(30);
+slider22.setBlockIncrement(1);
+slider22.onchange = function () {
+	slider22.setBlockIncrement(1);
+	$("#verticalSlide2-value").html(slider22.getValue());
+	$("#verticalSlide2").val(slider22.getValue());
+};
+var slider222 = new Slider($("#verticalSlide3")[0], $("#verticalSlide3_input")[0], "vertical");
+slider222.setMinimum(0);
+slider222.setMaximum(100);
+slider222.setValue(60);
+slider222.setBlockIncrement(1);
+slider222.onchange = function () {
+	slider222.setBlockIncrement(1);
+	$("#verticalSlide3-value").html(slider222.getValue());
+	$("#verticalSlide3").val(slider222.getValue());
+};
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event3">
+					Disabled滑块
+				</div>
+				<p class="awsui-margin-top-5">Disabled滑块。</p>
+				<div class="awsui-code-demo">
+					<div class="awsui-slider" style="width:400px;" id="disabledSlide">
+						<input class="slider-input" id="disabledSlide_input"/>
+					</div>
+					<div class='dynamic-slider-control-text awsui-slider-txt'>
+						<font id='disabledSlide-value' class='val'>0</font>
+					</div>
+				</div>
+				<div class="awsui-code-demo">
+					<div class="awsui-slider" style="width:100%;" id="disabledSlide1">
+						<input class="slider-input" id="disabledSlide1_input" status="false">
+					</div>
+					<div class='dynamic-slider-control-text awsui-slider-txt'>
+						<font id='disabledSlide1-value' class='val'>0</font>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;div class="awsui-code-demo"&gt;
+	&lt;div class="awsui-slider" style="width:400px;" id="disabledSlide"&gt;
+		&lt;input class="slider-input" id="disabledSlide_input"/&gt;
+	&lt;/div&gt;
+	&lt;div class='dynamic-slider-control-text awsui-slider-txt'&gt;
+		&lt;font id='disabledSlide-value' class='val'&gt;0&lt;/font&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="awsui-code-demo"&gt;
+	&lt;div class="awsui-slider" style="width:100%;" id="disabledSlide1"&gt;
+		&lt;input class="slider-input" id="disabledSlide1_input" status="false"&gt;
+	&lt;/div&gt;
+	&lt;div class='dynamic-slider-control-text awsui-slider-txt'&gt;
+		&lt;font id='disabledSlide1-value' class='val'&gt;0&lt;/font&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">var slider3 = new Slider($("#disabledSlide")[0], $("#disabledSlide_input")[0]);
+slider3.disable();
+var slider33 = new Slider($("#disabledSlide1")[0], $("#disabledSlide1_input")[0]);
+slider33.setValue(30);
+slider33.disable();
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event5">
+					自定义提示
+				</div>
+				<p class="awsui-margin-top-5">自定义提示及设置不同单位。</p>
+				<div class="awsui-code-demo">
+					<div class="awsui-slider" style="width:80%;" id="titleSlide">
+						<input class="slider-input" id="titleSlide_input" status="false">
+					</div>
+					<div class='dynamic-slider-control-text awsui-slider-txt'>
+						<font id='titleSlide-value' class='val'>0</font>
+					</div>
+				</div>
+				<div class="awsui-code-demo">
+					<div class="awsui-slider" style="width:80%;" id="titleSlide1">
+						<input class="slider-input" id="titleSlide1_input" status="false">
+					</div>
+					<div class='dynamic-slider-control-text awsui-slider-txt'>
+						<font id='titleSlide1-value' class='val'>0</font>
+					</div>
+				</div>
+				<div class="awsui-code-demo">
+					<div class="awsui-slider" style="width:80%;" id="titleSlide2">
+						<input class="slider-input" id="titleSlide2_input" status="false">
+					</div>
+					<div class='dynamic-slider-control-text awsui-slider-txt'>
+						<font id='titleSlide2-value' class='val'>0</font>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;div class="awsui-code-demo"&gt;
+	&lt;div class="awsui-slider" style="width:80%;" id="titleSlide"&gt;
+		&lt;input class="slider-input" id="titleSlide_input" status="false"&gt;
+	&lt;/div&gt;
+	&lt;div class='dynamic-slider-control-text awsui-slider-txt'&gt;
+		&lt;font id='titleSlide-value' class='val'&gt;0&lt;/font&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="awsui-code-demo"&gt;
+	&lt;div class="awsui-slider" style="width:80%;" id="titleSlide1"&gt;
+		&lt;input class="slider-input" id="titleSlide1_input" status="false"&gt;
+	&lt;/div&gt;
+	&lt;div class='dynamic-slider-control-text awsui-slider-txt'&gt;
+		&lt;font id='titleSlide1-value' class='val'&gt;0&lt;/font&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="awsui-code-demo"&gt;
+	&lt;div class="awsui-slider" style="width:80%;" id="titleSlide2"&gt;
+		&lt;input class="slider-input" id="titleSlide2_input" status="false"&gt;
+	&lt;/div&gt;
+	&lt;div class='dynamic-slider-control-text awsui-slider-txt'&gt;
+		&lt;font id='titleSlide2-value' class='val'&gt;0&lt;/font&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">var slider4 = new Slider($("#titleSlide")[0], $("#titleSlide_input")[0]);
+slider4.setMinimum(0);
+slider4.setMaximum(100);
+slider4.setBlockIncrement(1);
+slider4.onchange = function () {
+	slider4.setBlockIncrement(1);
+	$("#titleSlide-value").html(slider4.getValue()+"%");
+	$("#titleSlide").find(".handle").attr('title',slider4.getValue()+"%");
+};
+$("#titleSlide-value").text(0+'%');
+var slider4 = new Slider($("#titleSlide1")[0], $("#titleSlide1_input")[0]);
+slider4.setMinimum(0);
+slider4.setMaximum(100);
+slider4.setValue(30);
+slider4.setBlockIncrement(1);
+slider4.onchange = function () {
+	slider4.setBlockIncrement(1);
+	$("#titleSlide1-value").html(slider4.getValue()+"°C");
+	$("#titleSlide1").find(".handle").attr('title',slider4.getValue()+"°C");
+};
+$("#titleSlide1-value").text(30+'°C');
+var slider4 = new Slider($("#titleSlide2")[0], $("#titleSlide2_input")[0]);
+slider4.setMinimum(0);
+slider4.setMaximum(100);
+slider4.setValue(60);
+slider4.setBlockIncrement(1);
+slider4.onchange = function () {
+	slider4.setBlockIncrement(1);
+	$("#titleSlide2-value").html(slider4.getValue()+"m");
+	$("#titleSlide2").find(".handle").attr('title',slider4.getValue()+"m");
+};
+$("#titleSlide2-value").text(60+'m');
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event6">
+					事件
+				</div>
+				<p class="awsui-margin-top-5">当 Slider 的值发生改变时，会触发 onchange 事件，改变当前值。</p>
+				<div class="awsui-code-demo">
+					<div class="awsui-slider" style="width:90%;" id="changeSlide">
+						<input class="slider-input" id="changeSlide_input" status="false">
+					</div>
+					<div class='dynamic-slider-control-text awsui-slider-txt'>
+						<font id='changeSlide-value' class='val'>0</font>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;div class="awsui-slider" style="width:90%;" id="changeSlide"&gt;
+	&lt;input class="slider-input" id="changeSlide_input" status="false"&gt;
+&lt;/div&gt;
+&lt;div class='dynamic-slider-control-text awsui-slider-txt'&gt;
+	&lt;font id='changeSlide-value' class='val'&gt;0&lt;/font&gt;
+&lt;/div&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">var slider5 = new Slider($("#changeSlide")[0], $("#changeSlide_input")[0]);
+slider5.setMinimum(0);
+slider5.setMaximum(50);
+slider5.setBlockIncrement(1);
+slider5.onchange = function () {
+	slider5.setBlockIncrement(1);
+	$("#changeSlide-value").html(slider5.getValue());
+	$("#changeSlide").find(".handle").attr('title',slider5.getValue());
+};
+</code></pre>
+				</div>
+			</div>
+		</div>
+		<div class="section_right">
+			<div class="nav">
+				<!-- 右侧导航 -->
+			</div>
+		</div>
+		<div class="navTop">
+			<img src="../img/top.png" alt=""/>
+		</div>
+		<script src="../../js/jquery/scripts/jquery.js"></script>
+		<script src="../../js/awsui.js"></script>
+		<script src="../prism/prism.js"></script>
+		<script src="../js/public.js?v=1"></script>
+		<script src="../../js/jquery/scripts/ui/slider/js/range.js"></script>
+		<script src="../../js/jquery/scripts/ui/slider/js/timer.js"></script>
+		<script src="../../js/jquery/scripts/ui/slider/js/slider.js"></script>
+		<script type="text/javascript">
+            $(document).ready(function() {
+                var slider1 = new Slider($("#demo1")[0], $("#demo1_input")[0]);
+                slider1.setMinimum(0);
+                slider1.setMaximum(100);
+                slider1.setBlockIncrement(1);
+                slider1.onchange = function () {
+                    slider1.setBlockIncrement(1);
+                    $("#slider-demo1-value").html(slider1.getValue());
+                    $("#demo1").find(".handle").attr('title',slider1.getValue());
+                };
+                var slider11 = new Slider($("#demo2")[0], $("#demo2_input")[0]);
+                slider11.setMinimum(0);
+                slider11.setMaximum(100);
+                slider11.setBlockIncrement(1);
+                slider11.setValue(30);
+                slider11.onchange = function () {
+                    slider11.setBlockIncrement(1);
+                    $("#slider-demo2-value").html(slider11.getValue());
+                    $("#demo2").find(".handle").attr('title',slider11.getValue());
+                };
+                var slider111 = new Slider($("#demo3")[0], $("#demo3_input")[0]);
+                slider111.setMinimum(0);
+                slider111.setMaximum(100);
+                slider111.setBlockIncrement(1);
+                slider111.setValue(60);
+                slider111.onchange = function () {
+                    slider111.setBlockIncrement(1);
+                    $("#slider-demo3-value").html(slider111.getValue());
+                    $("#demo3").find(".handle").attr('title',slider111.getValue());
+                };
+
+                var slider2 = new Slider($("#verticalSlide1")[0], $("#verticalSlide1_input")[0], "vertical");
+                slider2.setMinimum(0);
+                slider2.setMaximum(100);
+                slider2.setBlockIncrement(1);
+                slider2.onchange = function () {
+                    slider2.setBlockIncrement(1);
+                    $("#verticalSlide1-value").html(slider2.getValue());
+                    $("#verticalSlide1").val(slider2.getValue());
+                };
+                var slider22 = new Slider($("#verticalSlide2")[0], $("#verticalSlide2_input")[0], "vertical");
+                slider22.setMinimum(0);
+                slider22.setMaximum(100);
+                slider22.setValue(30);
+                slider22.setBlockIncrement(1);
+                slider22.onchange = function () {
+                    slider22.setBlockIncrement(1);
+                    $("#verticalSlide2-value").html(slider22.getValue());
+                    $("#verticalSlide2").val(slider22.getValue());
+                };
+                var slider222 = new Slider($("#verticalSlide3")[0], $("#verticalSlide3_input")[0], "vertical");
+                slider222.setMinimum(0);
+                slider222.setMaximum(100);
+                slider222.setValue(60);
+                slider222.setBlockIncrement(1);
+                slider222.onchange = function () {
+                    slider222.setBlockIncrement(1);
+                    $("#verticalSlide3-value").html(slider222.getValue());
+                    $("#verticalSlide3").val(slider222.getValue());
+                };
+
+                var slider3 = new Slider($("#disabledSlide")[0], $("#disabledSlide_input")[0]);
+                slider3.disable();
+                var slider33 = new Slider($("#disabledSlide1")[0], $("#disabledSlide1_input")[0]);
+                slider33.setValue(30);
+                slider33.disable();
+
+                var slider4 = new Slider($("#titleSlide")[0], $("#titleSlide_input")[0]);
+                slider4.setMinimum(0);
+                slider4.setMaximum(100);
+                slider4.setBlockIncrement(1);
+                slider4.onchange = function () {
+                    slider4.setBlockIncrement(1);
+                    $("#titleSlide-value").html(slider4.getValue()+"%");
+                    $("#titleSlide").find(".handle").attr('title',slider4.getValue()+"%");
+                };
+                $("#titleSlide-value").text(0+'%');
+                var slider4 = new Slider($("#titleSlide1")[0], $("#titleSlide1_input")[0]);
+                slider4.setMinimum(0);
+                slider4.setMaximum(100);
+                slider4.setValue(30);
+                slider4.setBlockIncrement(1);
+                slider4.onchange = function () {
+                    slider4.setBlockIncrement(1);
+                    $("#titleSlide1-value").html(slider4.getValue()+"°C");
+                    $("#titleSlide1").find(".handle").attr('title',slider4.getValue()+"°C");
+                };
+                $("#titleSlide1-value").text(30+'°C');
+                var slider4 = new Slider($("#titleSlide2")[0], $("#titleSlide2_input")[0]);
+                slider4.setMinimum(0);
+                slider4.setMaximum(100);
+                slider4.setValue(60);
+                slider4.setBlockIncrement(1);
+                slider4.onchange = function () {
+                    slider4.setBlockIncrement(1);
+                    $("#titleSlide2-value").html(slider4.getValue()+"m");
+                    $("#titleSlide2").find(".handle").attr('title',slider4.getValue()+"m");
+                };
+                $("#titleSlide2-value").text(60+'m');
+
+                var slider5 = new Slider($("#changeSlide")[0], $("#changeSlide_input")[0]);
+                slider5.setMinimum(0);
+                slider5.setMaximum(50);
+                slider5.setBlockIncrement(1);
+                slider5.onchange = function () {
+                    slider5.setBlockIncrement(1);
+                    $("#changeSlide-value").html(slider5.getValue());
+                    $("#changeSlide").find(".handle").attr('title',slider5.getValue());
+                };
+            });
+		</script>
+	</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="基于AWSUI-MessagePage的主流前端响应式框架">
+	<meta name="keywords" content="文字提示 - AWSUI">
+	<title>Tooltip</title>
+	<link rel="stylesheet" href="../../css/awsui.css">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/uidoc.css?v=1">
+	<link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+</head>
+<body>
+	<div class="awsui-wrapper">
+		<div class="col-sm-12 col-md-12 col-xs-12 awsui-border-bottom">
+			<div class="awsui-markdown">
+				<h1>文字提示</h1>
+				<p class="awsui-margin-bottom-14">鼠标停留在元素上面时触发文字提示框，通过给标签加<code>awsui-qtip=""</code>属性来实现。</p>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-markdown">
+	        	<div class="awsui-code-title">
+		        	API
+		        </div>
+				<ul>
+					<li>$(el).tooltip(config)</li>
+				</ul>
+				<p>config 参数如下：</p>
+		    </div>
+	        <table class="awsui-table awsui-margin-bottom-24">
+	        	<thead>
+	        		<tr>
+	        			<th width="40%">参数</th>
+	        			<th width="60%">说明</th>
+	        		</tr>
+	        	</thead>
+	        	<tbody>
+	        		<tr>
+	        			<td>text</td>
+	        			<td>提示框文字内容</td>
+		        	</tr>
+		        	<tr>
+	        			<td>position</td>
+	        			<td>提示框显示位置</td>
+		        	</tr>
+					<tr>
+						<td>bordercolor</td>
+						<td>边框颜色</td>
+					</tr>
+					<tr>
+						<td>bgcolor</td>
+						<td>背景颜色</td>
+					</tr>
+					<tr>
+						<td>color</td>
+						<td>文字颜色</td>
+					</tr>
+					<tr>
+						<td>close</td>
+						<td>是否出现关闭图标</td>
+					</tr>
+					<tr>
+						<td>delay</td>
+						<td>自动延迟时间关闭</td>
+					</tr>
+		        </tbody>
+		    </table>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title">
+	        	提示框位置
+	        </div>
+        	<div class="awsui-code-demo">
+        		<button type="button" id="bt1" awsui-qtip="text:'Metro主题风格',position:'top'" class="awsui-btn awsui-btn-normal">top</button>
+				<button type="button" id="bt2" awsui-qtip="text:'右面提示框',position:'right'" class="awsui-btn awsui-btn-normal">right</button>
+				<button type="button" id="bt3" awsui-qtip="text:'下面提示框',position:'bottom'" class="awsui-btn awsui-btn-normal">bottom</button>
+				<button type="button" id="bt4" awsui-qtip="text:'左面提示框',position:'left'" class="awsui-btn awsui-btn-normal">left</button>
+        	</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;button type="button" id="bt1" awsui-qtip="text:'上面提示框',
+ position:'top'" class="awsui-btn awsui-btn-normal"&gt;top&lt;/button&gt;
+&lt;button type="button" id="bt2" awsui-qtip="text:'右面提示框',
+ position:'right'" class="awsui-btn awsui-btn-normal" &gt;right&lt;/button&gt;
+&lt;button type="button" id="bt3" awsui-qtip="text:'下面提示框',
+ position:'bottom'" class="awsui-btn awsui-btn-normal"&gt;bottom&lt;/button&gt;
+&lt;button type="button" id="bt4" awsui-qtip="text:'左面提示框',
+ position:'left'" class="awsui-btn awsui-btn-normal"&gt;left&lt;/button&gt;
+</code></pre>
+			</div>
+        </div>
+	</div>
+	<script src="../../js/jquery/scripts/jquery.js"></script>
+	<script src="../../js/awsui.js"></script>
+	<script src="../prism/prism.js"></script>
+	<script src="../js/public.js?v=1"></script>
+	 <script type="text/javascript">
+		$(document).ready(function() {
+			$("button").on("change", function() {
+				var temp = $(this);
+				var options = {};
+				options.positon = "bottom";
+				options.text = "风格已经改变";
+				if (temp.val() == "blue") {
+					options.bordercolor = "#BCE8F1";
+					options.color = "#3A87AD";
+					options.bgcolor = "#D9EDF7";
+				}
+				if (temp.val() == "black") {
+					options.bordercolor = "#000";
+					options.color = "#fff";
+					options.bgcolor = "#333";
+				}
+				if (temp.val() == "orange") {
+					options.bordercolor = "#FBEED5";
+					options.color = "#C09853";
+					options.bgcolor = "#FCF8E3";
+				}
+				if (temp.val() == "red") {
+					options.bordercolor = "#ff0000";
+					options.color = "#ff0000";
+				}
+				temp.tooltip(options);
+			});
+		});
+	</script>
+</body>
+</html>

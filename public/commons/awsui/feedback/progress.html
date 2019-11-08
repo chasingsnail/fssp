@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="基于AWSUI-MessagePage的主流前端响应式框架">
+	<meta name="keywords" content="进度条 - AWSUI">
+	<title>Progress</title>
+	<link rel="stylesheet" href="../../css/awsui.css">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/uidoc.css?v=1">
+	<link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+	<style type="text/css">
+		.percentBox{position:relative}
+	</style>
+</head>
+<body>
+	<div class="awsui-wrapper">
+		<div class="col-sm-12 col-md-12 col-xs-12 awsui-border-bottom">
+			<div class="awsui-markdown">
+				<h1 class="title2" id="Progress">进度条</h1>
+				<p class="awsui-margin-bottom-14">在操作需要较长时间才能完成时，为用户显示该操作的当前进度和状态。</p>
+				<ul>
+					<li>当一个操作会打断当前界面，或者需要在后台运行，且耗时可能超过2秒时。</li>
+					<li>当需要显示一个操作完成的百分比时。</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-markdown">
+	        	<div class="awsui-code-title">
+		        	API
+		        </div>
+				<ul>
+					<li>$.progress(config)</li>
+				</ul>
+				<p>config 参数如下：</p>
+		    </div>
+	        <table class="awsui-table awsui-margin-bottom-24">
+	        	<thead>
+	        		<tr>
+	        			<th width="20%">参数</th>
+	        			<th width="40%">说明</th>
+	        			<th width="20%">类型</th>
+	        			<th>默认值</th>
+	        		</tr>
+	        	</thead>
+	        	<tbody>
+	        		<tr>
+	        			<td>elementId</td>
+	        			<td>元素id，必填</td>
+	        			<td>string</td>
+	        			<td>-</td>
+		        	</tr>
+	        		<tr>
+	        			<td>type</td>
+	        			<td>类型，可选<code>line 、 circle</code></td>
+	        			<td>string</td>
+	        			<td>line</td>
+		        	</tr>
+		        	<tr>
+	        			<td>percent</td>
+	        			<td>进度百分比</td>
+	        			<td>number</td>
+	        			<td>0</td>
+		        	</tr>
+		        	<tr>
+	        			<td>strokeWidth</td>
+	        			<td>进度条线的宽度，单位 px</td>
+	        			<td>number</td>
+	        			<td>8</td>
+		        	</tr>
+		        	<tr>
+	        			<td>color</td>
+	        			<td>进度条颜色和字体库图标颜色 </td>
+	        			<td>string</td>
+	        			<td>-</td>
+		        	</tr>
+		        	<tr>
+	        			<td>icon</td>
+	        			<td>isShowInfo为<code>true</code>时，状态图标请参考字体库图标</td>
+	        			<td>string</td>
+	        			<td>-</td>
+		        	</tr>
+		        	<tr>
+	        			<td>width <code>(type=circle)</code></td>
+	        			<td>圆形进度条画布宽度，单位 px</td>
+	        			<td>number</td>
+	        			<td>100</td>
+		        	</tr>
+		        	<tr>
+	        			<td>isShowInfo</td>
+	        			<td>是否显示进度数值或状态图标</td>
+	        			<td>boolean</td>
+	        			<td>true</td>
+		        	</tr>
+		        </tbody>
+	        </table>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-markdown">
+	        	<div class="awsui-code-title title2" id="event1">
+		        	进度条
+		        </div>
+		        <p class="awsui-margin-top-5">标准的进度条。</p>
+				<ul>
+					<li>显示进度数值，设置<code>parent</code>属性</li>
+					<li>显示状态图标，设置<code>icon和color</code>属性</li>
+					<li>进度数值和状态图标都不显示，设置<code>isShowInfo：false</code></li>
+				</ul>
+	        </div>
+        	<div class="awsui-code-demo" id="progress-demo-basic" style="padding:0;">
+        	</div>
+			<div class="awsui-code-demo" id="progress-demo-basic1" style="padding:0;">
+			</div>
+			<div class="awsui-code-demo" id="progress-demo-basic2" style="padding:0;">
+			</div>
+			<div class="awsui-code-demo" id="progress-demo-basic3" style="padding:0 0 14px;">
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;div class="awsui-code-demo" id="progress-demo-basic" style="padding:0;"&gt;
+&lt;/div&gt;
+&lt;div class="awsui-code-demo" id="progress-demo-basic1" style="padding:0;"&gt;
+&lt;/div&gt;
+&lt;div class="awsui-code-demo" id="progress-demo-basic2" style="padding:0;"&gt;
+&lt;/div&gt;
+&lt;div class="awsui-code-demo" id="progress-demo-basic3" style="padding:0 0 14px;"&gt;
+&lt;/div&gt;
+</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-js">$.progress({
+    elementId:'progress-demo-basic',
+    percent:30
+});
+$.progress({
+    elementId:'progress-demo-basic1',
+    percent:50,
+    icon:"&amp;#58927;",
+    color:"#f78577"
+});
+$.progress({
+    elementId:'progress-demo-basic2',
+    percent:100,
+    icon:"&amp;#60017;",
+    color:"#83d596"
+});
+$.progress({
+    elementId:'progress-demo-basic3',
+    percent:60,
+    isShowInfo:false
+});
+</code></pre>
+			</div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event2">
+	        	进度圈
+	        </div>
+	        <p class="awsui-margin-top-5">圈形的进度。</p>
+        	<div class="awsui-code-demo">
+	        	<div class="percentBox" id="progress-demo-circle"></div>
+        	</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;div class="percentBox" id="progress-demo-circle"&gt;&lt;/div&gt;</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-js">$.progress({
+    elementId:'progress-demo-circle',
+    type:'circle',
+    percent:50,
+    width:100,
+    color:"#81b5f2"
+});
+</code></pre>
+			</div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event3">
+	        	小型进度条
+	        </div>
+	        <p class="awsui-margin-top-5">适合放在较狭窄的区域内。</p>
+        	<div class="awsui-code-demo" id="progress-demo-small" style="padding:0;">
+        	</div>
+			<div class="awsui-code-demo" id="progress-demo-small1" style="padding:0;">
+			</div>
+			<div class="awsui-code-demo" id="progress-demo-small2" style="padding:0;">
+			</div>
+			<div class="awsui-code-demo" id="progress-demo-small3" style="padding:0 0 14px;">
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+				<pre><code class="language-html">&lt;div class="awsui-code-demo" id="progress-demo-small" style="padding:0;"&gt;
+&lt;/div&gt;
+&lt;div class="awsui-code-demo" id="progress-demo-small1" style="padding:0;"&gt;
+&lt;/div&gt;
+&lt;div class="awsui-code-demo" id="progress-demo-small2" style="padding:0;"&gt;
+&lt;/div&gt;
+&lt;div class="awsui-code-demo" id="progress-demo-small3" style="padding:0 0 14px;"&gt;
+&lt;/div&gt;
+</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-js">$.progress({
+    elementId:'progress-demo-small',
+    percent:30,
+    width:200,
+    strokeWidth:3
+});
+$.progress({
+    elementId:'progress-demo-small1',
+    percent:50,
+    width:200,
+    strokeWidth:3,
+    icon:"&amp;#58927;",
+    color:"#f78577"
+});
+$.progress({
+    elementId:'progress-demo-small2',
+    percent:100,
+    width:200,
+    strokeWidth:3,
+    icon:"&amp;#60017;",
+    color:"#83d596"
+});
+$.progress({
+    elementId:'progress-demo-small3',
+    percent:60,
+    width:200,
+    strokeWidth:3,
+    isShowInfo:false
+});
+</code></pre>
+			</div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event4">
+	        	小型进度圈
+	        </div>
+	        <p class="awsui-margin-top-5">小号的圈形进度。</p>
+        	<div class="awsui-code-demo">
+        		<div class="percentBox" id="progress-demo-small-circle"></div>
+        	</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+				<pre><code class="language-html">&lt;div class="percentBox" id="progress-demo-small-circle"&gt;&lt;/div&gt;</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-js">$.progress({
+	elementId:'progress-demo-small-circle',
+	type:'circle',
+	percent:50,
+	width:50,
+	color:"#81b5f2"
+});
+</code></pre>
+			</div>
+        </div>
+	</div>
+	<div class="section_right">
+		<div class="nav">
+			<!-- 右侧导航 -->
+		</div>
+    </div>
+	<div class="navTop">
+		<img src="../img/top.png" alt=""/>
+	</div>
+	<script src="../../js/jquery/scripts/jquery.js"></script>
+	<script src="../../js/awsui.js"></script>
+	<script src="../prism/prism.js"></script>
+	<script src="../js/public.js?v=1"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$.progress({
+				elementId:'progress-demo-basic',
+				percent:30
+			});
+			$.progress({
+				elementId:'progress-demo-basic1',
+				percent:50,
+				icon:"&#58927;",
+			 	color:"#f78577"
+			});
+			$.progress({
+				elementId:'progress-demo-basic2',
+				percent:100,
+				icon:"&#60017;",
+			 	color:"#83d596"
+			});
+			$.progress({
+				elementId:'progress-demo-basic3',
+				percent:60,
+				isShowInfo:false
+			});
+			$.progress({
+				elementId:'progress-demo-circle',
+				type:'circle',
+				percent:50,
+				width:80,
+				color:"#81b5f2"
+			});
+			$.progress({
+			    elementId:'progress-demo-small',
+			    percent:30,
+			    width:200,
+			    strokeWidth:4
+			});
+			$.progress({
+			    elementId:'progress-demo-small1',
+			    percent:50,
+			    width:200,
+			    strokeWidth:4,
+			    icon:"&#58927;",
+			    color:"#f78577"
+			});
+			$.progress({
+			    elementId:'progress-demo-small2',
+			    percent:100,
+			    width:200,
+			    strokeWidth:4,
+			    icon:"&#60017;",
+			    color:"#83d596"
+			});
+			$.progress({
+				elementId:'progress-demo-small3',
+				percent:60,
+				width:200,
+			    strokeWidth:4,
+				isShowInfo:false
+			});
+			$.progress({
+				elementId:'progress-demo-small-circle',
+				type:'circle',
+				percent:50,
+				width:50,
+				color:"#81b5f2"
+			});
+		});
+	</script>
+</body>
+</html>

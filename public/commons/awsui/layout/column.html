@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="基于AWSUI-Column的主流前端响应式框架">
+        <meta name="keywords" content="栅格 - AWSUI">
+        <title>Column</title>
+        <link rel="stylesheet" href="../../css/awsui.css">
+        <link rel="stylesheet" href="../css/bootstrap.css">
+        <link rel="stylesheet" href="../css/uidoc.css?v=1">
+        <link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+    </head>
+    <body>
+        <div class="awsui-wrapper">
+            <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 awsui-border-bottom">
+                <div class="awsui-markdown">
+                    <h1 class="title2" id="column">栅格</h1>
+                    <p class="awsui-margin-bottom-14"><code>AWSUI</code>提供了一套响应式、移动设备优先的流式栅格布局，随着屏幕或视口<code>(viewport)</code>尺寸的增加，系统会自动分为最多12列，栅格布局用于通过一系列的行<code>(row)</code>与列<code>(column)</code>的组合来创建自适应页面布局。</p>
+                    <ul>
+                        <li>布局的栅格化系统，我们是基于行（row）和列（col）来定义信息区块的外部框架，以保证页面的每个区域能够稳健地排布起来。</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-markdown">
+                    <div class="awsui-code-title">
+                        CSS
+                    </div>
+                </div>
+                <table class="awsui-table awsui-margin-bottom-24">
+                    <thead>
+                        <tr>
+                            <th width="35%">屏幕尺寸</th>
+                            <th width="30%">对应尺寸css类名</th>
+                            <th width="35%">偏移css类名</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>手机<768px</td>
+                            <td>awsui-col-xs-</td>
+                            <td>awsui-col-xs-offset-</td>
+                        </tr>
+                        <tr>
+                            <td>平板≥768px</td>
+                            <td>awsui-col-sm-</td>
+                            <td>awsui-col-sm-offset-</td>
+                        </tr>
+                        <tr>
+                            <td>桌面显示器≥992px</td>
+                            <td>awsui-col-md-</td>
+                            <td>awsui-col-md-offset-</td>
+                        </tr>
+                        <tr>
+                            <td>大桌面显示器≥1200px</td>
+                            <td>awsui-col-lg-</td>
+                            <td>awsui-col-lg-offset-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-code-title title2" id="event1">
+                    基础栅格
+                </div>
+                <p class="awsui-margin-top-5">一个基本的栅格系统。</p>
+                <div class="awsui-code-demo">
+                    <div class="awsui-col-md-12">
+                        <div class="awsui-column-content" style="height:40px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="awsui-code-info">
+                    <pre><code class="language-html">
+&lt;div class="awsui-col-md-12"&gt;&lt;/div&gt;
+</code></pre>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-code-title title2" id="event2">
+                    响应式布局
+                </div>
+                <p class="awsui-margin-top-5"> 响应式设计，预设四个响应尺寸：xs sm md lg。</p>
+                <div class="awsui-code-demo">
+                    <div class="awsui-col-md-12">
+                        <div class="awsui-column-content">
+                            col-12
+                        </div>
+                    </div>
+                    <div class="awsui-col-lg-6 awsui-col-md-6 awsui-col-sm-6 awsui-col-xs-6">
+                        <div class="awsui-column-content awsui-margin-top-10">
+                            col-6
+                        </div>
+                    </div>
+                    <div class="awsui-col-lg-6 awsui-col-md-6 awsui-col-sm-6 awsui-col-xs-6">
+                        <div class="awsui-column-content awsui-margin-top-10" style="background: #54b16c;">
+                            col-6
+                        </div>
+                    </div>
+                    <div class="awsui-col-lg-4 awsui-col-md-4 awsui-col-sm-4 awsui-col-xs-4">
+                        <div class="awsui-column-content awsui-margin-top-10">
+                            col-4
+                        </div>
+                    </div>
+                    <div class="awsui-col-lg-4 awsui-col-md-4 awsui-col-sm-4 awsui-col-xs-4">
+                        <div class="awsui-column-content awsui-margin-top-10" style="background: #54b16c;">
+                            col-4
+                        </div>
+                    </div>
+                    <div class="awsui-col-lg-4 awsui-col-md-4 awsui-col-sm-4 awsui-col-xs-4">
+                        <div class="awsui-column-content awsui-margin-top-10">
+                            col-4
+                        </div>
+                    </div>
+                    <div class="awsui-col-lg-2 awsui-col-md-2 awsui-col-sm-2 awsui-col-xs-2">
+                        <div class="awsui-column-content awsui-margin-top-10">
+                            col-2
+                        </div>
+                    </div>
+                    <div class="awsui-col-lg-2 awsui-col-md-2 awsui-col-sm-2 awsui-col-xs-2">
+                        <div class="awsui-column-content awsui-margin-top-10" style="background: #54b16c;">
+                            col-2
+                        </div>
+                    </div>
+                    <div class="awsui-col-lg-2 awsui-col-md-2 awsui-col-sm-2 awsui-col-xs-2">
+                        <div class="awsui-column-content awsui-margin-top-10">
+                            col-2
+                        </div>
+                    </div>
+                    <div class="awsui-col-lg-2 awsui-col-md-2 awsui-col-sm-2 awsui-col-xs-2">
+                        <div class="awsui-column-content awsui-margin-top-10" style="background: #54b16c;">
+                            col-2
+                        </div>
+                    </div>
+                    <div class="awsui-col-lg-2 awsui-col-md-2 awsui-col-sm-2 awsui-col-xs-2">
+                        <div class="awsui-column-content awsui-margin-top-10">
+                            col-2
+                        </div>
+                    </div>
+                    <div class="awsui-col-lg-2 awsui-col-md-2 awsui-col-sm-2 awsui-col-xs-2">
+                        <div class="awsui-column-content awsui-margin-top-10" style="background: #54b16c;">
+                            col-2
+                        </div>
+                    </div>
+                </div>
+                <div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;div class="awsui-col-md-12"&gt;
+    &lt;div class="awsui-column-content"&gt;
+        col-12
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="awsui-col-lg-6 awsui-col-md-6 awsui-col-sm-6 awsui-col-xs-6"&gt;
+    &lt;div class="awsui-column-content awsui-margin-top-10"&gt;
+        col-6
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="awsui-col-lg-6 awsui-col-md-6 awsui-col-sm-6 awsui-col-xs-6"&gt;
+    &lt;div class="awsui-column-content awsui-margin-top-10" style="background: #54b16c;"&gt;
+        col-6
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="awsui-col-lg-4 awsui-col-md-4 awsui-col-sm-4 awsui-col-xs-4"&gt;
+    &lt;div class="awsui-column-content awsui-margin-top-10"&gt;
+        col-4
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="awsui-col-lg-4 awsui-col-md-4 awsui-col-sm-4 awsui-col-xs-4"&gt;
+    &lt;div class="awsui-column-content awsui-margin-top-10" style="background: #54b16c;"&gt;
+        col-4
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="awsui-col-lg-4 awsui-col-md-4 awsui-col-sm-4 awsui-col-xs-4"&gt;
+    &lt;div class="awsui-column-content awsui-margin-top-10"&gt;
+        col-4
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="awsui-col-lg-2 awsui-col-md-2 awsui-col-sm-2 awsui-col-xs-2"&gt;
+    &lt;div class="awsui-column-content awsui-margin-top-10"&gt;
+        col-2
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="awsui-col-lg-2 awsui-col-md-2 awsui-col-sm-2 awsui-col-xs-2"&gt;
+    &lt;div class="awsui-column-content awsui-margin-top-10" style="background: #54b16c;"&gt;
+        col-2
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="awsui-col-lg-2 awsui-col-md-2 awsui-col-sm-2 awsui-col-xs-2"&gt;
+    &lt;div class="awsui-column-content awsui-margin-top-10"&gt;
+        col-2
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="awsui-col-lg-2 awsui-col-md-2 awsui-col-sm-2 awsui-col-xs-2"&gt;
+    &lt;div class="awsui-column-content awsui-margin-top-10" style="background: #54b16c;"&gt;
+        col-2
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="awsui-col-lg-2 awsui-col-md-2 awsui-col-sm-2 awsui-col-xs-2"&gt;
+    &lt;div class="awsui-column-content awsui-margin-top-10"&gt;
+        col-2
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="awsui-col-lg-2 awsui-col-md-2 awsui-col-sm-2 awsui-col-xs-2"&gt;
+    &lt;div class="awsui-column-content awsui-margin-top-10" style="background: #54b16c;"&gt;
+        col-2
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <p class="awsui-margin-top-5" style="margin-bottom: 0;">
+                    <code>
+                        <span class="awsui-iconfont"></span>
+                        <span>注意</span>
+                    </code>
+                </p>
+                <p><code>上述示例中的颜色并非栅格内置，只是做一个区分。</code></p>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-code-title title2" id="event3">
+                    列偏移
+                </div>
+                <p class="awsui-margin-top-5">使用 offset 可以将列向右侧偏。例如，class="awsui-col-sm-offset-4" 将元素向右侧偏移了 4 个列（column）的宽度。</p>
+                <div class="awsui-code-demo">
+                    <div class="awsui-col-lg-12 awsui-col-md-12 awsui-col-sm-12 awsui-col-xs-12">
+                        <div class="awsui-column-content">
+                            col-12
+                        </div>
+                    </div>
+                    <div class="awsui-col-lg-8 awsui-col-md-8 awsui-col-sm-8 awsui-col-xs-8 awsui-col-lg-offset-2 awsui-col-md-offset-2 awsui-col-sm-offset-2 awsui-col-xs-offset-2">
+                        <div class="awsui-column-content awsui-margin-top-10">
+                            offset-2
+                        </div>
+                    </div>
+                    <div class="awsui-col-lg-6 awsui-col-md-6 awsui-col-sm-6 awsui-col-xs-6 awsui-col-lg-offset-4 awsui-col-md-offset-4 awsui-col-sm-offset-4 awsui-col-xs-offset-4">
+                        <div class="awsui-column-content awsui-margin-top-10">
+                            offset-4
+                        </div>
+                    </div>
+                    <div class="awsui-col-lg-4 awsui-col-md-4 awsui-col-sm-4 awsui-col-xs-4 awsui-col-lg-offset-6 awsui-col-md-offset-6 awsui-col-sm-offset-6 awsui-col-xs-offset-6">
+                        <div class="awsui-column-content awsui-margin-top-10">
+                            offset-6
+                        </div>
+                    </div>
+                </div>
+                <div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;div class="awsui-col-lg-12 awsui-col-md-12 awsui-col-sm-12 awsui-col-xs-12"&gt;
+    &lt;div class="awsui-column-content"&gt;
+        col-12
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="awsui-col-lg-8 awsui-col-md-8 awsui-col-sm-8 awsui-col-xs-8 awsui-col-lg-offset-2 awsui-col-md-offset-2 awsui-col-sm-offset-2 awsui-col-xs-offset-2"&gt;
+    &lt;div class="awsui-column-content awsui-margin-top-10"&gt;
+        offset-2
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="awsui-col-lg-6 awsui-col-md-6 awsui-col-sm-6 awsui-col-xs-6 awsui-col-lg-offset-4 awsui-col-md-offset-4 awsui-col-sm-offset-4 awsui-col-xs-offset-4"&gt;
+    &lt;div class="awsui-column-content awsui-margin-top-10"&gt;
+        offset-4
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="awsui-col-lg-4 awsui-col-md-4 awsui-col-sm-4 awsui-col-xs-4 awsui-col-lg-offset-6 awsui-col-md-offset-6 awsui-col-sm-offset-6 awsui-col-xs-offset-6"&gt;
+    &lt;div class="awsui-column-content awsui-margin-top-10"&gt;
+        offset-6
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="section_right">
+            <div class="nav">
+                <!-- 右侧导航 -->
+            </div>
+        </div>
+        <div class="navTop">
+            <img src="../img/top.png" alt=""/>
+        </div>
+        <script src="../../js/jquery/scripts/jquery.js"></script>
+        <script src="../../js/awsui.js"></script>
+        <script src="../prism/prism.js"></script>
+        <script src="../js/public.js?v=1"></script>
+    </body>
+</html>
+
+
+
+
+

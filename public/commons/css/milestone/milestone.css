@@ -1,0 +1,29 @@
+
+.milestoneouter{
+    overflow: hidden;
+    border:1px solid #e2e2e2;
+    border-radius:40px;
+}
+.milestoneinner {
+    overflow: hidden;
+    position: relative;
+    left: 0;
+    top: 0
+}
+.milestoneprocess{
+    float:left;
+    font-size:12px;
+    text-align:center;
+
+}
+.point{
+    position:relative;
+    display: inline-block;
+    border-top: 3px solid white;
+    border-right: 3px solid white;
+    transform:rotate(45deg);
+    float: right;
+    right:-0.75rem;
+
+}
+

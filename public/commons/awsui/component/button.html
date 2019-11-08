@@ -1,0 +1,557 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="content" content="基于AWSUI-Button的主流前端响应式框架">
+	<meta name="keywords" content="按钮 - AWSUI">
+	<title>Button</title>
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../../css/awsui.css">
+	<link rel="stylesheet" href="../css/uidoc.css?v=1">
+	<link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+</head>
+<body>
+	<div class="awsui-wrapper">
+		<div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 awsui-border-bottom">
+			<div class="awsui-markdown">
+				<h1 class="title2" id="button">按钮</h1>
+				<p class="awsui-margin-bottom-14">标记了一个（或封装一组）操作命令，响应用户点击行为，触发相应的业务逻辑。</p>
+				<ul>
+					<li>响应用户点击行为时。</li>
+					<li>提供按钮组合，带图标的按钮，还可以进行大小选择。</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-markdown">
+				<div class="awsui-code-title">
+					CSS
+				</div>
+				<p>通过css类来产生不同的按钮样式，推荐顺序为：theme(主题) -> shape（形状） -> size（大小） -> loading（加载） -> disabled（禁用）</p>
+				<p>按钮的css类说明如下：</p>
+			</div>
+			<table class="awsui-table awsui-margin-bottom-24">
+				<thead>
+				<tr>
+					<th width="40%">class名称</th>
+					<th width="60%">说明</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>awsui-btn</td>
+					<td>用于button元素上的原始样式，默认按钮</td>
+				</tr>
+				<tr>
+					<td>awsui-btn-green</td>
+					<td>用于button元素上的样式，绿色按钮</td>
+				</tr>
+				<tr>
+					<td>awsui-btn-blue</td>
+					<td>用于button元素上的样式，蓝色按钮</td>
+				</tr>
+				<tr>
+					<td>awsui-btn-danger</td>
+					<td>用于button元素上的样式，警告按钮</td>
+				</tr>
+				<tr>
+					<td>awsui-btn-warm</td>
+					<td>用于button元素上的样式，暖色按钮</td>
+				</tr>
+				<tr>
+					<td>awsui-btn-disabled</td>
+					<td>用于button元素上的样式，禁用按钮,不可用状态</td>
+				</tr>
+				<tr>
+					<td>awsui-btn-circle</td>
+					<td>圆形按钮</td>
+				</tr>
+				<tr>
+					<td>awsui-btn-icon</td>
+					<td>带图标的按钮</td>
+				</tr>
+				<tr>
+					<td>awsui-btn-lg</td>
+					<td>控件大小。注：按钮高度大小限制为 large</td>
+				</tr>
+				<tr>
+					<td>awsui-btn-sm</td>
+					<td>控件大小。注：按钮高度大小限制为 small</td>
+				</tr>
+				<tr>
+					<td>awsui-loading</td>
+					<td>按钮处于加载状态</td>
+				</tr>
+				<tr>
+					<td>awsui-btn-group</td>
+					<td>设置按钮组合</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-code-title title2" id="event1">
+				按钮主题
+			</div>
+			<p class="awsui-margin-top-5">按钮有六种主题，从而改变按钮风格。</p>
+			<div class="awsui-code-demo">
+				<button type="button" class="awsui-btn">默认</button>
+				<button type="button" class="awsui-btn awsui-btn-green">绿色</button>
+				<button type="button" class="awsui-btn awsui-btn-blue">蓝色</button>
+				<button type="button" class="awsui-btn awsui-btn-danger">警告按钮</button>
+				<button type="button" class="awsui-btn awsui-btn-warm">暖色按钮</button>
+				<button type="button" class="awsui-btn awsui-btn-disabled">禁用按钮</button>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+				<pre><code class="language-html">&lt;button type="button" class="awsui-btn"&gt;默认按钮&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-green"&gt;绿色按钮&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-blue"&gt;蓝色按钮&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-danger"&gt;警告按钮&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-warm"&gt;暖色按钮&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-disabled"&gt;禁用按钮&lt;/button&gt;
+</code></pre>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-code-title title2" id="event2">
+				图标按钮
+			</div>
+			<p class="awsui-margin-top-5">在 Button 内嵌入 Icon图标，引用awsui-btn-icon类</p>
+			<p class="awsui-margin-top-5">圆形按钮，引用awsui-btn-circle类</p>
+			<p class="awsui-margin-top-5">如若要改变按钮风格，请参考《按钮主题》来引用不同风格的按钮类</p>
+			<div class="awsui-code-demo">
+				<button type="button" class="awsui-btn awsui-btn-icon awsui-btn-circle">
+					<i class="awsui-iconfont">&#58920;</i>
+				</button>
+				<button type="button" class="awsui-btn awsui-btn-icon">
+					<i class="awsui-iconfont">&#58920;</i>
+					<span>Search</span>
+				</button>
+				<button type="button" class="awsui-btn awsui-btn-icon">
+					<i class="awsui-iconfont">&#58920;</i>
+				</button>
+				<button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon awsui-btn-circle">
+					<i class="awsui-iconfont">&#58920;</i>
+				</button>
+				<button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon">
+					<i class="awsui-iconfont">&#58920;</i>
+					<span>Search</span>
+				</button>
+				<button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon">
+					<i class="awsui-iconfont">&#58920;</i>
+				</button>
+				<button type="button" class="awsui-btn awsui-btn-green awsui-btn-icon awsui-btn-circle">
+					<i class="awsui-iconfont">&#58915;</i>
+				</button>
+				<button type="button" class="awsui-btn awsui-btn-green awsui-btn-icon">
+					<i class="awsui-iconfont">&#58915;</i>
+					<span>Add</span>
+				</button>
+				<button type="button" class="awsui-btn awsui-btn-green awsui-btn-icon">
+					<i class="awsui-iconfont">&#58915;</i>
+				</button>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;button type="button" class="awsui-btn awsui-btn-icon awsui-btn-circle"&gt;
+	&lt;i class="awsui-iconfont"&gt;&amp;#58920;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+	&lt;i class="awsui-iconfont"&gt;&amp;#58920;&lt;/i&gt;
+	&lt;span&gt;Search&lt;/span&gt;
+&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+	&lt;i class="awsui-iconfont"&gt;&amp;#58920;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon awsui-btn-circle"&gt;
+	&lt;i class="awsui-iconfont"&gt;&amp;#58920;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon"&gt;
+	&lt;i class="awsui-iconfont"&gt;&amp;#58920;&lt;/i&gt;
+	&lt;span&gt;Search&lt;/span&gt;
+&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon"&gt;
+	&lt;i class="awsui-iconfont"&gt;&amp;#58920;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-green awsui-btn-icon awsui-btn-circle"&gt;
+	&lt;i class="awsui-iconfont"&gt;&amp;#58915;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-green awsui-btn-icon"&gt;
+	&lt;i class="awsui-iconfont"&gt;&amp;#58915;&lt;/i&gt;
+	&lt;span&gt;Add&lt;/span&gt;
+&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-green awsui-btn-icon"&gt;
+	&lt;i class="awsui-iconfont"&gt;&amp;#58915;&lt;/i&gt;
+&lt;/button&gt;
+</code></pre>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-code-title title2" id="event3">
+				灵活的图标按钮
+			</div>
+			<p class="awsui-margin-top-5">灵活的图标按钮（更多图标请阅览：文档-图标）</p>
+			<div class="awsui-code-demo">
+				<button type="button" class="awsui-btn awsui-btn-icon">
+					<i class="awsui-iconfont">&#58881;</i>
+				</button>
+				<button type="button" class="awsui-btn awsui-btn-icon">
+					<i class="awsui-iconfont">&#xe715;</i>
+				</button>
+				<button type="button" class="awsui-btn awsui-btn-icon">
+					<i class="awsui-iconfont">&#xe717;</i>
+				</button>
+				<button type="button" class="awsui-btn awsui-btn-icon">
+					<i class="awsui-iconfont">&#58918;</i>
+				</button>
+				<button type="button" class="awsui-btn awsui-btn-icon">
+					<i class="awsui-iconfont">&#59178;</i>
+				</button>
+				<button type="button" class="awsui-btn awsui-btn-icon">
+					<i class="awsui-iconfont">&#59242;</i>
+				</button>
+				<button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon">
+					<i class="awsui-iconfont">&#58881;</i>
+				</button>
+				<button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon">
+					<i class="awsui-iconfont">&#xe715;</i>
+				</button>
+				<button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon">
+					<i class="awsui-iconfont">&#xe717;</i>
+				</button>
+				<button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon">
+					<i class="awsui-iconfont">&#58918;</i>
+				</button>
+				<button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon">
+					<i class="awsui-iconfont">&#59178;</i>
+				</button>
+				<button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon">
+					<i class="awsui-iconfont">&#59242;</i>
+				</button>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+	&lt;i class="awsui-iconfont"&gt;&amp;#58881;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+	&lt;i class="awsui-iconfont"&gt;&amp;#xe715;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+	&lt;i class="awsui-iconfont"&gt;&amp;#xe717;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+	&lt;i class="awsui-iconfont"&gt;&amp;#58918;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+	&lt;i class="awsui-iconfont"&gt;&amp;#59178;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+	&lt;i class="awsui-iconfont"&gt;&amp;#59242;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon"&gt;
+	&lt;i class="awsui-iconfont"&gt;&amp;#58881;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon"&gt;
+	&lt;i class="awsui-iconfont"&gt;&amp;#xe715;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon"&gt;
+	&lt;i class="awsui-iconfont"&gt;&amp;#xe717;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon"&gt;
+	&lt;i class="awsui-iconfont"&gt;&amp;#58918;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon"&gt;
+	&lt;i class="awsui-iconfont"&gt;&amp;#59178;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon"&gt;
+	&lt;i class="awsui-iconfont"&gt;&amp;#59242;&lt;/i&gt;
+&lt;/button&gt;
+</code></pre>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-code-title title2" id="event4">
+				按钮尺寸
+			</div>
+			<p class="awsui-margin-top-5">按钮有大、中、小三种尺寸（大<code>awsui-btn-lg</code>、默认、小<code>awsui-btn-sm</code>），高度分别为 32px、28px 和 22px。</p>
+			<div class="awsui-code-demo">
+				<button type="button" class="awsui-btn awsui-btn-blue awsui-btn-lg">large size</button>
+				<button type="button" class="awsui-btn awsui-btn-blue">default size</button>
+				<button type="button" class="awsui-btn awsui-btn-blue awsui-btn-sm">small size</button>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+				<pre><code class="language-html">&lt;button type="button" class="awsui-btn awsui-btn-blue awsui-btn-lg"&gt;large size&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-blue"&gt;default size&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-blue awsui-btn-sm"&gt;small size&lt;/button&gt;
+</code></pre>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-code-title title2" id="event5">
+				不可用状态
+			</div>
+			<p class="awsui-margin-top-5">添加类<code>awsui-btn-disabled</code>可让按钮处于不可用状态，同时按钮样式也会改变。</p>
+			<div class="awsui-code-demo">
+				<button type="button" class="awsui-btn awsui-btn-disabled">disabled</button>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+				<pre><code class="language-html">&lt;button type="button" class="awsui-btn awsui-btn-disabled"&gt;disabled&lt;/button&gt;</code></pre>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-code-title title2" id="event6">
+				加载中状态
+			</div>
+			<p class="awsui-margin-top-5">添加类 <code>awsui-loading</code> 可让按钮处于加载状态。</p>
+			<div class="awsui-code-demo">
+				<button type="button" class="awsui-btn awsui-btn-icon awsui-btn-circle">
+					<i class="awsui-loading"></i>
+				</button>
+				<button type="button" class="awsui-btn awsui-btn-icon">
+					<i class="awsui-loading"></i>
+					<span>loading</span>
+				</button>
+				<button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon awsui-btn-circle">
+					<i class="awsui-loading"></i>
+				</button>
+				<button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon">
+					<i class="awsui-loading"></i>
+					<span>loading</span>
+				</button>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+				<pre><code class="language-html">&lt;button type="button" class="awsui-btn awsui-btn-icon awsui-btn-circle"&gt;
+	&lt;i class="awsui-loading"&gt;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+	&lt;i class="awsui-loading"&gt;&lt;/i&gt;
+	&lt;span&gt;loading&lt;/span&gt;
+&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon awsui-btn-circle"&gt;
+	&lt;i class="awsui-loading"&gt;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon"&gt;
+	&lt;i class="awsui-loading"&gt;&lt;/i&gt;
+	&lt;span&gt;loading&lt;/span&gt;
+&lt;/button&gt;
+</code></pre>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-code-title title2" id="event7">
+				按钮组合
+			</div>
+			<p class="awsui-margin-top-5">可以将多个 Button 放入 Button.Group 的容器中并添加类<code>awsui-btn-group</code>。</p>
+			<p class="awsui-margin-top-5">通过设置 size 为 large small 分别把按钮组合设为大、小尺寸。若不设置 size，则尺寸为中。</p>
+			<div class="awsui-code-demo">
+				<div class="awsui-btn-group">
+					<button type="button" class="awsui-btn awsui-btn-blue">添加</button>
+					<button type="button" class="awsui-btn awsui-btn-danger">修改</button>
+					<button type="button" class="awsui-btn">删除</button>
+				</div>
+				<div class="awsui-btn-group">
+					<button type="button" class="awsui-btn awsui-btn-blue">
+						<i class="awsui-iconfont">&#58910;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-blue">
+						<i class="awsui-iconfont">&#58920;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-blue">
+						<i class="awsui-iconfont">&#58918;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-blue">
+						<i class="awsui-iconfont">&#59178;</i>
+					</button>
+				</div>
+				<div class="awsui-btn-group">
+					<button type="button" class="awsui-btn awsui-btn-green">
+						<i class="awsui-iconfont">&#58910;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-green">
+						<i class="awsui-iconfont">&#58918;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-green">
+						<i class="awsui-iconfont">&#59178;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-green">
+						<i class="awsui-iconfont">&#59178;</i>
+					</button>
+				</div>
+				<div class="awsui-btn-group">
+					<button type="button" class="awsui-btn awsui-btn-danger">
+						<i class="awsui-iconfont">&#58910;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-danger">
+						<i class="awsui-iconfont">&#58918;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-danger">
+						<i class="awsui-iconfont">&#59178;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-danger">
+						<i class="awsui-iconfont">&#59178;</i>
+					</button>
+				</div>
+				<div class="awsui-btn-group">
+					<button type="button" class="awsui-btn awsui-btn-warm">
+						<i class="awsui-iconfont">&#58910;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-warm">
+						<i class="awsui-iconfont">&#58918;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-warm">
+						<i class="awsui-iconfont">&#59178;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-warm">
+						<i class="awsui-iconfont">&#59178;</i>
+					</button>
+				</div>
+				<div class="awsui-btn-group">
+					<button type="button" class="awsui-btn awsui-btn-disabled">
+						<i class="awsui-iconfont">&#58910;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-disabled">
+						<i class="awsui-iconfont">&#58918;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-disabled">
+						<i class="awsui-iconfont">&#59178;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-disabled">
+						<i class="awsui-iconfont">&#59178;</i>
+					</button>
+				</div>
+				<div class="awsui-btn-group">
+					<button type="button" class="awsui-btn">
+						<i class="awsui-iconfont">&#58910;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-green">
+						<i class="awsui-iconfont">&#58920;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-blue">
+						<i class="awsui-iconfont">&#58918;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-danger">
+						<i class="awsui-iconfont">&#59178;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-disabled">
+						<i class="awsui-iconfont">&#59178;</i>
+					</button>
+				</div>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+				<pre><code class="language-html">&lt;div class="awsui-btn-group"&gt;
+	&lt;button type="button" class="awsui-btn"&gt;添加&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn"&gt;修改&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn"&gt;删除&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="awsui-btn-group"&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-blue"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58910;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-blue"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58920;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-blue"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58918;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-blue"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#59178;&lt;/i&gt;
+	&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="awsui-btn-group"&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-green"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58910;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-green"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58918;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-green"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#59178;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-green"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#59178;&lt;/i&gt;
+	&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="awsui-btn-group"&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-danger"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58910;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-danger"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58918;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-danger"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#59178;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-danger"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#59178;&lt;/i&gt;
+	&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="awsui-btn-group"&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-warm"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58910;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-warm"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58918;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-warm"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#59178;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-warm"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#59178;&lt;/i&gt;
+	&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="awsui-btn-group"&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-disabled"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58910;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-disabled"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58918;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-disabled"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#59178;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-disabled"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#59178;&lt;/i&gt;
+	&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="awsui-btn-group"&gt;
+	&lt;button type="button" class="awsui-btn"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58910;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-green"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58920;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-blue"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58918;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-danger"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#59178;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-disabled"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#59178;&lt;/i&gt;
+	&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+			</div>
+		</div>
+	</div>
+	<div class="section_right">
+		<div class="nav">
+			<!-- 右侧导航 -->
+		</div>
+	</div>
+	<div class="navTop">
+		<img src="../img/top.png" alt=""/>
+	</div>
+	<script src="../../js/jquery/scripts/jquery.js"></script>
+	<script src="../../js/awsui.js"></script>
+	<script src="../prism/prism.js"></script>
+	<script src="../js/public.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="基于AWSUI-Table的主流前端响应式框架">
+        <meta name="keywords" content="表格 - AWSUI">
+        <title>Table</title>
+        <link rel="stylesheet" href="../css/bootstrap.css">
+        <link rel="stylesheet" href="../../css/awsui.css">
+        <link rel="stylesheet" href="../css/uidoc.css?v=1">
+        <link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+    </head>
+    <body>
+        <div class="awsui-wrapper">
+            <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 awsui-border-bottom">
+                <div class="awsui-markdown">
+                    <h1 class="title2" id="table">静态表格</h1>
+                    <p class="awsui-margin-bottom-14">风格多样的静态表格,展示行列数据；可用于以下场景：</p>
+                    <ul>
+                        <li>当有大量结构化的数据需要展现时。</li>
+                        <li>当需要对数据进行排序、搜索、分页、自定义操作等复杂行为时。</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-markdown">
+                    <div class="awsui-code-title">
+                        CSS
+                    </div>
+                </div>
+                <table class="awsui-table awsui-margin-bottom-24">
+                    <thead>
+                        <tr>
+                            <th width="40%">class名称</th>
+                            <th width="60%">说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--<tr>
+                            <td>awsui-selectall</td>
+                            <td>用于th元素上的全选样式</td>
+                        </tr>-->
+                        <tr>
+                            <td>awsui-table-left</td>
+                            <td>内容左对齐</td>
+                        </tr>
+                        <tr>
+                            <td>awsui-table-center</td>
+                            <td>内容居中</td>
+                        </tr>
+                        <tr>
+                            <td>awsui-table-right</td>
+                            <td>内容右对齐</td>
+                        </tr>
+                        <tr>
+                            <td>awsui-table</td>
+                            <td>标准样式，带边框</td>
+                        </tr>
+                        <tr>
+                            <td>awsui-table-condensed</td>
+                            <td>紧致边框</td>
+                        </tr>
+                        <tr>
+                            <td>awsui-table-thin</td>
+                            <td>仅有横线的边框</td>
+                        </tr>
+                        <tr>
+                            <td>awsui-table-ordinate</td>
+                            <td>仅有纵线的边框</td>
+                        </tr>
+                        <tr>
+                            <td>awsui-table-hover</td>
+                            <td>鼠标悬停</td>
+                        </tr>
+                        <tr>
+                            <td>awsui-table-striped</td>
+                            <td>斑马条</td>
+                        </tr>
+                        <!--<tr>
+                            <td>awsui-table-group</td>
+                            <td>表格自动分组</td>
+                        </tr>-->
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-code-title title2" id="event1">
+                    基础表格
+                </div>
+                <p class="awsui-margin-top-5">简单的表格。</p>
+                <div class="awsui-code-demo">
+                    <table class="awsui-table">
+                        <thead>
+                            <tr>
+                                <th>姓名</th>
+                                <th>职业</th>
+                                <th>性别</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>苏轼</td>
+                                <td>文学家</td>
+                                <td>男</td>
+                            </tr>
+                            <tr>
+                                <td>纳兰容若</td>
+                                <td>词人</td>
+                                <td>男</td>
+                            </tr>
+                            <tr>
+                                <td>李清照</td>
+                                <td>词人</td>
+                                <td>女</td>
+                            </tr>
+                            <tr>
+                                <td>朱元璋</td>
+                                <td>皇帝</td>
+                                <td>男</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+                <div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;table class="awsui-table"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;姓名&lt;/th&gt;
+            &lt;th&gt;职业&lt;/th&gt;
+            &lt;th&gt;性别&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;苏轼&lt;/td&gt;
+            &lt;td&gt;文学家&lt;/td&gt;
+            &lt;td&gt;男&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;纳兰容若&lt;/td&gt;
+            &lt;td&gt;词人&lt;/td&gt;
+            &lt;td&gt;男&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;李清照&lt;/td&gt;
+            &lt;td&gt;词人&lt;/td&gt;
+            &lt;td&gt;女&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;朱元璋&lt;/td&gt;
+            &lt;td&gt;皇帝&lt;/td&gt;
+            &lt;td&gt;男&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-code-title title2" id="event2">
+                    横线表格
+                </div>
+                <div class="awsui-code-demo">
+                    <table class="awsui-table awsui-table-thin">
+                        <thead>
+                            <tr>
+                                <th>姓名</th>
+                                <th>职业</th>
+                                <th>性别</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>苏轼</td>
+                                <td>文学家</td>
+                                <td>男</td>
+                            </tr>
+                            <tr>
+                                <td>纳兰容若</td>
+                                <td>词人</td>
+                                <td>男</td>
+                            </tr>
+                            <tr>
+                                <td>李清照</td>
+                                <td>词人</td>
+                                <td>女</td>
+                            </tr>
+                            <tr>
+                                <td>朱元璋</td>
+                                <td>皇帝</td>
+                                <td>男</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+                <div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;table class="awsui-table awsui-table-thin"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;姓名&lt;/th&gt;
+            &lt;th&gt;职业&lt;/th&gt;
+            &lt;th&gt;性别&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;苏轼&lt;/td&gt;
+            &lt;td&gt;文学家&lt;/td&gt;
+            &lt;td&gt;男&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;纳兰容若&lt;/td&gt;
+            &lt;td&gt;词人&lt;/td&gt;
+            &lt;td&gt;男&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;李清照&lt;/td&gt;
+            &lt;td&gt;词人&lt;/td&gt;
+            &lt;td&gt;女&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;朱元璋&lt;/td&gt;
+            &lt;td&gt;皇帝&lt;/td&gt;
+            &lt;td&gt;男&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-code-title title2" id="event3">
+                    纵线表格
+                </div>
+                <div class="awsui-code-demo">
+                    <table class="awsui-table awsui-table-ordinate">
+                        <thead>
+                            <tr>
+                                <th>姓名</th>
+                                <th>职业</th>
+                                <th>性别</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>苏轼</td>
+                                <td>文学家</td>
+                                <td>男</td>
+                            </tr>
+                            <tr>
+                                <td>纳兰容若</td>
+                                <td>词人</td>
+                                <td>男</td>
+                            </tr>
+                            <tr>
+                                <td>李清照</td>
+                                <td>词人</td>
+                                <td>女</td>
+                            </tr>
+                            <tr>
+                                <td>朱元璋</td>
+                                <td>皇帝</td>
+                                <td>男</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+                <div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;table class="awsui-table awsui-table-ordinate"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;姓名&lt;/th&gt;
+            &lt;th&gt;职业&lt;/th&gt;
+            &lt;th&gt;性别&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;苏轼&lt;/td&gt;
+            &lt;td&gt;文学家&lt;/td&gt;
+            &lt;td&gt;男&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;纳兰容若&lt;/td&gt;
+            &lt;td&gt;词人&lt;/td&gt;
+            &lt;td&gt;男&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;李清照&lt;/td&gt;
+            &lt;td&gt;词人&lt;/td&gt;
+            &lt;td&gt;女&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;朱元璋&lt;/td&gt;
+            &lt;td&gt;皇帝&lt;/td&gt;
+            &lt;td&gt;男&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-code-title title2" id="event4">
+                    悬浮表格
+                </div>
+                <div class="awsui-code-demo">
+                    <table class="awsui-table awsui-table-hover">
+                        <thead>
+                            <tr>
+                                <th>姓名</th>
+                                <th>职业</th>
+                                <th>性别</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>苏轼</td>
+                                <td>文学家</td>
+                                <td>男</td>
+                            </tr>
+                            <tr>
+                                <td>纳兰容若</td>
+                                <td>词人</td>
+                                <td>男</td>
+                            </tr>
+                            <tr>
+                                <td>李清照</td>
+                                <td>词人</td>
+                                <td>女</td>
+                            </tr>
+                            <tr>
+                                <td>朱元璋</td>
+                                <td>皇帝</td>
+                                <td>男</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+                <div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;table class="awsui-table awsui-table-hover"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;姓名&lt;/th&gt;
+            &lt;th&gt;职业&lt;/th&gt;
+            &lt;th&gt;性别&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;苏轼&lt;/td&gt;
+            &lt;td&gt;文学家&lt;/td&gt;
+            &lt;td&gt;男&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;纳兰容若&lt;/td&gt;
+            &lt;td&gt;词人&lt;/td&gt;
+            &lt;td&gt;男&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;李清照&lt;/td&gt;
+            &lt;td&gt;词人&lt;/td&gt;
+            &lt;td&gt;女&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;朱元璋&lt;/td&gt;
+            &lt;td&gt;皇帝&lt;/td&gt;
+            &lt;td&gt;男&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-code-title title2" id="event5">
+                    斑马线表格
+                </div>
+                <div class="awsui-code-demo">
+                    <table class="awsui-table awsui-table-striped">
+                        <thead>
+                            <tr>
+                                <th>姓名</th>
+                                <th>职业</th>
+                                <th>性别</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>苏轼</td>
+                                <td>文学家</td>
+                                <td>男</td>
+                            </tr>
+                            <tr>
+                                <td>纳兰容若</td>
+                                <td>词人</td>
+                                <td>男</td>
+                            </tr>
+                            <tr>
+                                <td>李清照</td>
+                                <td>词人</td>
+                                <td>女</td>
+                            </tr>
+                            <tr>
+                                <td>朱元璋</td>
+                                <td>皇帝</td>
+                                <td>男</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+                <div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;table class="awsui-table awsui-table-striped"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;姓名&lt;/th&gt;
+            &lt;th&gt;职业&lt;/th&gt;
+            &lt;th&gt;性别&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;苏轼&lt;/td&gt;
+            &lt;td&gt;文学家&lt;/td&gt;
+            &lt;td&gt;男&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;纳兰容若&lt;/td&gt;
+            &lt;td&gt;词人&lt;/td&gt;
+            &lt;td&gt;男&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;李清照&lt;/td&gt;
+            &lt;td&gt;词人&lt;/td&gt;
+            &lt;td&gt;女&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;朱元璋&lt;/td&gt;
+            &lt;td&gt;皇帝&lt;/td&gt;
+            &lt;td&gt;男&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+                <div class="awsui-code-info">
+                    <pre><code class="language-js">$(document).ready(function() {
+    $(".awsui-table-striped tr:even").css("background-color", "#f8f8f8"); //为偶数行表格设置背颜色素
+});
+</code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="section_right">
+            <div class="nav">
+                <!-- 右侧导航 -->
+            </div>
+        </div>
+        <div class="navTop">
+            <img src="../img/top.png" alt=""/>
+        </div>
+        <script src="../../js/jquery/scripts/jquery.js"></script>
+        <script src="../../js/awsui.js"></script>
+        <script src="../prism/prism.js"></script>
+        <script src="../js/public.js?v=1"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $(".awsui-table-striped tr:even").css("background-color", "#f8f8f8"); //为偶数行表格设置背颜色素
+            });
+        </script>
+    </body>
+</html>
+
+

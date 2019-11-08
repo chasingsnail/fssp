@@ -1,0 +1,1115 @@
+/*!
+ * =====================================================
+ * aws.grid.css
+ * =====================================================
+ */
+/**
+ * awsGrid v1.1.3
+ * Copyright (c) 2012-2013 actionsoft
+ *
+ */
+div.aws-grid {
+	font-family: Microsoft Yahei;
+	font-size: 12px;
+	overflow: hidden;
+	position: relative
+}
+
+div.aws-grid * {
+	font-family: Microsoft Yahei;
+	font-size: 12px;
+	margin: 0;
+	padding: 0;
+	line-height: normal;
+}
+
+div.aws-grid .select2-search__field {
+	font-size: 13px !important;
+}
+
+div.aws-grid *:focus {
+	outline: 1px dotted gray
+}
+
+div.aws-grid-top {
+	border-width: 0
+}
+
+div.aws-grid-title {
+	border-bottom: 1px solid #c5c5c5;
+	zoom: 1;
+	padding: 5px;
+	overflow: hidden
+}
+
+div.aws-grid-toolbar {
+	border-top: 1px solid #ffffff;
+	padding: 0px 5px;
+}
+
+div.aws-grid-toolbar .ui-button {
+	margin: 0 4px
+}
+
+div.aws-grid div.draggable {
+	cursor: move
+}
+
+div.aws-grid-bottom {
+	border-top: 1px solid #c5c5c5;
+	position: relative
+}
+
+div.aws-grid-footer {
+	padding: 2px 5px 2px;
+	overflow: hidden;
+	position: relative
+}
+
+div.aws-grid-inner {
+	position: relative;
+	width: 100%;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	outline: none !important;
+}
+
+div.aws-grid-right {
+	position: relative;
+	overflow: hidden;
+	display: block
+}
+
+div.pq-header-outer {
+	position: relative;
+	border-width: 0;
+	overflow: hidden;
+	width: 100%;
+	z-index: 1
+}
+
+.aws-grid span.aws-grid-header {
+	position: absolute;
+	top: -2px;
+	cursor: default;
+	display: inline-block;
+	overflow: hidden;
+	border-width: 0
+}
+
+.aws-grid-header .pq-col-sort-asc .pq-col-sort-icon {
+	padding-right: 16px;
+	height: 16px;
+	width: 16px;
+	BACKGROUND: url(images/grid/sort_asc.gif) no-repeat right 6px
+}
+
+.aws-grid-header .pq-col-sort-desc .pq-col-sort-icon {
+	padding-right: 16px;
+	BACKGROUND: url(images/grid/sort_desc.gif) no-repeat right 6px
+}
+
+.aws-grid-col-resize-handle {
+	cursor: w-resize;
+	display: block;
+	width: 20px;
+	height: 22px;
+	z-index: 2;
+	position: absolute;
+	top: 0
+}
+
+.aws-grid-drag-bar {
+	position: absolute;
+	width: 1px;
+	z-index: 100;
+	top: 0;
+	background-color: #000000
+}
+
+div.aws-grid .pq-align-right {
+	text-align: right
+}
+
+div.aws-grid .pq-align-right * {
+	text-align: right
+}
+
+div.aws-grid .pq-align-center {
+	text-align: center
+}
+
+div.aws-grid .pq-align-center * {
+	text-align: center
+}
+
+div.pq-cont-right {
+	position: relative;
+	overflow: hidden;
+	border-width: 0
+}
+
+div.pq-cont {
+	overflow: hidden;
+	border-top: 0;
+	width: 100%;
+	position: relative
+}
+
+.aws-grid .pq-cont .ui-state-hover {
+	font-weight: normal
+}
+
+table.aws-grid-table {
+	border-spacing: 0;
+	table-layout: fixed;
+	width: 0;
+	position: relative;
+	top: 0;
+	margin-top: -1px
+}
+
+table.aws-grid-header-table {
+	table-layout: fixed;
+	width: 0;
+	border-spacing: 0
+}
+
+table.aws-grid-header-table div.aws-grid-header-table-div {
+	padding: 4px 5px;
+}
+
+div.aws-grid-header_ddn_icon {
+	position: absolute;
+	top: 0;
+	width: 16px;
+	height: 100%;
+	border-left: 1px solid #ffffff;
+	background: url('images/grid/ddn.png') no-repeat 40% 45%
+}
+
+div.aws-grid-header_ddn_icon_bg {
+	display: none;
+	position: absolute;
+	top: 0;
+	width: 17px;
+	height: 100%;
+	border-left: 1px solid #cccccc;
+	background: url('images/grid/column-header-bg.png');
+	text-align: left !important
+}
+
+div.ui-resizable-handle {
+	z-index: 1
+}
+
+.aws-grid td.aws-grid-col {
+	overflow: hidden;
+	border-width: 0;
+	border-right: 1px solid #cfcfcf;
+	border-top: 1px solid #cfcfcf
+}
+
+.aws-grid td.aws-grid-col.headerTop {
+	white-space: nowrap;
+}
+
+td.aws-grid-number-col {
+	border-right: 1px solid #cfcfcf
+}
+
+.aws-grid .pq-col-drag-helper {
+	border: 1px solid steelblue;
+	background: #ffffff;
+	padding: 3px
+}
+
+.aws-grid .pq-col-drag-helper .pq-drag-icon {
+	background: url("images/grid/cross.png");
+	height: 16px;
+	width: 16px;
+	margin-right: 5px;
+	margin-bottom: -3px;
+	display: inline-block
+}
+
+.aws-grid .pq-drag-accept .pq-drag-icon {
+	background: url("images/grid/tick.png")
+}
+
+.aws-grid td.pq-drop-hover {
+	background: #ffffff;
+	background-image: url("")
+}
+
+tr.pq-row-hidden {
+	visibility: hidden;
+	height: 1px
+}
+
+td.aws-grid-cell {
+	overflow: hidden;
+	padding: 0;
+	vertical-align: top
+}
+
+td div.pq-td-div {
+	padding: 4px 5px;
+	min-height: 15px;
+	position: relative;
+}
+
+.pq-wrap-text {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap
+}
+
+table.aws-grid-td-border-right td.aws-grid-cell {
+	border-right: 1px solid #d0d0d0;
+}
+
+table.aws-grid-td-border-bottom td.aws-grid-cell {
+	border-bottom: 1px solid #ededed
+}
+
+div.pq-cell-selected-border {
+	border: 1px solid #cccccc;
+	position: absolute;
+	padding: 0
+}
+
+div.pq-cell-selected-border-edit {
+	background: #ffffff;
+	color: #333333
+}
+
+.aws-grid-editor-default { /*background:#fff;padding:2px;outline:none !important;*/
+	width: 95%;
+	height: auto;
+	border: 0px;
+	margin: 4px 2px 0px 2px !important;
+	outline: none !important;
+}
+
+.aws-grid-editor-textarea {
+	width: 100%;
+	height: 100%;
+	border: 0px;
+	outline: none !important;
+	resize: none;
+	line-height: 100% !important;
+}
+
+.aws-grid-editor-select {
+	width: 100%;
+	outline: none !important;
+	height: 100%;
+	border: 0px;
+	padding: 2px 0px
+}
+
+tr td.aws-grid-number-cell {
+	border-right: 1px solid #9eb6ce;
+	cursor: pointer;
+	text-align: center;
+}
+
+.aws-grid td.aws-grid-number-cell {
+	border-top: 0;
+	border-left: 0
+}
+
+tr td.pq-last-freeze-col {
+	border-right: 1px solid steelblue
+}
+
+div.aws-grid-disable {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: #cccccc;
+	z-index: 3
+}
+
+div.pq-loading {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: none
+}
+
+div.pq-loading div.pq-loading-bg {
+	background: #cccccc;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0
+}
+
+div.pq-loading-mask {
+	/*width: 136px;*/
+	width: 110px;
+	height: 30px;
+	/*padding: 14px 14px 14px 19px;*/
+	padding: 15px;
+	position: absolute;
+	border-radius: 4px;
+	box-shadow: 0 0 30px rgba(31, 31, 31, 0.2);
+	left: 50%;
+	top: 50%;
+	margin-left: -50px;
+	margin-top: -13px
+}
+
+.aws-grid div.pq-loading-mask div {
+	padding-top: 0;
+	/*padding-right: 6px;*/
+	/*padding-left: 48px;*/
+	width: 115px;
+	line-height: 23px;
+	/*background: url("images/loading.gif") no-repeat;*/
+	/*background-position: 6px center;*/
+	background-position: 2px center;
+	background-repeat: no-repeat
+}
+
+div.pq-vscroll {
+	height: 150px;
+	width: 13px;
+	border: 0 solid blue;
+	position: absolute;
+	right: 0;
+	bottom: 13px
+}
+
+div.pq-hscroll {
+	height: 13px;
+	border: 0 solid blue;
+	position: absolute;
+	right: 13px;
+	bottom: 0
+}
+
+div.pq-hvscroll-square {
+	height: 13px;
+	width: 13px;
+	border: 0 solid blue;
+	position: absolute;
+	right: 0;
+	bottom: 0
+}
+
+.pq-tree-icon-container {
+	position: relative;
+	float: left;
+	height: 16px
+}
+
+.pq-tree-icon {
+	cursor: pointer;
+	position: absolute;
+	width: 18px;
+	height: 16px;
+	right: 0;
+	top: -2px
+}
+
+div.aws-grid tr td.aws-grid-cell-hover {
+	border-width: 0
+}
+
+div.aws-grid tr td.pq-cell-select {
+	word-break: break-all;
+	border-top-width: 0;
+	border-left-width: 0
+}
+
+.pq-pager {
+	padding: 2px 5px 13px;
+	overflow: hidden;
+	vertical-align: middle
+}
+
+.pq-pager * {
+	vertical-align: middle
+}
+
+.aws-grid span.pq-separator {
+	height: 18px;
+	border-left: 1px solid #cccccc;
+	border-right: 1px solid #ffffff;
+	display: inline-block;
+	margin-right: 5px
+}
+
+.pq-pager input {
+	border: 1px solid #cccccc;
+	padding: 0 1px;
+	text-align: center;
+	width: 35px;
+	margin-right: 5px;
+	height: 16px
+}
+
+div.pq-pager span, div.pq-pager select {
+	margin-right: 5px
+}
+
+.pq-pager .pq-pageholder {
+	vertical-align: top
+}
+
+.aws-grid button.ui-button-icon-only {
+	height: 22px;
+	width: 22px;
+	margin-right: 5px;
+	padding: .2em .2em
+}
+
+.aws-grid .ui-state-default .pq-page-first {
+	background: url('images/grid/page-first-gray.gif')
+}
+
+.aws-grid .ui-state-default .pq-page-prev {
+	background: url('images/grid/page-prev-gray.gif')
+}
+
+.aws-grid .ui-state-default .pq-page-next {
+	background: url('images/grid/page-next-gray.gif')
+}
+
+.aws-grid .ui-state-default .pq-page-last {
+	background: url('images/grid/page-last-gray.gif')
+}
+
+.aws-grid .ui-state-default .pq-refresh {
+	background: url('images/grid/refresh.gif')
+}
+
+.aws-grid .ui-state-group {
+	border: 1px solid lightGrey;
+	border-left: 0px;
+	background: #f4f4f4;
+	border-top: 0px;
+}
+
+.aws-grid .ui-state-group-img {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	float: left;
+	margin-right: 3px;
+	cursor: pointer;
+}
+
+.aws-grid .ui-state-group-img.open {
+	background: url(images/grid/open.gif) no-repeat;
+}
+
+.aws-grid .ui-state-group-img.close {
+	background: url(images/grid/close.gif) no-repeat;
+}
+
+.pq-scrollbar-vert {
+	display: block;
+	width: 17px;
+	background: #efefef url(images/grid/vert-bg.png)
+}
+
+.pq-scrollbar-horiz {
+	display: block;
+	height: 17px;
+	background: #efefef url(images/grid/horiz-bg.png)
+}
+
+.pq-scrollbar-vert * {
+	padding: 0;
+	margin: 0
+}
+
+.pq-scrollbar-horiz * {
+	padding: 0;
+	margin: 0
+}
+
+.pq-sb-btn {
+	width: 17px;
+	height: 17px;
+	position: absolute;
+	background-color: steelblue
+}
+
+.pq-scrollbar-vert div.top-btn {
+	left: 0;
+	top: 0;
+	width: 13px;
+	height: 13px;
+	background: url(images/grid/triangle-up.png) no-repeat 3px 2px
+}
+
+.pq-scrollbar-vert div.top-btn .disable {
+	background: url(images/grid/triangled-up.png) no-repeat 3px 2px
+}
+
+.pq-scrollbar-horiz div.left-btn {
+	left: 0;
+	top: 0;
+	width: 13px;
+	height: 13px;
+	background: url(images/grid/triangle-left.png) no-repeat 4px 2px
+}
+
+.pq-scrollbar-horiz div.left-btn .disable {
+	background: url(images/grid/triangled-left.png) no-repeat 4px 2px
+}
+
+.pq-scrollbar-vert div.bottom-btn {
+	left: 0;
+	bottom: 0;
+	width: 13px;
+	height: 13px;
+	background: url(images/grid/triangle-down.png) no-repeat 3px 2px
+}
+
+.pq-scrollbar-vert div.bottom-btn .disable {
+	background: url(images/grid/triangled-down.png) no-repeat 3px 2px
+}
+
+.pq-scrollbar-horiz div.right-btn {
+	top: 0;
+	right: 0;
+	width: 13px;
+	height: 13px;
+	background: url(images/grid/triangle-right.png) no-repeat 5px 2px
+}
+
+.pq-scrollbar-horiz div.right-btn .disable {
+	background: url(images/grid/triangled-right.png) no-repeat 5px 2px
+}
+
+.pq-sb-slider {
+	position: absolute
+}
+
+.pq-sb-slider * {
+	background: url(images/grid/sprite.png)
+}
+
+.pq-sb-slider-h {
+	position: absolute
+}
+
+.pq-sb-slider-h * {
+	display: inline-block;
+	background: url(images/grid/sprite.png)
+}
+
+.pq-sb-slider .vert-slider-top {
+	width: 17px;
+	height: 3px;
+	overflow: hidden;
+	background-position: 17px -8px
+}
+
+.pq-sb-slider-h .horiz-slider-left {
+	height: 17px;
+	width: 3px;
+	overflow: hidden;
+	background-position: -68px 0
+}
+
+.pq-sb-slider .vert-slider-bg {
+	width: 17px;
+	overflow: hidden;
+	background: #b6cefb url(images/grid/vert-slider-bg.png)
+}
+
+.pq-sb-slider-h .horiz-slider-bg {
+	height: 17px;
+	overflow: hidden;
+	background: #b6cefb url(images/grid/horiz-slider-bg.png)
+}
+
+.pq-sb-slider .vert-slider-center {
+	width: 17px;
+	height: 8px;
+	overflow: hidden;
+	background-position: 17px 0
+}
+
+.pq-sb-slider-h .horiz-slider-center {
+	height: 17px;
+	width: 8px;
+	overflow: hidden;
+	background-position: -74px 0
+}
+
+.pq-sb-slider .vert-slider-bottom {
+	width: 17px;
+	height: 3px;
+	overflow: hidden;
+	background-position: 17px -11px
+}
+
+.pq-sb-slider-h .horiz-slider-right {
+	height: 17px;
+	width: 3px;
+	overflow: hidden;
+	background-position: -71px 0
+}
+
+/*!
+ * =====================================================
+ * aws.grid.customize.css
+ * =====================================================
+ */
+div.aws-grid {
+	color: #333333;
+	/*border: 1px solid #ccc;*/
+	border: 1px solid #dddddd;
+	box-shadow: 1px 1px 15px #dddddd;
+}
+
+div.aws-grid-top {
+	color: #000000; /*文字颜色*/
+	background-color: #f5f5f5;
+	/*background: -webkit-linear-gradient(top,#fefefe 0,#efefef 100%);
+	background: -moz-linear-gradient(top,#fefefe 0,#efefef 100%);
+	background: -o-linear-gradient(top,#fefefe 0,#efefef 100%);
+	background: linear-gradient(to bottom,#fefefe 0,#efefef 100%);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#fefefe,endColorstr=#efefef,GradientType=0);*/
+	background: -webkit-linear-gradient(top, #fefefe 0, #fefefe 100%);
+	background: -moz-linear-gradient(top, #fefefe 0, #fefefe 100%);
+	background: -o-linear-gradient(top, #fefefe 0, #fefefe 100%);
+	background: linear-gradient(to bottom, #fefefe 0, #fefefe 100%);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#fefefe, endColorstr=#fefefe, GradientType=0);
+}
+
+div.aws-grid-title {
+	font-size: 13px;
+	height: 25px;
+	line-height: 25px !important;
+}
+
+div.aws-grid-toolbar {
+	padding: 5px 8px 3px
+}
+
+div.aws-grid-bottom {
+	/*background: #eee;*/
+	background: #fefefe;
+	color: #333333;
+}
+
+.aws-grid div.pq-header-outer {
+	/*background: #eee;*/
+	background: #fefefe;
+	border-bottom: 1px solid #c5c5c5;
+}
+
+.aws-grid span.aws-grid-header {
+	/*background: url('images/grid/column-header-bg.png');
+	background-image: linear-gradient(#fefefe,#e6e6e6);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fefefe', endColorstr='#e6e6e6');
+	background: -webkit-gradient(linear, left top, left bottom, from(#fefefe), to(#e6e6e6));
+	background: -moz-linear-gradient(top,  #fefefe,  #e6e6e6);*/
+	background-image: linear-gradient(#fefefe, #fefefe);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fefefe', endColorstr='#fefefe');
+	background: -webkit-gradient(linear, left top, left bottom, from(#fefefe), to(#fefefe));
+	background: -moz-linear-gradient(top, #fefefe, #fefefe); /* for firefox 3.6+ */
+
+}
+
+.aws-grid-header td.pq-col-sort-asc, .aws-grid-header td.pq-col-sort-desc {
+	background: url(images/grid/column-header-over-bg.gif) #ebf3fd repeat-x 0px top;
+}
+
+.aws-grid td.aws-grid-col { /*header cell*/
+	font-weight: bold;
+	color: #000000;
+	text-shadow: 0 1px 0 #ffffff;
+	border-left-width: 0px;
+	border-bottom-width: 0px;
+}
+
+.aws-grid select {
+	outline: none;
+	margin: 0px;
+}
+
+.aws-grid .grid-required {
+	position: relative;
+}
+
+.aws-grid .grid-required:after {
+	content: '*';
+	margin-top: 3px;
+	margin-left: 1px;
+	position: absolute;
+	color: #ff0000;
+}
+
+div.pq-cont {
+	background: #ffffff;
+}
+
+div.pq-cont * {
+	font-weight: normal;
+}
+
+td.aws-grid-cell {
+	background-color: #ffffff;
+	color: #333333;
+	position: relative;
+}
+
+tr.aws-grid-oddRow td {
+	background: #fafafa;
+}
+
+div.pq-hvscroll-square {
+	background: #eeeeee;
+}
+
+tr.aws-grid-row-hover td {
+	/*background-color: #d8e8fa;*/
+	background-color: #f5f5f5;
+}
+
+tr.pq-row-select td {
+	/*background-color:#6699cc;*/
+	/*background-color: #8cbff4;*/
+	background-color: #ffffca;
+	/* color: #fff; */
+}
+
+div.aws-grid tr td.aws-grid-cell-hover {
+	background-color: #d8e8fa;
+	border-width: 0px; /*TR*/
+}
+
+.aws-grid tr td.aws-grid-number-cell {
+	/*background-color: #e4ecf7;*/
+	background-color: #fefefe;
+	color: #333333;
+}
+
+div.aws-grid tr td.pq-cell-select {
+	background-color: #8cbff4;
+}
+
+.aws-grid div.pq-loading-mask {
+	background-color: #ffffff;
+	border: 1px solid #e9e9e9;
+	color: #333333;
+	font-weight: normal;
+	-moz-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+	-o-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+	-ms-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+	z-index: 2;
+}
+
+div.pq-loading-mask div {
+	font-size: 15px;
+	width: 30px;
+	height: 30px;
+	line-height: 30px !important;
+}
+
+div.pq-loading-mask div img {
+	width: 30px;
+	height: 30px;
+}
+
+.aws-grid-toolbar {
+	border-bottom: 1px solid #c5c5c5;
+	overflow: hidden;
+	margin: 0;
+	height: 30px;
+	position: relative;
+	/*样式*/
+	background-color: #f5f5f5;
+	/*background: -webkit-linear-gradient(top,#fefefe 0,#efefef 100%);
+	background: -moz-linear-gradient(top,#fefefe 0,#efefef 100%);
+	background: -o-linear-gradient(top,#fefefe 0,#efefef 100%);
+	background: linear-gradient(to bottom,#fefefe 0,#efefef 100%);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#fefefe,endColorstr=#efefef,GradientType=0);*/
+	/*background: -webkit-linear-gradient(top,#fefefe 0,#fefefe 100%);
+	background: -moz-linear-gradient(top,#fefefe 0,#fefefe 100%);
+	background: -o-linear-gradient(top,#fefefe 0,#fefefe 100%);
+	background: linear-gradient(to bottom,#fefefe 0,#fefefe 100%);*/
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#fefefe, endColorstr=#fefefe, GradientType=0);
+}
+
+.aws-grid-toolbar .form {
+	border: 1px solid #bbbbbb;
+	display: inline-block;
+	outline: none;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	border-radius: 3px;
+	margin: 7px 3px 0px 4px;
+	padding: 1px 5px;
+}
+
+.aws-grid-toolbar .textbox {
+
+}
+
+.aws-grid-toolbar .select {
+
+}
+
+.aws-grid-toolbar .awsgridsep {
+	height: 20px;
+	width: 20px;
+	margin: 0px 7px;
+	border-left: 1px solid #dddddd;
+}
+
+.aws-grid-toolbar .button {
+	font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 13px !important;
+	height: 26px;
+	line-height: 18px !important;
+	padding: 3px 18px;
+	display: inline-block;
+	vertical-align: middle;
+	font-weight: normal;
+	border-radius: 2px;
+	margin: 0px 8px 0px 3px;
+}
+
+.aws-grid-toolbar .button.hide {
+	display: none;
+}
+
+.aws-grid-toolbar .button-group {
+	margin: 0px 8px 0px 3px;
+	display: inline-block;
+	line-height: 30px;
+}
+
+.aws-grid-toolbar .button-group .button {
+	border-left-width: 0px;
+	border-radius: 0px;
+	margin: 0px !important;
+	float: left;
+}
+
+.aws-grid-toolbar .button-group .button:first-child {
+	border-left-width: 1px !important;
+}
+
+.aws-grid-toolbar .text {
+	font-size: 13px;
+	font-weight: normal;
+	margin-left: 8px;
+}
+
+.aws-grid-check {
+
+}
+
+div.aws-grid-summary {
+	height: auto;
+	margin-bottom: 2px;
+}
+
+div.aws-grid-summary div.pq-td-div {
+	min-height: 19px;
+}
+
+div.aws-grid-summary table.aws-grid-table {
+}
+
+div.pq-cell-selected-border-edit {
+	border: 1px solid #63abf7;
+	height: 20px;
+}
+
+div.aws-grid tr td.pq-cell-select {
+
+}
+
+.aws-grid-editor-default {
+	outline: none;
+}
+
+.aws-grid-editor-default:focus {
+	outline: none;
+}
+
+.aws-grid-after-edit {
+	background: url(images/grid/dirty.png) no-repeat 0 0 !important;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 5px;
+	height: 5px;
+}
+
+div.aws-grid td.checkboxColumn {
+	border: 1px solid #d3d3d3;
+	border-left: 0px;
+	border-top: 0px;
+}
+
+td.checkboxColumn input[type=checkbox] {
+	margin-top: 6px;
+}
+
+.grid-icon {
+}
+
+.grid-icon.grid-icon-edit {
+	background: url(images/grid/edit.png) no-repeat;
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	margin-top: 3px;
+}
+
+.aws-grid-moveObj {
+	display: none;
+	position: absolute;
+	height: 25px;
+	border: 1px solid #cccccc;
+	background: #ffffff url(images/grid/tick1.png) no-repeat 8px 3px;
+	line-height: 25px;
+	padding-left: 30px;
+	padding-right: 7px;
+	font-size: 13px;
+	box-shadow: 1px 2px 5px #bbbbbb;
+	z-index: 500;
+}
+
+.nowraptitle {
+	position: absolute;
+	left: -500px;
+	top: -500px;
+}
+
+.aws-grid button.ui-button-icon-only {
+	background-color: #fefefe;
+	border-radius: 1px;
+}
+
+.aws-grid input[type=checkbox] {
+	-webkit-appearance: none;
+	appearance: none;
+	outline: none;
+	width: 13px;
+	height: 13px;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+	vertical-align: middle;
+	background: #ffffff;
+	border: 1px solid #dcdcdc;
+	border-radius: 1px;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.aws-grid input[type=checkbox]:active {
+	border-color: #9b9b9b;
+	background: #ebebeb;
+}
+
+.aws-grid input[type=checkbox]:hover {
+	border-color: #b2b2b2;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.aws-grid input[type=checkbox]:checked {
+	background: #ffffff;
+}
+
+.aws-grid input[type=checkbox]:checked::after {
+	content: url(./images/forms/checkmark.png);
+	display: block;
+	position: absolute;
+	top: -6px;
+	left: -5px;
+}
+
+.aws-grid input[type=checkbox]:focus {
+	outline: none;
+	border-color: #4d90fe;
+}
+
+/*重写grid样式*/
+.aws-grid-new {
+	overflow: visible !important;
+}
+
+div.pq-cont-right {
+	overflow: visible;
+}
+
+div.aws-grid-right {
+	overflow: visible;
+}
+
+div.aws-grid-inner {
+	overflow: visible;
+}
+
+div.pq-header-outer {
+	/*overflow: visible;*//*这行打开后会让有滚动条的表头遮不住*/
+}
+
+div.pq-cont {
+	overflow: visible;
+}
+
+.awsui-wizard-content-item {
+	overflow: visible;
+}
+
+td.aws-grid-number-col {
+	border-top: 1px solid #cfcfcf;
+}
+
+.aws-grid span.aws-grid-header {
+	top: 0px;
+}
+
+td.aws-grid-number-col {
+	border-top: 0px;
+}
+
+table.aws-grid-header-table div.aws-grid-header-table-div {
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+.awsui-wizard-content {
+	overflow: visible !important;
+}
+
+.awsui-wizard-content-item {
+	overflow: visible !important;
+}
+
+.aws-grid-header.ui-state-default {
+	top: 0px;
+}
+
+.aws-grid .aws-grid-header-table td.aws-grid-col {
+	border-top: 0px;
+}

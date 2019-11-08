@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="基于AWSUI-MessagePage的主流前端响应式框架">
+	<meta name="keywords" content="确认框 - AWSUI">
+	<title>Confirm</title>
+	<link rel="stylesheet" href="../../css/awsui.css">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/uidoc.css?v=1">
+	<link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+</head>
+<body>
+	<div class="awsui-wrapper">
+		<div class="col-sm-12 col-md-12 col-xs-12 awsui-border-bottom">
+			<div class="awsui-markdown">
+				<h1 class="title2" id="comfirm">确认框</h1>
+				<p class="awsui-margin-bottom-14">目标元素的操作需要用户进一步的确认时，在当前页面正中打开一个确认框，询问用户。</p>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-markdown">
+	        	<div class="awsui-code-title title2" id="description">
+		        	API
+		        </div>
+				<ul>
+					<li>$.confirm(config)</li>
+				</ul>
+				<p>config 参数如下：</p>
+		    </div>
+	        <table class="awsui-table awsui-margin-bottom-24">
+	        	<thead>
+	        		<tr>
+	        			<th width="20%">参数</th>
+	        			<th width="40%">说明</th>
+	        			<th width="20%">类型</th>
+	        			<th>默认值</th>
+	        		</tr>
+	        	</thead>
+	        	<tbody>
+	        		<tr>
+	        			<td>title</td>
+	        			<td>确认框标题</td>
+	        			<td>string</td>
+	        			<td>-</td>
+		        	</tr>
+		        	<tr>
+	        			<td>content</td>
+	        			<td>需要显示的内容</td>
+	        			<td>string</td>
+	        			<td>-</td>
+		        	</tr>
+		        	<tr>
+	        			<td>model</td>
+	        			<td>是否有遮罩</td>
+	        			<td>boolean</td>
+	        			<td>true</td>
+		        	</tr>
+		        	<tr>
+	        			<td>width</td>
+	        			<td>弹出层宽度</td>
+	        			<td>string</td>
+	        			<td>-</td>
+		        	</tr>
+		        	<tr>
+	        			<td>height</td>
+	        			<td>弹出层高度</td>
+	        			<td>string</td>
+	        			<td>-</td>
+		        	</tr>
+		        	<tr>
+	        			<td>type</td>
+	        			<td>消息类型,值可以为<code>confirm/alert</code></td>
+	        			<td>string</td>
+	        			<td>confirm</td>
+		        	</tr>
+		        	<tr>
+	        			<td>secondaryConfirm</td>
+	        			<td>是否支持二次确认</td>
+	        			<td>boolean</td>
+	        			<td>false</td>
+		        	</tr>
+		        	<tr>
+	        			<td>secondaryConfirmInfo</td>
+	        			<td>二次确认信息，<code>secondaryConfirm为true</code>时有效</td>
+	        			<td>string</td>
+	        			<td>-</td>
+		        	</tr>
+		        	<tr>
+	        			<td>onConfirm</td>
+	        			<td>确认事件</td>
+	        			<td>function</td>
+	        			<td>-</td>
+		        	</tr>
+		        	<tr>
+	        			<td>onClose</td>
+	        			<td>取消事件</td>
+	        			<td>function</td>
+	        			<td>-</td>
+		        	</tr>
+		        </tbody>
+	        </table>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event1">
+				标准confirm
+	        </div>
+        	<div class="awsui-code-demo">
+        		<button type="button" class="awsui-btn awsui-btn-blue" id="confirm1">标准confirm</button>
+        	</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+        	<div class="awsui-code-info">
+				<pre><code class="language-html">&lt;button type="button" class="awsui-btn awsui-btn-blue"  id="confirm1"&gt;标准confirm&lt;/button&gt;
+</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-js">$("#confirm1").on("click", function(){
+    var options = {
+        title : "确认框标题",
+        content:"确认框内容",
+        onConfirm: function(){
+            $.simpleAlert("您选择了确认");
+        },
+        onClose : function(){
+            $.simpleAlert("您选择了取消");
+        }
+    };
+    $.confirm(options);
+});
+</code></pre>
+			</div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event2">
+				无遮罩confirm
+	        </div>
+        	<div class="awsui-code-demo">
+        		<button type="button" class="awsui-btn awsui-btn-blue" id="confirm2">无遮罩confirm</button>
+        	</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+        	<div class="awsui-code-info">
+				<pre><code class="language-html">&lt;button type="button" class="awsui-btn awsui-btn-blue"  id="confirm2"&gt;无遮罩confirm &lt;/button&gt;</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-js">$("#confirm2").on("click", function(){
+    var options = {
+        title : "确认框标题",
+        content:"确认框内容",
+        model:false
+    };
+    $.confirm(options);
+ });
+</code></pre>
+			</div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event3">
+				再确认confirm
+	        </div>
+        	<div class="awsui-code-demo">
+        		<button type="button" class="awsui-btn awsui-btn-blue" id="confirm3">再确认confirm</button>
+        	</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+				<pre><code class="language-html">&lt;button type="button" class="awsui-btn awsui-btn-blue"  id="confirm3"&gt;再确认confirm&lt;/button&gt;</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-js">$("#confirm3").on("click", function(){
+    var options = {
+        title : "确认框标题",
+        content:"确认框内容",
+        secondaryConfirm: true,
+        secondaryConfirmInfo:"这是二次确认的内容",
+        onConfirm: function(){
+            $.simpleAlert("您选择了确认");
+        },
+        onClose : function(){
+            $.simpleAlert("您选择了取消");
+        }
+    };
+    $.confirm(options);
+ });
+</code></pre>
+			</div>
+        </div>
+         <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event4">
+				alert模式confirm
+	        </div>
+        	<div class="awsui-code-demo">
+        		<button type="button" class="awsui-btn awsui-btn-blue" id="confirm4">alert模式confirm</button>
+        	</div>
+			 <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			 <div class="awsui-code-info">
+				 <pre><code class="language-html">&lt;button type="button" class="awsui-btn awsui-btn-blue"  id="confirm4"&gt;alert模式confirm&lt;/button&gt;</code></pre>
+			 </div>
+			 <p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			 <div class="awsui-code-info">
+        		<pre><code class="language-js">$("#confirm4").on("click", function(){
+    var options = {
+        title : "确认框标题",
+        content:"确认框内容",
+        type:"alert",
+        onConfirm: function(){
+            $.simpleAlert("您选择了确认");
+        }
+    };
+    $.confirm(options);
+ });
+</code></pre>
+			 </div>
+        </div>
+    </div>
+	<div class="section_right">
+		<div class="nav">
+			<!-- 右侧导航 -->
+		</div>
+    </div>
+	<div class="navTop">
+		<img src="../img/top.png" alt=""/>
+	</div>
+	<script src="../../js/jquery/scripts/jquery.js"></script>
+	<script src="../../js/awsui.js"></script>
+	<script src="../prism/prism.js"></script>
+	<script src="../js/public.js?v=1"></script>
+	<script type="text/javascript">
+		var 清空数据 = "清空数据";
+		var 确定 = "确定";
+		var 提示 = "提示";
+		var 是确定 = "是确定";
+		var 保存 = "保存";
+		var 返回 = "返回";
+		var 取消 = "取消";
+		$(document).ready(function() {
+			$("#confirm1").on("click", function(){
+				var options = {
+					title : "确认框标题",
+					content:"确认框内容",
+					onConfirm: function(){
+						$.simpleAlert("您选择了确认");
+						return true;
+					},
+					onClose : function(){
+						$.simpleAlert("您选择了取消");
+                        return true;
+					}
+				};
+				$.confirm(options);
+			});
+			
+			$("#confirm2").on("click", function(){
+				var options = {
+					title : "确认框标题",
+					content:"确认框内容",
+					model:false
+				};
+				$.confirm(options);
+			});
+			
+			$("#confirm3").on("click", function(){
+				var options = {
+					title : "确认框标题",
+					content:"确认框内容",
+					secondaryConfirm: true,
+			        secondaryConfirmInfo:"这是二次确认的内容",
+					onConfirm: function(){
+						$.simpleAlert("您选择了确认");
+                        return true;
+					},
+					onClose : function(){
+						$.simpleAlert("您选择了取消");
+                        return true;
+					}
+				};
+				$.confirm(options);
+			});
+			
+			$("#confirm4").on("click", function(){
+				var options = {
+					title : "确认框标题",
+					content:"确认框内容",
+					type:"alert",
+					onConfirm: function(){
+						$.simpleAlert("您选择了确认");
+                        return true;
+					}
+				};
+				$.confirm(options);
+			});
+		});
+	</script>
+</body>
+</html>

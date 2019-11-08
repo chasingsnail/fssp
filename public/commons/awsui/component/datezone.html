@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="content" content="基于AWSUI-DateZone的主流前端响应式框架">
+		<meta name="keywords" content="日期范围 - AWSUI">
+		<title>DateZone</title>
+		<link rel="stylesheet" href="../css/bootstrap.css">
+		<link rel="stylesheet" href="../../css/awsui.css">
+		<link rel="stylesheet" href="../css/uidoc.css?v=1">
+		<link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+		<style>
+			.navigationDatepickerDivAws{
+				top:26px!important;
+				left:0px!important;
+				padding:5px;
+				width:auto!important;
+			}
+			.navigationDatepickerDivAws td {
+				padding:0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="awsui-wrapper">
+			<div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 awsui-border-bottom">
+				<div class="awsui-markdown">
+					<h1 class="title2" id="radio">日期范围</h1>
+					<p class="awsui-margin-bottom-14"><code>AWSUI</code>的日期组件的功能使用在于当用户需要输入一个日期范围时，可以点击标准输入框，弹出日期面板进行选择。其主要是将<code>My97DatePicker</code>作为基础组件，在<code>My97DatePicker</code>原来的日期渲染机制上进行了功能扩展，使<code>AWSUI</code>的日期组件功能更加丰富，更加实用,更多文档请参考 <a target="_blank" href="http://www.my97.net/demo/index.htm" style="display: inline-block">API文档</a></p>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-markdown">
+					<div class="awsui-code-title" id="numberApi">
+						API
+					</div>
+					<ul>
+						<li>$(el).datepicker(config)</li>
+					</ul>
+					<p>config 参数如下：</p>
+				</div>
+				<table class="awsui-table awsui-margin-bottom-24">
+					<thead>
+					<tr>
+						<th width="30%">参数</th>
+						<th width="30%">说明</th>
+						<th width="20%">类型</th>
+						<th>默认值</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>id</td>
+						<td>唯一标识</td>
+						<td>string</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>name</td>
+						<td>名称</td>
+						<td>string</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>placeholderr</td>
+						<td>提示信息</td>
+						<td>string</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>style</td>
+						<td>样式</td>
+						<td>string</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>title</td>
+						<td>提示框</td>
+						<td>string</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>callbackfun</td>
+						<td>选择日期时触发的函数</td>
+						<td>function</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>startTime</td>
+						<td>选择的开始日期</td>
+						<td>string</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>endTime</td>
+						<td>选择的结束日期</td>
+						<td>string</td>
+						<td>当前日期</td>
+					</tr>
+					<tr>
+						<td>showLeft</td>
+						<td>日期选择浮动层出现的左距离</td>
+						<td>number</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>showTop</td>
+						<td>日期选择浮动层出现的顶部距离</td>
+						<td>number</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>emptyBtnt</td>
+						<td>是否显示清空按钮</td>
+						<td>boolean</td>
+						<td>true</td>
+					</tr>
+					<tr>
+						<td>isShowToday</td>
+						<td>是否显示今天</td>
+						<td>boolean</td>
+						<td>true</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event">
+					引入文件
+				</div>
+				<p class="awsui-margin-top-5">务必确保路径正确</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;script src="../commons/js/jquery/scripts/ui/datepicker/aws.datepicker-zh-CN.js"&gt;&lt;/script&gt;</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event1">
+					日期范围
+				</div>
+				<p class="awsui-margin-top-5">最简单的用法，在浮层中可以选择或者输入日期。</p>
+				<div class="awsui-code-demo">
+					<div class="col-sm-12 col-md-12 col-xs-12" style="height:21px">
+						<div id="range"></div>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;div id="range"&gt;</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">&lt;script type="text/javascript"&gt;
+	var 输入值不正确 = "输入值不正确";
+	var 正在提交请求请稍候 = "正在提交请求，请稍候...";
+	var 参数不正确要求 = "ajax参数不正确，要求";
+	var 请求出错 = "请求出错--";
+	var 未正确返回的服务端异常 = "未正确返回的服务端异常";
+	var 用户会话已超时 = "用户会话已超时";
+
+	//aws.address.js
+	var 确定 = "确定";
+	var 地址簿 = "地址簿";
+	var 请输入查询条件 = "请输入查询条件";
+	var 取消 = "取消";
+	var 快速搜索 = "快速搜索";
+
+	//aws.userprofile.js
+	var 详细 = "详细";
+	var 显示 = "显示";
+	var 隐藏 = "隐藏";
+	var 对不起未找到此人信息 = "对不起，未找到此人信息";
+	var 展开 = "展开";
+	var 离线 = "离线";
+	var 页面无法读取参数 = "页面无法读取SID参数";
+	var 在线 = "在线";
+
+	//aws.datepicker.range.js
+	var 使用 = "使用";
+	var 上个季度 = "上个季度";
+	var 上一年 = "上一年";
+	var 前半年 = "前半年";
+	var 今年 = "今年";
+	var 上个月 = "上个月";
+	var 开始日期格式不正确 = "开始日期格式不正确";
+	var 前两年 = "前两年";
+	var 本季度 = "本季度";
+	var 结束日期格式不正确 = "结束日期格式不正确";
+	var 开始日期不能大于结束日期 = "开始日期不能大于结束日期";
+	var 快捷选项 = "快捷选项";
+	var 清空 = "清空";
+	var 前三年 = "前三年";
+
+	//slider.js
+	var 请输入 = "请输入";
+
+	//aws.util.js
+	var 清空数据 = "清空数据";
+	var 确定 = "确定";
+	var 提示 = "提示";
+	var 试图同时创建相同的 = "试图同时创建相同ID的FrmDialog";
+	var 印章密码 = "印章密码";
+	var 当前对象拥有多个实例请对特定实例操作 = "当前window对象拥有多个FrmDialog实例，请对特定实例操作";
+	var 是确定 = "是，确定";
+	var 保存 = "保存";
+	var 返回 = "返回";
+	var 取消 = "取消";
+
+	//aws.upfile.js
+	var 备注不能为空 = "[备注]不能为空";
+	var 确定 = "确定";
+	var 上传文件总数不允许超过 = "上传文件总数不允许超过：";
+	var 标题大小 = "标题大小";
+	var 上传成功 = "上传成功";
+	var 提示 = "提示";
+	var 图片压缩成功 = "图片压缩成功";
+	var 文件大小不允许超过 = "文件大小不允许超过：";
+	var 正在上传请稍候 = "正在上传，请稍候";
+	var 进度 = "进度";
+	var 确定要删除吗文件名 = "确定要删除吗?<br/>文件名:";
+	var 空文件不能上传 = "空文件不能上传";
+	var 文件类型不正确 = "文件类型不正确";
+	var 标题 = "标题";
+	var 备注 = "备注";
+	var 水印添加成功 = "水印添加成功";
+	var 备注不能超过个字符 = "[备注]不能超过225个字符";
+	var 上传状态 = "1";
+	var 取消 = "取消";
+	var 大小 = "大小";
+
+	//aws.tabs.js
+	var 关闭全部 = "关闭全部";
+	var 关闭其他 = "关闭其他";
+	var 关闭 = "关  闭";
+
+	//aws.photocut.js
+	var 加载中 = "加载中...";
+
+	//aws.combobox.js
+	var 请选择或输入 = "请选择或输入...";
+	var 无数据 = "无数据";
+	var 请选择 = "请选择";
+	var 空格 = "空格";
+	var 作为分隔符 = "作为分隔符";
+	var 可填多个值以空格作为分隔符 = "可填多个值,以空格作为分隔符";
+	$(document).ready(function() {
+		var options = {
+			callbackfun : testcallbackfun,
+			emptyBtn : true,
+			showLeft : 510,
+			showTop:20
+		};
+		$("#range").datepickerRange(options);
+		function testcallbackfun(start, end) {
+			alert("选择的日期范围为：" + start + " " + end);
+		}
+	});
+&lt;/script>&gt;
+</code></pre>
+				</div>
+			</div>
+		</div>
+		<div class="section_right">
+			<div class="nav">
+				<!-- 右侧导航 -->
+			</div>
+		</div>
+		<div class="navTop">
+			<img src="../img/top.png" alt=""/>
+		</div>
+		<script src="../../js/jquery/scripts/jquery.js"></script>
+		<script src="../../js/awsui.js"></script>
+		<script src="../prism/prism.js"></script>
+		<script src="../js/public.js?v=1"></script>
+		<script src="../../js/jquery/scripts/ui/datepicker/aws.datepicker-zh-CN.js"></script>
+		<script type="text/javascript">
+			var 输入值不正确 = "输入值不正确";
+			var 正在提交请求请稍候 = "正在提交请求，请稍候...";
+			var 参数不正确要求 = "ajax参数不正确，要求";
+			var 请求出错 = "请求出错--";
+			var 未正确返回的服务端异常 = "未正确返回的服务端异常";
+			var 用户会话已超时 = "用户会话已超时";
+
+			//aws.address.js
+			var 确定 = "确定";
+			var 地址簿 = "地址簿";
+			var 请输入查询条件 = "请输入查询条件";
+			var 取消 = "取消";
+			var 快速搜索 = "快速搜索";
+
+			//aws.userprofile.js
+			var 详细 = "详细";
+			var 显示 = "显示";
+			var 隐藏 = "隐藏";
+			var 对不起未找到此人信息 = "对不起，未找到此人信息";
+			var 展开 = "展开";
+			var 离线 = "离线";
+			var 页面无法读取参数 = "页面无法读取SID参数";
+			var 在线 = "在线";
+
+			//aws.datepicker.range.js
+			var 使用 = "使用";
+			var 上个季度 = "上个季度";
+			var 上一年 = "上一年";
+			var 前半年 = "前半年";
+			var 今年 = "今年";
+			var 上个月 = "上个月";
+			var 开始日期格式不正确 = "开始日期格式不正确";
+			var 前两年 = "前两年";
+			var 本季度 = "本季度";
+			var 结束日期格式不正确 = "结束日期格式不正确";
+			var 开始日期不能大于结束日期 = "开始日期不能大于结束日期";
+			var 快捷选项 = "快捷选项";
+			var 清空 = "清空";
+			var 前三年 = "前三年";
+
+			//slider.js
+			var 请输入 = "请输入";
+
+			//aws.util.js
+			var 清空数据 = "清空数据";
+			var 确定 = "确定";
+			var 提示 = "提示";
+			var 试图同时创建相同的 = "试图同时创建相同ID的FrmDialog";
+			var 印章密码 = "印章密码";
+			var 当前对象拥有多个实例请对特定实例操作 = "当前window对象拥有多个FrmDialog实例，请对特定实例操作";
+			var 是确定 = "是，确定";
+			var 保存 = "保存";
+			var 返回 = "返回";
+			var 取消 = "取消";
+
+			//aws.upfile.js
+			var 备注不能为空 = "[备注]不能为空";
+			var 确定 = "确定";
+			var 上传文件总数不允许超过 = "上传文件总数不允许超过：";
+			var 标题大小 = "标题大小";
+			var 上传成功 = "上传成功";
+			var 提示 = "提示";
+			var 图片压缩成功 = "图片压缩成功";
+			var 文件大小不允许超过 = "文件大小不允许超过：";
+			var 正在上传请稍候 = "正在上传，请稍候";
+			var 进度 = "进度";
+			var 确定要删除吗文件名 = "确定要删除吗?<br/>文件名:";
+			var 空文件不能上传 = "空文件不能上传";
+			var 文件类型不正确 = "文件类型不正确";
+			var 标题 = "标题";
+			var 备注 = "备注";
+			var 水印添加成功 = "水印添加成功";
+			var 备注不能超过个字符 = "[备注]不能超过225个字符";
+			var 上传状态 = "1";
+			var 取消 = "取消";
+			var 大小 = "大小";
+
+			//aws.tabs.js
+			var 关闭全部 = "关闭全部";
+			var 关闭其他 = "关闭其他";
+			var 关闭 = "关  闭";
+
+			//aws.photocut.js
+			var 加载中 = "加载中...";
+
+			//aws.combobox.js
+			var 请选择或输入 = "请选择或输入...";
+			var 无数据 = "无数据";
+			var 请选择 = "请选择";
+			var 空格 = "空格";
+			var 作为分隔符 = "作为分隔符";
+			var 可填多个值以空格作为分隔符 = "可填多个值,以空格作为分隔符";
+			$(document).ready(function() {
+				var options = {
+					callbackfun : testcallbackfun,
+					emptyBtn : true,
+					showLeft : 510,
+					showTop:20
+				};
+				$("#range").datepickerRange(options);
+				function testcallbackfun(start, end) {
+					alert("选择的日期范围为：" + start + " " + end);
+				}
+			});
+		</script>
+	</body>
+</html>

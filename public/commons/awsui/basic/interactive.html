@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="基于AWSUI-interactive的主流前端响应式框架">
+    <meta name="keywords" content="交互 - AWSUI">
+    <title>interactive</title>
+    <link rel="stylesheet" href="../../css/awsui.css">
+    <link rel="stylesheet" href="../css/uidoc.css?v=1">
+    <script src="../js/jquery.js"></script>
+    <script src="../../js/awsui.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <style>
+        * {
+            font-family: "Microsoft Yahei";
+        }
+
+        .aws_head {
+            margin-top: 20px;
+            font-size: 14px;
+            font-family: "Microsoft Yahei";
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #16325C;
+        }
+
+        .title2 {
+            display: inline-block;
+            font-size: 18px;
+        }
+
+        .title3 {
+            margin-top: 10px;
+            color: #39424b;
+            font-size: 14px;
+        }
+
+        .nav {
+            width: 50px;
+            height: 50px;
+            position: fixed;
+            right: 30px;
+            bottom: 15px;
+            opacity: .95;
+            z-index: 9999;
+            border: 0 !important;
+        }
+
+        .navTop{
+            width: 50px;
+            height: 50px;
+            position: fixed;
+            right: 45px;
+            opacity: .95;
+            z-index: 9999;
+            border: 0!important;
+        }
+        .navTop > img {
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<!--<body style="background: #f2f7f8">-->
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <div class="col-sm-5 col-md-5 col-lg-5" style="margin-top:60px;">
+                <span class="title2" style="">高效率操作</span>
+		<span class="title3" style="display: block">AWS产品操作简单方便基于Material Design的扁平化设计理念，让用户抛弃掉聚焦点外的信息，沉
+  浸在关心的内容里。相对轻盈、简单的操作更能提高准确率。</span>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+                 style="margin-top:25px;">
+                <table class="tab" cellspacing="40" cellpadding="10">
+                    <tr>
+                        <td colspan="2">
+                            <img src="../img/intera/clown.png" class="img-responsive">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-sm-10 col-md-10 col-lg-10 line-title col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+                 style="margin-top:30px;">
+                <tr>
+                    <td colspan="3">
+                        <fieldset>
+                            <legend></legend>
+                        </fieldset>
+                    </td>
+                </tr>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <div class="col-sm-6 col-md-6 col-lg-6" style="margin-top:10px;">
+                <table class="tab" cellspacing="40" cellpadding="10">
+                    <tr>
+                        <td colspan="2">
+                            <img src="../img/intera/levels.png" class="img-responsive">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-sm-5 col-md-5 col-lg-5 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+                 style="margin-top:60px;">
+                <span class="title2" style="">层次分明</span>
+                <span class="title3" style="display: block">数据及其流程之间的传达和结构清晰明了，通过后台控制设定好之后即可逐层展开业务流程</span>
+            </div>
+            <div class="col-sm-10 col-md-10 col-lg-10 line-title  col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+                 style="margin-top:30px;">
+                <tr>
+                    <td colspan="3">
+                        <fieldset>
+                            <legend></legend>
+                        </fieldset>
+                    </td>
+                </tr>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <div class="col-sm-5 col-md-5 col-lg-5" style="margin-top:60px;">
+                <span class="title2" style="">和谐一致 </span>
+		<span class="title3" style="display: block">官方提供的应用都有着强大的一致性，提供了一个一致的环境来培植用户习惯，请勿忽视这些小习惯，
+			将帮助用户聚焦点集中，大幅度提高工作效率。</span>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+                 style="margin-top:25px;">
+                <table class="tab" cellspacing="40" cellpadding="10">
+                    <tr>
+                        <td colspan="2">
+                            <img src="../img/intera/same.png" class="img-responsive">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-sm-10 col-md-10 col-lg-10 line-title  col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+                 style="margin-top:30px;">
+                <tr>
+                    <td colspan="3">
+                        <fieldset>
+                            <legend></legend>
+                        </fieldset>
+                    </td>
+                </tr>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom: 20px">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <div class="col-sm-6 col-md-6 col-lg-6" style="margin-top:10px;">
+                <table class="tab" cellspacing="40" cellpadding="10">
+                    <tr>
+                        <td colspan="2">
+                            <img src="../img/intera/power.png" class="img-responsive">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-sm-5 col-md-5 col-lg-5 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+                 style="margin-top:60px;">
+                <span class="title2" style="">分辨率兼容</span>
+		<span class="title3" style="display: block">AWS产品能兼容各种分辨率下PC端的显示器，
+  尽可能满足用户办公所有电脑的使用需求。</span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="navTop" style="position: fixed;bottom:40px;display: none">
+        <img src="../img/top.png" alt="" style="width: 45px"/>
+    </div>
+
+</div>
+</body>
+</html>

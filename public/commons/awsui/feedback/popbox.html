@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="基于AWSUI-MessagePage的主流前端响应式框架">
+	<meta name="keywords" content="气泡框 - AWSUI">
+	<title>Popbox</title>
+	<link rel="stylesheet" href="../../css/awsui.css">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/uidoc.css?v=1">
+	<link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+</head>
+<body>
+	<div class="awsui-wrapper">
+		<div class="col-sm-12 col-md-12 col-xs-12 awsui-border-bottom">
+			<div class="awsui-markdown">
+				<h1 class="title2" id="popbox">气泡框</h1>
+				<p class="awsui-margin-bottom-14">当目标元素有进一步的描述和相关操作时，可以收纳到卡片中，根据用户的操作行为进行展现。
+和 Tooltip 的区别是，用户可以对浮层上的元素进行操作，因此它可以承载更复杂的内容，比如链接或按钮等。</p>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-markdown">
+	        	<div class="awsui-code-title" id="description">
+		        	API
+		        </div>
+				<ul>
+					<li>$(el).popBox(config)</li>
+				</ul>
+				<p>config 参数如下：</p>
+		    </div>
+	        <table class="awsui-table awsui-margin-bottom-24">
+	        	<thead>
+	        		<tr>
+	        			<th width="20%">参数</th>
+	        			<th width="40%">说明</th>
+	        			<th width="20%">类型</th>
+	        			<th>默认值</th>
+	        		</tr>
+	        	</thead>
+	        	<tbody>
+	        		<tr>
+	        			<td>trigger</td>
+	        			<td>引发、触发,可选 <code>click、hover、no</code>,若设置为no时，说明已经在其它地方写入了事件，当前不需要再加事件</td>
+	        			<td>string</td>
+	        			<td>click</td>
+		        	</tr>
+		        	<tr>
+	        			<td>title</td>
+	        			<td>popBox 标题</td>
+	        			<td>string</td>
+	        			<td>-</td>
+		        	</tr>
+		        	<tr>
+	        			<td>content</td>
+	        			<td>popBox 内容</td>
+	        			<td>string</td>
+	        			<td>-</td>
+		        	</tr>
+		        	<tr>
+	        			<td>width</td>
+	        			<td>popBox 宽度</td>
+	        			<td>string</td>
+	        			<td>auto</td>
+		        	</tr>
+		        	<tr>
+	        			<td>height</td>
+	        			<td>popBox 高度</td>
+	        			<td>string</td>
+	        			<td>auto</td>
+		        	</tr>
+		        	<tr>
+	        			<td>position</td>
+	        			<td>popBox显示位置,可选 <code>top-right、top、top-left、left、right、bottom-right、bottom、bottom-left</code></td>
+	        			<td>string</td>
+	        			<td>auto</td>
+		        	</tr>
+		        	<tr>
+	        			<td>style</td>
+	        			<td>组件style,可选 <code>default、inverse</code></td>
+	        			<td>string</td>
+	        			<td>default</td>
+		        	</tr>
+					<tr>
+	        			<td>hide</td>
+	        			<td>点击页面其他地方是否隐藏popbox气泡框</td>
+	        			<td>boolean</td>
+	        			<td>false</td>
+		        	</tr>
+					<tr>
+	        			<td>delay</td>
+	        			<td>鼠标滑动到popbox气泡框区域，多少秒后自动关闭，若设为0不关闭</td>
+	        			<td>number</td>
+	        			<td>300</td>
+		        	</tr>
+		        </tbody>
+	        </table>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event1">
+	        	基本
+	        </div>
+	        <p class="awsui-margin-top-5">最简单的用法，浮层的大小由内容区域决定。</p>
+        	<div class="awsui-code-demo">
+        		<button type="button" class="awsui-btn awsui-btn-blue" id="popbox-basic">点击</button>
+        	</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;button type="button" class="awsui-btn awsui-btn-blue" id="popbox-basic"&gt;点击&lt;/button&gt;
+</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-js">$("#popbox-basic").popBox({
+	title:'标题',
+	content:'<p>这是popBox组件 Demo</p><p>尽情享受吧 !</p>'
+});
+</code></pre>
+			</div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event2">
+	        	二种触发方式
+	        </div>
+	        <p class="awsui-margin-top-5">鼠标移入、点击,设置参数<code>trigger为hover/click</code></p>
+        	<div class="awsui-code-demo">
+        		<button type="button" class="awsui-btn" id="popbox-hover">Hover me</button>
+        		<button type="button" class="awsui-btn" id="popbox-click">Click me</button>
+        	</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;button type="button" class="awsui-btn awsui-btn-blue" id="popbox-hover"&gt;Hover me&lt;/button&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-blue" id="popbox-click"&gt;Click me&lt;/button&gt;
+</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-js">$("#popbox-hover").popBox({
+    trigger:'hover',
+    title:'popBox 标题',
+    content:'<p>这是popBox组件 Demo</p><p>尽情享受吧 !</p>'
+});
+$("#popbox-click").popBox({
+    trigger:'click',
+    title:'popBox 标题',
+    content:'<p>这是popBox组件 Demo</p><p>尽情享受吧 !</p>'
+});
+</code></pre>
+			</div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event3">
+	        	改变组件Style
+	        </div>
+	        <p class="awsui-margin-top-5">改变组件Style,设置参数<code>style为inverse</code></p>
+        	<div class="awsui-code-demo">
+        		<button type="button" class="awsui-btn" id="popbox-inverse">点击</button>
+        	</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;button type="button" class="awsui-btn awsui-btn-blue" id="popbox-inverse"&gt;点击&lt;/button&gt;
+</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-js">$("#popbox-inverse").popBox({
+	trigger:'click',
+	title:'popBox 标题',
+	content:'<p>这是popBox组件 Demo</p><p>尽情享受吧 !</p>',
+	style:'inverse'
+});
+</code></pre>
+			</div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event4">
+	        	位置
+	        </div>
+	        <p class="awsui-margin-top-5">位置有八个方向。</p>
+        	<div class="awsui-code-demo">
+        		<div style="margin-left: 90px; white-space: nowrap;">
+        			<button type="button" class="awsui-btn" id="top-right"><span>top-right</span></button>
+        			<button type="button" class="awsui-btn" id="top"><span>top</span></button>
+        			<button type="button" class="awsui-btn" id="top-left"><span>top-left</span></button>
+        		</div>
+        		<div style="width: 70px;float: left;margin: 20px 0;">
+        			<button type="button" class="awsui-btn" id="right"><span>right</span></button>
+        		</div>
+        		<div style="width: 70px;float: left;margin: 20px 0 20px 304px;">
+        			<button type="button" class="awsui-btn" id="left"><span>left</span></button>
+        		</div>
+        		<div style="margin-left: 70px; clear: both; white-space: nowrap;">
+        			<button type="button" class="awsui-btn" id="bottom-right"><span>bottom-right</span></button>
+        			<button type="button" class="awsui-btn" id="bottom"><span>bottom</span></button>
+        			<button type="button" class="awsui-btn" id="bottom-left"><span>bottom-left</span></button>
+        		</div>
+        	</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;div style="margin-left: 90px; white-space: nowrap;"&gt;
+	&lt;button type="button" class="awsui-btn" id="top-right"&gt;&lt;span&gt;top-right&lt;/span&gt;&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn" id="top"&gt;&lt;span&gt;top&lt;/span&gt;&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn" id="top-left"&gt;&lt;span&gt;top-left&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;
+&lt;div style="width: 70px;float: left;margin: 20px 0;"&gt;
+	&lt;button type="button" class="awsui-btn" id="right"&gt;&lt;span&gt;right&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;
+&lt;div style="width: 70px;float: left;margin: 20px 0 20px 304px;"&gt;
+	&lt;button type="button" class="awsui-btn" id="left"&gt;&lt;span&gt;left&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;
+&lt;div style="margin-left: 70px; clear: both; white-space: nowrap;"&gt;
+	&lt;button type="button" class="awsui-btn" id="bottom-right"&gt;&lt;span&gt;bottom-right&lt;/span&gt;&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn" id="bottom"&gt;&lt;span&gt;bottom&lt;/span&gt;&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn" id="bottom-left"&gt;&lt;span&gt;bottom-left&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-js">$("#top-right").popBox({
+    title:'popBox 标题',
+    content:'<p>这是popBox组件 Demo</p><p>尽情享受吧 !</p>',
+    position:'top-right'
+});
+$("#top").popBox({
+    title:'popBox 标题',
+    content:'<p>这是popBox组件 Demo</p><p>尽情享受吧 !</p>',
+    position:'top'
+});
+$("#top-left").popBox({
+    title:'popBox 标题',
+    content:'<p>这是popBox组件 Demo</p><p>尽情享受吧 !</p>',
+    position:'top-left'
+});
+$("#left").popBox({
+    title:'popBox 标题',
+	content:'<p>这是popBox组件 Demo</p><p>尽情享受吧 !</p>',
+	position:'left'
+});
+$("#right").popBox({
+	title:'popBox 标题',
+    content:'<p>这是popBox组件 Demo</p><p>尽情享受吧 !</p>',
+    position:'right'
+});
+$("#bottom-right").popBox({
+    title:'popBox 标题',
+    content:'<p>这是popBox组件 Demo</p><p>尽情享受吧 !</p>',
+    position:'bottom-right'
+});
+$("#bottom").popBox({
+    title:'popBox 标题',
+    content:'<p>这是popBox组件 Demo</p><p>尽情享受吧 !</p>',
+    position:'bottom'
+});
+$("#bottom-left").popBox({
+    title:'popBox 标题',
+    content:'<p>这是popBox组件 Demo</p><p>尽情享受吧 !</p>',
+    position:'bottom-left'
+});
+</code></pre>
+			</div>
+			<div id="qrcode_box" style="display: none;width: 200px;height: 200px;">
+				<div id="qrcode_test">
+					<span>dfasdfkasd</span>
+				</div>
+			</div>
+        </div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-code-title title2" id="event5">
+				对话框dialog中使用
+			</div>
+			<p class="awsui-margin-top-5">对话框dialog中使用。</p>
+			<div class="awsui-code-demo">
+				<button type="button" class="awsui-btn awsui-btn-blue" id="popbox-dialog">点击</button>
+				<div title="这是一个没有遮罩的Dialog" class="awsui-size-x-large awsui-hide" id="dialog-nomask">
+					<input type="text" class="awsui-input" id="dialog_input"/>
+				</div>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;button type="button" class="awsui-btn awsui-btn-blue" id="popbox-dialog"&gt;点击&lt;/button&gt;
+&lt;div title="这是一个没有遮罩的Dialog" class="awsui-size-x-large awsui-hide" id="dialog-nomask"&gt;
+&lt;/div&gt;
+</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-js">$("#popbox-dialog").on("click", function(){
+	$("#dialog-nomask").dialog({
+		model:true,
+		width:800,
+		height:200,
+		buttons:[
+			{text:'确定',handler:function(e){
+					e.stopPropagation();
+					$(this).popBox({
+						trigger:'no',
+						title:'popBox 标题',
+						content:'<p>这是popBox组件 Demo</p><p>尽情享受吧 !</p>',
+						hide:true
+					});
+				}}
+		]
+	});
+});
+</code></pre>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-code-title title2" id="event6">
+				popBox中嵌套js创建的DOM元素
+			</div>
+			<p class="awsui-margin-top-5">popBox中嵌套js创建的DOM元素。</p>
+			<div class="awsui-code-demo">
+				<button type="button" class="awsui-btn awsui-btn-blue" id="popbox-dom">点击</button>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;button type="button" class="awsui-btn awsui-btn-blue" id="popbox-dom"&gt;点击&lt;/button&gt;
+</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-js">$("#popbox-dom").popBox({
+	title:'Dom元素加载',
+	width: 420,
+	height: 200,
+	delay:0,
+	content:function () {
+		var index = $(this).attr("index") || 0;
+		return renderMemberList(index);
+	}
+});
+function renderMemberList(index){
+	//var memberList = appTeamList[0][index]["members"];
+	var memberList = [{deptName: "信息中心",name: "管理员",uid: "admin"},{deptName: "消息中心",name: "管理员",uid: "admin"},{deptName: "消息中心",name: "管理员",uid: "admin"},{deptName: "消息中心",name: "管理员",uid: "admin"},{deptName: "消息中心",name: "管理员",uid: "admin"}];
+	var listHtml="";
+	if(memberList.length>0){
+		listHtml+='&lt;table class="awsui-table awsui-table-bordered" width="420" border="0" cellspacing="0" cellpadding="0"&gt;';
+		listHtml+='&lt;tr&gt;';
+		listHtml+='&lt;td width="20%"&gt;姓名&lt;/td&gt;';
+		listHtml+='&lt;td width="20%"&gt;账号&lt;/td&gt;';
+		listHtml+='&lt;td width="60%"&gt;部门&lt;/td&gt;';
+		listHtml+='&lt;/tr>';
+		for (var i = 0;i < memberList.length;i++){
+			var memberInfo =  memberList[i];
+			var name = memberInfo["name"];
+			var uid = memberInfo["uid"];
+			var deptName = memberInfo["deptName"];
+			listHtml+='&lt;tr&gt;';
+			listHtml+='&lt;td&gt;&lt;div class="ellipsistext td1text" awsui-qtip="'+name+'"&gt;'+name+'&lt;/div&gt;&lt;/td&gt;';
+			listHtml+='&lt;td&gt;&lt;div class="ellipsistext td2text" awsui-qtip="'+uid+'"&gt;'+uid+'&lt;/div&gt;&lt;/td&gt;';
+			listHtml+='&lt;td&gt;&lt;div class="ellipsistext td3text" awsui-qtip="'+deptName+'"&gt;'+deptName+'&lt;/div&gt;&lt;/td&gt;';
+			listHtml+='&lt;/tr&gt;';
+		}
+		listHtml+='&lt;/table&gt;';
+	}
+	return listHtml;
+}
+</code></pre>
+			</div>
+		</div>
+	</div>
+	<div class="section_right">
+		<div class="nav">
+			<!-- 右侧导航 -->
+		</div>
+    </div>
+	<div class="navTop">
+		<img src="../img/top.png" alt=""/>
+	</div>
+	<script src="../../js/jquery/scripts/jquery.js"></script>
+	<script src="../../js/awsui.js"></script>
+	<script src="../prism/prism.js"></script>
+	<script src="../js/public.js?v=1"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+            $("#popbox-basic").popBox({
+                title:'标题',
+                content:'<p>这是popBox组件 Demo</p><p>尽情享受吧 !</p>'
+            });
+			$("#popbox-hover").popBox({
+				trigger:'hover',
+				title:'popBox 标题',
+				content:'<p>这是popBox组件 Demo</p><p>尽情享受吧 !</p>'
+			});
+			$("#popbox-click").popBox({
+				trigger:'click',
+				title:'popBox 标题',
+				content:'<p>这是popBox组件 Demo</p><p>尽情享受吧 !</p>'
+			});
+			$("#popbox-inverse").popBox({
+				trigger:'click',
+				title:'popBox 标题',
+				content:'<p>这是popBox组件 Demo</p><p>尽情享受吧 !</p>',
+				style:'inverse'
+			});
+			$("#top-right").popBox({
+				title:'popBox 标题',
+				content:'<p>这是popBox组件 Demo</p><p>尽情享受吧 !</p>',
+				position:'top-right'
+			});
+			$("#top").popBox({
+				title:'popBox 标题',
+				content:'<p>这是popBox组件 Demo</p><p>尽情享受吧 !</p>',
+				position:'top'
+			});
+			$("#top-left").popBox({
+				title:'popBox 标题',
+				content:'<p>这是popBox组件 Demo</p><p>尽情享受吧 !</p>',
+				position:'top-left'
+			});
+			$("#left").popBox({
+				title:'popBox 标题',
+				content:'<p>这是popBox组件 Demo</p><p>尽情享受吧 !</p>',
+				position:'left'
+			});
+			$("#right").popBox({
+				title:'popBox 标题',
+				content:'<p>这是popBox组件 Demo</p><p>尽情享受吧 !</p>',
+				position:'right'
+			});
+			$("#bottom-right").popBox({
+				title:'popBox 标题',
+				content:'<p>这是popBox组件 Demo</p><p>尽情享受吧 !</p>',
+				position:'bottom-right'
+			});
+			$("#bottom").popBox({
+				title:'popBox 标题',
+				content:'<p>这是popBox组件 Demo</p><p>尽情享受吧 !</p>',
+				position:'bottom'
+			});
+			$("#bottom-left").popBox({
+				title:'popBox 标题',
+				content:'<p>这是popBox组件 Demo</p><p>尽情享受吧 !</p>',
+				position:'bottom-left'
+			});
+            $("#popbox-dialog").on("click", function(e){
+                $("#dialog-nomask").dialog({
+                    model:true,
+                    width:800,
+                    height:200,
+                    buttons:[
+                        {text:'确定',handler:function(e){
+                                e.stopPropagation();
+                                e.preventDefault();
+                                if ($("#dialog_input").val() == "") {
+                                    $.simpleAlert("Hello");
+                                    return;
+								} else {
+                                    $(this).popBox({
+                                        trigger:'no',
+                                        title:'popBox 标题',
+                                        content:'<p>这是popBox组件 Demo</p><p>尽情享受吧 !</p>',
+                                        hide:true
+                                    });
+                                }
+                            }}
+                    ]
+                });
+            });
+
+            $("#popbox-dom").popBox({
+                title:'Dom元素加载',
+                width: 420,
+                height: 200,
+                delay:0,
+                content:function () {
+                    var index = $(this).attr("index") || 0;
+                    return renderMemberList(index);
+                }
+            });
+            function renderMemberList(index){
+                //var memberList = appTeamList[0][index]["members"];
+                var memberList = [{deptName: "信息中心",name: "管理员",uid: "admin"},{deptName: "消息中心",name: "管理员",uid: "admin"},{deptName: "消息中心",name: "管理员",uid: "admin"},{deptName: "消息中心",name: "管理员",uid: "admin"},{deptName: "消息中心",name: "管理员",uid: "admin"}];
+                var listHtml="";
+                if(memberList.length>0){
+                    listHtml+='<table class="awsui-table awsui-table-bordered" width="420" border="0" cellspacing="0" cellpadding="0">';
+                    listHtml+='<tr style="">';
+                    listHtml+='<td width="20%">姓名</td>';
+                    listHtml+='<td width="20%">账号</td>';
+                    listHtml+='<td width="60%">部门</td>';
+                    listHtml+='</tr>';
+                    for (var i = 0;i < memberList.length;i++){
+                        var memberInfo =  memberList[i];
+                        var name = memberInfo["name"];
+                        var uid = memberInfo["uid"];
+                        var deptName = memberInfo["deptName"];
+                        listHtml+='<tr>';
+                        listHtml+='<td><div class="ellipsistext td1text" awsui-qtip="'+name+'">'+name+'</div></td>';
+                        listHtml+='<td><div class="ellipsistext td2text" awsui-qtip="'+uid+'">'+uid+'</div></td>';
+                        listHtml+='<td><div class="ellipsistext td3text" awsui-qtip="'+deptName+'">'+deptName+'</div></td>';
+                        listHtml+='</tr>';
+                    }
+                    listHtml+='</table>';
+                }
+                return listHtml;
+            }
+		});
+	</script>
+</body>
+</html>

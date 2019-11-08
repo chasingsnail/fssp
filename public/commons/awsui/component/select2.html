@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="content" content="基于AWSUI-select2的主流前端响应式框架">
+		<meta name="keywords" content="高级列表 - AWSUI">
+		<title>select2</title>
+		<link rel="stylesheet" href="../css/bootstrap.css">
+		<link rel="stylesheet" href="../../css/awsui.css">
+		<link rel="stylesheet" href="../css/uidoc.css?v=1">
+		<link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+		<style>
+			.img-flag {
+				height: 15px;
+				width: 18px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="awsui-wrapper">
+			<div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 awsui-border-bottom">
+				<div class="awsui-markdown">
+					<h1 class="title2" id="select2">列表选择器</h1>
+					<p class="awsui-margin-bottom-14">优雅的将数据以下拉列表形式展现，弹出一个下拉菜单给用户选择操作，用于代替原生的选择器，或者需要一个更优雅的多选器时</p>
+					<ul>
+						<li>当选项过多时，使用下拉菜单展示并选择内容。</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-markdown">
+					<div class="awsui-code-title">
+						API
+					</div>
+					<ul>
+						<li>$(el).select2(config)</li>
+					</ul>
+					<p>config 参数如下：</p>
+				</div>
+				<table class="awsui-table awsui-margin-bottom-24">
+					<thead>
+						<tr>
+							<th width="30%">参数</th>
+							<th width="30%">说明</th>
+							<th width="20%">类型</th>
+							<th>默认值</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>width</td>
+							<td>select选择器的宽度</td>
+							<td>number</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>minimumInputLength</td>
+							<td>最小数量的字符</td>
+							<td>number</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>maximumInputLength</td>
+							<td>最大数量的字符</td>
+							<td>number</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>minimumResultsForSearch</td>
+							<td>最小数量的结果,设置-1时搜索功能不出现</td>
+							<td>number</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>maximumSelectionLength</td>
+							<td>最大选择数目</td>
+							<td>number</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>placeholder</td>
+							<td>选择框默认文字</td>
+							<td>string</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>separator</td>
+							<td>分隔符字符或字符串用来划定id</td>
+							<td>string</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>allowClear</td>
+							<td>是否允许清空,若为true必须有placeholder，否则报错</td>
+							<td>boolean</td>
+							<td>false</td>
+						</tr>
+						<tr>
+							<td>multiple</td>
+							<td>是否允许选择多个值</td>
+							<td>boolean</td>
+							<td>false</td>
+						</tr>
+						<tr>
+							<td>query</td>
+							<td>函数用于搜索词的查询结果</td>
+							<td>function</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>ajax</td>
+							<td>选择内置的ajax查询功能。 这个对象作为快捷方式有手动编写一个函数,执行ajax请求</td>
+							<td>object</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>data</td>
+							<td>数据源,写法为<code>data=[{id:"2",text:"关羽"}]</code></td>
+							<td>array</td>
+							<td>[]</td>
+						</tr>
+						<tr>
+							<td>selected</td>
+							<td>数据源中标明选中项<code>data=[{id:"2",text:"关羽","selected": true}]</code></td>
+							<td>boolean</td>
+							<td>false</td>
+						</tr>
+						<tr>
+							<td>language</td>
+							<td>语言，汉语为zh-CN</td>
+							<td>string</td>
+							<td>zh-CN</td>
+						</tr>
+						<tr>
+							<td>dropdownCss</td>
+							<td>下拉列表的一个样式,可以设置一个CSS的JSON结构</td>
+							<td>function/object</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>dropdownCssClass</td>
+							<td>css类将被添加到select2下拉的容器</td>
+							<td>string</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>dropdownAutoWidth</td>
+							<td>当设置为true,尝试自动尺寸下拉基于内容的宽度</td>
+							<td>boolean</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>sorter</td>
+							<td>排序</td>
+							<td>function</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>templateResult</td>
+							<td>自定义样式（选项、结果）</td>
+							<td>function</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>closeOnSelect</td>
+							<td>选择后，关闭列表</td>
+							<td>boolean</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>theme</td>
+							<td>主题，可选项有classic</td>
+							<td>string</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>disabled</td>
+							<td>是否禁用</td>
+							<td>boolean</td>
+							<td>false</td>
+						</tr>
+					</tbody>
+				</table>
+				<p>方法说明如下：</p>
+				<table class="awsui-table awsui-margin-bottom-24">
+					<thead>
+						<tr>
+							<th width="30%">方法名</th>
+							<th width="70%">说明</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>open</td>
+							<td>打开列表 <code>$eventSelect.on("select2:open",function(e){});</code></td>
+						</tr>
+						<tr>
+							<td>close</td>
+							<td>关闭列表 <code>$eventSelect.on("select2:close", function (e) {});</code></td>
+						</tr>
+						<tr>
+							<td>select</td>
+							<td>选择事件 <code>$eventSelect.on("select2:select",function(e){});</code></td>
+						</tr>
+						<tr>
+							<td>unselect</td>
+							<td>取消选择事件 <code>$eventSelect.on("select2:unselect", function (e) {});</code></td>
+						</tr>
+						<tr>
+							<td>change</td>
+							<td>切换事件 <code>$eventSelect.on("change", function (e) {});</code></td>
+						</tr>
+					</tbody>
+				</table>
+				<p>单/多选差异说明如下：</p>
+				<table class="awsui-table awsui-margin-bottom-24">
+					<thead>
+						<tr>
+							<th width="30%">名称</th>
+							<th width="35%">单选</th>
+							<th width="35%">多选</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>小三角</td>
+							<td>有</td>
+							<td>无</td>
+						</tr>
+						<tr>
+							<td>标签化</td>
+							<td>否</td>
+							<td>是</td>
+						</tr>
+						<tr>
+							<td>搜索框</td>
+							<td>额外，默认只能按照text搜索</td>
+							<td>自身，默认只能按照text搜索</td>
+						</tr>
+						<tr>
+							<td>默认选中</td>
+							<td>第一个</td>
+							<td>无</td>
+						</tr>
+						<tr>
+							<td>能否清空</td>
+							<td>默认没有</td>
+							<td>可以手动清空</td>
+						</tr>
+						<tr>
+							<td>换行</td>
+							<td>不会自动换行，会省略结尾</td>
+							<td>回显框会自动换行，并且自动增加高度</td>
+						</tr>
+						<tr>
+							<td>cursor</td>
+							<td>pointer</td>
+							<td>text</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event1">
+					基本使用
+				</div>
+				<p class="awsui-margin-top-5">基本的select2。</p>
+				<div class="awsui-code-demo">
+					<select id="selectBasic1"></select>
+					<select id="selectBasic2"></select>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;select id="selectBasic1"&gt;&lt;/select&gt;
+&lt;select id="selectBasic2"&gt;&lt;/select&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+                    <pre><code class="language-js">$(document).ready(function() {
+    var opt = {
+		width : 300,
+		data : [
+			{id:"lb",text:"刘备"},
+			{id:"gy",text:"关羽"},
+			{id:"zf",text:"张飞",disabled:true},
+			{id:"cc",text:"曹操"}
+		]
+	};
+	$("#selectBasic1").select2($.extend({}, opt, {minimumResultsForSearch:-1}));
+	$("#selectBasic2").select2($.extend({}, opt, {disabled:true}));
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event2">
+					带搜索框
+				</div>
+				<p class="awsui-margin-top-5">展开后可对选项进行搜索。</p>
+				<div class="awsui-code-demo">
+					<select id="selectSearch"></select>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;select id="selectSearch"&gt;&lt;/select&gt;</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+                    <pre><code class="language-js">$(document).ready(function() {
+    var opt = {
+		width : 300,
+		data : [
+			{id:"lb",text:"刘备"},
+			{id:"gy",text:"关羽"},
+			{id:"zf",text:"张飞"},
+			{id:"cc",text:"曹操"}
+		]
+	};
+	$("#selectSearch").select2(opt);
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event3">
+					三种大小
+				</div>
+				<p class="awsui-margin-top-5">我们为 &lt;select /&gt; 输入框定义了三种尺寸（大<code>类名：awsui-select-lg</code>、默认、小<code>类名：awsui-select-sm</code>），高度分别为 32px、28px 和 22px。</p>
+				<div class="awsui-code-demo">
+					<div class="awsui-example-input">
+						<select id="selectSize1" class="awsui-select-lg"></select>
+						<select id="selectSize2"></select>
+						<select id="selectSize3" class="awsui-select-sm"></select>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;select id="selectSize1" class="awsui-select-lg"&gt;&lt;/select&gt;
+&lt;select id="selectSize2"&gt;&lt;/select&gt;
+&lt;select id="selectSize3" class="awsui-select-sm"&gt;&lt;/select&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+                    <pre><code class="language-js">$(document).ready(function() {
+    var opt = {
+		width : "25%",
+		data : [
+			{id:"lb",text:"刘备"},
+			{id:"gy",text:"关羽"},
+			{id:"zf",text:"张飞"},
+			{id:"cc",text:"曹操"}
+		]
+	};
+	$("#selectSize1").select2(opt);
+	$("#selectSize2").select2(opt);
+	$("#selectSize3").select2(opt);
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event4">
+					多选
+				</div>
+				<p class="awsui-margin-top-5">多选，从已有条目中选择（scroll the menu），需要配置属性<code>multiple为true</code>。</p>
+				<div class="awsui-code-demo">
+					<select id="selectMultiple"></select>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;select id="selectMultiple"&gt;&lt;/select&gt;</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+                    <pre><code class="language-js">$(document).ready(function() {
+    var opt = {
+		width : 300,
+		data : [
+			{id:"lb",text:"刘备"},
+			{id:"gy",text:"关羽"},
+			{id:"zf",text:"张飞"},
+			{id:"cc",text:"曹操"}
+		],
+		multiple:true
+	};
+	$("#selectMultiple").select2(opt);
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event5">
+					多选，限制最大选择数目
+				</div>
+				<p class="awsui-margin-top-5">限制最大选择数目，需要设置属性<code>maximumSelectionLength</code>值。</p>
+				<div class="awsui-code-demo">
+					<select id="selectMaximun"></select>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;select id="selectMaximun"&gt;&lt;/select&gt;</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+                    <pre><code class="language-js">$(document).ready(function() {
+    var opt = {
+		width : 300,
+		data : [
+			{id:"lb",text:"刘备"},
+			{id:"gy",text:"关羽"},
+			{id:"zf",text:"张飞"},
+			{id:"cc",text:"曹操"}
+		],
+		multiple:true,
+		maximumSelectionLength:2
+	};
+	$("#selectMaximun").select2(opt);
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event6">
+					自定义样式（选项、结果）
+				</div>
+				<p class="awsui-margin-top-5">限制最大选择数目，需要设置属性<code>templateResult</code>。</p>
+				<div class="awsui-code-demo">
+					<select id="selectTemplateResult"></select>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;select id="selectTemplateResult"&gt;&lt;/select&gt;</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+                    <pre><code class="language-js">$(document).ready(function() {
+	function formatState (state) { // select2的前缀实现方法
+		if (!state.id) { return state.text; }
+		var $state = $("<span>" + state.img + " " + state.text + "</span>");
+		return $state;
+	}
+	var opt = {
+		width : 300,
+		templateResult: formatState,
+		multiple : true,
+		data : [
+			{id:"1",text:"Arkansas",img:"&lt;img class='img-flag' src='../img/select2_template_1.png'/&gt;"},
+			{id:"2",text:"New Mexico",img:"&lt;img class='img-flag' src='../img/select2_template_2.png'/&gt;"}
+		]
+	};
+	$("#selectTemplateResult").select2(opt);
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event7">
+					选择后，不关闭列表
+				</div>
+				<p class="awsui-margin-top-5">不关闭列表，需要设置属性<code>closeOnSelect为false</code>。</p>
+				<div class="awsui-code-demo">
+					<select id="selectCloseOnSelect"></select>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;select id="selectCloseOnSelect"&gt;&lt;/select&gt;</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+                    <pre><code class="language-js">$(document).ready(function() {
+    var opt = {
+		width : 300,
+		data : [
+			{id:"lb",text:"刘备"},
+			{id:"gy",text:"关羽"},
+			{id:"zf",text:"张飞"},
+			{id:"cc",text:"曹操"}
+		],
+		multiple : true,
+        closeOnSelect : false
+	};
+	$("#selectCloseOnSelect").select2(opt);
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event8">
+					主题，可选项有classic
+				</div>
+				<p class="awsui-margin-top-5">新版的样式已经更新，但如果想使用老版样式则可以设置属性<code> theme: "classic"</code>。</p>
+				<div class="awsui-code-demo">
+					<select id="selectTheme"></select>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;select id="selectTheme"&gt;&lt;/select&gt;</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+                    <pre><code class="language-js">$(document).ready(function() {
+    var opt = {
+		width : 300,
+		data : [
+			{id:"lb",text:"刘备"},
+			{id:"gy",text:"关羽"},
+			{id:"zf",text:"张飞"},
+			{id:"cc",text:"曹操"}
+		],
+		theme: "classic"
+	};
+	$("#selectTheme").select2(opt);
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event9">
+					快速清空已选项（allowClear）
+				</div>
+				<p class="awsui-margin-top-5">如果需要清除功能，则必须设置属性<code>placeholder</code>值。</p>
+				<p class="awsui-margin-top-5">设置属性<code>allowClear为true</code>，将会在select后加一个X号，可用于快速清空已选项。</p>
+				<div class="awsui-code-demo">
+					<select id="selectAllowClear"></select>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;select id="selectAllowClear"&gt;&lt;/select&gt;</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+                    <pre><code class="language-js">$(document).ready(function() {
+    var opt = {
+		width : 300,
+		data : [
+			{id:"lb",text:"刘备"},
+			{id:"gy",text:"关羽"},
+			{id:"zf",text:"张飞"},
+			{id:"cc",text:"曹操"}
+		],
+		placeholder: "请选择",
+        allowClear: true
+	};
+	$("#selectAllowClear").select2(opt);
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event10">
+					可编辑列表
+				</div>
+				<div class="awsui-code-demo">
+					<select id="selectQuery"></select>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;select id="selectQuery"&gt;&lt;/select&gt;</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+                    <pre><code class="language-js">$(document).ready(function() {
+    var opt = {
+		width : 300,
+		data:[],
+		query: function (query) {
+			var data = {
+				results: [
+					{id:"lb",text:"刘备"},
+					{id:"gy",text:"关羽"},
+					{id:"zf",text:"张飞"}
+				]
+			};
+			data.results.push({id: query.term, text: query.term});
+			query.callback(data);
+		},
+		multiple : true
+	};
+	$("#selectQuery").select2(opt);
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event11">
+					分组数据
+				</div>
+				<p class="awsui-margin-top-5">每个组用children key来表示，组名用text property表示。</p>
+				<div class="awsui-code-demo">
+					<select id="selectChildren"></select>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;select id="selectChildren"&gt;&lt;/select&gt;</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+                    <pre><code class="language-js">$(document).ready(function() {
+    var opt = {
+		width : 300,
+		data:[
+			{text : "蜀国",
+				children : [
+					{id:"lb",text:"刘备"},
+					{id:"gy",text:"关羽"},
+					{id:"zf",text:"张飞"}
+				]
+			},
+			{text : "魏国",
+				children : [
+					{id:"cc",text:"曹操"},
+					{id:"uc",text:"许褚"},
+					{id:"yj",text:"于禁"}
+				]
+			}
+		],
+		//multiple : true  //多选列表时，一定要加
+	};
+	$("#selectChildren").select2(opt);
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event12">
+					赋值方法，取值方法
+				</div>
+				<p class="awsui-margin-top-5">一、单选赋值方法，取值方法。</p>
+				<div class="awsui-code-demo">
+					<select id="selectValue1"></select><br/>
+                    <p class="awsui-margin-top-5" style="padding:0;">
+                        <button id="setValue1" type="button" class="awsui-btn awsui-btn-blue">
+                            单选赋值
+                        </button>
+                        <button id="getValue1" type="button" class="awsui-btn awsui-btn-danger">
+                            单选取值
+                        </button>
+                    </p>
+				</div>
+				<p class="awsui-margin-top-5">二、多选赋值方法，取值方法。</p>
+				<div class="awsui-code-demo">
+					<select id="selectValue2"></select><br/>
+                    <p class="awsui-margin-top-5" style="padding:0;">
+                        <button id="setValue2" type="button" class="awsui-btn awsui-btn-blue">
+                            多选赋值
+                        </button>
+                        <button id="getValue2" type="button" class="awsui-btn awsui-btn-danger">
+                            多选取值
+                        </button>
+                    </p>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;select id="selectValue2"&gt;&lt;/select&gt;&lt;br/&gt;
+&lt;button id="setValue2" type="button" class="awsui-btn awsui-btn-blue"&gt;
+	多选赋值
+&lt;/button&gt;
+&lt;button id="getValue2" type="button" class="awsui-btn awsui-btn-danger"&gt;
+	多选取值
+&lt;/button&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+                    <pre><code class="language-js">$(document).ready(function() {
+    var opt = {
+		width : 300,
+		data : [
+			{id:"lb",text:"刘备"},
+			{id:"gy",text:"关羽"},
+			{id:"zf",text:"张飞"},
+			{id:"cc",text:"曹操"}
+		],
+		placeholder: "请选择",
+        allowClear: true
+	};
+	$("#selectValue1").select2(opt);
+	$("#setValue1").on("click",function(){
+		$("#selectValue1").val(["gy"]).trigger("change"); //单选赋值
+	});
+	$("#getValue1").on("click",function(){
+		alert("单选值：" + $("#selectValue1").val());
+	});
+	var opt1 = {
+		multiple : true
+	};
+	$("#selectValue2").select2($.extend({}, opt, opt1));
+	$("#setValue2").on("click",function(){
+		$("#selectValue2").val(["gy","zf"]).trigger("change"); //多选赋值
+	});
+	$("#getValue2").on("click",function(){
+		alert("多选值：" + $("#selectValue2").val());
+	});
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event13">
+					ajax异步加载数据源
+				</div>
+				<p class="awsui-margin-top-5">加载远程数据,配置<code>ajax方法</code>。</p>
+				<div class="awsui-code-demo">
+					<select id="selectAjax" class="awsui-input" style="width:300px;"></select>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;select id="selectAjax" class="awsui-input" style="width:300px;"&gt;</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+                    <pre><code class="language-js">$(document).ready(function() {
+	$("#selectAjax").on("click",function(){
+		initSelect2(this,"./jd?sid=888",false);
+	});
+	function initSelect2(dom,url,multiple) {
+		var subject = $(dom);//元素
+		var Select2 = subject.select2({
+			width: 300,
+			multiple: multiple, //是否多选
+			data : [
+				{id:"lb",text:"刘备"},
+				{id:"gy",text:"关羽"},
+				{id:"zf",text:"张飞"},
+				{id:"cc",text:"曹操"}
+			]
+			/*ajax: {
+				url: url,
+				dataType: 'json',
+				data: function (params) {// 要传给服务器的参数
+					return {
+						q: params.term, // search term 请求参数
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					for (var i = 0; i < data.length; i++) {
+						data[i].id = data[i].id;
+						data[i].text = data[i].name;
+					}
+					return {results: data};
+				},
+				cache: true
+			}*/
+		});
+		return Select2;
+	}
+	//编辑回显数据
+	function echoSelect2(dom,value){
+		$.each(value,function(index,value){
+			$(dom).append(new Option(value.text, value.id, false, true));
+		});
+		$(dom).trigger("change");
+	}
+	/*//使用方式
+	var select2 = initSelect2("#el","./jd",true);
+	//回显方式
+	获取初始化数据定义成类似的数组形式：var data = [{id:1001,name:”哈哈哈”}];
+	调用方法echoSelect2(“#el”,data);*/
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event14">
+					禁用效果
+				</div>
+				<p class="awsui-margin-top-5">禁用效果,添加属性<code>disabled</code>。</p>
+				<div class="awsui-code-demo">
+					<select id="selectDisabled"></select><br/>
+                    <p class="awsui-margin-top-5" style="padding:0;">
+                        <button id="disabled" type="button" class="awsui-btn awsui-btn-blue">disabled</button>
+                        <button id="enabled" type="button" class="awsui-btn awsui-btn-danger">enabled</button>
+                    </p>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;select id="selectDisabled"&gt;&lt;/select&gt;&lt;br/&gt;
+&lt;button id="disabled" type="button" class="awsui-btn awsui-btn-blue"&gt;disabled&lt;/button&gt;
+&lt;button id="enabled" type="button" class="awsui-btn awsui-btn-danger"&gt;enabled&lt;/button&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+                    <pre><code class="language-js">$(document).ready(function() {
+    var opt = {
+		width : 300,
+		data : [
+			{id:"lb",text:"刘备"},
+			{id:"gy",text:"关羽"},
+			{id:"zf",text:"张飞"},
+			{id:"cc",text:"曹操"}
+		]
+	};
+	$("#selectDisabled").select2(opt);
+	$("#disabled").on("click",function(){
+		$("#selectDisabled").prop("disabled", true);
+		$("#selectDisabled").select2(opt);
+		var id = "selectDisabled";
+		$("#select2-"+id+"-container").addClass('select2-container--disabled');
+	});
+	$("#enabled").on("click",function(){
+		$("#selectDisabled").prop("disabled",false);
+		$("#selectDisabled").select2(opt);
+		var id = "selectDisabled";
+		$("#select2-"+id+"-container").removeClass('select2-container--disabled');
+	});
+});
+</code></pre>
+				</div>
+			</div>
+		</div>
+		<div class="section_right">
+			<div class="nav">
+				<!-- 右侧导航 -->
+			</div>
+		</div>
+		<div class="navTop">
+			<img src="../img/top.png" alt=""/>
+		</div>
+		<script src="../../js/jquery/scripts/jquery.js"></script>
+		<script src="../../js/awsui.js"></script>
+		<script src="../prism/prism.js"></script>
+		<script src="../js/public.js?v=1"></script>
+		<script type="text/javascript">
+            $(document).ready(function() {
+                var opt = {
+                    width:300,
+                    data : [
+                        {id:"lb",text:"刘备"},
+                        {id:"gy",text:"关羽"},
+                        {id:"zf",text:"张飞"},
+                        {id:"cc",text:"曹操"}
+                    ]
+                };
+                dataDefault = [
+                    {id:"lb",text:"刘备"},
+                    {id:"gy",text:"关羽关羽关羽"},
+                    {id:"zf",text:"张飞",disabled:true},
+                    {id:"cc",text:"曹操"}
+                ];
+                $("#selectBasic1").select2($.extend({}, opt, {minimumResultsForSearch:-1,data:dataDefault}));
+                $("#selectBasic2").select2($.extend({}, opt, {disabled:true}));
+                $("#selectSearch").select2(opt);
+
+                $("#selectSize1").select2($.extend({}, opt, {width:"25%"}));
+                $("#selectSize2").select2($.extend({}, opt, {width:"25%"}));
+                $("#selectSize3").select2($.extend({}, opt, {width:"25%"}));
+
+                var opt1 = {
+                    multiple:true
+                };
+                $("#selectMultiple").select2($.extend({}, opt, opt1));
+                var opt1 = {
+                    multiple:true,
+                    maximumSelectionLength:2
+                };
+                $("#selectMaximun").select2($.extend({}, opt, opt1));
+
+                function formatState (state) { // select2的前缀实现方法
+                    if (!state.id) { return state.text; }
+                    var $state = $("<span>" + state.img + " " + state.text + "</span>");
+                    return $state;
+                }
+                var opt1 = {
+                    templateResult: formatState,
+                    multiple : true,
+                    data : [
+                        {id:"1",text:"Arkansas",img:"<img class='img-flag' src='../img/select2_template_1.png'/>"},
+                        {id:"2",text:"New Mexico",img:"<img class='img-flag' src='../img/select2_template_2.png'/>"}
+                    ]
+                };
+                $("#selectTemplateResult").select2($.extend({}, opt, opt1));
+
+                var opt1 = {
+                    multiple : true,
+                    closeOnSelect : false
+                };
+                $("#selectCloseOnSelect").select2($.extend({}, opt, opt1));
+
+                var opt1 = {
+                    theme: "classic"
+                };
+                $("#selectTheme").select2($.extend({}, opt, opt1));
+
+                var opt1 = {
+                    placeholder: "请选择",
+                    allowClear: true
+                };
+                $("#selectAllowClear").select2($.extend({}, opt, opt1));
+
+                var opt1 = {
+                    data:[],
+                    query: function (query) {
+                        var data = {
+                            results: [
+                                {id:"lb",text:"刘备"},
+                                {id:"gy",text:"关羽"},
+                                {id:"zf",text:"张飞"}
+                            ]
+                        };
+                        data.results.push({id: query.term, text: query.term});
+                        query.callback(data);
+                    },
+                    multiple : true
+                };
+                $("#selectQuery").select2($.extend({}, opt, opt1));
+
+                var opt1 = {
+                    data:[
+                        {text : "蜀国",
+                            children : [
+                                {id:"lb",text:"刘备"},
+                                {id:"gy",text:"关羽"},
+                                {id:"zf",text:"张飞"}
+                            ]
+						},
+                        {text : "魏国",
+                            children : [
+                                {id:"cc",text:"曹操"},
+                                {id:"uc",text:"许褚"},
+                                {id:"yj",text:"于禁"}
+                            ]
+                        }
+                    ],
+                    //multiple : true //多选列表时，一定要加
+                };
+                $("#selectChildren").select2($.extend({}, opt, opt1));
+
+                $("#selectValue1").select2(opt);
+                $("#setValue1").on("click",function(){
+                    $("#selectValue1").val(["gy"]).trigger("change"); //单选赋值
+                });
+                $("#getValue1").on("click",function(){
+                    alert("单选值：" + $("#selectValue1").val());
+                });
+                var opt1 = {
+                    multiple : true
+                };
+                $("#selectValue2").select2($.extend({}, opt, opt1));
+                $("#setValue2").on("click",function(){
+                    $("#selectValue2").val(["gy","zf"]).trigger("change"); //多选赋值
+                });
+                $("#getValue2").on("click",function(){
+                    alert("多选值：" + $("#selectValue2").val());
+                });
+
+                $("#selectDisabled").select2(opt);
+                $("#disabled").on("click",function(){
+                    $("#selectDisabled").prop("disabled", true);
+                    $("#selectDisabled").select2(opt);
+                    var id = "selectDisabled";
+                    $("#select2-"+id+"-container").addClass('select2-container--disabled');
+                });
+                $("#enabled").on("click",function(){
+                    $("#selectDisabled").prop("disabled",false);
+                    $("#selectDisabled").select2(opt);
+                    var id = "selectDisabled";
+                    $("#select2-"+id+"-container").removeClass('select2-container--disabled');
+                });
+                $("#selectAjax").on("click",function(){
+                    initSelect2(this,"./jd?sid=888",false);
+				});
+                function initSelect2(dom,url,multiple) {
+                    var subject = $(dom);//元素
+                    var Select2 = subject.select2({
+                        width: 300,
+                        multiple: multiple, //是否多选
+                        data : [
+                            {id:"lb",text:"刘备"},
+                            {id:"gy",text:"关羽"},
+                            {id:"zf",text:"张飞"},
+                            {id:"cc",text:"曹操"}
+                        ]
+                        /*ajax: {
+                            url: url,
+                            dataType: 'json',
+                            data: function (params) {// 要传给服务器的参数
+                                return {
+                                    q: params.term, // search term 请求参数
+                                    page: params.page
+                                };
+                            },
+                            processResults: function (data, params) {
+                                for (var i = 0; i < data.length; i++) {
+                                    data[i].id = data[i].id;
+                                    data[i].text = data[i].name;
+                                }
+                                return {results: data};
+                            },
+                            cache: true
+                        }*/
+                    });
+                    return Select2;
+                }
+				//编辑回显数据
+                function echoSelect2(dom,value){
+                    $.each(value,function(index,value){
+                        $(dom).append(new Option(value.text, value.id, false, true));
+                    });
+                    $(dom).trigger("change");
+                }
+                /*//使用方式
+                var select2 = initSelect2("#el","./jd",true);
+                //回显方式
+                获取初始化数据定义成类似的数组形式：var data = [{id:1001,name:”哈哈哈”}];
+                调用方法echoSelect2(“#el”,data);*/
+            });
+		</script>
+	</body>
+</html>

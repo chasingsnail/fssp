@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+
+<link rel="stylesheet" href="../../css/awsui.css">
+<link rel="stylesheet" href="../css/uidoc.css?v=1">
+<script src="../../js/jquery/scripts/jquery.js"></script>
+<script src="../../js/awsui.js"></script>
+
+<link rel="stylesheet" type="text/css" href="../dlhighlight/style.css"
+	media="all" />
+<script src="../dlhighlight/highlight.js"></script>
+<script src="../dlhighlight/lang-js.js"></script>
+<script src="../clipboard/clipboard.min.js"></script>
+<script src="../js/public.js?v=1"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+
+	});
+</script>
+</head>
+<body>
+	<div class="head">
+		<span class="icon"> <img src="../img/header-components.svg">
+		</span>
+		<h1>Box</h1>
+	</div>
+	<div class="section">
+		<h1 id="desc">概览</h1>
+		<p>一个带边框阴影的盒子区域，可以装载图片、文字等页面元素</p>
+		<h1 id="example1_h1">示例1 - 标准Box</h1>
+		<div class="awsui-box" style="width: 97%;">
+		    <div class="awsui-box-left">
+		         <div style="text-align:center;">
+					 <img style="margin-top:20px;width:110px;" src="../img/header-components.svg">
+		         </div>
+		     </div>
+		     <div class="awsui-box-right">
+		         <div class="awsui-box-right-content">
+		             <h2>Hello 这是标题</h2>
+		             <div>嗨, 这里显示的是主要内容。<br>
+		                 Hello, There are the content!<br>
+		                 总宽度为自动为容器的宽度,左侧显示30%，右侧显示70%
+		             </div>
+		         </div>
+		     </div>
+ 		</div>
+ 		<pre class="code" id="box1_code">
+<div class="awsui-box" style="width: 97%;">
+   <div class="awsui-box-left">
+        <div style="text-align:center;">
+            <img style="margin-top:20px;width:110px;" src="../img/header-components.svg">
+        </div>
+    </div>
+    <div class="awsui-box-right">
+        <div class="awsui-box-right-content">
+            <h2>Hello 这是标题</h2>
+            <div>嗨, 这里显示的是主要内容。<br>
+                Hello, There are the content!<br>
+                总宽度为自动为容器的宽度,左侧显示30%，右侧显示70%
+            </div>
+        </div>
+    </div>
+</div>
+ 		</pre>
+ 		<p><code>awsui-box</code>定义了盒子区域的样式，包括边框、阴影等</p>
+		<p><code>awsui-box-left</code>默认占30%宽度</p>
+		<p><code>awsui-box-right</code>默认占70%宽度</p>
+		<h1 id="demo2">示例2 - 自定义宽高</h1>
+		<div style="width:500px;" class="awsui-box">
+			<div class="awsui-box-left">
+				<div style="text-align:center;">
+					<img style="margin-top:20px;width:100px;" src="../img/header-components.svg">
+				</div>
+			</div>
+			<div class="awsui-box-right">
+				<div class="awsui-box-right-content">
+					<h2>Hello 这是标题</h2>
+					<div>嗨, 这里显示的是主要内容。<br>
+						Hello, There are the content!<br>
+						总宽度为500px,左侧显示30%，右侧显示70%
+					</div>
+				</div>
+			</div>
+		</div>
+		<pre class="code" id="box2_code">
+<div style="width:500px;" class="awsui-box">
+	<div class="awsui-box-left">
+		<div style="text-align:center;">
+			<img style="margin-top:20px;width:100px;" src="../img/header-components.svg">
+		</div>
+	</div>
+	<div class="awsui-box-right">
+		<div class="awsui-box-right-content">
+			<h2>Hello 这是标题</h2>
+			<div>嗨, 这里显示的是主要内容。<br>
+				Hello, There are the content!<br>
+				总宽度为500px,左侧显示30%，右侧显示70%
+			</div>
+		</div>
+	</div>
+</div>
+		</pre>
+	</div>
+	<div class="section_right">
+		<div class="nav">
+			<!-- 右侧导航 -->
+		</div>
+	</div>
+</body>
+</html>

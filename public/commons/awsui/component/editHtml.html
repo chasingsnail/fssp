@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="content" content="基于AWSUI-UEditor的主流前端响应式框架">
+    <meta name="keywords" content="富文本编辑 - AWSUI">
+    <title>UEditor</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../../css/awsui.css">
+    <link rel="stylesheet" href="../css/uidoc.css?v=1">
+    <link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+</head>
+<body>
+    <div class="awsui-wrapper">
+        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 awsui-border-bottom">
+            <div class="awsui-markdown">
+                <h1 class="title2" id="UEditor">富文本编辑</h1>
+                <p class="awsui-margin-bottom-14"><code>AWSUI</code>的富文本编辑插件主要来源于<code>UEditor</code>的支持，<code>UEditor</code>的设计初衷就是所见即所得富文本web编辑器，具有轻量，可定制等优点，更多文档请参考 <a target="_blank" href="http://ueditor.baidu.com/website/index.html">API文档</a></p>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+            <div class="awsui-code-title title2" id="event">
+                引入文件
+            </div>
+            <p class="awsui-margin-top-5">务必确保路径正确</p>
+            <div class="awsui-code-info">
+                <pre><code class="language-html">&lt;script src="../commons/plug-in/ueditor/ueditor.config.js"&gt;&lt;/script&gt;
+&lt;script src="../commons/plug-in/ueditor/ueditor.all.js"&gt;&lt;/script&gt;
+</code></pre>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+            <div class="awsui-code-title title2" id="event1">
+                基本
+            </div>
+            <p class="awsui-margin-top-5">最基本的用法。</p>
+            <div class="awsui-code-demo">
+                <div class="col-sm-12 col-md-12 col-xs-12">
+                    <div id="container"></div>
+                </div>
+            </div>
+            <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+            <div class="awsui-code-info">
+                <pre><code class="language-html">&lt;div id="container"&gt;&lt;/div&gt;</code></pre>
+            </div>
+            <p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+            <div class="awsui-code-info">
+                <pre><code class="language-js"> $(document).ready(function() {
+    UE.getEditor('container');
+});
+</code></pre>
+            </div>
+        </div>
+    </div>
+    <div class="section_right">
+        <div class="nav">
+            <!-- 右侧导航 -->
+        </div>
+    </div>
+    <div class="navTop">
+        <img src="../img/top.png" alt=""/>
+    </div>
+    <script src="../../js/jquery/scripts/jquery.js"></script>
+    <script src="../../js/awsui.js"></script>
+    <script src="../prism/prism.js"></script>
+    <script src="../js/public.js?v=1"></script>
+    <script src="../../plug-in/ueditor/ueditor.config.js"></script>
+    <script src="../../plug-in/ueditor/ueditor.all.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            UE.getEditor('container');
+        });
+    </script>
+</body>
+</html>

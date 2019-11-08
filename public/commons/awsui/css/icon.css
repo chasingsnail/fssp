@@ -1,0 +1,445 @@
+.icon-org {
+	background: url(../icon/org.png) no-repeat;
+	width: 16px;
+  	height: 16px;
+}
+.icon-file {
+	background: url(../icon/file.png) no-repeat;
+	width: 16px;
+  	height: 16px;
+  	display: inline-block;
+  	position: absolute;
+}
+.icon-info {
+	background: url(../icon/info.png) no-repeat;
+	width: 16px;
+  	height: 16px;
+  	display: inline-block;
+  	position: absolute;
+}
+.icon-msg {
+	background: url(../icon/msg.png) no-repeat;
+	width: 16px;
+  	height: 16px;
+  	display: inline-block;
+  	position: absolute;
+}
+.icon-menu {
+	background: url(../icon/menu.png) no-repeat;
+	width: 16px;
+  	height: 16px;
+  	display: inline-block;
+  	position: absolute;
+}
+.icon-set {
+	background: url(../icon/set.png) no-repeat;
+	width: 16px;
+  	height: 16px;
+  	/*display: inline-block;
+  	position: absolute;*/
+}
+.icon-user {
+	background: url(../icon/user.png) no-repeat;
+	width: 16px;
+  	height: 16px;
+  	/*display: inline-block;
+  	position: absolute;*/
+}
+.icon-pro {
+	background: url(../icon/pro.png) no-repeat;
+	width: 16px;
+  	height: 16px;
+  	display: inline-block;
+  	position: absolute;
+}
+
+ /*定位*/
+.icon-pos {background-position:0px 0px;}
+ /*不可定位*/
+.icon-nopos {background-position:-16px 0px;}
+ /*公司、单位*/
+.icon-company {background-position:-32px 0px;}
+ /*地球*/
+.icon-earth {background-position:-48px 0px;}
+ /*新增*/
+.icon-add {background-position:-64px 0px;}
+ /*批量新增*/
+.icon-batch-add {background-position:-80px 0px;}
+ /*添加*/
+.icon-new {background-position:-96px 0px;}
+ /*记事簿*/
+.icon-diary {background-position:-112px 0px;}
+ /*修改*/
+.icon-update {background-position:-128px 0px;}
+ /*向上*/
+.icon-up {background-position:-144px 0px;}
+ /*查看流程*/
+.icon-see {background-position:-160px 0px;}
+ /*主页、首目录*/
+.icon-home {background-position:-176px 0px;}
+ /*参数配置*/
+.icon-param {background-position:-192px 0px;}
+ /*系统设置*/
+.icon-system {background-position:-208px 0px;}
+ /*删除*/
+.icon-delete {background-position:-224px 0px;}
+ /*关闭(页签..)*/
+.icon-closetab {background-position:-240px 0px;}
+ /*关闭*/
+.icon-close {background-position:-256px 0px;}
+ /*关闭*/
+.icon-close-1 {background-position:-272px 0px;}
+ /*帮助*/
+.icon-help {background-position:-288px 0px;}
+ /*上一个、上一页*/
+.icon-prev {background-position:-304px 0px;}
+ /*下一个、下一页*/
+.icon-next {background-position:-320px 0px;}
+ /*首个、首页*/
+.icon-first {background-position:0px -16px;}
+ /*末尾、末页*/
+.icon-last {background-position:-16px -16px;}
+ /*保存、BO模型*/
+.icon-save {background-position:-32px -16px;}
+ /*授权*/
+.icon-empower {background-position:-48px -16px;}
+ /*授权*/
+.icon-empower-1 {background-position:-64px -16px;}
+ /*组织架构*/
+.icon-org {background-position:-80px -16px;}
+ /*组织架构*/
+.icon-org-1 {background-position:-96px -16px;}
+ /*查看、搜索*/
+.icon-search {background-position:-112px -16px;}
+ /*查看流程*/
+.icon-process {background-position:-128px -16px;}
+ /*删除*/
+.icon-remove {background-position:-144px -16px;}
+ /*删除、关闭*/
+.icon-remove-1 {background-position:-160px -16px;}
+ /*关闭*/
+.icon-close-2 {background-position:-176px -16px;}
+ /*移动端*/
+.icon-mobile {background-position:-192px -16px;}
+ /*安卓*/
+.icon-android {background-position:-208px -16px;}
+ /*IOS*/
+.icon-ios {background-position:-224px -16px;}
+ /*加载、更多*/
+.icon-more {background-position:-240px -16px;}
+ /*表单模型*/
+.icon-form {background-position:-256px -16px;}
+ /*(全部)选中*/
+.icon-check {background-position:-272px -16px;}
+ /*没有选中*/
+.icon-nocheck {background-position:-288px -16px;}
+ /*选中*/
+.icon-radio-check {background-position:-304px -16px;}
+ /*没有选中*/
+.icon-radio-nocheck {background-position:-320px -16px;}
+ /*字典*/
+.icon-dict {background-position:0px -32px;}
+ /*设备*/
+.icon-device {background-position:-16px -32px;}
+ /*锁定*/
+.icon-lock {background-position:-32px -32px;}
+ /*解锁*/
+.icon-unlock {background-position:-48px -32px;}
+ /*JavaScript事件*/
+.icon-js {background-position:-64px -32px;}
+ /*下载*/
+.icon-download {background-position:-80px -32px;}
+ /*上传*/
+.icon-upload {background-position:-96px -32px;}
+ /*可见*/
+.icon-view {background-position:-112px -32px;}
+ /*不可见*/
+.icon-invisible {background-position:-128px -32px;}
+ /*关注*/
+.icon-enjoy {background-position:-144px -32px;}
+ /*剪裁*/
+.icon-cut {background-position:-160px -32px;}
+ /*数值*/
+.icon-number {background-position:-176px -32px;}
+ /*货币*/
+.icon-currency {background-position:-192px -32px;}
+ /*调色*/
+.icon-color {background-position:-208px -32px;}
+ /*参考录入*/
+.icon-reference {background-position:-224px -32px;}
+ /*滑杆*/
+.icon-slide {background-position:-240px -32px;}
+ /*星形打分*/
+.icon-rating {background-position:-256px -32px;}
+ /*设置*/
+.icon-set {background-position:-272px -32px;}
+ /*二维码*/
+.icon-xcode {background-position:-288px -32px;}
+ /*信息流组件*/
+.icon-information {background-position:-304px -32px;}
+ /*字典印章*/
+.icon-seal {background-position:-320px -32px;}
+ /*模块*/
+.icon-modular {background-position:0px -48px;}
+ /*存储卡*/
+.icon-sd {background-position:-16px -48px;}
+ /*放大*/
+.icon-enlarge {background-position:-32px -48px;}
+ /*缩小*/
+.icon-narrow {background-position:-48px -48px;}
+ /*向左、返回*/
+.icon-back-1 {background-position:-64px -48px;}
+ /*向右*/
+.icon-forward {background-position:-80px -48px;}
+ /*向左*/
+.icon-left {background-position:-96px -48px;}
+ /*向左*/
+.icon-left-1 {background-position:-112px -48px;}
+ /*架子*/
+.icon-shelf {background-position:-128px -48px;}
+ /*打印*/
+.icon-print {background-position:-144px -48px;}
+ /*消息、信*/
+.icon-message {background-position:-160px -48px;}
+ /*链接*/
+.icon-link {background-position:-176px -48px;}
+ /*左尖括号*/
+.icon-left-1 {background-position:-192px -48px;}
+ /*右尖括号*/
+.icon-right-1 {background-position:-208px -48px;}
+ /*上尖括号*/
+.icon-up {background-position:-224px -48px;}
+ /*下尖括号*/
+.icon-down {background-position:-240px -48px;}
+ /*同意、认可*/
+.icon-ok {background-position:-256px -48px;}
+ /*背景块*/
+.icon-background {background-position:-272px -48px;}
+ /*警告*/
+.icon-warm-1 {background-position:-288px -48px;}
+ /*附件*/
+.icon-enclosure {background-position:-304px -48px;}
+ /*更多*/
+.icon-more-1 {background-position:-320px -48px;}
+ /*循环*/
+.icon-loop {background-position:0px -64px;}
+ /*不可循环*/
+.icon-noloop {background-position:-16px -64px;}
+ /*撤销*/
+.icon-revoke {background-position:-32px -64px;}
+ /*重做*/
+.icon-redo {background-position:-48px -64px;}
+ /*移动*/
+.icon-move {background-position:-64px -64px;}
+ /*通道*/
+.icon-crossing {background-position:-80px -64px;}
+ /*上小箭头*/
+.icon-up-1 {background-position:-96px -64px;}
+ /*下小箭头*/
+.icon-down-1 {background-position:-112px -64px;}
+ /*上箭头*/
+.icon-up-2 {background-position:-128px -64px;}
+ /*下箭头*/
+.icon-down-2 {background-position:-144px -64px;}
+ /*左箭头*/
+.icon-left-2 {background-position:-160px -64px;}
+ /*右箭头*/
+.icon-right-2 {background-position:-176px -64px;}
+ /*普通任务*/
+.icon-task {background-position:-192px -64px;}
+ /*任务*/
+.icon-task-1 {background-position:-208px -64px;}
+ /*通知任务*/
+.icon-task-2 {background-position:-224px -64px;}
+ /*批量添加用户*/
+.icon-user-batchadd {background-position:-240px -64px;}
+ /*添加用户*/
+.icon-adduser {background-position:-256px -64px;}
+ /*添加到购物车、订单*/
+.icon-inorder {background-position:-272px -64px;}
+ /*购物车、订单*/
+.icon-order {background-position:-288px -64px;}
+ /*权限组*/
+.icon-callingcards {background-position:0px 0px;}
+ /*身份*/
+.icon-identity {background-position:-16px 0px;}
+ /*无权限*/
+.icon-blackid {background-position:-32px 0px;}
+ /*角色*/
+.icon-role {background-position:-48px 0px;}
+ /*人员*/
+.icon-user {background-position:-64px 0px;}
+ /*领导*/
+.icon-user-1 {background-position:-80px 0px;}
+ /*身份组*/
+.icon-callingcards-1 {background-position:-96px 0px;}
+ /*卡片？？*/
+.icon-cards {background-position:0px 0px;}
+ /*增加一列*/
+.icon-addcolumn {background-position:-16px 0px;}
+ /*1列布局*/
+.icon-column-1 {background-position:-32px 0px;}
+ /*2列布局*/
+.icon-column-2 {background-position:-48px 0px;}
+ /*3列布局*/
+.icon-column-3 {background-position:-64px 0px;}
+ /*4列布局*/
+.icon-column-4 {background-position:-80px 0px;}
+ /*单行*/
+.icon-input {background-position:-96px 0px;}
+ /*2行(多行)*/
+.icon-area {background-position:-112px 0px;}
+ /*多行*/
+.icon-columns-1 {background-position:-128px 0px;}
+ /*多行*/
+.icon-columns-1 {background-position:-144px 0px;}
+ /*列表、多项*/
+.icon-select-1 {background-position:-160px 0px;}
+ /*列表、多项*/
+.icon-select-2 {background-position:-176px 0px;}
+ /*资源*/
+.icon-source-1 {background-position:-192px 0px;}
+ /*资源*/
+.icon-source-2 {background-position:-208px 0px;}
+ /*菜单*/
+.icon-menu-1 {background-position:-224px 0px;}
+ /*列分布*/
+.icon-column {background-position:-240px 0px;}
+ /*文件夹*/
+.icon-dir-2 {background-position:0px 0px;}
+ /*视频*/
+.icon-video {background-position:-16px 0px;}
+ /*音乐*/
+.icon-music {background-position:-32px 0px;}
+ /*文本文档*/
+.icon-text {background-position:-48px 0px;}
+ /*pdf*/
+.icon-pdf {background-position:-64px 0px;}
+ /*word*/
+.icon-word {background-position:-80px 0px;}
+ /*ppt*/
+.icon-ppt {background-position:-96px 0px;}
+ /*html*/
+.icon-html {background-position:-112px 0px;}
+ /*excel*/
+.icon-excel {background-position:-128px 0px;}
+ /*图片*/
+.icon-img {background-position:-144px 0px;}
+ /*压缩包*/
+.icon-compression {background-position:-160px 0px;}
+ /*旗帜、完成*/
+.icon-flag {background-position:0px 0px;}
+ /*时间*/
+.icon-flag-1 {background-position:-16px 0px;}
+ /*时间*/
+.icon-flag-2 {background-position:-32px 0px;}
+ /*信息簿*/
+.icon-operation-1 {background-position:-48px 0px;}
+ /*信息簿*/
+.icon-operation-2 {background-position:-64px 0px;}
+ /*文件夹*/
+.icon-dir {background-position:-80px 0px;}
+ /*公文包*/
+.icon-bag {background-position:-96px 0px;}
+ /*书签*/
+.icon-bookmark {background-position:-112px 0px;}
+ /*文件*/
+.icon-page {background-position:-128px 0px;}
+ /*确定、完成*/
+.icon-done {background-position:-144px 0px;}
+ /*箭头*/
+.icon-item {background-position:0px 0px;}
+ /*对勾*/
+.icon-ok {background-position:-16px 0px;}
+ /*黄底消息框*/
+.icon-dialog-yellow {background-position:-32px 0px;}
+ /*蓝底消息框*/
+.icon-dialog-blue {background-position:-48px 0px;}
+ /*绿底消息框*/
+.icon-dialog-green {background-position:-64px 0px;}
+ /*错误*/
+.icon-error {background-position:-80px 0px;}
+ /*警告*/
+.icon-warm {background-position:-96px 0px;}
+ /*笔记本*/
+.icon-notebook {background-position:0px 0px;}
+ /*键盘*/
+.icon-keyboard {background-position:-16px 0px;}
+ /*耳机*/
+.icon-headset {background-position:-32px 0px;}
+ /*鼠标*/
+.icon-mouse {background-position:-48px 0px;}
+ /*盾牌*/
+.icon-safe {background-position:-64px 0px;}
+ /*麦克*/
+.icon-mic {background-position:-80px 0px;}
+ /*返回*/
+.icon-back {background-position:-96px 0px;}
+ /*信号？？*/
+.icon-wifi {background-position:-112px 0px;}
+ /*台机*/
+.icon-pc {background-position:-128px 0px;}
+ /*英镑*/
+.icon-pound {background-position:0px 0px;}
+ /*美元*/
+.icon-dollar {background-position:-16px 0px;}
+ /*人民币*/
+.icon-rmb {background-position:-32px 0px;}
+ /*港币*/
+.icon-hk {background-position:-48px 0px;}
+ /*调音*/
+.icon-toning {background-position:-64px 0px;}
+ /*上下*/
+.icon-updown {background-position:-80px 0px;}
+ /*全屏*/
+.icon-fullscreen {background-position:-96px 0px;}
+ /*波*/
+.icon-wave {background-position:-112px 0px;}
+ /*信号*/
+.icon-signal {background-position:-128px 0px;}
+ /*目标*/
+.icon-target {background-position:-144px 0px;}
+ /*液体*/
+.icon-wet {background-position:-160px 0px;}
+ /*仪表盘*/
+.icon-dashboard {background-position:-176px 0px;}
+ /*教育、学历*/
+.icon-education {background-position:-192px 0px;}
+ /*端口*/
+.icon-port {background-position:-208px 0px;}
+ /*路线*/
+.icon-route {background-position:-224px 0px;}
+ /*水平方向*/
+.icon-horizontal {background-position:-240px 0px;}
+ /*垂直方向*/
+.icon-vertical {background-position:-256px 0px;}
+ /*公式*/
+.icon-formula {background-position:-272px 0px;}
+ /*修理、设置*/
+.icon-repair {background-position:-288px 0px;}
+ /*芯片*/
+.icon-cpu {background-position:-304px 0px;}
+ /*接口、服务*/
+.icon-service {background-position:-320px 0px;}
+ /*线状图*/
+.icon-line {background-position:0px -16px;}
+ /*线程、流程*/
+.icon-thread {background-position:-16px -16px;}
+ /*合并*/
+.icon-merge {background-position:-32px -16px;}
+ /*拆分*/
+.icon-split {background-position:-48px -16px;}
+ /*柱状图*/
+.icon-bar {background-position:-64px -16px;}
+ /*饼状图*/
+.icon-pie {background-position:-80px -16px;}
+ /*循环*/
+.icon-loop-1 {background-position:-96px -16px;}
+ /*导向*/
+.icon-guide {background-position:-112px -16px;}
+ /*频率*/
+.icon-rate {background-position:-128px -16px;}
+ /*散点图*/
+.icon-scatter {background-position:-144px -16px;}
+ /*工具箱*/
+.icon-toolbox {background-position:-160px -16px;}

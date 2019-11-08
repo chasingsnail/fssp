@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="基于AWSUI-columnForm的主流前端响应式框架">
+		<meta name="keywords" content="表单 - AWSUI">
+		<title>ColumnForm</title>
+		<link rel="stylesheet" href="../css/bootstrap.css">
+		<link rel="stylesheet" href="../../css/awsui.css">
+		<link rel="stylesheet" href="../css/uidoc.css?v=1">
+		<link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+		<style>
+			.tooltip{
+				opacity: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="awsui-wrapper">
+			<div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 awsui-border-bottom">
+				<div class="awsui-markdown">
+					<h1 class="title2" id="columnForm">表单</h1>
+					<p class="awsui-margin-bottom-14">具有数据收集、校验和提交功能的表单，包含复选框、单选框、输入框、下拉选择框等元素，我们为 form 提供了以下三种布局方式：</p>
+					<ul>
+						<li>水平布局：标签和表单控件水平排列。</li>
+						<li>垂直布局：标签和表单控件上下垂直排列。</li>
+						<li>行内两列布局：表单项水平行内排列。</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event1">
+					水平布局
+				</div>
+				<p class="awsui-margin-top-5">标签和表单控件水平排列。</p>
+				<div class="awsui-code-demo">
+					<div class="awsui-code-content awsui-public-border awsui-public-radius">
+						<div class="awsui-container-fluid">
+							<div class="awsui-row">
+								<div class="awsui-col-xs-1 awsui-col-sm-1 awsui-col-md-1 awsui-col-lg-1 awsui-text">输入框</div>
+								<div class="awsui-col-xs-10 awsui-col-sm-10 awsui-col-md-10 awsui-col-lg-10 awsui-form-parent">
+									<span class="required"><input type="text" class="awsui-input" placeholder="请输入标题"/></span>
+								</div>
+							</div>
+							<div class="awsui-row">
+								<div class="awsui-col-xs-1 awsui-col-sm-1 awsui-col-md-1 awsui-col-lg-1 awsui-text">密码框</div>
+								<div class="awsui-col-xs-10 awsui-col-sm-10 awsui-col-md-10 awsui-col-lg-10 awsui-form-parent">
+									<span class="required"><input type="password" class="awsui-input" placeholder="请输入密码"></span>
+								</div>
+							</div>
+							<div class="awsui-row">
+								<div class="awsui-col-xs-1 awsui-col-sm-1 awsui-col-md-1 awsui-col-lg-1 awsui-text">搜索框</div>
+								<div class="awsui-col-xs-10 awsui-col-sm-10 awsui-col-md-10 awsui-col-lg-10 awsui-form-parent">
+									<span class="awsui-input-wrapper">
+										<input type="text" placeholder="请搜索..." value="" class="awsui-input"/>
+										<span class="awsui-input-suffix" id="buttonedit1">
+											<i class="awsui-iconfont awsui-cursor">&#59113;</i>
+										</span>
+									</span>
+								</div>
+							</div>
+							<div class="awsui-row">
+								<div class="awsui-col-xs-1 awsui-col-sm-1 awsui-col-md-1 awsui-col-lg-1 awsui-text" >下拉框</div>
+								<div class="awsui-col-xs-10 awsui-col-sm-10 awsui-col-md-10 awsui-col-lg-10 awsui-form-parent">
+									<select id="demo1"></select>
+								</div>
+							</div>
+							<div class="awsui-row">
+								<div class="awsui-col-xs-1 awsui-col-sm-1 awsui-col-md-1 awsui-col-lg-1 awsui-text" >日期</div>
+								<div class="awsui-col-xs-10 awsui-col-sm-10 awsui-col-md-10 awsui-col-lg-10 awsui-form-parent">
+									<span class="required"><input class="awsui-datepicker awsui-input" for="日期" placeholder="请选择日期"/></span>
+								</div>
+							</div>
+							<div class="awsui-row">
+								<div class="awsui-col-xs-1 awsui-col-sm-1 awsui-col-md-1 awsui-col-lg-1 awsui-text">时间</div>
+								<div class="awsui-col-xs-10 awsui-col-sm-10 awsui-col-md-10 awsui-col-lg-10 awsui-form-parent">
+									<span class="required"><input class="awsui-datepicker awsui-input" for="时间" placeholder="请选择时间" awsui-props="HH:mm:ss"/></span>
+								</div>
+							</div>
+							<div class="awsui-row">
+								<div class="awsui-col-xs-1 awsui-col-sm-1 awsui-col-md-1 awsui-col-lg-1 awsui-textar">文本域</div>
+								<div class="awsui-col-xs-10 awsui-col-sm-10 awsui-col-md-10 awsui-col-lg-10 awsui-form-parent">
+									<span class="required"><textarea type="text" placeholder="请输入文本..." rows="4" class="awsui-input"></textarea></span>
+								</div>
+							</div>
+							<div class="awsui-row">
+								<div class="awsui-col-xs-1 awsui-col-sm-1 awsui-col-md-1 awsui-col-lg-1 awsui-text">复选框</div>
+								<div class="awsui-col-xs-10 awsui-col-sm-10 awsui-col-md-10 awsui-col-lg-10 awsui-form-parent">
+									<input class="awsui-checkbox" checked="checked" id="ck1" value="1" type="checkbox" style="flex: 1;margin-left:15px">
+									<label class="awsui-checkbox-label" for="ck1" >选项1</label>
+									<input class="awsui-checkbox large" id="ck2" value="2" type="checkbox" style="flex: 1;margin-left:15px">
+									<label class="awsui-checkbox-label" for="ck2">选项2</label>
+								</div>
+							</div>
+							<div class="awsui-row">
+								<div class="awsui-col-xs-1 awsui-col-sm-1 awsui-col-md-1 awsui-col-lg-1 awsui-text">单选框</div>
+								<div class="awsui-col-xs-10 awsui-col-sm-10 awsui-col-md-10 awsui-col-lg-10 awsui-form-parent">
+									<input class="awsui-radio" checked="checked" name="radiox1" id="rdo1" value="1" type="radio" style="flex: 1">
+									<label class="awsui-radio-label" for="rdo1">选项1</label>
+									<input class="awsui-radio" name="radiox1" id="rdo2" value="2" type="radio" style="flex: 1">
+									<label class="awsui-radio-label" for="rdo2">选项2</label>
+								</div>
+							</div>
+							<div class="awsui-row">
+								<div class="awsui-col-xs-1 awsui-col-sm-1 awsui-col-md-1 awsui-col-lg-1 awsui-text">开关</div>
+								<div class="awsui-col-xs-10 awsui-col-sm-10 awsui-col-md-10 awsui-col-lg-10 awsui-form-parent">
+									<input type="checkbox" id="switch" style="flex:1;margin-left: 15px;">
+								</div>
+							</div>
+							<div class="awsui-row">
+								<div class="awsui-col-xs-1 awsui-col-sm-1 awsui-col-md-1 awsui-col-lg-1 awsui-text">按钮</div>
+								<div class="awsui-col-xs-10 awsui-col-sm-10 awsui-col-md-10 awsui-col-lg-10 awsui-form-parent">
+									<div class="awsui-col-xs-2 awsui-col-sm-2 awsui-col-md-2 awsui-col-lg-2">
+										<button type="button" class="button blue" id="submit1">提交</button>
+									</div>
+									<div class="awsui-col-xs-2 awsui-col-sm-2 awsui-col-md-2 awsui-col-lg-2">
+										<button type="button" class="button"  id="cancel1">取消</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;div class="awsui-code-content awsui-public-border awsui-public-radius"&gt;
+	&lt;div class="awsui-container-fluid"&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-1 awsui-col-sm-1 awsui-col-md-1 awsui-col-lg-1 awsui-text"&gt;输入框&lt;/div&gt;
+			&lt;div class="awsui-col-xs-10 awsui-col-sm-10 awsui-col-md-10 awsui-col-lg-10 awsui-form-parent"&gt;
+				&lt;input type="text" class="awsui-input" placeholder="请输入标题"&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-1 awsui-col-sm-1 awsui-col-md-1 awsui-col-lg-1 awsui-text"&gt;密码框&lt;/div&gt;
+			&lt;div class="awsui-col-xs-10 awsui-col-sm-10 awsui-col-md-10 awsui-col-lg-10 awsui-form-parent"&gt;
+				&lt;input type="password" class="awsui-input" placeholder="请输入密码"&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-1 awsui-col-sm-1 awsui-col-md-1 awsui-col-lg-1 awsui-text"&gt;搜索框&lt;/div&gt;
+			&lt;div class="awsui-col-xs-10 awsui-col-sm-10 awsui-col-md-10 awsui-col-lg-10 awsui-form-parent"&gt;
+				&lt;span class="awsui-input-wrapper"&gt;
+					&lt;input type="text" placeholder="请搜索..." value="" class="awsui-input"/&gt;
+					&lt;span class="awsui-input-suffix" id="buttonedit1"&gt;
+						&lt;i class="awsui-iconfont awsui-cursor"&gt;&#59113;&lt;/i&gt;
+					&lt;/span&gt;
+				&lt;/span&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-1 awsui-col-sm-1 awsui-col-md-1 awsui-col-lg-1 awsui-text" &gt;下拉框&lt;/div&gt;
+			&lt;div class="awsui-col-xs-10 awsui-col-sm-10 awsui-col-md-10 awsui-col-lg-10 awsui-form-parent"&gt;
+				&lt;select id="demo1"&gt;&lt;/select&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-1 awsui-col-sm-1 awsui-col-md-1 awsui-col-lg-1 awsui-text" &gt;日期&lt;/div&gt;
+			&lt;div class="awsui-col-xs-10 awsui-col-sm-10 awsui-col-md-10 awsui-col-lg-10 awsui-form-parent"&gt;
+				&lt;input class="awsui-datepicker awsui-input" placeholder="请选择日期"&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-1 awsui-col-sm-1 awsui-col-md-1 awsui-col-lg-1 awsui-text"&gt;时间&lt;/div&gt;
+			&lt;div class="awsui-col-xs-10 awsui-col-sm-10 awsui-col-md-10 awsui-col-lg-10 awsui-form-parent"&gt;
+				&lt;input class="awsui-datepicker awsui-input" placeholder="请选择时间" awsui-props="HH:mm:ss"&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-1 awsui-col-sm-1 awsui-col-md-1 awsui-col-lg-1 awsui-textar"&gt;文本域&lt;/div&gt;
+			&lt;div class="awsui-col-xs-10 awsui-col-sm-10 awsui-col-md-10 awsui-col-lg-10 awsui-form-parent"&gt;
+				&lt;textarea type="text" placeholder="请输入文本..." rows="4" class="awsui-input"&gt;&lt;/textarea&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-1 awsui-col-sm-1 awsui-col-md-1 awsui-col-lg-1 awsui-text"&gt;复选框&lt;/div&gt;
+			&lt;div class="awsui-col-xs-10 awsui-col-sm-10 awsui-col-md-10 awsui-col-lg-10 awsui-form-parent"&gt;
+				&lt;input class="awsui-checkbox" checked="checked" id="ck1" value="1" type="checkbox" style="flex: 1;margin-left:15px"&gt;
+				&lt;label class="awsui-checkbox-label" for="ck1" &gt;选项1&lt;/label&gt;
+				&lt;input class="awsui-checkbox large" id="ck2" value="2" type="checkbox" style="flex: 1;margin-left:15px"&gt;
+				&lt;label class="awsui-checkbox-label" for="ck2"&gt;选项2&lt;/label&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-1 awsui-col-sm-1 awsui-col-md-1 awsui-col-lg-1 awsui-text"&gt;单选框&lt;/div&gt;
+			&lt;div class="awsui-col-xs-10 awsui-col-sm-10 awsui-col-md-10 awsui-col-lg-10 awsui-form-parent"&gt;
+				&lt;input class="awsui-radio" checked="checked" name="radiox1" id="rdo1" value="1" type="radio" style="flex: 1"&gt;
+				&lt;label class="awsui-radio-label" for="rdo1"&gt;选项1&lt;/label&gt;
+				&lt;input class="awsui-radio" name="radiox1" id="rdo2" value="2" type="radio" style="flex: 1"&gt;
+				&lt;label class="awsui-radio-label" for="rdo2"&gt;选项2&lt;/label&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-1 awsui-col-sm-1 awsui-col-md-1 awsui-col-lg-1 awsui-text"&gt;开关&lt;/div&gt;
+			&lt;div class="awsui-col-xs-10 awsui-col-sm-10 awsui-col-md-10 awsui-col-lg-10 awsui-form-parent"&gt;
+				&lt;input type="checkbox" id="switch" style="flex:1;margin-left: 15px;"&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-1 awsui-col-sm-1 awsui-col-md-1 awsui-col-lg-1 awsui-text"&gt;按钮&lt;/div&gt;
+			&lt;div class="awsui-col-xs-10 awsui-col-sm-10 awsui-col-md-10 awsui-col-lg-10 awsui-form-parent"&gt;
+				&lt;div class="awsui-col-xs-2 awsui-col-sm-2 awsui-col-md-2 awsui-col-lg-2"&gt;
+					&lt;button type="button" class="button blue" id="submit1"&gt;提交&lt;/button&gt;
+				&lt;/div&gt;
+				&lt;div class="awsui-col-xs-2 awsui-col-sm-2 awsui-col-md-2 awsui-col-lg-2"&gt;
+					&lt;button type="button" class="button"  id="cancel1"&gt;取消&lt;/button&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$(document).ready(function() {
+	awsui.parse(); //日历插件
+	var opt = {
+		width : "100%",
+		data : [
+			{id:"lb",text:"刘备"},
+			{id:"gy",text:"关羽"},
+			{id:"zf",text:"张飞"}
+		]
+	};
+	$("#demo1").select2(opt);
+	$("#buttonedit1").on("click",function(){
+		alert("这是一个搜索框");
+	});
+	$("#switch").switchButton();
+	$("#submit1").on("click",function(){
+		$.simpleAlert("点击了提交","ok");
+	});
+	$("#cancel1").on("click",function(){
+		$.simpleAlert("点击了取消");
+	});
+	$(".required").find(".awsui-input").focus(function () {
+		$.each($(".required").find(".awsui-input"),function(i,el){
+			$(el).css("background-color","#fff");
+		});
+		$(this).css("background-color","#FFFFCC");
+	});
+	$(".required").find(".awsui-input").blur(function () {
+		var inputVal = $(this).val();
+		if (inputVal == "") {
+			$(this).tooltip({
+				positon : "top",
+				text : "不允许为空，请重新输入",
+				bgcolor : "#f9f9f9",
+				color : "red",
+				borderColor : "red",
+				close:false
+			});
+			return false;
+		}
+	});
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event2">
+					垂直布局
+				</div>
+				<p class="awsui-margin-top-5">标签和表单控件上下垂直排列。</p>
+				<div class="awsui-code-demo">
+					<div class="awsui-code-content awsui-public-border awsui-public-radius">
+						<div class="awsui-container-fluid">
+							<div class="awsui-row">
+								<div class="awsui-col-xs-12 awsui-col-sm-12 awsui-col-md-12 awsui-col-lg-12 awsui-text">输入框</div>
+							</div>
+							<div class="awsui-row">
+								<div class="awsui-col-xs-11 awsui-col-sm-11 awsui-col-md-11 awsui-col-lg-11 awsui-form-parent">
+									<input type="text" class="awsui-input" placeholder="请输入标题">
+								</div>
+							</div>
+						</div>
+
+						<div class="awsui-container-fluid">
+							<div class="awsui-row">
+								<div class="awsui-col-xs-12 awsui-col-sm-12 awsui-col-md-12 awsui-col-lg-12 awsui-text">密码框</div>
+							</div>
+							<div class="awsui-row">
+								<div class="awsui-col-xs-11 awsui-col-sm-11 awsui-col-md-11 awsui-col-lg-11 awsui-form-parent">
+									<input type="password" class="awsui-input" placeholder="请输入密码">
+								</div>
+							</div>
+						</div>
+
+						<div class="awsui-container-fluid">
+							<div class="awsui-row">
+								<div class="awsui-col-xs-12 awsui-col-sm-12 awsui-col-md-12 awsui-col-lg-12 awsui-text">搜索框</div>
+							</div>
+							<div class="awsui-row">
+								<div class="awsui-col-xs-11 awsui-col-sm-11 awsui-col-md-11 awsui-col-lg-11 awsui-form-parent">
+									<span class="awsui-input-wrapper">
+										<input type="text" placeholder="请搜索..." value="" class="awsui-input"/>
+										<span class="awsui-input-suffix" id="buttonedit2">
+											<i class="awsui-iconfont awsui-cursor">&#59113;</i>
+										</span>
+									</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="awsui-container-fluid">
+							<div class="awsui-row">
+								<div class="awsui-col-xs-12 awsui-col-sm-12 awsui-col-md-12 awsui-col-lg-12 awsui-text">下拉框</div>
+							</div>
+							<div class="awsui-row">
+								<div class="awsui-col-xs-11 awsui-col-sm-11 awsui-col-md-11 awsui-col-lg-11 awsui-form-parent">
+									<select id="demo2"></select>
+								</div>
+							</div>
+						</div>
+
+						<div class="awsui-container-fluid">
+							<div class="awsui-row">
+								<div class="awsui-col-xs-12 awsui-col-sm-12 awsui-col-md-12 awsui-col-lg-12 awsui-text">日期</div>
+							</div>
+							<div class="awsui-row">
+								<div class="awsui-col-xs-11 awsui-col-sm-11 awsui-col-md-11 awsui-col-lg-11 awsui-form-parent">
+									<input class="awsui-datepicker awsui-input" placeholder="请选择日期">
+								</div>
+							</div>
+						</div>
+
+						<div class="awsui-container-fluid">
+							<div class="awsui-row">
+								<div class="awsui-col-xs-12 awsui-col-sm-12 awsui-col-md-12 awsui-col-lg-12 awsui-text">时间</div>
+							</div>
+							<div class="awsui-row">
+								<div class="awsui-col-xs-11 awsui-col-sm-11 awsui-col-md-11 awsui-col-lg-11 awsui-form-parent">
+									<input class="awsui-datepicker awsui-input" placeholder="请选择时间" awsui-props="HH:mm:ss">
+								</div>
+							</div>
+						</div>
+
+						<div class="awsui-container-fluid">
+							<div class="awsui-row">
+								<div class="awsui-col-xs-12 awsui-col-sm-12 awsui-col-md-12 awsui-col-lg-12 awsui-text">文本域</div>
+							</div>
+							<div class="awsui-row">
+								<div class="awsui-col-xs-11 awsui-col-sm-11 awsui-col-md-11 awsui-col-lg-11 awsui-form-parent">
+									<textarea type="text" placeholder="请输入文本..." rows="4" class="awsui-input"></textarea>
+								</div>
+							</div>
+						</div>
+
+						<div class="awsui-container-fluid">
+							<div class="awsui-row">
+								<div class="awsui-col-xs-1 awsui-col-sm-1 awsui-col-md-1 awsui-col-lg-1 awsui-text">复选框</div>
+							</div>
+							<div class="awsui-row">
+								<div class="awsui-col-xs-11 awsui-col-sm-11 awsui-col-md-11 awsui-col-lg-11 awsui-form-parent">
+									<input class="awsui-checkbox" checked="checked" id="ckB1" value="1" type="checkbox" style="flex: 1;margin-left:15px">
+									<label class="awsui-checkbox-label" for="ckB1" >选项1</label>
+									<input class="awsui-checkbox large" id="ckB2" value="2" type="checkbox" style="flex: 1;margin-left:15px">
+									<label class="awsui-checkbox-label" for="ckB2">选项2</label>
+								</div>
+							</div>
+						</div>
+
+						<div class="awsui-container-fluid">
+							<div class="awsui-row">
+								<div class="awsui-col-xs-1 awsui-col-sm-1 awsui-col-md-1 awsui-col-lg-1 awsui-text">单选框</div>
+							</div>
+							<div class="awsui-row">
+								<div class="awsui-col-xs-11 awsui-col-sm-11 awsui-col-md-11 awsui-col-lg-11 awsui-form-parent">
+									<input class="awsui-radio" checked="checked" name="radio2" id="rdoB1" value="1" type="radio" style="flex: 1">
+									<label class="awsui-radio-label" for="rdoB1">选项1</label>
+									<input class="awsui-radio" name="radio2" id="rdoB2" value="2" type="radio" style="flex: 1">
+									<label class="awsui-radio-label" for="rdoB2">选项2</label>
+								</div>
+							</div>
+						</div>
+
+						<div class="awsui-container-fluid">
+							<div class="awsui-row">
+								<div class="awsui-col-xs-10 awsui-col-sm-10 awsui-col-md-10 awsui-col-lg-10 awsui-form-parent">
+									<div class="awsui-col-xs-2 awsui-col-sm-2 awsui-col-md-2 awsui-col-lg-2">
+										<button type="button" class="button blue" id="submit2">提交</button>
+									</div>
+									<div class="awsui-col-xs-2 awsui-col-sm-2 awsui-col-md-2 awsui-col-lg-2">
+										<button type="button" class="button"  id="cancel2">取消</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;div class="awsui-code-content awsui-public-border awsui-public-radius"&gt;
+	&lt;div class="awsui-container-fluid"&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-12 awsui-col-sm-12 awsui-col-md-12 awsui-col-lg-12 awsui-text"&gt;输入框&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-11 awsui-col-sm-11 awsui-col-md-11 awsui-col-lg-11 awsui-form-parent"&gt;
+				&lt;input type="text" class="awsui-input" placeholder="请输入标题"&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class="awsui-container-fluid"&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-12 awsui-col-sm-12 awsui-col-md-12 awsui-col-lg-12 awsui-text"&gt;密码框&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-11 awsui-col-sm-11 awsui-col-md-11 awsui-col-lg-11 awsui-form-parent"&gt;
+				&lt;input type="password" class="awsui-input" placeholder="请输入密码"&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class="awsui-container-fluid"&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-12 awsui-col-sm-12 awsui-col-md-12 awsui-col-lg-12 awsui-text"&gt;搜索框&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-11 awsui-col-sm-11 awsui-col-md-11 awsui-col-lg-11 awsui-form-parent"&gt;
+				&lt;span class="awsui-input-wrapper"&gt;
+					&lt;input type="text" placeholder="请搜索..." value="" class="awsui-input"/&gt;
+					&lt;span class="awsui-input-suffix" id="buttonedit2"&gt;
+						&lt;i class="awsui-iconfont awsui-cursor"&gt;&#59113;&lt;/i&gt;
+					&lt;/span&gt;
+				&lt;/span&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class="awsui-container-fluid"&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-12 awsui-col-sm-12 awsui-col-md-12 awsui-col-lg-12 awsui-text"&gt;下拉框&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-11 awsui-col-sm-11 awsui-col-md-11 awsui-col-lg-11 awsui-form-parent"&gt;
+				&lt;select id="demo2"&gt;&lt;/select&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class="awsui-container-fluid"&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-12 awsui-col-sm-12 awsui-col-md-12 awsui-col-lg-12 awsui-text"&gt;日期&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-11 awsui-col-sm-11 awsui-col-md-11 awsui-col-lg-11 awsui-form-parent"&gt;
+				&lt;input class="awsui-datepicker awsui-input" placeholder="请选择日期"&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class="awsui-container-fluid"&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-12 awsui-col-sm-12 awsui-col-md-12 awsui-col-lg-12 awsui-text"&gt;时间&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-11 awsui-col-sm-11 awsui-col-md-11 awsui-col-lg-11 awsui-form-parent"&gt;
+				&lt;input class="awsui-datepicker awsui-input" placeholder="请选择时间" awsui-props="HH:mm:ss"&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class="awsui-container-fluid"&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-12 awsui-col-sm-12 awsui-col-md-12 awsui-col-lg-12 awsui-text"&gt;文本域&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-11 awsui-col-sm-11 awsui-col-md-11 awsui-col-lg-11 awsui-form-parent"&gt;
+				&lt;textarea type="text" placeholder="请输入文本..." rows="4" class="awsui-input"&gt;&lt;/textarea&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class="awsui-container-fluid"&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-1 awsui-col-sm-1 awsui-col-md-1 awsui-col-lg-1 awsui-text"&gt;复选框&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-11 awsui-col-sm-11 awsui-col-md-11 awsui-col-lg-11 awsui-form-parent"&gt;
+				&lt;input class="awsui-checkbox" checked="checked" id="ckB1" value="1" type="checkbox" style="flex: 1;margin-left:15px"&gt;
+				&lt;label class="awsui-checkbox-label" for="ckB1" &gt;选项1&lt;/label&gt;
+				&lt;input class="awsui-checkbox large" id="ckB2" value="2" type="checkbox" style="flex: 1;margin-left:15px"&gt;
+				&lt;label class="awsui-checkbox-label" for="ckB2"&gt;选项2&lt;/label&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class="awsui-container-fluid"&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-1 awsui-col-sm-1 awsui-col-md-1 awsui-col-lg-1 awsui-text"&gt;单选框&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-11 awsui-col-sm-11 awsui-col-md-11 awsui-col-lg-11 awsui-form-parent"&gt;
+				&lt;input class="awsui-radio" checked="checked" name="radio2" id="rdoB1" value="1" type="radio" style="flex: 1"&gt;
+				&lt;label class="awsui-radio-label" for="rdoB1"&gt;选项1&lt;/label&gt;
+				&lt;input class="awsui-radio" name="radio2" id="rdoB2" value="2" type="radio" style="flex: 1"&gt;
+				&lt;label class="awsui-radio-label" for="rdoB2"&gt;选项2&lt;/label&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class="awsui-container-fluid"&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-10 awsui-col-sm-10 awsui-col-md-10 awsui-col-lg-10 awsui-form-parent"&gt;
+				&lt;div class="awsui-col-xs-2 awsui-col-sm-2 awsui-col-md-2 awsui-col-lg-2"&gt;
+					&lt;button type="button" class="button blue" id="submit2"&gt;提交&lt;/button&gt;
+				&lt;/div&gt;
+				&lt;div class="awsui-col-xs-2 awsui-col-sm-2 awsui-col-md-2 awsui-col-lg-2"&gt;
+					&lt;button type="button" class="button"  id="cancel2"&gt;取消&lt;/button&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$(document).ready(function() {
+    awsui.parse(); //日历插件
+    var opt = {
+        width : "100%",
+        data : [
+            {id:"lb",text:"刘备"},
+            {id:"gy",text:"关羽"},
+            {id:"zf",text:"张飞"}
+        ]
+    };
+    $("#demo2").select2(opt);
+    $("#buttonedit2").on("click",function(){
+        alert("这是一个搜索框");
+    });
+    $("#submit2").on("click",function(){
+        $.simpleAlert("点击了提交","ok");
+    });
+    $("#cancel2").on("click",function(){
+        $.simpleAlert("点击了取消");
+    });
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event3">
+					行内两列布局
+				</div>
+				<p class="awsui-margin-top-5">表单项水平行内排列。</p>
+				<div class="awsui-code-demo">
+					<div class="awsui-code-content awsui-public-border awsui-public-radius">
+						<div class="awsui-container-fluid">
+							<div class="awsui-row">
+								<div class="awsui-col-xs-6 awsui-col-sm-6 awsui-col-md-6 awsui-col-lg-6">
+									<div class="awsui-col-xs-2 awsui-col-sm-2 awsui-col-md-2 awsui-col-lg-2 awsui-text">用户名</div>
+									<div class="awsui-col-xs-9 awsui-col-sm-9 awsui-col-md-9 awsui-col-lg-9 awsui-form-parent">
+										<span class="awsui-input-wrapper">
+											<span class="awsui-input-prefix">
+												<i class="awsui-iconfont">&#58906;</i>
+											</span>
+											<input type="text" value="" placeholder="Username" class="awsui-input" style="padding-left: 24px\9;"/>
+										</span>
+									</div>
+								</div>
+								<div class="awsui-col-xs-6 awsui-col-sm-6 awsui-col-md-6 awsui-col-lg-6">
+									<div class="awsui-col-xs-2 awsui-col-sm-2 awsui-col-md-2 awsui-col-lg-2 awsui-text">密&nbsp;&nbsp;&nbsp;&nbsp;码</div>
+									<div class="awsui-col-xs-9 awsui-col-sm-9 awsui-col-md-9 awsui-col-lg-9 awsui-form-parent">
+										<span class="awsui-input-wrapper">
+											<span class="awsui-input-prefix">
+												<i class="awsui-iconfont">&#59355;</i>
+											</span>
+											<input type="password" value="" placeholder="Password" class="awsui-input" style="padding-left: 24px\9;"/>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="awsui-row">
+								<div class="awsui-col-xs-6 awsui-col-sm-6 awsui-col-md-6 awsui-col-lg-6">
+									<div class="awsui-col-xs-2 awsui-col-sm-2 awsui-col-md-2 awsui-col-lg-2 awsui-text">搜索框</div>
+									<div class="awsui-col-xs-9 awsui-col-sm-9 awsui-col-md-9 awsui-col-lg-9 awsui-form-parent">
+										<span class="awsui-input-wrapper">
+											<input type="text" placeholder="请搜索..." value="" class="awsui-input"/>
+											<span class="awsui-input-suffix" id="buttonedit3">
+												<i class="awsui-iconfont awsui-cursor">&#59113;</i>
+											</span>
+										</span>
+									</div>
+								</div>
+								<div class="awsui-col-xs-6 awsui-col-sm-6 awsui-col-md-6 awsui-col-lg-6">
+									<div class="awsui-col-xs-2 awsui-col-sm-2 awsui-col-md-2 awsui-col-lg-2 awsui-text">下拉框</div>
+									<div class="awsui-col-xs-9 awsui-col-sm-9 awsui-col-md-9 awsui-col-lg-9 awsui-form-parent">
+										<select id="demo3"></select>
+									</div>
+								</div>
+							</div>
+							<div class="awsui-row">
+								<div class="awsui-col-xs-6 awsui-col-sm-6 awsui-col-md-6 awsui-col-lg-6">
+									<div class="awsui-col-xs-2 awsui-col-sm-2 awsui-col-md-2 awsui-col-lg-2 awsui-text">日期</div>
+									<div class="awsui-col-xs-9 awsui-col-sm-9 awsui-col-md-9 awsui-col-lg-9 awsui-form-parent">
+										<span class="awsui-input-wrapper">
+											<input type="text" placeholder="请选择日期" value="" class="awsui-datepicker awsui-input" style="padding-right: 24px\9;"/>
+											<span class="awsui-input-suffix">
+												<i class="awsui-iconfont">&#59047;</i>
+											</span>
+										</span>
+									</div>
+								</div>
+								<div class="awsui-col-xs-6 awsui-col-sm-6 awsui-col-md-6 awsui-col-lg-6">
+									<div class="awsui-col-xs-2 awsui-col-sm-2 awsui-col-md-2 awsui-col-lg-2 awsui-text">时间</div>
+									<div class="awsui-col-xs-9 awsui-col-sm-9 awsui-col-md-9 awsui-col-lg-9 awsui-form-parent">
+										<span class="awsui-input-wrapper">
+											<input type="text" placeholder="请选择时间" value="" class="awsui-datepicker awsui-input" awsui-props="HH:mm:ss" style="padding-right: 24px\9;"/>
+											<span class="awsui-input-suffix">
+												<i class="awsui-iconfont">&#59190;</i>
+											</span>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="awsui-row">
+								<div class="awsui-col-xs-6 awsui-col-sm-6 awsui-col-md-6 awsui-col-lg-6">
+									<div class="awsui-col-xs-2 awsui-col-sm-2 awsui-col-md-2 awsui-col-lg-2 awsui-text">单选框</div>
+									<div class="awsui-col-xs-9 awsui-col-sm-9 awsui-col-md-9 awsui-col-lg-9 awsui-form-parent">
+										<input class="awsui-radio" checked="checked" name="radio" id="rdoC1" value="1" type="radio" style="flex: 1">
+										<label class="awsui-radio-label" for="rdoC1">选项1</label>
+										<input class="awsui-radio" name="radio" id="rdoC2" value="2" type="radio" style="flex: 1">
+										<label class="awsui-radio-label" for="rdoC2">选项2</label>
+									</div>
+								</div>
+								<div class="awsui-col-xs-6 awsui-col-sm-6 awsui-col-md-6 awsui-col-lg-6">
+									<div class="awsui-col-xs-2 awsui-col-sm-2 awsui-col-md-2 awsui-col-lg-2 awsui-text">复选框</div>
+									<div class="awsui-col-xs-9 awsui-col-sm-9 awsui-col-md-9 awsui-col-lg-9 awsui-form-parent">
+										<input class="awsui-checkbox" checked="checked" id="ckC1" value="1" type="checkbox" style="flex: 1;margin-left:15px">
+										<label class="awsui-checkbox-label" for="ckC1" >选项1</label>
+										<input class="awsui-checkbox large" id="ckC2" value="2" type="checkbox" style="flex: 1;margin-left:15px">
+										<label class="awsui-checkbox-label" for="ckC2">选项2</label>
+									</div>
+								</div>
+							</div>
+							<div class="awsui-row">
+								<div class="awsui-col-xs-10 awsui-col-sm-10 awsui-col-md-10 awsui-col-lg-10 awsui-form-parent">
+									<div class="awsui-col-xs-2 awsui-col-sm-2 awsui-col-md-2 awsui-col-lg-2">
+										<button type="button" class="button blue" id="submit3">提交</button>
+									</div>
+									<div class="awsui-col-xs-2 awsui-col-sm-2 awsui-col-md-2 awsui-col-lg-2">
+										<button type="button" class="button"  id="cancel3">取消</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;div class="awsui-code-content awsui-public-border awsui-public-radius"&gt;
+	&lt;div class="awsui-container-fluid"&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-6 awsui-col-sm-6 awsui-col-md-6 awsui-col-lg-6"&gt;
+				&lt;div class="awsui-col-xs-2 awsui-col-sm-2 awsui-col-md-2 awsui-col-lg-2 awsui-text"&gt;用户名&lt;/div&gt;
+				&lt;div class="awsui-col-xs-9 awsui-col-sm-9 awsui-col-md-9 awsui-col-lg-9 awsui-form-parent"&gt;
+					&lt;span class="awsui-input-wrapper"&gt;
+						&lt;span class="awsui-input-prefix"&gt;
+							&lt;i class="awsui-iconfont"&gt;&#58906;&lt;/i&gt;
+						&lt;/span&gt;
+						&lt;input type="text" value="" placeholder="Username" class="awsui-input" style="padding-left: 24px\9;"/&gt;
+					&lt;/span&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="awsui-col-xs-6 awsui-col-sm-6 awsui-col-md-6 awsui-col-lg-6"&gt;
+				&lt;div class="awsui-col-xs-2 awsui-col-sm-2 awsui-col-md-2 awsui-col-lg-2 awsui-text"&gt;密&nbsp;&nbsp;&nbsp;&nbsp;码&lt;/div&gt;
+				&lt;div class="awsui-col-xs-9 awsui-col-sm-9 awsui-col-md-9 awsui-col-lg-9 awsui-form-parent"&gt;
+					&lt;span class="awsui-input-wrapper"&gt;
+						&lt;span class="awsui-input-prefix"&gt;
+							&lt;i class="awsui-iconfont"&gt;&#59355;&lt;/i&gt;
+						&lt;/span&gt;
+						&lt;input type="password" value="" placeholder="Password" class="awsui-input" style="padding-left: 24px\9;"/&gt;
+					&lt;/span&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-6 awsui-col-sm-6 awsui-col-md-6 awsui-col-lg-6"&gt;
+				&lt;div class="awsui-col-xs-2 awsui-col-sm-2 awsui-col-md-2 awsui-col-lg-2 awsui-text"&gt;搜索框&lt;/div&gt;
+				&lt;div class="awsui-col-xs-9 awsui-col-sm-9 awsui-col-md-9 awsui-col-lg-9 awsui-form-parent"&gt;
+					&lt;span class="awsui-input-wrapper"&gt;
+						&lt;input type="text" placeholder="请搜索..." value="" class="awsui-input"/&gt;
+						&lt;span class="awsui-input-suffix" id="buttonedit3"&gt;
+							&lt;i class="awsui-iconfont awsui-cursor"&gt;&#59113;&lt;/i&gt;
+						&lt;/span&gt;
+					&lt;/span&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="awsui-col-xs-6 awsui-col-sm-6 awsui-col-md-6 awsui-col-lg-6"&gt;
+				&lt;div class="awsui-col-xs-2 awsui-col-sm-2 awsui-col-md-2 awsui-col-lg-2 awsui-text"&gt;下拉框&lt;/div&gt;
+				&lt;div class="awsui-col-xs-9 awsui-col-sm-9 awsui-col-md-9 awsui-col-lg-9 awsui-form-parent"&gt;
+					&lt;select id="demo3"&gt;&lt;/select&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-6 awsui-col-sm-6 awsui-col-md-6 awsui-col-lg-6"&gt;
+				&lt;div class="awsui-col-xs-2 awsui-col-sm-2 awsui-col-md-2 awsui-col-lg-2 awsui-text"&gt;日期&lt;/div&gt;
+				&lt;div class="awsui-col-xs-9 awsui-col-sm-9 awsui-col-md-9 awsui-col-lg-9 awsui-form-parent"&gt;
+					&lt;span class="awsui-input-wrapper"&gt;
+						&lt;input type="text" placeholder="请选择日期" value="" class="awsui-datepicker awsui-input" style="padding-right: 24px\9;"/&gt;
+						&lt;span class="awsui-input-suffix"&gt;
+							&lt;i class="awsui-iconfont"&gt;&#59047;&lt;/i&gt;
+						&lt;/span&gt;
+					&lt;/span&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="awsui-col-xs-6 awsui-col-sm-6 awsui-col-md-6 awsui-col-lg-6"&gt;
+				&lt;div class="awsui-col-xs-2 awsui-col-sm-2 awsui-col-md-2 awsui-col-lg-2 awsui-text"&gt;时间&lt;/div&gt;
+				&lt;div class="awsui-col-xs-9 awsui-col-sm-9 awsui-col-md-9 awsui-col-lg-9 awsui-form-parent"&gt;
+					&lt;span class="awsui-input-wrapper"&gt;
+						&lt;input type="text" placeholder="请选择时间" value="" class="awsui-datepicker awsui-input" awsui-props="HH:mm:ss" style="padding-right: 24px\9;"/&gt;
+						&lt;span class="awsui-input-suffix"&gt;
+							&lt;i class="awsui-iconfont"&gt;&#59190;&lt;/i&gt;
+						&lt;/span&gt;
+					&lt;/span&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-6 awsui-col-sm-6 awsui-col-md-6 awsui-col-lg-6"&gt;
+				&lt;div class="awsui-col-xs-2 awsui-col-sm-2 awsui-col-md-2 awsui-col-lg-2 awsui-text"&gt;单选框&lt;/div&gt;
+				&lt;div class="awsui-col-xs-9 awsui-col-sm-9 awsui-col-md-9 awsui-col-lg-9 awsui-form-parent"&gt;
+					&lt;input class="awsui-radio" checked="checked" name="radio" id="rdoC1" value="1" type="radio" style="flex: 1"&gt;
+					&lt;label class="awsui-radio-label" for="rdoC1"&gt;选项1&lt;/label&gt;
+					&lt;input class="awsui-radio" name="radio" id="rdoC2" value="2" type="radio" style="flex: 1"&gt;
+					&lt;label class="awsui-radio-label" for="rdoC2"&gt;选项2&lt;/label&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="awsui-col-xs-6 awsui-col-sm-6 awsui-col-md-6 awsui-col-lg-6"&gt;
+				&lt;div class="awsui-col-xs-2 awsui-col-sm-2 awsui-col-md-2 awsui-col-lg-2 awsui-text"&gt;复选框&lt;/div&gt;
+				&lt;div class="awsui-col-xs-9 awsui-col-sm-9 awsui-col-md-9 awsui-col-lg-9 awsui-form-parent"&gt;
+					&lt;input class="awsui-checkbox" checked="checked" id="ckC1" value="1" type="checkbox" style="flex: 1;margin-left:15px"&gt;
+					&lt;label class="awsui-checkbox-label" for="ckC1" &gt;选项1&lt;/label&gt;
+					&lt;input class="awsui-checkbox large" id="ckC2" value="2" type="checkbox" style="flex: 1;margin-left:15px"&gt;
+					&lt;label class="awsui-checkbox-label" for="ckC2"&gt;选项2&lt;/label&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="awsui-row"&gt;
+			&lt;div class="awsui-col-xs-10 awsui-col-sm-10 awsui-col-md-10 awsui-col-lg-10 awsui-form-parent"&gt;
+				&lt;div class="awsui-col-xs-2 awsui-col-sm-2 awsui-col-md-2 awsui-col-lg-2"&gt;
+					&lt;button type="button" class="button blue" id="submit3"&gt;提交&lt;/button&gt;
+				&lt;/div&gt;
+				&lt;div class="awsui-col-xs-2 awsui-col-sm-2 awsui-col-md-2 awsui-col-lg-2"&gt;
+					&lt;button type="button" class="button"  id="cancel3"&gt;取消&lt;/button&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$(document).ready(function() {
+    awsui.parse(); //日历插件
+    var opt = {
+        width : "100%",
+        data : [
+            {id:"lb",text:"刘备"},
+            {id:"gy",text:"关羽"},
+            {id:"zf",text:"张飞"}
+        ]
+    };
+    $("#demo3").select2(opt);
+    $("#buttonedit3").on("click",function(){
+        alert("这是一个搜索框");
+    });
+    $("#submit3").on("click",function(){
+        $.simpleAlert("点击了提交","ok");
+    });
+    $("#cancel3").on("click",function(){
+        $.simpleAlert("点击了取消");
+    });
+});
+</code></pre>
+				</div>
+			</div>
+		</div>
+		<div class="section_right">
+			<div class="nav">
+				<!-- 右侧导航 -->
+			</div>
+		</div>
+		<div class="navTop">
+			<img src="../img/top.png" alt=""/>
+		</div>
+		<script src="../../js/jquery/scripts/jquery.js"></script>
+		<script src="../../js/awsui.js"></script>
+		<script src="../prism/prism.js"></script>
+		<script src="../js/public.js?v=1"></script>
+		<script type="text/javascript">
+            $(document).ready(function() {
+                awsui.parse(); //日历插件
+                var opt = {
+                    width: "100%",
+                    data: [
+                        {id: "lb", text: "刘备"},
+                        {id: "gy", text: "关羽"},
+                        {id: "zf", text: "张飞"}
+                    ]
+                };
+                $("#demo1").select2(opt);
+                $("#demo2").select2(opt);
+                $("#demo3").select2(opt);
+                $("#switch").switchButton();
+                $("#buttonedit1").on('click',function () {
+                    alert("这是一个搜索框");
+                });
+                $("#buttonedit2").on('click',function () {
+                    alert("这是一个搜索框");
+                });
+                $("#buttonedit3").on('click',function () {
+                    alert("这是一个搜索框");
+                });
+                $("#submit1").on("click", function () {
+                    $.simpleAlert("点击了提交");
+                });
+                $("#cancel1").on("click", function () {
+                    $.simpleAlert("点击了取消");
+                });
+                $("#submit2").on("click", function () {
+                    $.simpleAlert("点击了提交", "ok");
+                });
+                $("#cancel2").on("click", function () {
+                    $.simpleAlert("点击了取消");
+                });
+                $("#submit3").on("click", function () {
+                    $.simpleAlert("点击了提交", "ok");
+                });
+                $("#cancel3").on("click", function () {
+                    $.simpleAlert("点击了取消");
+                });
+                /*$.each($(".required").find(".awsui-input"),function(i,el){
+                    $(el).attr('awsui-qtip','positon : "top",text : "不允许为空",bgcolor : "#f9f9f9",color : "red",borderColor : "red"');
+                });*/
+                $(".required").find(".awsui-input").focus(function () {
+                    $.each($(".required").find(".awsui-input"),function(i,el){
+                        $(el).css("background-color","#fff");
+					});
+                    $(this).css("background-color","#FFFFCC");
+                });
+                $(".required").find(".awsui-input").blur(function () {
+                    var inputVal = $(this).val();
+                    if (inputVal == "") {
+                        $(this).tooltip({
+                            positon : "top",
+                            text : "不允许为空，请重新输入",
+                            bgcolor : "#f9f9f9",
+                            color : "red",
+                            borderColor : "red",
+                            close:false
+                        });
+                        return false;
+                    }
+                });
+            });
+		</script>
+	</body>
+</html>

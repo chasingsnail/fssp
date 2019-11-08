@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="content" content="基于AWSUI-fileupload的主流前端响应式框架">
+		<meta name="keywords" content="文件上传 - AWSUI">
+		<title>fileupload</title>
+		<link rel="stylesheet" href="../css/bootstrap.css">
+		<link rel="stylesheet" href="../../css/awsui.css">
+		<link rel="stylesheet" href="../css/uidoc.css?v=1">
+		<link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+		<link rel="stylesheet" href="../../js/jquery/scripts/ui/slider/css/green/green.css"/>
+	</head>
+	<body>
+		<div class="awsui-wrapper">
+			<div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 awsui-border-bottom">
+				<div class="awsui-markdown">
+					<h1 class="title2" id="fileupload">文件上传</h1>
+					<p class="awsui-margin-bottom-14">
+						上传是将信息（网页、文字、图片、视频等）通过网页或者上传工具发布到远程服务器上的过程。
+					</p>
+					<ul>
+						<li>当需要上传一个或一些文件时。</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-markdown">
+					<div class="awsui-code-title" id="Api">
+						API
+					</div>
+					<ul>
+						<li>$(el).upfile(config)</li>
+					</ul>
+					<p>config 参数如下：</p>
+				</div>
+				<table class="awsui-table awsui-margin-bottom-24">
+					<thead>
+					<tr>
+						<th width="30%">参数</th>
+						<th width="30%">说明</th>
+						<th width="20%">类型</th>
+						<th>默认值</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>sid</td>
+						<td>会话sid</td>
+						<td>string</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>appId</td>
+						<td>应用ID</td>
+						<td>string</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>repositoryName</td>
+						<td>DC插件定义</td>
+						<td>string</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>groupValue</td>
+						<td>文件大类</td>
+						<td>string</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>fileValue</td>
+						<td>文件小类</td>
+						<td>string</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>filesToFilter</td>
+						<td>不过滤，可上传所有文件</td>
+						<td>string</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>sizeLimit</td>
+						<td>附件大小限制</td>
+						<td>number</td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<td>boId</td>
+						<td>业务表的ID</td>
+						<td>string</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>fileDomId</td>
+						<td>业务表中,存放附件名称的字段</td>
+						<td>number</td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<td>saveFile</td>
+						<td>上传后保存该文件</td>
+						<td>string</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>add</td>
+						<td>附件添加到上传列表时触发，返回false可阻止上传</td>
+						<td>function</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>progress</td>
+						<td>附件上传中触发</td>
+						<td>function</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>done</td>
+						<td>单个附件上传完毕后触发</td>
+						<td>function</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>error</td>
+						<td>单个附件上传失败后触发</td>
+						<td>function</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>complete</td>
+						<td>附件成功上传结束后触发</td>
+						<td>function</td>
+						<td>-</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event1">
+					点击上传
+				</div>
+				<p class="awsui-margin-top-5">经典款式，用户点击按钮弹出文件选择框。</p>
+				<div class="awsui-code-demo">
+					<button id="upfile" onclick="return false;" type="button" class="awsui-btn awsui-btn-blue">文件上传</button>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;input class="awsui-radio" name="radiox1" id="radio1" value="123456" type="radio" &gt;
+&lt;label class="awsui-radio-label" for="radio1"&gt;选项1&lt;/label&gt;
+&lt;input class="awsui-radio" name="radiox1" id="radio2" value="123456" type="radio"&gt;
+&lt;label class="awsui-radio-label" for="radio2"&gt;选项2&lt;/label&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$("#upfile").upfile({
+	sid:"",
+	appId:"",
+	groupValue:"",
+	fileValue:"",
+	filesToFilter : [["Images (*.jpg; *.jpeg; *.gif; *.png; *.bmp)","*.jpg; *.jpeg; *.gif; *.png; *.bmp"]],
+	repositoryName:"",
+	complete:function(){
+
+	}
+ });
+public class MydriverPluginListener implements PluginListener {
+	public MydriverPluginListener() {}
+	public List register(AppContext arg0) {
+	  List list = new ArrayList();
+	  // 注册DC资源
+	  list.add(new DCPluginProfile(MyDriverConstant.APP_MYDRIVER_REPOSITORY_MYFILE,
+	  UIFileProcessor.class.getName(), "个人网盘 文件系统", true));
+	  // 注册AC授权
+	  return list;
+	}
+ }
+ $("#up_" + boItemName + "_File").upfile({
+	sid : frmMain.sid.value,
+	appId : frmMain.appId.value,
+	groupValue : id,//自定义PluginListener
+	fileValue : "",//自定义PluginListener
+	numLimit : 1,
+	sizeLimit : parseInt(fileMaxSize) * 1024 * 1024,
+	repositoryName : "",//自定义PluginListener
+	filesToFilter : awsui.decode(filterFile),
+	fileDomId : boItemName,
+	boId : boId,
+	saveFile : function(fileName, fileSize, boItemName, boId, groupValue,fileValue, repositoryName) {
+		var cnt = $("textarea[id^=remark]").length + 1;
+		//实现自己保存逻辑FormFileUtil.getInstance().saveFile(Object...)
+	}
+ });
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<p class="awsui-margin-top-5">
+					<code>
+						<span class="awsui-iconfont"></span>
+						<span>注意</span>
+					</code>
+				</p>
+				<p><code>1，</code> 若在IE8下，上传按钮请换用<code>input</code>标签，否则不能正常点击。</p>
+				<p><code>2，</code> 服务端DC插件注册，若用<code>eclipse</code>启动，需在<code>VM arguments</code>中加参数：<code>-XX:-UseSplitVerifier</code>。</p>
+				<p><code>3，</code>在app配置文件<code>manifest.xml</code>的<code>pluginListener</code>注册<code>MydriverPluginListener</code>。</p>
+				<p><code>4，</code>注册<code>DCPluginProfile</code>指明处理<code>repositoryName</code>和附件文件处理器。</p>
+				<p><code>5，</code>附件文件处理器<code>(继承com.actionsoft.bpms.server.fs.AbstFileProcessor)</code>。</p>
+				<p><code>6，</code>关于DC文件处理，参考<a target="_blank" href="https://docs.awspaas.com/reference-guide/aws-paas-plugin-development-reference-guide/plugins/dc.html" style="display: inline-block">API文档</a>。</p>
+			</div>
+		</div>
+		<div class="section_right">
+			<div class="nav">
+				<!-- 右侧导航 -->
+			</div>
+		</div>
+		<div class="navTop">
+			<img src="../img/top.png" alt=""/>
+		</div>
+		<script src="../../js/jquery/scripts/jquery.js"></script>
+		<script src="../../js/awsui.js"></script>
+		<script src="../prism/prism.js"></script>
+		<script src="../js/public.js?v=1"></script>
+		<script src="../../js/jquery/scripts/ui/slider/js/range.js"></script>
+		<script src="../../js/jquery/scripts/ui/slider/js/timer.js"></script>
+		<script src="../../js/jquery/scripts/ui/slider/js/slider.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("#upfile").upfile({
+					sid:"",
+					appId:"",
+					groupValue:"",
+					fileValue:"",
+					filesToFilter : [["Images (*.jpg; *.jpeg; *.gif; *.png; *.bmp)","*.jpg; *.jpeg; *.gif; *.png; *.bmp"]],
+					repositoryName:"",
+					complete:function(){
+						//事件回调函数
+					}
+				});
+			});
+		</script>
+	</body>
+</html>
+
+

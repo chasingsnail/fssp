@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="基于AWSUI-MessagePage的主流前端响应式框架">
+	<meta name="keywords" content="消息框 - AWSUI">
+	<title>Message</title>
+	<link rel="stylesheet" href="../../css/awsui.css">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/uidoc.css?v=1">
+    <link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+</head>
+<body>
+	<div class="awsui-wrapper">
+		<div class="col-sm-12 col-md-12 col-xs-12 awsui-border-bottom">
+			<div class="awsui-markdown">
+				<h1 class="title2" id="message">消息提示</h1>
+				<ul>
+					<li>可提供成功、警告和错误等反馈信息。</li>
+					<li>顶部居中显示并自动消失，是一种不打断用户操作的轻量级提示方式。</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-markdown">
+	        	<div class="awsui-code-title title2">
+		        	API
+		        </div>
+                <ul>
+                    <li>$.simpleAlert(config)</li>
+                </ul>
+                <p>config 参数如下：</p>
+		    </div>
+	        <table class="awsui-table awsui-margin-bottom-24">
+	        	<thead>
+	        		<tr>
+	        			<th width="20%">参数</th>
+	        			<th width="40%">说明</th>
+	        		</tr>
+	        	</thead>
+	        	<tbody>
+	        		<tr>
+	        			<td>msg</td>
+	        			<td>需要显示的内容。</td>
+		        	</tr>
+		        	<tr>
+	        			<td>alertType</td>
+						<td>提示框的类型，其值可以是<code>info,error,ok,warning,loading</code>。<code>loading</code>类型的提示默认不会关闭，需要开发人员调用<code>$.simpleAlert("close")</code>关闭。</td>
+		        	</tr>
+		        	<tr>
+	        			<td>delay</td>
+	        			<td>延迟关闭时间(毫秒),为空使用默认值,只对<code>info、ok</code>两种有效,若指定no则消息不关闭</td>
+		        	</tr>
+		        	<tr>
+	        			<td>options</td>
+	        			<td style="padding: 0;">
+	        				<table class="awsui-table awsui-children-table">
+        						<tr>
+        							<td><code>mode:</code>是否打开遮罩层。</td>
+        						</tr>
+        						<tr>
+        							<td><code>callback:</code>消息关闭后的回调函数。</td>
+        						</tr>
+        						<tr>
+        							<td><code>forceClose:</code>在警告、错误消息类型下,默认手动关闭,设置true，按照指定delay时间后自动关闭</td>
+        						</tr>
+	        				</table>
+	        			</td>
+		        	</tr>
+		        </tbody>
+	        </table>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event1">
+	        	标准Message
+	        </div>
+        	<div class="awsui-code-demo">
+        		<button type="button" class="awsui-btn awsui-btn-blue" id="info"><span>info</span></button>
+        	</div>
+            <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+            <div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;button type="button" class="awsui-btn awsui-btn-blue" value="info" id="info"&gt;INFO&lt;/button&gt;
+</code></pre>
+			</div>
+            <p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+            <div class="awsui-code-info">
+        		<pre><code class="language-js">$("#info").on("click", function(){
+    $.simpleAlert("Hello, 这是一个标准的消息框");
+});
+</code></pre>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event2">
+	        	遮罩Message
+	        </div>
+        	<div class="awsui-code-demo">
+        		<button type="button" class="awsui-btn awsui-btn-blue" id="info2"><span>带遮罩的info消息框</span></button>
+        	</div>
+            <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+            <div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;button type="button" class="awsui-btn awsui-btn-blue" value="info" id="info2"&gt;
+    带遮罩的info消息框
+&lt;/button&gt;
+</code></pre>
+            </div>
+            <p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+            <div class="awsui-code-info">
+        		<pre><code class="language-js">$("#info2").on("click", function(){
+    $.simpleAlert("Hello, 这是一个遮罩的消息框","info",2000,{mode:true});
+});
+</code></pre>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event3">
+	        	回调Message
+	        </div>
+        	<div class="awsui-code-demo">
+        		<button type="button" class="awsui-btn awsui-btn-blue" id="info3"><span>带回调函数的消息框</span></button>
+        	</div>
+            <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+            <div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;button type="button" class="awsui-btn awsui-btn-blue" value="info" id="info3"&gt;
+    带回调函数的消息框
+&lt;/button&gt;
+</code></pre>
+            </div>
+            <p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+            <div class="awsui-code-info">
+        		<pre><code class="language-js">$("#info3").on("click", function(){
+    $.simpleAlert("Hello, 带回调函数的消息框,时间到触发","info",2000,{callback:myCallback});
+});
+</code></pre>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event4">
+	        	触发回调函数
+	        </div>
+        	<div class="awsui-code-demo">
+        		<button type="button" class="awsui-btn awsui-btn-blue" id="info4"><span>触发回调函数</span></button>
+        	</div>
+            <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+            <div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;button type="button" class="awsui-btn awsui-btn-blue" value="info" id="info4"&gt;
+    触发回调函数
+&lt;/button&gt;
+</code></pre>
+            </div>
+            <p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+            <div class="awsui-code-info">
+        		<pre><code class="language-js">$("#info4").on("click", function(){
+    $.simpleAlert("Hello, 触发回调函数","info","no",{
+        callback:function(){
+            console.log('I was closed.');
+        }
+    });
+});
+</code></pre>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event5">
+	        	多种Message
+	        </div>
+	        <div class="awsui-code-demo">
+        		<button type="button" class="awsui-btn  type" value="ok">ok</button>
+				<button type="button" class="awsui-btn  type" value="warning">warning</button>
+				<button type="button" class="awsui-btn  type" value="error">error</button>
+				<button type="button" class="awsui-btn  type" value="loading">loading</button>
+        	</div>
+            <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+            <div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;button type="button" class="awsui-btn  type" value="ok"&gt;ok&lt;/button&gt;
+&lt;button type="button" class="awsui-btn  type" value="warning"&gt;warning&lt;/button&gt;
+&lt;button type="button" class="awsui-btn  type" value="error"&gt;error&lt;/button&gt;
+&lt;button type="button" class="awsui-btn  type" value="loading"&gt;loading&lt;/button&gt;
+</code></pre>
+            </div>
+            <p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+            <div class="awsui-code-info">
+        		<pre><code class="language-js">$(".type").on("click", function(){
+    if ($(this).val() == 'loading') {
+        $.simpleAlert("Hello, 这是一个"+$(this).val()+"类型的消息框<br/>默认不会关闭，需要开发人员调用$.simpleAlert(\"close\")关闭<br/>该提示会在5s后关闭",'loading');
+        setTimeout('$.simpleAlert("close")',5000);
+    } else {
+        $.simpleAlert("Hello, 这是一个"+$(this).val()+"类型的消息框",$(this).val(),1500);
+    }
+});
+</code></pre>
+            </div>
+        </div>
+    </div>
+	<div class="section_right">
+		<div class="nav">
+			<!-- 右侧导航 -->
+		</div>
+    </div>
+	<div class="navTop">
+		<img src="../img/top.png" alt=""/>
+	</div>
+	<script src="../../js/jquery/scripts/jquery.js"></script>
+	<script src="../../js/awsui.js"></script>
+    <script src="../prism/prism.js"></script>
+	<script src="../js/public.js?v=1"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#info").on("click", function(){
+				$.simpleAlert("Hello, 这是一个标准的消息框");
+			});
+			
+			$("#info2").on("click", function(){
+				$.simpleAlert("Hello, 这是一个遮罩的消息框","info",2000,{mode:true});
+			});
+			
+			var myCallback = function(){
+				alert("被触发的回调函数");
+			};
+			$("#info3").on("click", function(){
+				$.simpleAlert("Hello, 带回调函数的消息框","info",2000,{callback:myCallback});
+			});
+			$("#info4").on("click", function(){
+			    $.simpleAlert("Hello, 触发回调函数","info",'no',{
+			    	callback:function(){
+						console.log('I was closed.');
+					}
+				});
+			});
+			$(".type").on("click", function(){
+				if ($(this).val() == 'loading') {
+					$.simpleAlert("Hello, 这是一个"+$(this).val()+"类型的消息框<br/>默认不会关闭，需要开发人员调用$.simpleAlert(\"close\")关闭<br/>该提示会在5s后关闭",'loading');
+					setTimeout('$.simpleAlert("close")',5000);
+				} else {
+					$.simpleAlert("Hello, 这是一个"+$(this).val()+"类型的消息框",$(this).val(),1500);
+				}
+			});
+		});
+	</script>
+</body>
+</html>

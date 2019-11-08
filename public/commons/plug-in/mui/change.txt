@@ -1,0 +1,35 @@
+2016-02-22
+升级MUI版本为2.8版本，前两个更新都已经作废了
+最新的压缩采用手动压缩，yui压缩会导致不能使用
+
+最终调用mui.all.min.js文件
+内部js合并的内容顺序是：
+mui.min.js
+mui.picker.all.js
+mui.listpicker.js
+mui.indexedlist.js
+
+2017-09-26
+升级MUI版本为3.7，仍然是上个版本的压缩办法。
+
+2017-09-26
+更改mui.js源码，对mui触发的radio和checkbox增加一个标识参数，由于树形字典的父级结构的冒泡处理，位置查找方法：
+搜索关键字【classList.contains('mui-radio')】和【classList.contains('mui-checkbox')】更改$.trigger(input, 'change');为$.trigger(input, 'change','mui');
+ps:同时需要更改mui.min.js和mui.all.min.js相对应的位置
+
+====================以下日志内容已经作废，不需要再进行参考======================
+2015-10.15
+将mui的js文件组合并成一个文件：mui.all.js，如果后期升级mui库，也需要合并这些文件，
+同时，css文件也合并为一个文件：mui.all.css
+
+2015-10-8
+修改上拉加载阻止事件传递 mui.js
+
+_start: function(e) {
+	if (!this.loading) {
+		this.pulldown = this.pullPocket = this.pullCaption = this.pullLoading = false
+	}
+	//e.preventDefault(); //注释此行代码
+	this._super(e);
+},
+

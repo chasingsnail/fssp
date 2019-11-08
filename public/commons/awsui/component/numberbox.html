@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="content" content="基于AWSUI-NumberBox的主流前端响应式框架">
+		<meta name="keywords" content="数字输入框 - AWSUI">
+		<title>NumberBox</title>
+		<link rel="stylesheet" href="../css/bootstrap.css">
+		<link rel="stylesheet" href="../../css/awsui.css">
+		<link rel="stylesheet" href="../css/uidoc.css?v=1">
+		<link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+	</head>
+	<body>
+		<div class="awsui-wrapper">
+			<div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 awsui-border-bottom">
+				<div class="awsui-markdown">
+					<h1 class="title2" id="NumberBox">数字输入框</h1>
+					<p class="awsui-margin-bottom-14">数字框（numberbox）用于让用户仅能输入数字的值，它可以把输入元素转换为不同类型的输入（比如：数字 number、百分比 percentage、货币 currency，等等）。</p>
+					<ul>
+						<li>当需要获取标准数值时。</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-markdown">
+					<div class="awsui-code-title" id="numberApi">
+						API
+					</div>
+					<ul>
+						<li>$(el).numberbox(config)</li>
+					</ul>
+					<p>config 参数如下：</p>
+				</div>
+				<table class="awsui-table awsui-margin-bottom-24">
+					<thead>
+						<tr>
+							<th width="20%">参数</th>
+							<th width="40%">说明</th>
+							<th width="20%">类型</th>
+							<th>默认值</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>min</td>
+							<td>最小值</td>
+							<td>number</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>max</td>
+							<td>最大值</td>
+							<td>number</td>
+							<td>100</td>
+						</tr>
+						<tr>
+							<td>uplength</td>
+							<td>增量或减量</td>
+							<td>number</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>defaultValue</td>
+							<td>默认值</td>
+							<td>number</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>symbol</td>
+							<td>单位</td>
+							<td>string</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>width</td>
+							<td>宽度</td>
+							<td>number</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>size</td>
+							<td>输入框大小,当 size 分别为 large 和 small 时，输入框高度为 32px 和 22px，默认高度为 28px</td>
+							<td>string</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>disabled</td>
+							<td>禁用</td>
+							<td>boolean</td>
+							<td>false</td>
+						</tr>
+						<tr>
+							<td>onChange</td>
+							<td>变化回调</td>
+							<td>function</td>
+							<td>-</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event1">
+					基本
+				</div>
+				<p class="awsui-margin-top-5">数字输入框。</p>
+				<div class="awsui-code-demo">
+					<input type="text" id="number1"/>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;input type="text" id="number1"/&gt;</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+        		<pre><code class="language-js">$("#number1").numberbox();</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event2">
+					三种大小
+				</div>
+				<p class="awsui-margin-top-5">三种大小的数字输入框，当配置的参数<code>size 分别为 large 和 small 时</code>，输入框高度为 32px 和 22px ，默认高度为 28px。</p>
+				<div class="awsui-code-demo">
+					<input type="text" id="numberLarge"/>
+					<div class="awsui-number">
+						<input type="text" id="numberDefault"/>
+					</div>
+					<div class="awsui-number">
+						<input type="text" id="numberSmall"/>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;input type="text" id="numberLarge"/&gt;
+&lt;div class="awsui-number"&gt;
+	&lt;input type="text" id="numberDefault"/&gt;
+&lt;/div&gt;
+&lt;div class="awsui-number"&gt;
+	&lt;input type="text" id="numberSmall"/&gt;
+&lt;/div&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$("#numberLarge").numberbox({
+	width:100,
+	size:"large"
+});
+$("#numberDefault").numberbox({
+	width:100
+});
+$("#numberSmall").numberbox({
+	width:100,
+	size:"small"
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event4">
+					不可用
+				</div>
+				<p class="awsui-margin-top-5">设置属性<code>disabled:true</code>，点击按钮切换可用状态。</p>
+				<div class="awsui-code-demo">
+					<input type="text" id="numberDisabled"/>
+					<button type="button" class="awsui-btn awsui-btn-blue awsui-margin-top-10" id="disabledBtn">toggle disabled</button>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;input type="text" id="numberDisabled"/&gt;
+&lt;button type="button" class="awsui-btn awsui-btn-blue" id="disabledBtn"&gt;toggle disabled&lt;/button&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js"> $("#numberDisabled").numberbox({
+	defaultValue:3,
+	disabled:true
+});
+$("#disabledBtn").on("click", function(){
+	if($("#numberDisabled").attr("disabled")) {
+		$("#numberDisabled").numberbox({
+			disabled:false
+		});
+	} else {
+		$("#numberDisabled").numberbox({
+			disabled:true
+		});
+	}
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event5">
+					最大、最小值设置
+				</div>
+				<p class="awsui-margin-top-5">最大、最小值设置，设置属性<code>max和min</code>来控制。</p>
+				<p class="awsui-margin-top-5">设置属性<code>uplength</code>来增量或减量。</p>
+				<div class="awsui-code-demo">
+					<input type="text" id="numberMvalue"/>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;input type="text" id="numberMvalue"/&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js"> $("#numberMvalue").numberbox({
+	max:8,
+	min:3,
+	uplength:0.5
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event6">
+					单位
+				</div>
+				<p class="awsui-margin-top-5">展示具有具体含义的数据，设置属性<code>symbol</code>来控制。</p>
+				<div class="awsui-code-demo">
+					<input type="text" id="numberSymbol"/>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;input type="text" id="numberSymbol"/&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js"> $("#numberSymbol").numberbox({
+	symbol:"%"
+});
+</code></pre>
+				</div>
+			</div>
+		</div>
+		<div class="section_right">
+			<div class="nav">
+				<!-- 右侧导航 -->
+			</div>
+		</div>
+		<div class="navTop">
+			<img src="../img/top.png" alt=""/>
+		</div>
+		<script src="../../js/jquery/scripts/jquery.js"></script>
+		<script src="../../js/awsui.js"></script>
+		<script src="../prism/prism.js"></script>
+		<script src="../js/public.js?v=1"></script>
+		<script type="text/javascript">
+            $(document).ready(function() {
+                $("#number1").numberbox();
+                $("#numberLarge").numberbox({
+					width:100,
+					size:"large"
+				});
+                $("#numberDefault").numberbox({
+                    width:100
+				});
+                $("#numberSmall").numberbox({
+                    width:100,
+                    size:"small"
+                });
+                $("#numberSmall").numberbox({
+                    width:100,
+                    size:"small"
+                });
+                $("#numberDisabled").numberbox({
+                    defaultValue:3,
+                    disabled:true
+                });
+                $("#disabledBtn").on("click", function(){
+					if($("#numberDisabled").attr("disabled")) {
+                        $("#numberDisabled").numberbox({
+                            disabled:false
+                        });
+					} else {
+                        $("#numberDisabled").numberbox({
+                            disabled:true
+                        });
+					}
+                });
+                $("#numberMvalue").numberbox({
+                    max:8,
+                    min:3,
+                    uplength:0.5
+                });
+                $("#numberSymbol").numberbox({
+                    symbol:"%"
+                });
+
+            });
+		</script>
+	</body>
+</html>

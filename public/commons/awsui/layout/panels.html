@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="基于AWSUI-Panels的主流前端响应式框架">
+        <meta name="keywords" content="面板 - AWSUI">
+        <title>panels</title>
+        <link rel="stylesheet" href="../css/bootstrap.css">
+        <link rel="stylesheet" href="../../css/awsui.css">
+        <link rel="stylesheet" href="../css/uidoc.css?v=1">
+        <link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+    </head>
+    <body>
+        <div class="awsui-wrapper">
+            <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 awsui-border-bottom">
+                <div class="awsui-markdown">
+                    <h1 class="title2" id="panels">面板</h1>
+                    <p class="awsui-margin-bottom-14">面板通常用于提供补充信息或表单与主画布相关的输入，面板应占用其父容器高度的100％。在大多数情况下，这将是您的应用程序的视口或主要阶段。</p>
+                    <ul>
+                        <li>画布内容超出了视口的边界，同时支持平移和缩放。</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-markdown">
+                    <div class="awsui-code-title">
+                        CSS
+                    </div>
+                </div>
+                <table class="awsui-table awsui-margin-bottom-24">
+                    <thead>
+                        <tr>
+                            <th width="30%">类名</th>
+                            <th width="40%">说明</th>
+                            <th width="30%">限制</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>.awsui-panel</td>
+                            <td>面板组件</td>
+                            <td>div</td>
+                        </tr>
+                        <tr>
+                            <td>.awsui-size-</td>
+                            <td>面板组件宽度，详见<a href="#awsui-size"><code>调整</code></a></td>
+                            <td>.awsui-panel</td>
+                        </tr>
+                        <tr>
+                            <td>.awsui-panel-docked</td>
+                            <td>用于更改面板显示以停靠到视口的修改器</td>
+                            <td>.awsui-panel</td>
+                        </tr>
+                        <tr>
+                            <td>.awsui-panel-docked-left</td>
+                            <td>用于将面板位置向左更改的修改器</td>
+                            <td>.awsui-panel-docked</td>
+                        </tr>
+                        <tr>
+                            <td>.awsui-panel-docked-right</td>
+                            <td>用于将面板位置向右更改的修改器</td>
+                            <td>.awsui-panel-docked</td>
+                        </tr>
+                        <tr>
+                            <td>.awsui-panel-header</td>
+                            <td>面板的标题元素</td>
+                            <td>.awsui-panel div</td>
+                        </tr>
+                        <tr>
+                            <td>.awsui-align-center</td>
+                            <td>面板的标题居中时调整样式</td>
+                            <td>.awsui-panel-header</td>
+                        </tr>
+                        <tr>
+                            <td>.awsui-panel-header-title</td>
+                            <td>面板的标题</td>
+                            <td>.awsui-panel-header span</td>
+                        </tr>
+                        <tr>
+                            <td>.awsui-ellipsis</td>
+                            <td>截断字符串，出现省略号……</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>.awsui-iconfont .awsui-public-box-close</td>
+                            <td>面板的关闭按钮</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>.awsui-show</td>
+                            <td>面板显示</td>
+                            <td>.awsui-panel</td>
+                        </tr>
+                        <tr>
+                            <td>.awsui-hide</td>
+                            <td>面板隐藏</td>
+                            <td>.awsui-panel</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-code-title title2" id="event1">
+                    基准面板
+                </div>
+                <p class="awsui-margin-top-5">面板停靠在视口的左/右侧，并位于画布或主要内容的文档流中。</p>
+                <div class="awsui-code-demo">
+                    <div class="awsui-public-border awsui-public-radius awsui-background">
+                        <div class="awsui-panel awsui-size-medium awsui-panel-docked awsui-panel-docked-left">
+                            <div class="awsui-panel-header">
+                                <span class="awsui-panel-header-title awsui-ellipsis" title="面板标题">面板标题</span>
+                            </div>
+                            <div class="awsui-panel-body">
+                                面板主体接受任何布局或组件
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;div class="awsui-panel awsui-size-medium awsui-panel-docked awsui-panel-docked-left"&gt;
+    &lt;div class="awsui-panel-header"&gt;
+        &lt;span class="awsui-panel-header-title awsui-ellipsis" title="面板标题"&gt;面板标题&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="awsui-panel-body"&gt;
+        面板主体接受任何布局或组件
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-code-title title2" id="event2">
+                    标题
+                </div>
+                <p class="awsui-margin-top-5">标题停靠在其面板的顶部。当面板主体awsui-panel-body给出固定高度时，面板主体的内容溢出时，主体将提供滚动，同时标题保持可见的位置。</p>
+                <p class="awsui-margin-top-5">标题默认为左对齐文本，通过使用<code>awsui-ellipsis</code>类，当标题宽度对于面板宽度变得太长时，标题被截断，出现省略号……</p>
+                <div class="awsui-code-demo">
+                    <div class="awsui-public-border awsui-public-radius awsui-background">
+                        <div class="awsui-panel awsui-size-medium awsui-panel-docked awsui-panel-docked-left">
+                            <div class="awsui-panel-header">
+                                <span class="awsui-panel-header-title awsui-ellipsis">面板标题，当标题宽度对于面板宽度变得太长时，标题被截断</span>
+                            </div>
+                            <div class="awsui-panel-body" style="height:80px;">
+                                面板主体接受任何布局或组件<br/>
+                                面板主体接受任何布局或组件<br/>
+                                面板主体接受任何布局或组件<br/>
+                                面板主体接受任何布局或组件<br/>
+                                面板主体接受任何布局或组件<br/>
+                                面板主体接受任何布局或组件<br/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;div class="awsui-panel awsui-size-medium awsui-panel-docked awsui-panel-docked-left"&gt;
+    &lt;div class="awsui-panel-header"&gt;
+        &lt;span class="awsui-panel-header-title awsui-ellipsis"&gt;面板标题，当标题宽度对于面板宽度变得太长时，标题被截断&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="awsui-panel-body" style="height:80px;"&gt;
+            面板主体接受任何布局或组件<br/>
+            面板主体接受任何布局或组件<br/>
+            面板主体接受任何布局或组件<br/>
+            面板主体接受任何布局或组件<br/>
+            面板主体接受任何布局或组件<br/>
+            面板主体接受任何布局或组件<br/>
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-code-title title2" id="event3">
+                    中心文字
+                </div>
+                <p class="awsui-margin-top-5">要使标题居中，请将类<code>awsui-panel-align-center</code>添加到所需的标签中。</p>
+                <div class="awsui-code-demo">
+                    <div class="awsui-public-border awsui-public-radius awsui-background">
+                        <div class="awsui-panel awsui-size-medium awsui-panel-docked awsui-panel-docked-left">
+                            <div class="awsui-panel-header awsui-align-center">
+                                <span class="awsui-panel-header-title">面板标题，中心文字</span>
+                            </div>
+                            <div class="awsui-panel-body">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;div class="awsui-panel awsui-size-medium awsui-panel-docked awsui-panel-docked-left"&gt;
+    &lt;div class="awsui-panel-header awsui-align-center"&gt;
+        &lt;span class="awsui-panel-header-title"&gt;面板标题，中心文字&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="awsui-panel-body"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-code-title title2" id="event4">
+                    定位 (左右定位)
+                </div>
+                <p class="awsui-margin-top-5">awsui-panel元素可以通过添加类被定位在视口的左侧或右侧<code>awsui-panel-docked-left或awsui-panel-docked-right</code>。</p>
+                <div class="awsui-code-demo">
+                    <div class="awsui-public-border awsui-public-radius awsui-background">
+                        <div class="awsui-panel awsui-size-medium awsui-panel-docked awsui-panel-docked-left">
+                            <div class="awsui-panel-header">
+                                <span class="awsui-panel-header-title awsui-ellipsis">左侧定位</span>
+                            </div>
+                            <div class="awsui-panel-body">
+                                面板主体接受任何布局或组件
+                            </div>
+                        </div>
+                    </div>
+                    <div class="awsui-public-border awsui-public-radius awsui-margin-top-10 awsui-background">
+                        <div class="awsui-panel awsui-size-medium awsui-panel-docked awsui-panel-docked-right">
+                            <div class="awsui-panel-header">
+                                <span class="awsui-panel-header-title awsui-ellipsis">右侧定位</span>
+                            </div>
+                            <div class="awsui-panel-body">
+                                面板主体接受任何布局或组件
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;div class="awsui-panel awsui-size-medium awsui-panel-docked awsui-panel-docked-left"&gt;
+    &lt;div class="awsui-panel-header"&gt;
+        &lt;span class="awsui-panel-header-title awsui-ellipsis"&gt;左侧定位&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="awsui-panel-body"&gt;
+        面板主体接受任何布局或组件
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="awsui-panel awsui-size-medium awsui-panel-docked awsui-panel-docked-right"&gt;
+    &lt;div class="awsui-panel-header"&gt;
+        &lt;span class="awsui-panel-header-title awsui-ellipsis"&gt;右侧定位&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="awsui-panel-body"&gt;
+        面板主体接受任何布局或组件
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12" >
+                <div  id="awsui-size" class="awsui-code-title title2" id="event5">
+                    调整
+                </div>
+                <p class="awsui-margin-top-5">可以通过将大小调整类应用于awsui-panel元素来修改面板宽度。</p>
+                <p class="awsui-margin-top-5">面板有5种不同的尺寸:</p>
+                <div class="awsui-code-demo">
+                    <table class="awsui-table">
+                        <thead>
+                            <tr>
+                                <th width="40%">class名称</th>
+                                <th width="60%">宽度</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>awsui-size-small</td>
+                                <td>20%</td>
+                            </tr>
+                            <tr>
+                                <td>awsui-size-medium</td>
+                                <td>40%</td>
+                            </tr>
+                            <tr>
+                                <td>awsui-size-large</td>
+                                <td>60%</td>
+                            </tr>
+                            <tr>
+                                <td>awsui-size-x-large</td>
+                                <td>80%</td>
+                            </tr>
+                            <tr>
+                                <td>awsui-size-full</td>
+                                <td>100％</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="awsui-code-demo">
+                    <div class="awsui-public-border awsui-public-radius awsui-margin-top-10 awsui-background">
+                        <div class="awsui-panel awsui-size-small awsui-panel-docked awsui-panel-docked-left">
+                            <div class="awsui-panel-header">
+                                <span class="awsui-panel-header-title">awsui-size-small</span>
+                            </div>
+                            <div class="awsui-panel-body">
+                                面板适合240像素布局
+                            </div>
+                        </div>
+                    </div>
+                    <div class="awsui-public-border awsui-public-radius awsui-margin-top-10 awsui-background">
+                        <div class="awsui-panel awsui-size-medium awsui-panel-docked awsui-panel-docked-left">
+                            <div class="awsui-panel-header">
+                                <span class="awsui-panel-header-title">awsui-size-medium</span>
+                            </div>
+                            <div class="awsui-panel-body">
+                                面板适合320像素布局
+                            </div>
+                        </div>
+                    </div>
+                    <div class="awsui-public-border awsui-public-radius awsui-margin-top-10 awsui-background">
+                        <div class="awsui-panel awsui-size-large awsui-panel-docked awsui-panel-docked-left">
+                            <div class="awsui-panel-header">
+                                <span class="awsui-panel-header-title">awsui-size-large</span>
+                            </div>
+                            <div class="awsui-panel-body">
+                                面板适合480像素布局
+                            </div>
+                        </div>
+                    </div>
+                    <div class="awsui-public-border awsui-public-radius awsui-margin-top-10 awsui-background">
+                        <div class="awsui-panel awsui-size-x-large awsui-panel-docked awsui-panel-docked-left">
+                            <div class="awsui-panel-header">
+                                <span class="awsui-panel-header-title">awsui-size-x-large</span>
+                            </div>
+                            <div class="awsui-panel-body">
+                                面板适合640像素布局
+                            </div>
+                        </div>
+                    </div>
+                    <div class="awsui-public-border awsui-public-radius awsui-margin-top-10 awsui-background">
+                        <div class="awsui-panel awsui-size-full awsui-panel-docked">
+                            <div class="awsui-panel-header">
+                                <span class="awsui-panel-header-title">awsui-size-full</span>
+                            </div>
+                            <div class="awsui-panel-body">
+                                面板适合100%布局
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;div class="awsui-panel awsui-size-small awsui-panel-docked awsui-panel-docked-left"&gt;
+    &lt;div class="awsui-panel-header"&gt;
+        &lt;span class="awsui-panel-header-title"&gt;awsui-size-small&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="awsui-panel-body"&gt;
+        面板适合240像素布局
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="awsui-panel awsui-size-medium awsui-panel-docked awsui-panel-docked-left"&gt;
+    &lt;div class="awsui-panel-header"&gt;
+        &lt;span class="awsui-panel-header-title"&gt;awsui-size-medium&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="awsui-panel-body"&gt;
+        面板适合320像素布局
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="awsui-panel awsui-size-large awsui-panel-docked awsui-panel-docked-left"&gt;
+    &lt;div class="awsui-panel-header"&gt;
+        &lt;span class="awsui-panel-header-title"&gt;awsui-size-large&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="awsui-panel-body"&gt;
+        面板适合480像素布局
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="awsui-panel awsui-size-x-large awsui-panel-docked awsui-panel-docked-left"&gt;
+    &lt;div class="awsui-panel-header"&gt;
+        &lt;span class="awsui-panel-header-title"&gt;awsui-size-x-large&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="awsui-panel-body"&gt;
+        面板适合640像素布局
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="awsui-panel awsui-size-full awsui-panel-docked"&gt;
+    &lt;div class="awsui-panel-header"&gt;
+        &lt;span class="awsui-panel-header-title"&gt;awsui-size-full&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="awsui-panel-body"&gt;
+        面板适合100%布局
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-code-title title2" id="event6">
+                    面板可见性
+                </div>
+                <p class="awsui-margin-top-5">面板是否可见，只需将类<code>awsui-show(显示)或awsui-hide(隐藏)</code>添加到awsui-panel元素即可。</p>
+                <div class="awsui-code-demo">
+                    <div class="awsui-public-border awsui-public-radius" style="padding: 10px;">
+                        <button type="button" class="awsui-btn awsui-btn-blue" id="isShowBtn">可见性</button>
+                        <div class="awsui-public-border awsui-public-radius awsui-margin-top-10 awsui-background" style="display: flex; height: 80px;">
+                            <div id="panelIsShow" class="awsui-panel awsui-size-medium awsui-panel-docked awsui-panel-docked-left" data-hide="false">
+                                <div class="awsui-panel-header awsui-align-center">
+                                    <span class="awsui-panel-header-title">面板可见性</span>
+                                    <span class="awsui-iconfont awsui-public-box-close">&#58931;</span>
+                                </div>
+                                <div class="awsui-panel-body">
+                                </div>
+                            </div>
+                            <div class="awsui-around-medium">
+                                页面内容
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+                <div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;div class="awsui-public-border awsui-public-radius" style="padding: 10px;"&gt;
+    &lt;button type="button" class="awsui-btn awsui-btn-blue" id="isShowBtn"&gt;可见性&lt;/button&gt;
+    &lt;div class="awsui-public-border awsui-public-radius awsui-margin-top-10 awsui-background" style="display: flex; height: 80px;"&gt;
+        &lt;div id="panelIsShow" class="awsui-panel awsui-size-medium awsui-panel-docked awsui-panel-docked-left" data-hide="false"&gt;
+            &lt;div class="awsui-panel-header awsui-align-center"&gt;
+                &lt;span class="awsui-panel-header-title"&gt;面板可见性&lt;/span&gt;
+                &lt;span class="awsui-iconfont awsui-public-box-close"&gt;&amp;#58931;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class="awsui-panel-body"&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="awsui-around-medium"&gt;
+            页面内容
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+                <div class="awsui-code-info">
+                    <pre><code class="language-js">$(document).ready(function() {
+    $("#isShowBtn,.awsui-public-box-close").on("click", function () {
+        var panel = $("#panelIsShow");
+        if (panel.data('hide')) {
+            panel.data('hide',false);
+            panel.css("display","block");
+        } else {
+            panel.data('hide',true);
+            panel.css("display","none");
+        }
+    });
+});
+</code></pre>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <div class="awsui-code-title title2" id="event7">
+                    面板组合使用
+                </div>
+                <p class="awsui-margin-top-5">嵌套手风琴。</p>
+                <div class="awsui-code-demo">
+                    <div class="awsui-public-border awsui-public-radius awsui-background">
+                        <div class="awsui-panel awsui-size-large awsui-panel-docked awsui-panel-docked-left">
+                            <div class="awsui-panel-header">
+                                <span class="awsui-panel-header-title awsui-ellipsis" title="面板标题">面板标题</span>
+                            </div>
+                            <div class="awsui-panel-body">
+                                <ul class="awsui-collapse" id="accordion1">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+                <div class="awsui-code-info">
+                    <pre><code class="language-html">&lt;div class="awsui-public-border awsui-public-radius awsui-background"&gt;
+    &lt;div class="awsui-panel awsui-size-large awsui-panel-docked awsui-panel-docked-left"&gt;
+        &lt;div class="awsui-panel-header"&gt;
+            &lt;span class="awsui-panel-header-title awsui-ellipsis" title="面板标题"&gt;面板标题&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class="awsui-panel-body"&gt;
+            &lt;ul class="awsui-collapse" id="accordion1"&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                </div>
+                <p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+                <div class="awsui-code-info">
+                    <pre><code class="language-js">$(document).ready(function() {
+    $("#accordion1").accordions({
+        list:[
+            {title:"百度",content:"接受任何布局或组件"},
+            {title:"腾讯",content:"接受任何布局或组件"},
+            {title:"阿里",content:"接受任何布局或组件"}
+        ]
+    });
+});
+</code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="section_right">
+            <div class="nav">
+                <!-- 右侧导航 -->
+            </div>
+        </div>
+        <div class="navTop">
+            <img src="../img/top.png" alt=""/>
+        </div>
+        <script src="../../js/jquery/scripts/jquery.js"></script>
+        <script src="../../js/awsui.js"></script>
+        <script src="../prism/prism.js"></script>
+        <script src="../js/public.js?v=1"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#isShowBtn,.awsui-public-box-close").on("click", function () {
+                    var panel = $("#panelIsShow");
+                    if (panel.data('hide')) {
+                        panel.data('hide',false);
+                        panel.css("display","block");
+                    } else {
+                        panel.data('hide',true);
+                        panel.css("display","none");
+                    }
+                });
+                $("#accordion1").accordions({
+                    list:[
+                        {title:"百度",content:"接受任何布局或组件"},
+                        {title:"腾讯",content:"接受任何布局或组件"},
+                        {title:"阿里",content:"接受任何布局或组件"}
+                    ]
+                });
+            });
+        </script>
+    </body>
+</html>

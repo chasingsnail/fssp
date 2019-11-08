@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="content" content="基于AWSUI-menu的主流前端响应式框架">
+		<meta name="keywords" content="菜单 - AWSUI">
+		<title>menu</title>
+		<link rel="stylesheet" href="../css/bootstrap.css">
+		<link rel="stylesheet" href="../../css/awsui.css">
+		<link rel="stylesheet" href="../css/uidoc.css?v=1">
+		<link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+		<link rel="stylesheet" href="../../js/jquery/themes/default/ui/aws.pqgrid.css"/>
+		<link rel="stylesheet" href="../../js/jquery/themes/default/ui/aws.pqgrid.custom.css"/>
+		<style>
+			.awsui-menu{
+				top: 39px !important;
+				left: 0 !important;
+			}
+			.extend-menu{
+				top: 0 !important;
+				left: 150px !important;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="awsui-wrapper">
+			<div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 awsui-border-bottom">
+				<div class="awsui-markdown">
+					<h1 class="title2" id="menu">菜单</h1>
+					<p class="awsui-margin-bottom-14">
+						菜单是一个网站的灵魂，用户依赖导航在各个页面中进行跳转。一般分为顶部导航和侧边导航，顶部导航提供全局性的类目和功能，侧边导航提供多级结构来收纳和排列网站架构。
+					</p>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-markdown">
+					<div class="awsui-code-title title2" id="API">
+						API
+					</div>
+					<ul>
+						<li>$(el).menu(config);</li>
+					</ul>
+					<p>config 参数如下：</p>
+				</div>
+				<table class="awsui-table awsui-margin-bottom-24">
+					<thead>
+					<tr>
+						<th width="20%">参数</th>
+						<th width="50%">说明</th>
+						<th>类型</th>
+						<th>默认值</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>target</td>
+						<td>菜单目标位置，如果为空，菜单项的起始位置是父容器的左上角</td>
+						<td>object</td>
+						<td>null</td>
+					</tr>
+					<tr>
+						<td>useTargetPosition</td>
+						<td>是否使用菜单目标位置，若为false，菜单项起始位置是父容器左上角</td>
+						<td>boolean</td>
+						<td>true</td>
+					</tr>
+					<tr>
+						<td>position</td>
+						<td>菜单位置，选择值为left、center、right</td>
+						<td>string</td>
+						<td>left</td>
+					</tr>
+					<tr>
+						<td>top</td>
+						<td>顶点距父容器的距离，target为空则失效</td>
+						<td>number</td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<td>left</td>
+						<td>左侧距父容器距离，target为空则失效</td>
+						<td>number</td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<td>items</td>
+						<td>菜单显示列表项，可以是从后台传来的</td>
+						<td>array</td>
+						<td>[]</td>
+					</tr>
+					</tbody>
+				</table>
+				<p>$(el).menu.items.props</p>
+				<table class="awsui-table awsui-margin-bottom-24">
+					<thead>
+					<tr>
+						<th width="20%">参数</th>
+						<th width="50%">说明</th>
+						<th>类型</th>
+						<th>默认值</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>text</td>
+						<td>菜单项文本内容</td>
+						<td>string</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>iconCls</td>
+						<td>列表项图标类,可选值有<code>icon-add、icon-edit、icon-remove、icon-home、icon-menu、icon-save、icon-search、icon-refresh</code>等。</td>
+						<td>string</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>iconFont</td>
+						<td>
+							列表项引用字体库图标<br/>
+							{<br/>
+							&nbsp;&nbsp;code:"", //图标编码 <br/>
+							&nbsp;&nbsp;color:"", //设置图标颜色 <br/>
+							&nbsp;&nbsp;fontSize:"14px", //设置图标大小，默认14px <br/>
+							}
+						</td>
+						<td>object</td>
+						<td>iconFont:{}</td>
+					</tr>
+					<tr>
+						<td>icon</td>
+						<td>自定义图标</td>
+						<td>string</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>method</td>
+						<td>列表项事件</td>
+						<td>function</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>disabled</td>
+						<td>设置菜单项禁用效果</td>
+						<td>boolean</td>
+						<td>false</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event1">
+					基本
+				</div>
+				<p class="awsui-margin-top-5">最基本的用法。</p>
+				<div class="awsui-code-demo">
+					<button id="btnBasic" type="button" class="awsui-btn awsui-btn-blue">点击触发菜单</button>
+					<ul id="menuBasic" class="awsui-menu">
+						<li>菜单项1</li>
+						<li>菜单项2</li>
+						<li>菜单项2</li>
+					</ul>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;button id="btnBasic" type="button" class="awsui-btn awsui-btn-blue"&gt;点击触发菜单&lt;/button&gt;
+&lt;ul id="menuBasic" class="awsui-menu"&gt;
+	&lt;li&gt;菜单项1&lt;/li&gt;
+	&lt;li&gt;菜单项2&lt;/li&gt;
+	&lt;li&gt;菜单项2&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$("#btnBasic").click(function(){
+	$("#menuBasic").menu({ //初始化菜单
+		target:$("#btnBasic")
+	})
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event2">
+					动态菜单
+				</div>
+				<p class="awsui-margin-top-5">菜单显示列表项，可以是从后台传来的。</p>
+				<div class="awsui-code-demo">
+					<button id="btnItems" type="button" class="awsui-btn awsui-btn-blue">点击触发菜单</button>
+					<ul id="menuItems" class="awsui-menu"></ul>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;button id="btnItems" type="button" class="awsui-btn awsui-btn-blue"&gt;点击触发菜单&lt;/button&gt;
+	&lt;ul id="menuItems" class="awsui-menu"&gt;&lt;/ul&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$("#btnItems").click(function(){
+	$("#menuItems").menu({ //初始化菜单
+		target:$("#btnItems"),
+		items:[
+			{text:"添加", iconCls:"icon-add"},
+			{text:"关闭", iconCls:"icon-remove"}
+		]
+	});
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event3">
+					引用字体库图标
+				</div>
+				<p class="awsui-margin-top-5">列表项加图标，iconfont字体库图标使用。</p>
+				<div class="awsui-code-demo">
+					<button id="btnItemsIconFont" type="button" class="awsui-btn awsui-btn-blue">点击触发菜单</button>
+					<ul id="menuItemsIconFont" class="awsui-menu"></ul>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;button id="btnItemsIconFont" type="button" class="awsui-btn awsui-btn-blue"&gt;点击触发菜单&lt;/button&gt;
+	&lt;ul id="menuItemsIconFont" class="awsui-menu"&gt;&lt;/ul&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$("#btnItemsIconFont").click(function(){
+	$("#menuItemsIconFont").menu({ //初始化菜单
+		target:$("#btnItemsIconFont"),
+		items:[
+			{text:"添加", iconFont:{code:"&amp;#xe71e;",color:"#1cab3a"}},
+			{text:"删除", iconFont:{code:"&amp;#58918;",color:"red",fontSize:"12px"}},
+			{text:"编辑", iconFont:{code:"&amp;#58956;",color:"#f5bf46",fontSize:"18px"}}
+		]
+	});
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event4">
+					自定义图标
+				</div>
+				<p class="awsui-margin-top-5">自定义列表项图标。</p>
+				<div class="awsui-code-demo">
+					<button id="btnItemsIcon" type="button" class="awsui-btn awsui-btn-blue">点击触发菜单</button>
+					<ul id="menuItemsIcon" class="awsui-menu"></ul>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;button id="btnItemsIcon" type="button" class="awsui-btn awsui-btn-blue"&gt;点击触发菜单&lt;/button&gt;
+	&lt;ul id="menuItemsIcon" class="awsui-menu"&gt;&lt;/ul&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$("#btnItemsIcon").click(function(){
+	$("#menuItemsIcon").menu({ //初始化菜单
+		target:$("#btnItemsIcon"),
+		items:[
+			{text:"警告", icon:"../icon/toice.png"},
+			{text:"地图", icon:"../icon/awsui-icon/icon-pos.png"}
+		]
+	});
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event5">
+					受控操作示例
+				</div>
+				<p class="awsui-margin-top-5">受控操作示例。</p>
+				<div class="awsui-code-demo">
+					<button id="btnItemsEvent" type="button" class="awsui-btn awsui-btn-blue">点击触发菜单</button>
+					<ul id="menuItemsEvent" class="awsui-menu"></ul>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;button id="btnItemsEvent" type="button" class="awsui-btn awsui-btn-blue"&gt;点击触发菜单&lt;/button&gt;
+	&lt;ul id="menuItemsEvent" class="awsui-menu"&gt;&lt;/ul&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$("#btnItemsEvent").click(function(){
+	var getText = function(){
+		alert($(this).text());
+	};
+	$("#menuItemsEvent").menu({ //初始化菜单
+		target:$("#btnItemsEvent"),
+		items:[
+			{text:"添加", iconCls:"icon-add", method:getText},
+			{text:"关闭", iconCls:"icon-remove", method:getText}
+		]
+	});
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event6">
+					禁用列表项
+				</div>
+				<p class="awsui-margin-top-5">列表项不可操作。</p>
+				<div class="awsui-code-demo">
+					<button id="btnItemsDisabled" type="button" class="awsui-btn awsui-btn-blue">点击触发菜单</button>
+					<ul id="menuItemsDisabled" class="awsui-menu"></ul>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;button id="btnItemsDisabled" type="button" class="awsui-btn awsui-btn-blue"&gt;点击触发菜单&lt;/button&gt;
+	&lt;ul id="menuItemsDisabled" class="awsui-menu"&gt;&lt;/ul&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$("#btnItemsDisabled").click(function(){
+	$("#menuItemsDisabled").menu({ //初始化菜单
+		target:$("#btnItemsDisabled"),
+		items:[
+			{text:"添加", iconFont:{code:"&amp;#xe71e;",color:"#1cab3a"}},
+			{text:"删除", iconFont:{code:"&amp;#58918;",color:"red",fontSize:"12px"},disabled:true},
+			{text:"编辑", iconFont:{code:"&amp;#58956;",color:"#f5bf46",fontSize:"18px"}},
+			{text:"禁用",disabled:true}
+		]
+	});
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event7">
+					多级菜单
+				</div>
+				<p class="awsui-margin-top-5">多级菜单。</p>
+				<div class="awsui-code-demo">
+					<button id="btnMore" type="button" class="awsui-btn awsui-btn-blue">点击触发菜单</button>
+					<ul id="menuMore" class="awsui-menu">
+						<li>一级菜单项1</li>
+						<li>一级菜单项2<span class="awsui-right-arrow"></span>
+							<ul class="awsui-menu extend-menu">
+								<li>二级菜单项1</li>
+								<li>二级菜单项2</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;button id="btnMore" type="button" class="awsui-btn awsui-btn-blue"&gt;点击触发菜单&lt;/button&gt;
+&lt;ul id="menuMore" class="awsui-menu"&gt;
+	&lt;li&gt;一级菜单项1&lt;/li&gt;
+	&lt;li&gt;一级菜单项2&lt;span class="awsui-right-arrow"&gt;&lt;/span&gt;
+		&lt;ul class="awsui-menu extend-menu"&gt;
+			&lt;li&gt;二级菜单项1&lt;/li&gt;
+			&lt;li&gt;二级菜单项2&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$("#btnMore").click(function(){
+	$("#menuMore").menu({ //初始化菜单
+		target:$("#btnMore")
+	})
+});
+$.each($("#menuMore li"),function (index,el) {
+	$(el).click(function(e) {
+		e.stopPropagation();
+		$.simpleAlert($(this).text());
+	})
+});
+</code></pre>
+				</div>
+			</div>
+		</div>
+		<div class="section_right">
+			<div class="nav">
+				<!-- 右侧导航 -->
+			</div>
+		</div>
+		<div class="navTop">
+			<img src="../img/top.png" alt=""/>
+		</div>
+		<script src="../../js/jquery/scripts/jquery.js"></script>
+		<script src="../../js/awsui.js"></script>
+		<script src="../prism/prism.js"></script>
+		<script src="../js/public.js?v=1"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("#btnBasic").click(function(){
+					$("#menuBasic").menu({ //初始化菜单
+						target:$("#btnBasic")
+					})
+				});
+				$("#btnItems").click(function(){
+					$("#menuItems").menu({ //初始化菜单
+						target:$("#btnItems"),
+                        left:50,
+                        top:100,
+						items:[
+							{text:"添加", iconCls:"icon-add"},
+							{text:"关闭", iconCls:"icon-remove"}
+						]
+					});
+				});
+				$("#btnItemsIconFont").click(function(){
+					$("#menuItemsIconFont").menu({ //初始化菜单
+						target:$("#btnItemsIconFont"),
+						items:[
+							{text:"添加", iconFont:{code:"&#xe71e;",color:"#1cab3a"}},
+							{text:"删除", iconFont:{code:"&#58918;",color:"red",fontSize:"12px"}},
+							{text:"编辑", iconFont:{code:"&#58956;",color:"#f5bf46",fontSize:"18px"}}
+						]
+					});
+				});
+				$("#btnItemsIcon").click(function(){
+					$("#menuItemsIcon").menu({ //初始化菜单
+						target:$("#btnItemsIcon"),
+						items:[
+							{text:"警告", icon:"../icon/toice.png"},
+							{text:"地图", icon:"../icon/awsui-icon/icon-pos.png"}
+						]
+					});
+				});
+				$("#btnItemsEvent").click(function(){
+					var getText = function(){
+						alert($(this).text());
+					};
+					$("#menuItemsEvent").menu({ //初始化菜单
+						target:$("#btnItemsEvent"),
+						items:[
+							{text:"添加", iconCls:"icon-add", method:getText},
+							{text:"关闭", iconCls:"icon-remove", method:getText}
+						]
+					});
+				});
+				$("#btnItemsDisabled").click(function(){
+					$("#menuItemsDisabled").menu({ //初始化菜单
+						target:$("#btnItemsDisabled"),
+						items:[
+							{text:"添加", iconFont:{code:"&#xe71e;",color:"#1cab3a"}},
+							{text:"删除", iconFont:{code:"&#58918;",color:"red",fontSize:"12px"},disabled:true},
+							{text:"编辑", iconFont:{code:"&#58956;",color:"#f5bf46",fontSize:"18px"}},
+							{text:"禁用",disabled:true}
+						]
+					});
+				});
+
+				$("#btnMore").click(function(){
+					$("#menuMore").menu({ //初始化菜单
+						target:$("#btnMore")
+					})
+				});
+				$.each($("#menuMore li"),function (index,el) {
+                    $(el).click(function(e) {
+                        e.stopPropagation();
+                        $.simpleAlert($(this).text());
+                    })
+                });
+			});
+		</script>
+	</body>
+</html>
+
+

@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="content" content="基于AWSUI-Datepicker的主流前端响应式框架">
+		<meta name="keywords" content="日期选择框 - AWSUI">
+		<title>Datepicker</title>
+		<link rel="stylesheet" href="../css/bootstrap.css">
+		<link rel="stylesheet" href="../../css/awsui.css">
+		<link rel="stylesheet" href="../css/uidoc.css?v=1">
+		<link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+	</head>
+	<body>
+		<div class="awsui-wrapper">
+			<div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 awsui-border-bottom">
+				<div class="awsui-markdown">
+					<h1 class="title2" id="radio">日期选择框</h1>
+					<p class="awsui-margin-bottom-14"><code>AWSUI</code>的日期组件的功能使用在于当用户需要输入一个日期时，可以点击标准输入框，弹出日期面板进行选择。其主要是将<code>My97DatePicker</code>作为基础组件，在<code>My97DatePicker</code>原来的日期渲染机制上进行了功能扩展，使<code>AWSUI</code>的日期组件功能更加丰富，更加实用。更多文档请参考 <a target="_blank" href="http://www.my97.net/demo/index.htm" style="display: inline-block">API文档</a></p>
+					<ul>
+						<li>当用户需要输入一个日期，可以点击标准输入框，弹出日期面板进行选择。</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-markdown">
+					<div class="awsui-code-title" id="numberApi">
+						API
+					</div>
+					<ul>
+						<li>$(el).datepicker(config)</li>
+					</ul>
+					<p>config 参数如下：</p>
+				</div>
+				<table class="awsui-table awsui-margin-bottom-24">
+					<thead>
+						<tr>
+							<th width="30%">参数</th>
+							<th width="30%">说明</th>
+							<th width="20%">类型</th>
+							<th>默认值</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>dateFmt</td>
+							<td>日期格式</td>
+							<td>string</td>
+							<td>yyyy-MM-dd</td>
+						</tr>
+						<tr>
+							<td>readOnly</td>
+							<td>只读</td>
+							<td>boolean</td>
+							<td>false</td>
+						</tr>
+						<tr>
+							<td>startDate</td>
+							<td>设置起始日期</td>
+							<td>string</td>
+							<td>当前日期</td>
+						</tr>
+						<tr>
+							<td>position</td>
+							<td>设置弹出位置</td>
+							<td>object</td>
+							<td>{}</td>
+						</tr>
+						<tr>
+							<td>doubleCalendar</td>
+							<td>设置双日历</td>
+							<td>boolean</td>
+							<td>false</td>
+						</tr>
+						<tr>
+							<td>skin</td>
+							<td>改变皮肤,可选值（default\twoer\flatred\blue\whyGreen）</td>
+							<td>string</td>
+							<td>twoer</td>
+						</tr>
+						<tr>
+							<td>minDate</td>
+							<td>最小日期</td>
+							<td>string</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>maxDate</td>
+							<td>最大日期</td>
+							<td>string</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>disabledDays</td>
+							<td>无效天</td>
+							<td>array</td>
+							<td>null</td>
+						</tr>
+						<tr>
+							<td>disabledDates</td>
+							<td>无效日期</td>
+							<td>array</td>
+							<td>null</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event1">
+					基本
+				</div>
+				<p class="awsui-margin-top-5">最简单的用法，在浮层中可以选择或者输入日期。</p>
+				<div class="awsui-code-demo">
+					<div class="awsui-datepicker">
+						<span class="awsui-input-wrapper">
+							<input type="text" placeholder="请选择日期" value="" class="awsui-datepicker awsui-input"/>
+							<span class="awsui-input-suffix">
+								<i class="awsui-iconfont">&#59047;</i>
+							</span>
+						</span>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;div class="awsui-datepicker"&gt;
+	&lt;span class="awsui-input-wrapper"&gt;
+		&lt;input type="text" placeholder="请选择日期" value="" class="awsui-datepicker awsui-input"/&gt;
+		&lt;span class="awsui-input-suffix"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#59047;&lt;/i&gt;
+		&lt;/span&gt;
+	&lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event2">
+					日期格式
+				</div>
+				<p class="awsui-margin-top-5">使用 <code>dateFmt</code> 属性，可以自定义日期显示格式。</p>
+				<p class="awsui-margin-top-5">也可在 <code>awsui-props</code> 属性中直接来设置，可以自定义日期显示格式。</p>
+				<div class="awsui-code-demo">
+					<div class="awsui-datepicker">
+						<span class="awsui-input-wrapper">
+							<input type="text" placeholder="请选择日期" id="setDatepickerFmt" value="" class="awsui-datepicker awsui-input"/>
+							<span class="awsui-input-suffix">
+								<i class="awsui-iconfont">&#59047;</i>
+							</span>
+						</span>
+					</div>
+					<div class="awsui-datepicker awsui-margin-top-10">
+						<span class="awsui-input-wrapper">
+							<input type="text" placeholder="请选择日期" value="" class="awsui-datepicker awsui-input" awsui-props="{dateFmt:'yyyy/MM/dd',minDate:'2015/09/09'}"/>
+							<span class="awsui-input-suffix">
+								<i class="awsui-iconfont">&#59047;</i>
+							</span>
+						</span>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;div class="awsui-datepicker"&gt;
+	&lt;span class="awsui-input-wrapper"&gt;
+		&lt;input type="text" placeholder="请选择日期" id="setDatepickerFmt" value="" class="awsui-datepicker awsui-input"/&gt;
+		&lt;span class="awsui-input-suffix"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#59047;&lt;/i&gt;
+		&lt;/span&gt;
+	&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="awsui-datepicker"&gt;
+	&lt;span class="awsui-input-wrapper"&gt;
+		&lt;input type="text" placeholder="请选择日期" value="" class="awsui-datepicker awsui-input" awsui-props="{dateFmt:'yyyy/MM/dd',minDate:'2015/09/09'}"/&gt;
+		&lt;span class="awsui-input-suffix"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#59047;&lt;/i&gt;
+		&lt;/span&gt;
+	&lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+				<pre><code class="language-js">$("#setDatepickerFmt").datepicker({dateFmt:"yyyy-MM-dd HH:mm:ss"});</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event3">
+					只读效果
+				</div>
+				<p class="awsui-margin-top-5">设置readOnly属性 true 或 false 可指定日期框是否只读 。</p>
+				<div class="awsui-code-demo">
+					<div class="awsui-datepicker">
+						<span class="awsui-input-wrapper">
+							<input type="text" placeholder="请选择日期" id="datepickerReadonly" value="" class="awsui-datepicker awsui-input"/>
+							<span class="awsui-input-suffix">
+								<i class="awsui-iconfont">&#59047;</i>
+							</span>
+						</span>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;div class="awsui-datepicker"&gt;
+	&lt;span class="awsui-input-wrapper"&gt;
+		&lt;input type="text" placeholder="请选择日期" id="datepickerReadonly" value="" class="awsui-datepicker awsui-input"/&gt;
+		&lt;span class="awsui-input-suffix"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#59047;&lt;/i&gt;
+		&lt;/span&gt;
+	&lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+				<pre><code class="language-js">$("#datepickerReadonly").datepicker({
+	dateFmt:"yyyy-MM-dd HH:mm:ss",
+	readOnly:true
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event4">
+					起始日期
+				</div>
+				<p class="awsui-margin-top-5">有时在项目中需要选择生日之类的日期,而默认点开始日期都是当前日期,导致年份选择非常麻烦,你可以通过设置<code>startDate</code>属性,轻松解决此类问题。</p>
+				<div class="awsui-code-demo">
+					<div class="awsui-datepicker">
+						<span class="awsui-input-wrapper">
+							<input type="text" placeholder="请选择日期" id="datepickerStartDate" value="" class="awsui-datepicker awsui-input"/>
+							<span class="awsui-input-suffix">
+								<i class="awsui-iconfont">&#59047;</i>
+							</span>
+						</span>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;div class="awsui-datepicker"&gt;
+	&lt;span class="awsui-input-wrapper"&gt;
+		&lt;input type="text" placeholder="请选择日期" id="datepickerStartDate" value="" class="awsui-datepicker awsui-input"/&gt;
+		&lt;span class="awsui-input-suffix"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#59047;&lt;/i&gt;
+		&lt;/span&gt;
+	&lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+				<pre><code class="language-js">$("#datepickerStartDate").datepicker({
+	startDate:'2002-06-15'
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event5">
+					自定义弹出位置
+				</div>
+				<p class="awsui-margin-top-5">通过position属性,自定义弹出位置。</p>
+				<div class="awsui-code-demo">
+					<div class="awsui-datepicker">
+						<span class="awsui-input-wrapper">
+							<input type="text" placeholder="请选择日期" id="datepickerPosition" value="" class="awsui-datepicker awsui-input"/>
+							<span class="awsui-input-suffix">
+								<i class="awsui-iconfont">&#59047;</i>
+							</span>
+						</span>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;div class="awsui-datepicker"&gt;
+	&lt;span class="awsui-input-wrapper"&gt;
+		&lt;input type="text" placeholder="请选择日期" id="datepickerPosition" value="" class="awsui-datepicker awsui-input"/&gt;
+		&lt;span class="awsui-input-suffix"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#59047;&lt;/i&gt;
+		&lt;/span&gt;
+	&lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+				<pre><code class="language-js">$("#datepickerPosition").datepicker({
+	position:{left:10,top:20}
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event6">
+					双月日历功能
+				</div>
+				<p class="awsui-margin-top-5">通过设置属性<code>doubleCalendar:true</code>,可以同时弹出两个月的日历。</p>
+				<div class="awsui-code-demo">
+					<div class="awsui-datepicker">
+						<span class="awsui-input-wrapper">
+							<input type="text" placeholder="请选择日期" id="doubleCalendar" value="" class="awsui-datepicker awsui-input"/>
+							<span class="awsui-input-suffix">
+								<i class="awsui-iconfont">&#59047;</i>
+							</span>
+						</span>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;div class="awsui-datepicker"&gt;
+	&lt;span class="awsui-input-wrapper"&gt;
+		&lt;input type="text" placeholder="请选择日期" id="doubleCalendar" value="" class="awsui-datepicker awsui-input"/&gt;
+		&lt;span class="awsui-input-suffix"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#59047;&lt;/i&gt;
+		&lt;/span&gt;
+	&lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+				<pre><code class="language-js">$("#doubleCalendar").datepicker({
+	doubleCalendar:true
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event7">
+					更换皮肤
+				</div>
+				<p class="awsui-margin-top-5">通过设置属性<code>skin</code>,可以为每个日期控件单独配置皮肤。</p>
+				<div class="awsui-code-demo">
+					<div class="awsui-datepicker">
+						<span class="awsui-input-wrapper">
+							<input type="text" placeholder="请选择日期" id="datepickerSkin" value="" class="awsui-datepicker awsui-input"/>
+							<span class="awsui-input-suffix">
+								<i class="awsui-iconfont">&#59047;</i>
+							</span>
+						</span>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;div class="awsui-datepicker"&gt;
+	&lt;span class="awsui-input-wrapper"&gt;
+		&lt;input type="text" placeholder="请选择日期" id="datepickerSkin" value="" class="awsui-datepicker awsui-input"/&gt;
+		&lt;span class="awsui-input-suffix"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#59047;&lt;/i&gt;
+		&lt;/span&gt;
+	&lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+				<pre><code class="language-js">$("#datepickerSkin").datepicker({
+	skin:'whyGreen'
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event8">
+					日期范围限制
+				</div>
+				<p class="awsui-margin-top-5">通过设置属性<code>minDate(最小日期),maxDate(最大日期)</code>为静态日期值,来限定日期的范围。</p>
+				<p class="awsui-margin-top-5">系统提供了$dp.$D和$dp.$DV这两个API来辅助你进行日期运算,此外你还可以通过在 #F{} 中填入你自定义的脚本,做任何你想做的日期限制。</p>
+				<div class="awsui-code-demo">
+					<div class="awsui-datepicker">
+						<span class="awsui-input-wrapper">
+							<input type="text" placeholder="请选择日期" id="datepickerMDate" value="" class="awsui-datepicker awsui-input"/>
+							<span class="awsui-input-suffix">
+								<i class="awsui-iconfont">&#59047;</i>
+							</span>
+						</span>
+					</div>
+					<div class="awsui-datepicker awsui-margin-top-10">
+						<span class="awsui-input-wrapper">
+							<input type="text" placeholder="请选择时间" id="datepickerMTime" value="" class="awsui-datepicker awsui-input"/>
+							<span class="awsui-input-suffix">
+								<i class="awsui-iconfont">&#59047;</i>
+							</span>
+						</span>
+					</div>
+                    <div class="awsui-margin-top-10">
+                        <div class="awsui-datepicker" style="display: inline-block;">
+                            <span class="awsui-input-wrapper">
+                                <input type="text" placeholder="请选择日期" id="datepickerStart" value="" class="awsui-datepicker awsui-input"/>
+                                <span class="awsui-input-suffix">
+                                    <i class="awsui-iconfont">&#59047;</i>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="awsui-datepicker" style="display: inline-block;">
+                            <span class="awsui-input-wrapper">
+                                <input type="text" placeholder="请选择日期" id="datepickerEnd" value="" class="awsui-datepicker awsui-input"/>
+                                <span class="awsui-input-suffix">
+                                    <i class="awsui-iconfont">&#59047;</i>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;div class="awsui-datepicker"&gt;
+	&lt;span class="awsui-input-wrapper"&gt;
+		&lt;input type="text" placeholder="请选择日期" id="datepickerMDate" value="" class="awsui-datepicker awsui-input"/&gt;
+		&lt;span class="awsui-input-suffix"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#59047;&lt;/i&gt;
+		&lt;/span&gt;
+	&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="awsui-datepicker"&gt;
+	&lt;span class="awsui-input-wrapper"&gt;
+		&lt;input type="text" placeholder="请选择时间" id="datepickerMTime" value="" class="awsui-datepicker awsui-input"/&gt;
+		&lt;span class="awsui-input-suffix"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#59047;&lt;/i&gt;
+		&lt;/span&gt;
+	&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="awsui-margin-top-10"&gt;
+    &lt;div class="awsui-datepicker" style="display: inline-block;"&gt;
+        &lt;span class="awsui-input-wrapper"&gt;
+            &lt;input type="text" placeholder="请选择日期" id="datepickerStart" value="" class="awsui-datepicker awsui-input"/&gt;
+            &lt;span class="awsui-input-suffix"&gt;
+                &lt;i class="awsui-iconfont"&gt;&amp;#59047;&lt;/i&gt;
+            &lt;/span&gt;
+        &lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="awsui-datepicker" style="display: inline-block;"&gt;
+        &lt;span class="awsui-input-wrapper"&gt;
+            &lt;input type="text" placeholder="请选择日期" id="datepickerEnd" value="" class="awsui-datepicker awsui-input"/&gt;
+            &lt;span class="awsui-input-suffix"&gt;
+                &lt;i class="awsui-iconfont"&gt;&amp;#59047;&lt;/i&gt;
+            &lt;/span&gt;
+        &lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+				<pre><code class="language-js">$("#datepickerMDate").datepicker({
+	skin:'whyGreen',
+    doubleCalendar:true,
+	minDate:'2019-01-10',
+	maxDate:'2019-01-28'
+});
+$("#datepickerMTime").datepicker({
+	dateFmt:'H:mm:ss',
+	minDate:'8:00:00',
+	maxDate:'11:30:00'
+});
+$("#datepickerStart").datepicker({
+	dateFmt:'yyyy-MM-dd',
+	readOnly:true,
+	minDate:'2019-01-20',
+	//maxDate:'#F{$dp.$D(\'datepickerEnd\')}'
+	maxDate:'#F{$dp.$D(\'datepickerEnd\')||\'2019-05-20\'}'
+});
+$("#datepickerEnd").datepicker({
+	dateFmt:'yyyy-MM-dd',
+	readOnly:true,
+	minDate:'#F{$dp.$D(\'datepickerStart\')}',
+	maxDate:'2019-05-20'
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event9">
+					无效天
+				</div>
+				<p class="awsui-margin-top-5">可以使用此功能禁用周日至周六所对应的日期,通过设置属性:<code>disabledDays</code> (0至6 分别代表 周日至周六)。</p>
+				<div class="awsui-code-demo">
+					<div class="awsui-datepicker">
+						<span class="awsui-input-wrapper">
+							<input type="text" placeholder="请选择日期" id="datepickerDisDays1" value="" class="awsui-datepicker awsui-input"/>
+							<span class="awsui-input-suffix">
+								<i class="awsui-iconfont">&#59047;</i>
+							</span>
+						</span>
+					</div>
+					<div class="awsui-datepicker awsui-margin-top-10">
+						<span class="awsui-input-wrapper">
+							<input type="text" placeholder="请选择日期" id="datepickerDisDays2" value="" class="awsui-datepicker awsui-input"/>
+							<span class="awsui-input-suffix">
+								<i class="awsui-iconfont">&#59047;</i>
+							</span>
+						</span>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;div class="awsui-datepicker"&gt;
+	&lt;span class="awsui-input-wrapper"&gt;
+		&lt;input type="text" placeholder="请选择日期" id="datepickerDisDays1" value="" class="awsui-datepicker awsui-input"/&gt;
+		&lt;span class="awsui-input-suffix"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#59047;&lt;/i&gt;
+		&lt;/span&gt;
+	&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="awsui-datepicker"&gt;
+	&lt;span class="awsui-input-wrapper"&gt;
+		&lt;input type="text" placeholder="请选择日期" id="datepickerDisDays2" value="" class="awsui-datepicker awsui-input"/&gt;
+		&lt;span class="awsui-input-suffix"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#59047;&lt;/i&gt;
+		&lt;/span&gt;
+	&lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+				<pre><code class="language-js">$("#datepickerDisDays1").datepicker({
+	disabledDays:[6]
+});
+$("#datepickerDisDays2").datepicker({
+	disabledDays:[0,6]
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event10">
+					无效日期
+				</div>
+				<p class="awsui-margin-top-5">通过设置属性:<code>disabledDates</code> ,使用正则表达式,你可以尽情发挥来实现无效日期。</p>
+				<div class="awsui-code-demo">
+					<div class="awsui-datepicker">
+						<span class="awsui-input-wrapper">
+							<input type="text" placeholder="请选择日期" id="datepickerDisData1" value="" class="awsui-datepicker awsui-input"/>
+							<span class="awsui-input-suffix">
+								<i class="awsui-iconfont">&#59047;</i>
+							</span>
+						</span>
+					</div>
+					<div class="awsui-datepicker awsui-margin-top-10">
+						<span class="awsui-input-wrapper">
+							<input type="text" placeholder="请选择日期" id="datepickerDisData2" value="" class="awsui-datepicker awsui-input"/>
+							<span class="awsui-input-suffix">
+								<i class="awsui-iconfont">&#59047;</i>
+							</span>
+						</span>
+					</div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;div class="awsui-datepicker"&gt;
+	&lt;span class="awsui-input-wrapper"&gt;
+		&lt;input type="text" placeholder="请选择日期" id="datepickerDisData1" value="" class="awsui-datepicker awsui-input"/&gt;
+		&lt;span class="awsui-input-suffix"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#59047;&lt;/i&gt;
+		&lt;/span&gt;
+	&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="awsui-datepicker"&gt;
+	&lt;span class="awsui-input-wrapper"&gt;
+		&lt;input type="text" placeholder="请选择日期" id="datepickerDisData2" value="" class="awsui-datepicker awsui-input"/&gt;
+		&lt;span class="awsui-input-suffix"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#59047;&lt;/i&gt;
+		&lt;/span&gt;
+	&lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+				<pre><code class="language-js">$("#datepickerDisData1").datepicker({
+	disabledDates:['3$']
+});
+$("#datepickerDisData2").datepicker({
+	minDate:'%y-%M-01',
+	maxDate:'%y-%M-%ld',
+	disabledDates:['0[4-7]$','1[1-5]$','2[58]$']
+});
+</code></pre>
+				</div>
+			</div>
+		</div>
+		<div class="section_right">
+			<div class="nav">
+				<!-- 右侧导航 -->
+			</div>
+		</div>
+		<div class="navTop">
+			<img src="../img/top.png" alt=""/>
+		</div>
+		<script src="../../js/jquery/scripts/jquery.js"></script>
+		<script src="../../js/awsui.js"></script>
+		<script src="../prism/prism.js"></script>
+		<script src="../js/public.js?v=1"></script>
+		<script type="text/javascript">
+            $(document).ready(function() {
+                $("#setDatepickerFmt").datepicker({dateFmt:"yyyy-MM-dd HH:mm:ss"});
+                $("#datepickerReadonly").datepicker({
+					dateFmt:"yyyy-MM-dd HH:mm:ss",
+					readOnly:true
+                });
+                $("#datepickerStartDate").datepicker({
+                    startDate:'2002-06-15'
+                });
+                $("#datepickerPosition").datepicker({
+                    position:{left:10,top:20}
+                });
+                $("#doubleCalendar").datepicker({
+                    doubleCalendar:true
+                });
+                $("#datepickerSkin").datepicker({
+                    skin:'whyGreen'
+                });
+                $("#datepickerMDate").datepicker({
+                	skin:'whyGreen',
+                    doubleCalendar:true,
+					minDate:'2019-01-10',
+					maxDate:'2019-02-15'
+                });
+                $("#datepickerMTime").datepicker({
+                    dateFmt:'H:mm:ss',
+					minDate:'8:00:00',
+					maxDate:'11:30:00'
+                });
+                $("#datepickerStart").datepicker({
+                    dateFmt:'yyyy-MM-dd',
+                    readOnly:true,
+                    minDate:'2019-01-20',
+                    //maxDate:'#F{$dp.$D(\'datepickerEnd\')}'
+                    maxDate:'#F{$dp.$D(\'datepickerEnd\')||\'2019-05-20\'}'
+                });
+                $("#datepickerEnd").datepicker({
+                    dateFmt:'yyyy-MM-dd',
+					readOnly:true,
+					minDate:'#F{$dp.$D(\'datepickerStart\')}',
+                    maxDate:'2019-05-20'
+                });
+                $("#datepickerDisDays1").datepicker({
+                    disabledDays:[6]
+                });
+                $("#datepickerDisDays2").datepicker({
+                    disabledDays:[0,6]
+                });
+                $("#datepickerDisData1").datepicker({
+                    disabledDates:['3$']
+                });
+                $("#datepickerDisData2").datepicker({
+                    minDate:'%y-%M-01',
+					maxDate:'%y-%M-%ld',
+					disabledDates:['0[4-7]$','1[1-5]$','2[58]$']
+                });
+            });
+		</script>
+	</body>
+</html>
+

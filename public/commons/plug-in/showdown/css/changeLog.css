@@ -1,0 +1,369 @@
+@charset "UTF-8";
+#changeLogDialog article, #changeLogDialog aside, #changeLogDialog details, #changeLogDialog figcaption, #changeLogDialog figure, #changeLogDialog footer, #changeLogDialog header, #changeLogDialog hgroup, #changeLogDialog main, #changeLogDialog menu, #changeLogDialog nav, #changeLogDialog section, #changeLogDialog summary {
+    display: block;
+}
+
+#changeLogDialog audio, #changeLogDialog canvas, #changeLogDialog progress, #changeLogDialog video {
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+#changeLogDialog audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+#changeLogDialog [hidden], #changeLogDialog template {
+    display: none;
+}
+
+#changeLogDialog a {
+    background-color: transparent;
+}
+
+#changeLogDialog a:active, #changeLogDialog a:hover {
+    outline: 0;
+}
+
+#changeLogDialog abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+#changeLogDialog b, #changeLogDialog strong {
+    font-weight: 700;
+}
+
+#changeLogDialog dfn {
+    font-style: italic;
+}
+
+#changeLogDialog mark {
+    background: #ffff00;
+    color: #000000;
+}
+
+#changeLogDialog small {
+    font-size: 80%;
+}
+
+#changeLogDialog sub, #changeLogDialog sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+#changeLogDialog sup {
+    top: -0.5em;
+}
+
+#changeLogDialog sub {
+    bottom: -0.25em;
+}
+
+#changeLogDialog img {
+    border: 0;
+}
+
+#changeLogDialog svg:not(:root) {
+    overflow: hidden;
+}
+
+#changeLogDialog figure {
+    margin: 1em 40px;
+}
+
+#changeLogDialog hr {
+    box-sizing: content-box;
+}
+
+#changeLogDialog code, #changeLogDialog kbd, #changeLogDialog pre, #changeLogDialog samp {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+
+#changeLogDialog legend {
+    border: 0;
+    padding: 0;
+}
+
+#changeLogDialog textarea {
+    overflow: auto;
+}
+
+#changeLogDialog optgroup {
+    font-weight: 700;
+}
+
+#changeLogDialog table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+#changeLogDialog table {
+    margin: 1.6em 0;
+    max-width: 90%;
+    width: 90%;
+    background-color: transparent;
+}
+
+#changeLogDialog table td, #changeLogDialog table th {
+    padding: 8px;
+    vertical-align: middle;
+    text-align: left;
+    line-height: 20px;
+}
+
+#changeLogDialog table {
+    background-color: #ffffff;
+}
+
+#changeLogDialog td, #changeLogDialog th {
+    padding: 0;
+}
+
+#changeLogDialog *, #changeLogDialog :after, #changeLogDialog :before {
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#changeLogDialog ::-moz-selection {
+    background: #b4d6f3;
+}
+
+#changeLogDialog ::selection {
+    background: #b4d6f3;
+}
+
+#changeLogDialog h1, #changeLogDialog h2, #changeLogDialog h3, #changeLogDialog h4, #changeLogDialog h5, #changeLogDialog h6 {
+    margin: 0 0 .3em;
+    color: #242628;
+    line-height: 1.15em;
+    text-rendering: optimizeLegibility;
+}
+
+#changeLogDialog h1 {
+    text-indent: -1px;
+    font-size: 5rem;
+}
+
+#changeLogDialog h2 {
+    text-indent: -1px;
+    font-size: 4.2rem;
+}
+
+#changeLogDialog h3 {
+    font-size: 3.8rem;
+}
+
+#changeLogDialog h4 {
+    font-size: 3.1rem;
+}
+
+#changeLogDialog h5 {
+    font-size: 2.8rem;
+}
+
+#changeLogDialog h6 {
+    font-size: 2.2rem;
+}
+
+#changeLogDialog dl, #changeLogDialog ol, #changeLogDialog p, #changeLogDialog ul {
+    margin: 0 0 1.7em;
+}
+
+#changeLogDialog ol, #changeLogDialog ul {
+    padding-left: 2.5em;
+}
+
+#changeLogDialog ol ol, #changeLogDialog ol ul, #changeLogDialog ul ol, #changeLogDialog ul ul {
+    margin: 0 0 .4em;
+    padding-left: 2em;
+    font-size: 0.9em;
+}
+
+#changeLogDialog mark {
+    background-color: #fdffb6;
+}
+
+#changeLogDialog a {
+    color: #5ba4e5;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+}
+
+#changeLogDialog a:hover {
+    text-decoration: none;
+    transition: background 0.1s, color 0.1s;
+}
+
+#changeLogDialog hr {
+    display: block;
+    margin: 3.2em 0;
+    padding: 0;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #dfe1e3;
+}
+
+#changeLogDialog dl {
+    margin: 1.6em 0;
+}
+
+#changeLogDialog dl dt {
+    float: left;
+    clear: left;
+    overflow: hidden;
+    margin-bottom: 1em;
+    width: 180px;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 700;
+}
+
+#changeLogDialog dl dd {
+    margin-bottom: 1em;
+    margin-left: 200px;
+}
+
+#changeLogDialog blockquote {
+    margin: 1.6em 0;
+    padding: 0 1.6em;
+    border-left: #dfe1e3 0.6em solid;
+}
+
+#changeLogDialog blockquote p {
+    margin: .8em 0;
+    font-size: 1.2em;
+    font-weight: 300;
+}
+
+#changeLogDialog blockquote small {
+    display: inline-block;
+    margin: .8em 0 .8em 1.5em;
+    color: #7d878a;
+    font-size: 0.9em;
+}
+
+#changeLogDialog blockquote small:before {
+    content: "— ";
+}
+
+#changeLogDialog blockquote cite {
+    font-weight: 700;
+}
+
+#changeLogDialog blockquote cite a {
+    font-weight: 400;
+}
+
+#changeLogDialog code, #changeLogDialog pre, #changeLogDialog tt {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+#changeLogDialog code, #changeLogDialog tt {
+    padding: .2rem .3rem .1rem;
+    border: 1px solid #d8e0e4;
+    background: #f5f7f8;
+    border-radius: 2px;
+    color: #cc2255;
+    vertical-align: middle;
+    white-space: pre-wrap;
+    font-size: .8em;
+    line-height: 1em;
+}
+
+#changeLogDialog pre {
+    overflow: auto;
+    margin: 1.6em 0;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #d8e0e4;
+    background: #f5f7f8;
+    border-radius: 3px;
+    white-space: pre;
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 0.9em;
+}
+
+#changeLogDialog pre code, #changeLogDialog pre tt {
+    padding: 0;
+    border: none;
+    background: 0 0;
+    color: inherit;
+    white-space: pre-wrap;
+    font-size: inherit;
+}
+
+#changeLogDialog kbd {
+    display: inline-block;
+    margin-bottom: .4em;
+    padding: 1px 8px;
+    border: 1px solid #cccccc;
+    background: #f4f4f4;
+    border-radius: 4px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 0 0 #ffffff inset;
+    color: #242628;
+    text-shadow: #ffffff 0 1px 0;
+    font-size: .9em;
+    font-weight: 700;
+}
+
+#changeLogDialog button {
+    padding: 0;
+    outline: 0;
+    border: none;
+    background: 0 0;
+    box-shadow: none;
+}
+
+#changeLogDialog i {
+    display: block;
+}
+
+#changeLogDialog img {
+    max-width: 100%;
+}
+
+#changeLogDialog form * {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+#changeLogDialog form label {
+    display: block;
+    color: #242628;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+#changeLogDialog fieldset {
+    margin: 0 0 3em;
+    padding: 0;
+    border: none;
+}
+
+#changeLogDialog legend {
+    display: block;
+    margin: 2em 0;
+    width: 100%;
+    border-bottom: #dfe1e3 1px solid;
+    color: #b1b1b1;
+    font-size: 1.2em;
+    line-height: 2em;
+}
+
+#changeLogDialog ul {
+    list-style: outside;
+}
+
+#changeLogDialog li {
+    list-style: outside;
+    height: 30px;
+}

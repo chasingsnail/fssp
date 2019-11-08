@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="基于AWSUI-toolbar的主流前端响应式框架">
+	<meta name="keywords" content="工具栏 - AWSUI">
+	<title>toolbar</title>
+	<link rel="stylesheet" href="../../css/awsui.css">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/uidoc.css?v=1">
+	<link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+</head>
+<body>
+	<div class="awsui-wrapper">
+		<div class="col-sm-12 col-md-12 col-xs-12 awsui-border-bottom">
+			<div class="awsui-markdown">
+				<h1 class="title2" id="toolbar">工具栏</h1>
+				<p class="awsui-margin-bottom-14">工具栏能够装载各种样式的文本信息、按钮、菜单、查询框等组件。</p>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-markdown">
+				<div class="awsui-code-title">
+					CSS
+				</div>
+			</div>
+			<table class="awsui-table awsui-margin-bottom-24">
+				<thead>
+				<tr>
+					<th width="40%">class名称</th>
+					<th width="60%">说明</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>awsui-toolbar</td>
+					<td>用于工具栏toolbar元素上的主样式，也是默认样式</td>
+				</tr>
+				<tr>
+					<td>awsui-public-shadow</td>
+					<td>设置阴影</td>
+				</tr>
+				<tr>
+					<td>border</td>
+					<td>设置边框</td>
+				</tr>
+				<tr>
+					<td>separator</td>
+					<td>给工具栏toolbar里设置分隔线</td>
+				</tr>
+				<tr>
+					<td>awsui-toolbar-background</td>
+					<td>设置背景色</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<p class="awsui-margin-top-5">
+				<code>
+					<span class="awsui-iconfont"></span>
+					<span>注意</span>
+				</code>
+			</p>
+			<p><code>toolbar工具栏内部可以放置所需要的元素，比如下拉框，菜单，按钮等。</code></p>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-code-title title2" id="event1">
+				空工具栏
+			</div>
+			<p class="awsui-margin-top-5">最简单的用法。</p>
+			<div class="awsui-code-demo">
+				<div class="awsui-public-border awsui-public-radius">
+					<div class="awsui-toolbar awsui-toolbar-line-height">
+						此处可加载按钮，下拉框，菜单，弹出框等组件
+					</div>
+					<div class="awsui-panel-body">接收任何组件的其他内容</div>
+				</div>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;div class="awsui-public-border awsui-public-radius"&gt;
+	&lt;div class="awsui-toolbar awsui-toolbar-line-height"&gt;
+		此处可加载按钮，下拉框，菜单，弹出框等组件
+	&lt;/div&gt;
+	&lt;div class="awsui-panel-body"&gt;接收任何组件的其他内容&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-code-title title2" id="event2">
+				标准工具栏
+			</div>
+			<div class="awsui-code-demo">
+				<div class="awsui-public-border awsui-public-radius">
+					<div class="awsui-toolbar">
+						<button type="button" class="awsui-btn awsui-btn-icon">
+							<i class="awsui-iconfont">&#58915;</i>
+						</button>
+						<button type="button" class="awsui-btn awsui-btn-icon">
+							<i class="awsui-iconfont">&#58918;</i>
+						</button>
+						<button type="button" class="awsui-btn awsui-btn-icon">
+							<i class="awsui-iconfont">&#58934;</i>
+						</button>
+						<button type="button" class="awsui-btn awsui-btn-icon">
+							<i class="awsui-iconfont">&#59113;</i>
+						</button>
+
+						<button type="button" class="awsui-btn awsui-btn-icon align-right">
+							<i class="awsui-iconfont">&#59242;</i>
+						</button>
+					</div>
+					<div class="awsui-panel-body">接收任何组件的其他内容</div>
+				</div>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;div class="awsui-public-border awsui-public-radius"&gt;
+	&lt;div class="awsui-toolbar"&gt;
+		&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#58910;&lt;/i&gt;
+		&lt;/button&gt;
+		&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#58920;&lt;/i&gt;
+		&lt;/button&gt;
+		&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#58918;&lt;/i&gt;
+		&lt;/button&gt;
+		&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#58918;&lt;/i&gt;
+		&lt;/button&gt;
+		&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#59178;&lt;/i&gt;
+		&lt;/button&gt;
+		&lt;button type="button" class="awsui-btn awsui-btn-icon align-right"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#59242;&lt;/i&gt;
+		&lt;/button&gt;
+	&lt;/div&gt;
+	&lt;div class="awsui-panel-body"&gt;接收任何组件的其他内容&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-code-title title2" id="event3">
+				带阴影的工具栏
+			</div>
+			<p class="awsui-margin-top-5">带阴影的工具栏,添加类<code>awsui-public-shadow</code>来实现。</p>
+			<div class="awsui-code-demo">
+				<div class="awsui-toolbar awsui-public-shadow">
+					<button type="button" class="awsui-btn awsui-btn-icon">
+						<i class="awsui-iconfont">&#58915;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-icon">
+						<i class="awsui-iconfont">&#58918;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-icon">
+						<i class="awsui-iconfont">&#58934;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-icon">
+						<i class="awsui-iconfont">&#59113;</i>
+					</button>
+				</div>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;div class="awsui-toolbar awsui-public-shadow"&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58915;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58918;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58934;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#59113;&lt;/i&gt;
+	&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-code-title title2" id="event4">
+				带边框的工具栏
+			</div>
+			<p class="awsui-margin-top-5">带边框的工具栏,添加类<code>border</code>来实现。</p>
+			<div class="awsui-code-demo">
+				<div class="awsui-toolbar border">
+					<button type="button" class="awsui-btn awsui-btn-icon">
+						<i class="awsui-iconfont">&#58915;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-icon">
+						<i class="awsui-iconfont">&#58918;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-icon">
+						<i class="awsui-iconfont">&#58934;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-icon">
+						<i class="awsui-iconfont">&#59113;</i>
+					</button>
+				</div>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;div class="awsui-toolbar border"&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58915;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58918;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58934;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#59113;&lt;/i&gt;
+	&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-code-title title2" id="event5">
+				带分隔线工具栏
+			</div>
+			<p class="awsui-margin-top-5">带分隔线的工具栏,在工具栏内部添加类<code>separator</code>来实现。</p>
+			<div class="awsui-code-demo">
+				<div class="awsui-toolbar border">
+					<div class="separator">
+						<button type="button" class="awsui-btn awsui-btn-icon">
+							<i class="awsui-iconfont">&#58915;</i>
+						</button>
+						<button type="button" class="awsui-btn awsui-btn-icon">
+							<i class="awsui-iconfont">&#58918;</i>
+						</button>
+						<button type="button" class="awsui-btn awsui-btn-icon">
+							<i class="awsui-iconfont">&#58934;</i>
+						</button>
+						<button type="button" class="awsui-btn awsui-btn-icon">
+							<i class="awsui-iconfont">&#59113;</i>
+						</button>
+					</div>
+					<div class="separator">
+						<button type="button" class="awsui-btn awsui-btn-green awsui-btn-icon">
+							<i class="awsui-iconfont">&#58915;</i>
+						</button>
+						<button type="button" class="awsui-btn awsui-btn-green awsui-btn-icon">
+							<i class="awsui-iconfont">&#58918;</i>
+						</button>
+						<button type="button" class="awsui-btn awsui-btn-green awsui-btn-icon">
+							<i class="awsui-iconfont">&#58934;</i>
+						</button>
+						<button type="button" class="awsui-btn awsui-btn-green awsui-btn-icon">
+							<i class="awsui-iconfont">&#59113;</i>
+						</button>
+					</div>
+					<div class="separator">
+						<button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon">
+							<i class="awsui-iconfont">&#58915;</i>
+						</button>
+						<button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon">
+							<i class="awsui-iconfont">&#58918;</i>
+						</button>
+						<button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon">
+							<i class="awsui-iconfont">&#58934;</i>
+						</button>
+						<button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon">
+							<i class="awsui-iconfont">&#59113;</i>
+						</button>
+					</div>
+				</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;div class="awsui-toolbar border"&gt;
+	&lt;div class="separator"&gt;
+		&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#58915;&lt;/i&gt;
+		&lt;/button&gt;
+		&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#58918;&lt;/i&gt;
+		&lt;/button&gt;
+		&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#58934;&lt;/i&gt;
+		&lt;/button&gt;
+		&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#59113;&lt;/i&gt;
+		&lt;/button&gt;
+	&lt;/div&gt;
+	&lt;div class="separator"&gt;
+		&lt;button type="button" class="awsui-btn awsui-btn-green awsui-btn-icon"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#58915;&lt;/i&gt;
+		&lt;/button&gt;
+		&lt;button type="button" class="awsui-btn awsui-btn-green awsui-btn-icon"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#58918;&lt;/i&gt;
+		&lt;/button&gt;
+		&lt;button type="button" class="awsui-btn awsui-btn-green awsui-btn-icon"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#58934;&lt;/i&gt;
+		&lt;/button&gt;
+		&lt;button type="button" class="awsui-btn awsui-btn-green awsui-btn-icon"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#59113;&lt;/i&gt;
+		&lt;/button&gt;
+	&lt;/div&gt;
+	&lt;div class="separator"&gt;
+		&lt;button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#58915;&lt;/i&gt;
+		&lt;/button&gt;
+		&lt;button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#58918;&lt;/i&gt;
+		&lt;/button&gt;
+		&lt;button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#58934;&lt;/i&gt;
+		&lt;/button&gt;
+		&lt;button type="button" class="awsui-btn awsui-btn-blue awsui-btn-icon"&gt;
+			&lt;i class="awsui-iconfont"&gt;&amp;#59113;&lt;/i&gt;
+		&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+			</div>
+		</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-code-title title2" id="event6">
+				背景色的工具栏
+			</div>
+			<p class="awsui-margin-top-5">带背景色的工具栏,添加类<code>awsui-toolbar-background</code>来实现。</p>
+			<div class="awsui-code-demo">
+				<div class="awsui-toolbar awsui-toolbar-background">
+					<button type="button" class="awsui-btn awsui-btn-icon">
+						<i class="awsui-iconfont">&#58915;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-icon">
+						<i class="awsui-iconfont">&#58918;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-icon">
+						<i class="awsui-iconfont">&#58934;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-icon">
+						<i class="awsui-iconfont">&#59113;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-icon">
+						<i class="awsui-iconfont">&#58915;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-icon">
+						<i class="awsui-iconfont">&#58918;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-icon">
+						<i class="awsui-iconfont">&#58934;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-icon">
+						<i class="awsui-iconfont">&#59113;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-icon">
+						<i class="awsui-iconfont">&#58915;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-icon">
+						<i class="awsui-iconfont">&#58918;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-icon">
+						<i class="awsui-iconfont">&#58934;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-icon">
+						<i class="awsui-iconfont">&#59113;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-icon">
+						<i class="awsui-iconfont">&#58915;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-icon">
+						<i class="awsui-iconfont">&#58918;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-icon">
+						<i class="awsui-iconfont">&#58934;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-icon">
+						<i class="awsui-iconfont">&#59113;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-icon">
+						<i class="awsui-iconfont">&#58915;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-icon">
+						<i class="awsui-iconfont">&#58918;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-icon">
+						<i class="awsui-iconfont">&#58934;</i>
+					</button>
+					<button type="button" class="awsui-btn awsui-btn-icon">
+						<i class="awsui-iconfont">&#59113;</i>
+					</button>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;div class="awsui-toolbar awsui-toolbar-background"&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58915;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58918;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58934;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#59113;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58915;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58918;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58934;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#59113;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58915;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58918;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#58934;&lt;/i&gt;
+	&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn awsui-btn-icon"&gt;
+		&lt;i class="awsui-iconfont"&gt;&amp;#59113;&lt;/i&gt;
+	&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section_right">
+		<div class="nav">
+			<!-- 右侧导航 -->
+		</div>
+	</div>
+	<div class="navTop">
+		<img src="../img/top.png" alt=""/>
+	</div>
+	<script src="../../js/jquery/scripts/jquery.js"></script>
+	<script src="../../js/awsui.js"></script>
+	<script src="../prism/prism.js"></script>
+	<script src="../js/public.js?v=1"></script>
+</body>
+</html>
+

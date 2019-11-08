@@ -1,0 +1,313 @@
+.appIcon {
+	text-align: center;
+}
+
+.appName {
+	text-overflow: ellipsis;
+	width: 130px;
+	height: 30px;
+	line-height: 30px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-align: center;
+}
+/* 无记录行 */
+.apps-no-record {
+	color: #AAAAAA;
+	text-align: center;
+	font-size: 16px;
+	width: 100%;
+	height: 240px;
+	line-height: 220px;
+	background: url('../img/no-record-bg.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	-khtml-user-select: none;
+}
+/* 加载更多 */
+.apps-load-more {
+	margin: 0;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    background-color: transparent;
+    display: block;
+    margin: 0 auto 20px;
+    width: 180px;
+    background-color: rgba(236, 236, 236, 0.35);
+    border-radius: 20px;
+    font-size: 14px;
+    color: #999;
+    line-height: 30px;
+    cursor: pointer;
+    text-align: center;
+}
+.apps-load-more:hover{
+	background-color: rgb(236, 236, 236);
+}
+/* 个人概要信息 Start */
+.awsui-user-profile {
+	color: #0A8CD2;
+	cursor: pointer;
+}
+.awsui-userprofile-container {
+	text-align: left;
+	color: black;
+	font-size: 12px;
+	width: 340px;
+	height: 128px;
+	padding: 20px;
+	border: 1px solid #CCCCCC;
+	border-radius: 5px;
+	box-shadow: 0 2px 15px #BBBBBB;
+	background: #FFFFFF;
+	position: absolute;
+	z-index: 9999;
+	cursor: default;
+}
+.awsui-userprofile-photo-container {
+	text-align: center; 
+	width: 90px; 
+	height: 90px; 
+	display: inline-block; 
+}
+
+.awsui-userprofile-photo {
+	width: 80px; 
+	height: 80px; 
+	border-radius: 50%;
+	margin-top: 10px;
+	display: block;
+}
+
+.awsui-userprofile-info-container {
+	width: 240px;
+	margin-left: 10px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.awsui-userprofile-online {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	margin-top: 3px;
+	background: #00EE00;
+	display: inline-block;
+	vertical-align: middle;
+}
+.awsui-userprofile-online.un {
+	background: #BBBBBB;
+}
+.awsui-userprofile-info {
+	width: 100%;
+	line-height: 20px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.awsui-userprofile-info.user-name {
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 28px;
+	width: 220px;
+	margin-left: 5px;
+	display: inline-block; 
+	vertical-align: middle;
+	cursor: default;
+}
+.awsui-userprofile-info.sendmsg {
+    position: absolute;
+    width: 32px;
+    height:32px;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    background-image: url(../../apps/com.actionsoft.apps.profile/img/msg_gray_32.png);
+}
+.sendmsg:hover  {
+	background-image: url(../../apps/com.actionsoft.apps.profile/img/msg_blue_32.png);
+}	
+.awsui-userprofile-info.mobile {
+	margin-top: 10px;
+}
+.awsui-userprofile-info-label {
+	width: 16px;
+	height: 16px;
+	margin: 2px 3px 2px 0;
+	display: inline-block;
+	vertical-align: middle; 
+}
+.awsui-userprofile-info-label.mobile {
+	background: url(../img/mobile.png);
+}
+.awsui-userprofile-info-label.office-tel {
+	background: url(../img/phone.png);
+}
+.awsui-userprofile-info-label.email {
+	background: url(../img/mail.png);
+}
+.awsui-userprofile-info-label.mobile.detail {
+	background: url(../../apps/com.actionsoft.apps.profile/img/mobile.png);
+}
+.awsui-userprofile-info-label.office-tel.detail {
+	background: url(../../apps/com.actionsoft.apps.profile/img/phone.png);
+}
+.awsui-userprofile-info-label.email.detail {
+	background: url(../../apps/com.actionsoft.apps.profile/img/mail.png);
+}
+.awsui-userprofile-info-value {
+	width: 300px; 
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: middle;
+	cursor: default;
+}
+
+/* 个人概要信息 End */
+
+/* 个人详细信息 Start */
+.awsui-upd-container {
+	text-align: left; 
+	width: 478px;
+	color: #FFFFFF;
+	background: #39A773;
+	box-shadow: 0 0 15px #333333;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: -478px;
+	z-index: 100;
+}
+.awsui-upd-user-container {
+	margin-top: 10px; 
+}
+
+.awsui-upd-photo-container {
+	text-align: center;
+	width: 120px;
+	height: 120px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.awsui-upd-photo {
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	margin-top: 15px;
+	border: 3px solid #FFFFFF;
+	box-shadow: 0 0 10px #DDDDDD;
+}
+.awsui-upd-info-container {
+	width: 320px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.awsui-upd-user-online {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background: #00EE00;
+	margin: 1px 5px 3px 0;
+	display: inline-block;
+	vertical-align: middle;
+}
+.awsui-upd-user-online.un {
+	background: #DDDDDD;
+}
+
+.awsui-upd-info {
+	width: 100%;
+	line-height: 20px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	cursor: default;
+}
+.awsui-upd-info.user-name {
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 30px;
+	width: 320px;
+	display: inline-block; 
+	vertical-align: middle;
+	cursor: default;
+}
+.awsui-upd-content-container {
+	color: #000000;
+	background: #FFFFFF;
+	position: absolute;
+	top: 150px;
+	width: 100%;
+	bottom: 0;
+}
+
+.awsui-upd-profile-conatiner {
+	width: 100%; 
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+}
+.awsui-upd-profile {
+	height: 34px;
+	background: #DDDDDD;
+	display: inline-block;
+}
+.awsui-upd-profile li {
+	padding: 8px 20px;
+	max-width: 300px;
+	background: #CCCCCC;
+	display: inline-block;
+	cursor: pointer;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.awsui-upd-profile li.active {
+	background: #FFFFFF;
+	cursor: default;
+}
+.awsui-upd-move {
+	width: 10px;
+	height: 10px;
+	background: #CCCCCC;
+	position: absolute;
+	top: 13px;
+	cursor: pointer; 
+}
+.awsui-upd-move.left {
+	left: 3px;
+}
+.awsui-upd-move.right {
+	right: 3px;
+}
+.awsui-upd-move:hover {
+	background: #222222;
+}
+
+.awsui-upd-iframe {
+	width: 100%;
+	border: none;
+}
+
+.awsui-upd-operate {
+	font-family: monospace;
+	font-weight: bold; 
+	text-align: center; 
+	width: 30px;
+	height: 30px;
+	line-height: 33px;
+	background: #39A773;
+	position: absolute;
+	left: -25px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+/* 个人详细信息 Start */

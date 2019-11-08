@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="基于AWSUI-MessagePage的主流前端响应式框架">
+	<meta name="keywords" content="提醒 - AWSUI">
+	<title>ScopedNotifications</title>
+	<link rel="stylesheet" href="../../css/awsui.css">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/uidoc.css?v=1">
+	<link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+</head>
+<body>
+	<div class="awsui-wrapper">
+		<div class="col-sm-12 col-md-12 col-xs-12 awsui-border-bottom">
+			<div class="awsui-markdown">
+				<h1 class="title2" id="notification">区域提示</h1>
+				<p class="awsui-margin-bottom-14">区域提示向用户显示警告提示，经常用于以下情况：</p>
+				<ul>
+					<li>当某个页面需要向用户显示警示的信息时。</li>
+					<li>非浮层的静态展现形式，始终展现，不会自动消失，用户可以点击关闭。</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-markdown">
+	        	<div class="awsui-code-title">
+		        	API
+		        </div>
+				<ul>
+					<li>$(el).scopedNotifications(config)</li>
+				</ul>
+				<p>config 参数如下：</p>
+		    </div>
+	        <table class="awsui-table awsui-margin-bottom-24">
+	        	<thead>
+	        		<tr>
+	        			<th width="20%">参数</th>
+	        			<th width="40%">说明</th>
+	        			<th width="20%">类型</th>
+	        			<th>默认值</th>
+	        		</tr>
+	        	</thead>
+	        	<tbody>
+	        		<tr>
+	        			<td>type</td>
+	        			<td>指定区域提示的类型，有四种选择<code>ok、info、warning、error</code></td>
+	        			<td>string</td>
+	        			<td>info</td>
+		        	</tr>
+		        	<tr>
+	        			<td>content</td>
+	        			<td>区域提示内容</td>
+	        			<td>string</td>
+	        			<td>-</td>
+		        	</tr>
+		        	<tr>
+	        			<td>description</td>
+	        			<td>区域提示的辅助性文字介绍</td>
+	        			<td>string</td>
+	        			<td>-</td>
+		        	</tr>
+		        	<tr>
+	        			<td>fontSize</td>
+	        			<td>字体库图标大小</td>
+	        			<td>number</td>
+	        			<td>30</td>
+		        	</tr>
+		        	<tr>
+	        			<td>isShowIcon</td>
+	        			<td>是否显示type类型为<code>ok、info、warning、error</code>的字体库图标</td>
+	        			<td>boolean</td>
+	        			<td>false</td>
+		        	</tr>
+		        	<tr>
+	        			<td>isShowClose</td>
+	        			<td>是否显示关闭按钮</td>
+	        			<td>boolean</td>
+	        			<td>false</td>
+		        	</tr>
+		        	<tr>
+	        			<td>isShowTop</td>
+	        			<td>是否在顶部提示</td>
+	        			<td>boolean</td>
+	        			<td>false</td>
+		        	</tr>
+		        	<tr>
+	        			<td>onClose</td>
+	        			<td>触发回调函数</td>
+	        			<td>function</td>
+	        			<td>-</td>
+		        	</tr>
+		        </tbody>
+	        </table>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="notify1">
+	        	基本
+	        </div>
+	        <p class="awsui-margin-top-5">最简单的用法，适用于简短的警告提示。</p>
+        	<div class="awsui-code-demo" id="basic_demo"></div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;div class="awsui-code-demo" id="basic_demo"&gt;&lt;/div&gt;
+</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-js">$("#basic_demo").scopedNotifications({
+    content:'区域提示内容'
+});
+</code></pre>
+			</div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="notify2">
+	        	信息提示类型
+	        </div>
+	        <p class="awsui-margin-top-5">共有四种类型样式 <code>ok、info、warning、error</code>。</p>
+        	<div class="awsui-code-demo" id="style_demo"></div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;div class="awsui-code-demo" id="style_demo"&gt;&lt;/div&gt;
+</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-js">$("#style_demo").scopedNotifications({
+    type:'ok',
+    content:'ok 区域提示内容'
+});
+$("#style_demo").scopedNotifications({
+    type:'info',
+    content:'info 区域提示内容'
+});
+$("#style_demo").scopedNotifications({
+    type:'warning',
+    content:'warning 区域提示内容'
+});
+$("#style_demo").scopedNotifications({
+    type:'error',
+    content:'error 区域提示内容'
+});
+</code></pre>
+			</div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="notify3">
+	        	可关闭的区域提示
+	        </div>
+	        <p class="awsui-margin-top-5">显示关闭按钮，点击可关闭区域提示，设置属性<code>isShowClose：true</code>。</p>
+        	<div class="awsui-code-demo" id="close_demo"></div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;div class="awsui-code-demo" id="close_demo"&gt;&lt;/div&gt;
+</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-js">$("#close_demo").scopedNotifications({
+    content:'是否显示关闭按钮',
+    description:'是否显示关闭按钮的辅助性文字介绍。',
+    isShowClose:true,
+    onClose : function(){
+        console.log('I was closed.');
+    }
+});
+</code></pre>
+			</div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="notify4">
+	        	含有辅助性文字介绍
+	        </div>
+	        <p class="awsui-margin-top-5">含有辅助性文字介绍的警告提示，设置属性<code>description</code>。</p>
+        	<div class="awsui-code-demo" id="description_demo"></div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;div class="awsui-code-demo" id="description_demo"&gt;&lt;/div&gt;
+</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-js">$("#description_demo").scopedNotifications({
+    type:'ok',
+    content:'ok 区域提示内容',
+    description:'ok 区域提示的辅助性文字介绍。'
+});
+$("#description_demo").scopedNotifications({
+    type:'info',
+    content:'info 区域提示内容',
+    description:'info 区域提示的辅助性文字介绍。'
+});
+$("#description_demo").scopedNotifications({
+    type:'warning',
+    content:'warning 区域提示内容',
+    description:'warning 区域提示的辅助性文字介绍。'
+});
+$("#description_demo").scopedNotifications({
+    type:'error',
+    content:'error 区域提示内容',
+    description:'error 区域提示的辅助性文字介绍。'
+});
+</code></pre>
+			</div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="notify5">
+	        	带有图标的区域提示
+	        </div>
+	        <p class="awsui-margin-top-5">可口的图标让信息类型更加醒目，设置<code>isShowIcon为true</code>,默认类型<code>type 为 'info'</code>，并有特殊样式，若想改变字体库图标大小，请设置<code>fontSize属性</code>。</p>
+        	<div class="awsui-code-demo" id="icon_demo"></div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;div class="awsui-code-demo" id="icon_demo"&gt;&lt;/div&gt;
+</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-js">$("#icon_demo").scopedNotifications({
+    type:'info',
+    content:'info 带有图标的区域提示',
+    description:'info 带有图标的区域提示的辅助性文字介绍。',
+    isShowIcon:true
+});
+$("#icon_demo").scopedNotifications({
+    type:'warning',
+    content:'warning 带有图标的区域提示',
+    description:'warning 带有图标的区域提示的辅助性文字介绍。',
+    isShowIcon:true
+});
+$("#icon_demo").scopedNotifications({
+    type:'error',
+    content:'error 带有图标的区域提示',
+    description:'error 带有图标的区域提示的辅助性文字介绍。',
+    isShowIcon:true
+});
+$("#icon_demo").scopedNotifications({
+    type:'ok',
+    content:'ok 带有图标的区域提示',
+    fontSize:18,
+    isShowIcon:true
+});
+$("#icon_demo").scopedNotifications({
+    type:'info',
+    content:'info 带有图标的区域提示',
+    fontSize:20,
+    isShowIcon:true
+});
+$("#icon_demo").scopedNotifications({
+    type:'warning',
+    content:'warning 带有图标的区域提示',
+    fontSize:22,
+    isShowIcon:true
+});
+$("#icon_demo").scopedNotifications({
+    type:'error',
+    content:'error 带有图标的区域提示带有图标的区域提示带有图标的区域提示带有图标的区域提示带有图标的区域提示带有图标的区域提示带有图标的区域提示带有图标的区域提示带有图标的区域提示带有图标的区域提示',
+    fontSize:25,
+    isShowIcon:true
+});
+</code></pre>
+			</div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="notify6">
+	        	顶部公告
+	        </div>
+	        <p class="awsui-margin-top-5">用作顶部公告时，设置<code>isShowTop 为 true</code>。</p>
+	        <div class="awsui-code-demo" id="top_demo"></div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;div class="awsui-code-demo" id="top_demo"&gt;&lt;/div&gt;
+</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-js">$("#top_demo").scopedNotifications({
+    type:'warning',
+    content:'顶部的区域提示',
+    description:'顶部的区域提示的辅助性文字介绍。',
+    isShowTop:true
+});
+$("#top_demo").scopedNotifications({
+    type:'warning',
+    content:'顶部的区域提示',
+    description:'顶部的区域提示的辅助性文字介绍。',
+    isShowTop:true,
+    isShowIcon:true,
+    isShowClose:true
+});
+</code></pre>
+			</div>
+        </div>
+	</div>
+	<div class="section_right">
+		<div class="nav">
+			<!-- 右侧导航 -->
+		</div>
+    </div>
+	<div class="navTop">
+		<img src="../img/top.png" alt=""/>
+	</div>
+	<script src="../../js/jquery/scripts/jquery.js"></script>
+	<script src="../../js/awsui.js"></script>
+	<script src="../prism/prism.js"></script>
+	<script src="../js/public.js?v=1"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#basic_demo").scopedNotifications({
+				content:'区域提示内容'
+			});
+			$("#style_demo").scopedNotifications({
+				type:'ok',
+				content:'ok 区域提示内容'
+			});
+			$("#style_demo").scopedNotifications({
+				type:'info',
+				content:'info 区域提示内容'
+			});
+			$("#style_demo").scopedNotifications({
+				type:'warning',
+				content:'warning 区域提示内容'
+			});
+			$("#style_demo").scopedNotifications({
+				type:'error',
+				content:'error 区域提示内容'
+			});
+			$("#close_demo").scopedNotifications({
+				content:'是否显示关闭按钮',
+				description:'是否显示关闭按钮的辅助性文字介绍。',
+				isShowClose:true,
+				onClose : function(){
+					console.log('I was closed.');
+				}
+			});
+			$("#description_demo").scopedNotifications({
+				type:'ok',
+				content:'ok 区域提示内容',
+				description:'ok 区域提示的辅助性文字介绍。'
+			});
+			$("#description_demo").scopedNotifications({
+				type:'info',
+				content:'info 区域提示内容',
+				description:'info 区域提示的辅助性文字介绍。'
+			});
+			$("#description_demo").scopedNotifications({
+				type:'warning',
+				content:'warning 区域提示内容',
+				description:'warning 区域提示的辅助性文字介绍。'
+			});
+			$("#description_demo").scopedNotifications({
+				type:'error',
+				content:'error 区域提示内容',
+				description:'error 区域提示的辅助性文字介绍。'
+			});
+			$("#icon_demo").scopedNotifications({
+			    type:'ok',
+			    content:'ok 带有图标的区域提示',
+			    description:'ok 带有图标的区域提示的辅助性文字介绍。',
+			    isShowIcon:true
+			});
+			$("#icon_demo").scopedNotifications({
+			    type:'info',
+			    content:'info 带有图标的区域提示',
+			    description:'info 带有图标的区域提示的辅助性文字介绍。',
+			    isShowIcon:true
+			});
+			$("#icon_demo").scopedNotifications({
+			    type:'warning',
+			    content:'warning 带有图标的区域提示',
+			    description:'warning 带有图标的区域提示的辅助性文字介绍。',
+			    isShowIcon:true
+			});
+			$("#icon_demo").scopedNotifications({
+			    type:'error',
+			    content:'error 带有图标的区域提示',
+			    description:'error 带有图标的区域提示的辅助性文字介绍。',
+			    isShowIcon:true
+			});
+			$("#icon_demo").scopedNotifications({
+			    type:'ok',
+			    content:'ok 带有图标的区域提示',
+			    fontSize:18,
+			    isShowIcon:true
+			});
+			$("#icon_demo").scopedNotifications({
+			    type:'info',
+			    content:'info 带有图标的区域提示',
+			    fontSize:26,
+			    isShowIcon:true
+			});
+			$("#icon_demo").scopedNotifications({
+			    type:'warning',
+			    content:'warning 带有图标的区域提示',
+			    fontSize:34,
+			    isShowIcon:true
+			});
+			$("#icon_demo").scopedNotifications({
+			    type:'error',
+			    content:'error 带有图标的区域提示带有图标的区域提示带有图标的区域提示带有图标的区域提示带有图标的区域提示带有图标的区域提示带有图标的区域提示带有图标的区域提示带有图标的区域提示带有图标的区域提示',
+			    fontSize:42,
+			    isShowIcon:true
+			});
+			$("#top_demo").scopedNotifications({
+				type:'warning',
+				content:'顶部的区域提示',
+				description:'顶部的区域提示的辅助性文字介绍。'
+			});
+			$("#top_demo").scopedNotifications({
+				type:'warning',
+				content:'顶部的区域提示',
+				description:'顶部的区域提示的辅助性文字介绍。',
+				isShowIcon:true,
+				isShowClose:true
+			});
+		});
+	</script>
+</body>
+</html>

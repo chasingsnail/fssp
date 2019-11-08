@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>您的浏览器不支持</title>
+  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ 
+<link type='text/css' rel='stylesheet' href='../apps/_bpm.platform/js/designer/themes/default/global.css'/>
+<link type='text/css' rel='stylesheet' href='../apps/_bpm.platform/js/designer/themes/default/diagraming/ui.css'/>
+<script type="text/javascript" src="../commons/js/jquery/scripts/jquery.js"></script>
+	<script type="text/javascript">
+		var 取消关注 = "<I18N#取消关注>";
+		var 关注中 = "<I18N#关注中>";
+		var 暂时无法处理您的请求请稍候重试 = "<I18N#暂时无法处理您的请求请稍候重试。>";
+		var 模型受管操作被拒绝 = "<I18N#模型受管操作被拒绝>";
+		var 检测用户时 = "<I18N#检测用户时>";
+		var 这个用户会话不存在或会话已经断开与服务器的连接将提示您重新登录 = "<I18N#这个用户会话不存在或会话已经断开与服务器的连接将提示您重新登录>";
+		var 可能是服务未启动或网络异常 = "<I18N#可能是服务未启动或网络异常>";
+		var 向服务建立连接时失败可能是服务未启动或网络异常将提示您重新登录 = "<I18N#向服务建立连接时失败可能是服务未启动或网络异常将提示您重新登录>";
+		var 暂时无法处理请求请稍候重试 = "<I18N#暂时无法处理请求请稍候重试>";
+	</script>
+<script type='text/javascript' charset='UTF-8' src='../apps/_bpm.platform/js/designer/scripts/util.js'></script>
+<script>
+	//初始化计算高度
+	$(function(){
+		var parentHeight=$("#nonSupportMask").parent().parent().parent().height();
+		$("#nonSupportMask").height(parentHeight-2);
+	});
+	
+</script>
+</head>
+<body>
+ 
+<div id="nonSupportMask" class="non_support_mask" style="border: 1px solid #FFFFFF;background: #ffffff;">
+	<div class="no_sup_mask_main">
+		<h1>您的浏览器<del>不支持</del></h1>
+		<p>您的浏览器版本太低，所以您无法使用我们的作图工具。<br/>我们推荐您使用以下几种浏览器，以便能更好的体验我们带给您的服务。</p>
+		<div class="bs_logo_list">
+			<a class="sup_chrome" title="Chrome" href="http://www.google.cn/intl/zh-CN/chrome/browser/" target="_blank"></a>
+			<a class="sup_firefox" title="Firefox" href="http://firefox.com.cn/" target="_blank"></a>
+			<a class="sup_ie" title="IE10+" href="http://windows.microsoft.com/zh-cn/internet-explorer/download-ie" target="_blank"></a>
+			<a class="sup_safari" title="Safari" href="http://support.apple.com/kb/DL1531?viewlocale=zh_CN&locale=zh_CN" target="_blank"></a>
+			<!--a class="sup_opera" title="Opera" href="http://www.opera.com/zh-cn" target="_blank"></a-->
+		</div>
+	</div>
+</div>
+ 
+</body>
+</html>

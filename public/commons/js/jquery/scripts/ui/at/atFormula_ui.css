@@ -1,0 +1,30 @@
+
+	#content{position:relative;border:1px solid #ccc;}
+	#tree_search{width:230px;background: url(../../../themes/default/ui/images/search_i.gif) no-repeat;background-position: center right;}
+	#tree{overflow-x: hidden;text-align:left;}
+	.canvas{position: absolute;}
+	#container{overflow: auto;}
+	#panel_container{width:100%;height:100%;position: relative;}
+	#panel_container .shadow{
+		width: 174px;
+		filter: progid:DXImageTransform.Microsoft.Shadow(color='#F19999', Direction=135, Strength=5);/*for ie8*/
+		-moz-box-shadow: -2px 2px 2px #F19999;
+    	-webkit-box-shadow: -2px 2px 2px #F19999;
+    	box-shadow:-2px 2px 2px #F19999;
+    	outline:none;}
+    #panel_container .shadowOver{
+        filter: progid:DXImageTransform.Microsoft.Shadow(color='#3C4249', Direction=135, Strength=5);/*for ie8*/
+    	-moz-box-shadow: -3px 3px 3px #3C4249;
+    	-webkit-box-shadow: -3px 3px 3px #3C4249;
+    	box-shadow: -3px 3px 3px #3C4249;
+    	outline:none;}	
+	.shadow input{width:78px;height:20px;border:none;text-align:center;padding-top:0 !important;padding-bottom:0 !important;}
+	.awsui-combobox-wrap input{text-align:left;}
+	.shadow table tr td{border: 1px solid #617775;vertical-align: middle;width:80px;height:22px;text-align:center;}
+	.shadow table tr td img{position: absolute;right: -6px;cursor:pointer;}
+	.exp{background: #abcdef;}
+	.result{cursor:move}
+	.button_position{float:right;}
+	.curSelectedNode {background-color: #FFE6B0;}
+	.lineSelected{}
+	.drophover{cursor: url('img/add_obj.cur'),auto;}

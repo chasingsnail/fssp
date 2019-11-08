@@ -1,0 +1,732 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="基于AWSUI-quickstart的主流前端响应式框架">
+    <meta name="keywords" content="入门 - AWSUI">
+    <title>quick start</title>
+    <link rel="stylesheet" href="../../css/awsui.css">
+    <link rel="stylesheet" href="../css/uidoc.css?v=1">
+    <script src="../../js/jquery/scripts/jquery.js"></script>
+    <script src="../../js/awsui.js"></script>
+    <link rel="stylesheet" type="text/css" href="../dlhighlight/style.css" media="all"/>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../../css/font/iconfont.css">
+    <script src="../clipboard/clipboard.min.js"></script>
+    <script src="../dlhighlight/highlight.js"></script>
+    <script src="../dlhighlight/lang-js.js"></script>
+    <script src="../js/public.js?v=1"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            font-family: "Microsoft Yahei";
+        }
+
+        .table-bordered > thead > tr > th {
+            border-bottom-width: 0px !important;
+            padding-left: 15px;
+        }
+
+        .table > tbody > tr > td {
+            padding-left: 15px;
+        }
+        pre {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: "Microsoft Yahei" !important;
+        }
+        .title2 {
+            display: inline-block;
+            font-size: 18px;
+            font-family: "Microsoft Yahei";
+        }
+
+        .code {
+            max-width: 100% !important;
+            overflow: inherit; !important;
+            border: 0 !important;
+            background-color: white !important;
+        }
+
+        .code a {
+            top:-9px!important;
+            border: 0 !important;
+            height: 42px !important;
+            line-height: 42px !important;
+            padding: 0 5px !important;
+        }
+
+        pre {
+            height: 40px !important;
+            font-size: 14px !important;
+        }
+
+        .wrap-A {
+            border: 1px solid #F2F2F2;
+            border-right: white;
+        }
+
+        .wrap-B {
+            float: left;
+            font-size: 20px;
+            padding-left: 15px;
+            color: #3a3737;
+            margin-top: 10px;
+        }
+
+        .wrap-C {
+            font-size: 14px;
+            padding-left: 14px;
+            font-weight: 800;
+            font-family: 'Microsoft Yahei';
+            margin-top: 13px;
+            float: left
+        }
+
+        .wrap-D {
+            height: auto;
+            margin-top: 50px;
+        }
+
+        .wrap-E {
+            width: 90%;
+            display: inline-block;
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+
+        .wrap-icon-c {
+            font-size: 14px;
+            padding-left: 14px;
+            font-weight: 800;
+            font-family: 'Microsoft Yahei';
+            float: left;
+            line-height: 48px;
+        }
+
+        #select2_code, #ajax1 {
+            height: 223px !important;
+            right: -4px !important;
+        }
+
+        #select2_code > a:first-child {
+            right: -5px !important;
+        }
+        .nav {
+            width: auto;
+            height: auto;
+            position: fixed;
+            right: 30px;
+            top:25%;
+            opacity: .95;
+            z-index: 9999;
+            border: 0 !important;
+        }
+        .navTop{
+            width: 50px;
+            height: 50px;
+            position: fixed;
+            right: 45px;
+            opacity: .95;
+            z-index: 9999;
+            border: 0!important;
+        }
+        .navTop > img {
+            cursor: pointer;
+        }
+        .wrap-A:hover{
+            box-shadow: 0 3px 10px 0 rgba(90, 103, 141, 0.17);
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+
+    <div class="row" style="margin-top:25px;">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <table class="tab">
+                <tr>
+                    <td>
+                        <span class="title2" id="easydo">引入文件</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+             style="margin-top:20px;background:#F2F2F2;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12"
+                         style="padding-left:15px;line-height:44px;font-size:16px;height:45px;">
+                        引入类库
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="wrap col-sm-12 col-md-12 col-lg-12"
+                         style="font-size:14px;height:auto;background: white;">
+                        <div class="wrap-A col-sm-3 col-md-3 col-lg-3" style="overflow: hidden">
+                            <div class="wrap-B awsui-iconfont" style="color:#3383da">&#58902;</div>
+                            <div class="wrap-C">jquery.js</div>
+                            <div class="wrap-C" style="padding-left: 5px"><code>1.10.2</code></div>
+                            <div class="wrap-D">
+                                <p class="wrap-E">构建项目必备，快速简洁高效的前端基础开源类库。</p>
+									<span style="display: inline-block;height:54px;width:100%;text-align: right;line-height: 70px;padding-right: 12px;">
+										Write Less，Do More
+									</span>
+                            </div>
+
+
+                        </div>
+                        <div class="wrap-A col-sm-3 col-md-3 col-lg-3">
+                            <div class="wrap-B awsui-iconfont" style="color:#3383da">&#58959;</div>
+                            <div class="wrap-C">iconfont.css</div>
+                            <div class="wrap-D">
+                                <p class="wrap-E">
+                                    图标类字体化，图标大小颜色等同字体样式的设置。
+                                </p>
+									<span style="display: inline-block;height:54px;width:100%;text-align: right;line-height: 70px;;padding-right: 12px;">
+										The More，The Better
+									</span>
+                            </div>
+
+
+                        </div>
+                        <div class="wrap-A col-sm-3 col-md-3 col-lg-3">
+                            <div class="wrap-B awsui-iconfont" style="color:#3383da">&#59148;</div>
+                            <div class="wrap-C">awsui.css</div>
+                            <div class="wrap-D">
+                                <p class="wrap-E">
+                                    类名规范简洁，按照一定规则精简合理的封装样式。
+                                </p>
+									<span style="display: inline-block;height:54px;width:100%;text-align: right;line-height: 70px;;padding-right: 12px;">
+										The Simple，The Better
+									</span>
+                            </div>
+
+
+                        </div>
+                        <div style="border-right: 1px solid #F2F2F2" class="wrap-A col-sm-3 col-md-3 col-lg-3">
+                            <div class="wrap-B awsui-iconfont" style="color:#3383da">&#59133;</div>
+                            <div class="wrap-C">awsui.js</div>
+                            <div class="wrap-D">
+                                <p class="wrap-E">
+                                    插件功能更多，全新强大的前端功能类库扩展封装。
+                                </p>
+									<span style="display: inline-block;height:54px;width:100%;text-align: right;line-height: 70px;;padding-right: 12px;">
+										The More，The Power
+									</span>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+    <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+         style="background:#F2F2F2;border-top:0;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12"
+                     style="padding-left:15px;line-height:44px;font-size:16px;height:45px;">
+                    引入路径
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12"
+                         style="height:42px;border:1px solid #f2f2f2;border-top:0;font-size:16px;">
+                        <div style="width:99%;height:100%;font-family: 'Microsoft Yahei';float: left;position:absolute;left:5px;">
+								<pre id="import2" class="code" style="line-height: 20px;">
+&lt;link rel="stylesheet" href="../commons/css/font/iconfont.css"/&gt;</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12"
+                         style="height:42px;border:1px solid #f2f2f2;border-top:0;font-size:16px;">
+                        <div style="width:99%;height:100%;font-family: 'Microsoft Yahei';float: left;position:absolute;left:5px;">
+								<pre id="import3" class="code" style="line-height: 20px;">
+&lt;link rel="stylesheet" href="../commons/css/awsui.css"/&gt;</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12"
+                         style="height:42px;border:1px solid #f2f2f2;border-top:0;font-size:16px;">
+                        <div style="width:99%;height:100%;font-family: 'Microsoft Yahei';float: left;position:absolute;left:5px;">
+								<pre id="import1" class="code" style="line-height: 20px;">
+&lt;script src="../commons/js/jquery/scripts/jquery.js"&gt;&lt;/script&gt;
+								</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12"
+                         style="height:42px;border:1px solid #f2f2f2;border-top:0;font-size:16px;">
+                        <div style="width:99%;height:100%;float: left;margin-left:5px;">
+								<pre id="import4" class="code" style="line-height: 20px;">
+&lt;script src="../commons/js/awsui.js"&gt;&lt;/script&gt;
+                                </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row" style="margin-top:10px;">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+             style="margin-top:20px;">
+            <table class="tab">
+                <tr>
+                    <td>
+                        <span class="title2" id="useComponent">按钮场景</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 20px">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+             style="background:#F2F2F2;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12"
+                         style="padding-left:15px;line-height:44px;font-size:16px;height:45px;">
+                        示例
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+             style="border:1px solid #f2f2f2;border-top:0;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="font-size:14px;height:50px;background: white;">
+                        <div class="col-sm-2 col-md-2 col-lg-2">
+                            <div class="wrap-icon-c">
+                                <button type="button" class="awsui-btn">原始按钮</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-2 col-md-2 col-lg-2">
+                            <div class="wrap-icon-c">
+                                <button type="button" class="awsui-btn awsui-btn-green">
+                                    百搭按钮
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-sm-2 col-md-2 col-lg-2">
+
+                            <div class="wrap-icon-c">
+                                <button type="button" class="awsui-btn awsui-btn-blue">默认按钮
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-sm-2 col-md-2 col-lg-2">
+                            <div class="wrap-icon-c">
+                                <button type="button" class="awsui-btn awsui-btn-danger">
+                                    警告按钮
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+             style="background:#F2F2F2;;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12"
+                         style="padding-left:15px;line-height:44px;font-size:16px;height:45px;">
+                        示例代码
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12"
+                         style="height:42px;border:1px solid #f2f2f2;border-top:0;font-size:16px;">
+                        <div style="width:99%;height:100%;float: left;margin-left:5px;">
+								<pre class="code" id="button" style="line-height: 20px;">
+<button type="button" class="awsui-btn">原始按钮</button>
+								</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12"
+                         style="height:42px;border:1px solid #f2f2f2;border-top:0;font-size:16px;">
+                        <div style="width:99%;height:100%;float: left;margin-left:5px;">
+								<pre class="code" id="button1" style="line-height: 20px;">
+<button type="button" class="awsui-btn awsui-btn-green">百搭按钮</button>
+								</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12"
+                         style="height:42px;border:1px solid #f2f2f2;border-top:0;font-size:16px;">
+                        <div style="width:99%;height:100%;float: left;margin-left:5px;">
+								<pre class="code" id="button2" style="line-height: 20px;">
+<button type="button" class="awsui-btn awsui-btn-blue">默认按钮</button>
+								</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12"
+                         style="height:42px;border:1px solid #f2f2f2;border-top:0;font-size:16px;">
+                        <div style="width:99%;height:100%;float: left;margin-left:5px;">
+								<pre class="code" id="button3" style="line-height: 20px;">
+<button type="button" class="awsui-btn awsui-btn-danger">警告按钮</button>
+								</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row" style="margin-top:10px;">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+             style="margin-top:20px;">
+            <table class="tab">
+                <tr>
+                    <td>
+
+                        <span class="title2" id="desc">下拉框场景</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 20px">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+             style="background:#F2F2F2;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12"
+                         style="padding-left:15px;line-height:44px;font-size:16px;height:45px;">
+                        示例
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="height:auto;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12"
+                         style="height:59px;line-height:58px;border:1px solid #f2f2f2;border-top:0;font-size:16px;background: white;">
+                        <div style="width:99%;font-family: 'Microsoft Yahei';float: left;position:absolute;left:15px;top:-2px">
+                            <select id="demo1"></select>
+                            <script>
+                                var opt1 = {
+                                    width: 300,
+                                    data: [
+                                        {id: "lb", text: "刘备"},
+                                        {id: "gy", text: "关羽"},
+                                        {id: "zf", text: "张飞"}
+                                    ]
+                                };
+                                $("#demo1").select2(opt1);
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+             style="background:#F2F2F2;border-top: 0;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12"
+                         style="padding-left:15px;line-height:44px;font-size:16px;height:45px;">
+                        示例代码
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+             style="height:auto;border:1px solid #f2f2f2;border-top:0;">
+			<pre class="code" id="select2_code" style="padding-left: 15px;">
+<select id="demo1"></select>
+var opt1 = {
+   width : 300,
+   data : [
+                {id:"lb",text:"刘备"},
+                {id:"gy",text:"关羽"},
+                {id:"zf",text:"张飞"}
+	      ]
+};
+$("#demo1").select2(opt1);
+			</pre>
+        </div>
+    </div>
+    <div class="row"  style="margin-top:25px;">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <table class="tab">
+                <tr>
+                    <td>
+
+                        <span class="title2" id="awsuisjsx">Ajax请求场景</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 20px">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+             style="background:#F2F2F2;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12"
+                         style="margin-bottom:1px;padding-left:15px;line-height:44px;font-size:16px;height:45px;">
+                        示例代码
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+             style="height: 248px;border:1px solid #f2f2f2;border-top:0;">
+			<pre class="code" id="ajax1" style="padding-left: 15px;">
+awsui.ajax.request({
+    url : "./jd",
+    method : "POST",
+    data : {p1:"v1"},
+    ok : function(r) {
+        alert("server ok!");
+    },
+    err:function(r){
+        alert("server exception!");
+    }
+});
+		</pre>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="background: #f2f2f2;height:148px;border: 1px solid #e2e2e2;border-bottom:0px;margin-top:20px;">
+                        <div style="width:100%;">
+                            <div style="width:auto;height:35px;border-bottom: 1px solid #f2f2f2">
+                                <span class="awsui-iconfont" style="font-weight: 550;display:block;float:left;height:35px;width:50px;font-size: 25px;color:#E9405D;padding-left: 15px;">&#59198;</span>
+                                <span style="display:block;height:35px;width:45px;float:left;line-height:35px;font-size: 16px;color:#E9405D;font-weight: 549">注意</span>
+                            </div>
+                        </div>
+                        <div style="padding-left:15px;width:100%;float: left;font-size: 14px;height:25px;line-height: 25px;">
+                            <code>1，</code><code>awsui.ajax.request</code>对应服务端<code>com.actionsoft.bpms.commons.mvc.view.ResponseObject</code>结果处理，能直接处理服务端异常.
+                        </div>
+                        <div style="padding-left:15px;width:100%;float: left;font-size: 14px;height:25px;line-height: 25px;">
+                            <code>2，</code><code>ResponseObject</code>结果为<code>error、warning，info</code>时自动消息提示。
+                        </div>
+                        <div style="padding-left:15px;width:100%;float: left;font-size: 14px;height:25px;line-height: 25px;">
+                            <code>3，</code>该方法兼容<code>jquery ajax</code>的所有参数和用法。
+                        </div>
+                        <div style="padding-left:15px;width:100%;float: left;font-size: 14px;height:38px;line-height: 25px;border-bottom: 1px solid #f2f2f2">
+                            <code>4，</code><code>awsui.ajax</code>的<code>url</code>为<code>./jd</code>,这是因为<code>AWSUI</code>根据请求文件的类型不同，而制定的规则，具体<code>URL</code>地址说明如下：
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+             style="margin-top:25px;">
+            <table class="tab">
+                <tr>
+                    <td>
+                        <span class="title2" id="selector_h1">提交场景</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <table class="table  table-bordered table-striped table-hover" style="margin-top:20px;">
+                <thead>
+                <tr>
+                    <th style="width:  25%;">url</th>
+                    <th style="width: 75%;">说明</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>./w</td>
+                    <td>(Web)-请求结果一定是普通Web页面数据时</td>
+                </tr>
+                <tr>
+                    <td>./jd</td>
+                    <td>(Json Data)-请求结果一定是 ResponseObject Json</td>
+                </tr>
+                <tr>
+                    <td>./xd</td>
+                    <td>(Xml Data)-请求结果一定是 ResponseObject XML</td>
+                </tr>
+                <tr>
+                    <td>./df</td>
+                    <td>(Download File)-文件下载</td>
+                </tr>
+                <tr>
+                    <td>./uf</td>
+                    <td>(Upload File)-文件上传</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+             style="margin-top:5px;">
+            <table class="tab">
+                <tr>
+                    <td>
+                        <span class="title2" #component>语法差异场景</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom:20px;margin-top:20px;">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="height:auto;">
+            <table class="table table-bordered  table-striped table-hover" style="margin: 0;">
+                <thead>
+                <tr>
+                    <th style="width: 25%;">awsui.ajax用法</th>
+                    <th style="width: 75%;">jQuery用法</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>awsui.ajax.request</td>
+                    <td>$.ajax</td>
+                </tr>
+                <tr>
+                    <td>awsui.ajax.load(jq,arguments)</td>
+                    <td>$.fn.load(arguments)</td>
+                </tr>
+                <tr>
+                    <td>awsui.ajax.post</td>
+                    <td>$.post</td>
+                </tr>
+                <tr>
+                    <td>awsui.ajax.get</td>
+                    <td>$.get</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <!--<div class="nav" style="display: none;">
+        <img src="../img/top.png" alt=""/>
+    </div>-->
+    <div class="section_right">
+        <div class="nav" style="position: fixed;right:20px;">
+            <!-- 右侧导航 -->
+        </div>
+    </div>
+        <div class="navTop" style="position: fixed;bottom:40px;display: none">
+            <img src="../img/top.png" alt="" style="width: 45px"/>
+        </div>
+</div>
+</body>
+</html>

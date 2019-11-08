@@ -1,0 +1,74 @@
+/*input[type=checkbox]:before {
+    content: '\e413';
+    font-family: Muiicons;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1;
+    text-decoration: none;
+    color: #aaa;
+    border-radius: 0;
+    background: 0 0;
+    -webkit-font-smoothing: antialiased
+}
+
+input[type=checkbox]:checked:before {
+    content: '\e443';
+    font-family: Muiicons;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1;
+    text-decoration: none;
+    border-radius: 0;
+    color:#007aff;
+    background: 0 0;
+    -webkit-font-smoothing: antialiased;
+}
+.mui-send-input{
+	position: absolute;
+	left:4px;
+	top:13px;
+	-webkit-appearance: none;
+	display:none;
+}*/
+.mui-send-input{
+	display:none;
+	z-index: -1;
+}
+.mui-user-img{
+	width:50px;
+	height:50px;
+	border-radius:50%;
+}
+.mui-user-text-div{
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+	width:50px;
+	color: #AFAFAF;
+	font-size: 13px;
+}
+
+.mui-user-out-div{
+	float:left;
+	width:50px;
+	margin-right:8px;
+	position:relative;
+}
+.mui-img-out-div{
+ 	width:50px;
+ 	height:50px;
+ }
+.mui-icon-plus:before {
+    content: '\e409';
+    color: #DFDFDF;
+}
+.mui-required {
+    position:relative;
+}
+.mui-required:before {
+    content: '*';
+    margin-top: 12px;
+    margin-left: 4px;
+    position: absolute;
+    color: #f00;
+}

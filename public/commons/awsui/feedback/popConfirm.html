@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="基于AWSUI-MessagePage的主流前端响应式框架">
+	<meta name="keywords" content="气泡确认框 - AWSUI">
+	<title>PopConfirm</title>
+	<link rel="stylesheet" href="../../css/awsui.css">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/uidoc.css?v=1">
+	<link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+</head>
+<body>
+	<div class="awsui-wrapper">
+		<div class="col-sm-12 col-md-12 col-xs-12 awsui-border-bottom">
+			<div class="awsui-markdown">
+				<h1 class="title2" id="popbox">气泡确认框</h1>
+				<p class="awsui-margin-bottom-14">目标元素的操作需要用户进一步的确认时，在目标元素附近弹出浮层提示，询问用户。
+和 confirm 弹出的全屏居中模态对话框相比，交互形式更轻量。</p>
+				<ul>
+					<li>需要用户进一步的确认时。</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="awsui-markdown">
+	        	<div class="awsui-code-title" id="description">
+		        	API
+		        </div>
+				<ul>
+					<li>$(el).popConfirm(config)</li>
+				</ul>
+				<p>config 参数如下：</p>
+		    </div>
+	        <table class="awsui-table awsui-margin-bottom-24">
+	        	<thead>
+	        		<tr>
+	        			<th width="20%">参数</th>
+	        			<th width="40%">说明</th>
+	        			<th width="20%">类型</th>
+	        			<th>默认值</th>
+	        		</tr>
+	        	</thead>
+	        	<tbody>
+					<tr>
+						<td>trigger</td>
+						<td>引发、触发,可选 <code>click、hover、no</code>,若设置为no时，说明已经在其它地方写入了事件，当前不需要再加事件</td>
+						<td>string</td>
+						<td>click</td>
+					</tr>
+		        	<tr>
+	        			<td>title</td>
+	        			<td>标题</td>
+	        			<td>string</td>
+	        			<td>-</td>
+		        	</tr>
+		        	<tr>
+	        			<td>content</td>
+	        			<td>内容</td>
+	        			<td>string</td>
+	        			<td>-</td>
+		        	</tr>
+		        	<tr>
+	        			<td>width</td>
+	        			<td>宽度</td>
+	        			<td>string</td>
+	        			<td>auto</td>
+		        	</tr>
+		        	<tr>
+	        			<td>height</td>
+	        			<td>高度</td>
+	        			<td>string</td>
+	        			<td>auto</td>
+		        	</tr>
+		        	<tr>
+	        			<td>position</td>
+	        			<td>显示位置,可选 <code>top-right、top、top-left、left、right、bottom-right、bottom、bottom-left</code></td>
+	        			<td>string</td>
+	        			<td>auto</td>
+		        	</tr>
+		        	<tr>
+	        			<td>closeable</td>
+	        			<td>是否显示关闭图标</td>
+	        			<td>boolean</td>
+	        			<td>false</td>
+		        	</tr>
+		        	<tr>
+	        			<td>isArrow</td>
+	        			<td>是否显示箭头</td>
+	        			<td>boolean</td>
+	        			<td>true</td>
+		        	</tr>
+		        	<tr>
+	        			<td>isMulti</td>
+	        			<td>是否显示多个框</td>
+	        			<td>boolean</td>
+	        			<td>false</td>
+		        	</tr>
+		        	<tr>
+	        			<td>isShowIcon</td>
+	        			<td>是否显示warning图标</td>
+	        			<td>boolean</td>
+	        			<td>false</td>
+		        	</tr>
+		        	<tr>
+	        			<td>isShowBtn</td>
+	        			<td>是否显示confirm按钮</td>
+	        			<td>boolean</td>
+	        			<td>false</td>
+		        	</tr>
+					<tr>
+						<td>hide</td>
+						<td>点击页面其他地方是否隐藏popbox气泡框</td>
+						<td>boolean</td>
+						<td>false</td>
+					</tr>
+					<tr>
+						<td>delay</td>
+						<td>鼠标滑动到popbox气泡框区域，多少秒后自动关闭，若设为0不关闭</td>
+						<td>number</td>
+						<td>300</td>
+					</tr>
+		        	<tr>
+	        			<td>okText</td>
+	        			<td>确认按钮文字</td>
+	        			<td>string</td>
+	        			<td>确定</td>
+		        	</tr>
+		        	<tr>
+	        			<td>cancelText</td>
+	        			<td>取消按钮文字</td>
+	        			<td>string</td>
+	        			<td>取消</td>
+		        	</tr>
+		        	<tr>
+	        			<td>onConfirm</td>
+	        			<td>点击确认的回调</td>
+	        			<td>function</td>
+	        			<td>-</td>
+		        	</tr>
+		        	<tr>
+	        			<td>onClose</td>
+	        			<td>点击取消的回调</td>
+	        			<td>function</td>
+	        			<td>-</td>
+		        	</tr>
+		        </tbody>
+	        </table>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event1">
+	        	基本
+	        </div>
+	        <p class="awsui-margin-top-5">最简单的用法。</p>
+        	<div class="awsui-code-demo">
+        		<button type="button" class="awsui-btn awsui-btn-blue" id="popbox-basic">点击</button>
+        	</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;button type="button" class="awsui-btn awsui-btn-blue" id="popbox-basic"&gt;点击&lt;/button&gt;
+</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-js">$("#popbox-basic").popConfirm({
+    title:'标题',
+    content:'<p>content 内容</p><p>content 内容</p>',
+    isShowBtn:true,
+    onConfirm: function(){
+        $.simpleAlert("您选择了确认");
+    },
+    onClose : function(){
+        $.simpleAlert("您选择了取消");
+    }
+});
+</code></pre>
+			</div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event2">
+	        	自定义按钮文字
+	        </div>
+	        <p class="awsui-margin-top-5">设置属性 <code>okText 和 cancelText</code> 自定义按钮文字</p>
+        	<div class="awsui-code-demo">
+        		<button type="button" class="awsui-btn" id="custom-click">Click me</button>
+        	</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;button type="button" class="awsui-btn" id="custom-click"&gt;Click me&lt;/button&gt;
+</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-js">$("#custom-click").popConfirm({
+    title:'标题',
+    content:'<p>content 内容</p><p>content 内容</p>',
+    isShowBtn:true,
+    okText:'YES',
+    cancelText:'NO',
+    onConfirm: function(){
+        $.simpleAlert("您选择了YES");
+    }
+});
+</code></pre>
+			</div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event3">
+	        	带有警告图标
+	        </div>
+	        <p class="awsui-margin-top-5">设置属性 <code>isShowIcon 为 true</code> 来显示带有警告图标的确定框</p>
+        	<div class="awsui-code-demo">
+        		<button type="button" class="awsui-btn" id="icon-click">Click me</button>
+        	</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;button type="button" class="awsui-btn" id="icon-click"&gt;Click me&lt;/button&gt;
+</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-js">$("#icon-click").popConfirm({
+    title:'标题',
+    content:'<p>content 内容</p><p>content 内容</p>',
+    isShowIcon:true,
+    isShowBtn:true,
+    okText:'YES',
+    cancelText:'NO',
+    onConfirm: function(){
+        $.simpleAlert("您选择了YES");
+    }
+});
+</code></pre>
+			</div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event4">
+	        	位置
+	        </div>
+	        <p class="awsui-margin-top-5">位置有八个方向，设置<code>position</code>属性为 <code>top-right、top、top-left、left、right、bottom-right、bottom、bottom-left</code>。</p>
+        	<div class="awsui-code-demo">
+        		<div style="margin-left: 90px; white-space: nowrap;">
+        			<button type="button" class="awsui-btn" id="top-right"><span>top-right</span></button>
+        			<button type="button" class="awsui-btn" id="top"><span>top</span></button>
+        			<button type="button" class="awsui-btn" id="top-left"><span>top-left</span></button>
+        		</div>
+        		<div style="width: 70px;float: left;margin: 20px 0;">
+        			<button type="button" class="awsui-btn" id="right"><span>right</span></button>
+        		</div>
+        		<div style="width: 70px;float: left;margin: 20px 0 20px 304px;">
+        			<button type="button" class="awsui-btn" id="left"><span>left</span></button>
+        		</div>
+        		<div style="margin-left: 70px; clear: both; white-space: nowrap;">
+        			<button type="button" class="awsui-btn" id="bottom-right"><span>bottom-right</span></button>
+        			<button type="button" class="awsui-btn" id="bottom"><span>bottom</span></button>
+        			<button type="button" class="awsui-btn" id="bottom-left"><span>bottom-left</span></button>
+        		</div>
+        	</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;div style="margin-left: 90px; white-space: nowrap;"&gt;
+	&lt;button type="button" class="awsui-btn" id="top-right"&gt;&lt;span&gt;top-right&lt;/span&gt;&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn" id="top"&gt;&lt;span&gt;top&lt;/span&gt;&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn" id="top-left"&gt;&lt;span&gt;top-left&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;
+&lt;div style="width: 70px;float: left;margin: 20px 0;"&gt;
+	&lt;button type="button" class="awsui-btn" id="right"&gt;&lt;span&gt;right&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;
+&lt;div style="width: 70px;float: left;margin: 20px 0 20px 304px;"&gt;
+	&lt;button type="button" class="awsui-btn" id="left"&gt;&lt;span&gt;left&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;
+&lt;div style="margin-left: 70px; clear: both; white-space: nowrap;"&gt;
+	&lt;button type="button" class="awsui-btn" id="bottom-right"&gt;&lt;span&gt;bottom-right&lt;/span&gt;&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn" id="bottom"&gt;&lt;span&gt;bottom&lt;/span&gt;&lt;/button&gt;
+	&lt;button type="button" class="awsui-btn" id="bottom-left"&gt;&lt;span&gt;bottom-left&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-js">$("#top-right").popConfirm({
+    title:'标题',
+    content:'<p>content 内容</p><p>content 内容</p>',
+    position:'top-right',
+    isShowIcon:true,
+    isShowBtn:true,
+    okText:'YES',
+    cancelText:'NO',
+    onConfirm: function(){
+        $.simpleAlert("您选择了确定");
+    }
+});
+$("#top").popConfirm({
+    title:'标题',
+    content:'<p>content 内容</p><p>content 内容</p>',
+    position:'top',
+    isShowIcon:true,
+    isShowBtn:true,
+    okText:'YES',
+    cancelText:'NO',
+    onConfirm: function(){
+        $.simpleAlert("您选择了确定");
+    }
+});
+$("#top-left").popConfirm({
+    title:'标题',
+    content:'<p>content 内容</p><p>content 内容</p>',
+    position:'top-left',
+    isShowIcon:true,
+    isShowBtn:true,
+    okText:'YES',
+    cancelText:'NO',
+    onConfirm: function(){
+        $.simpleAlert("您选择了确定");
+    }
+});
+$("#left").popConfirm({
+    title:'标题',
+    content:'<p>content 内容</p><p>content 内容</p>',
+    position:'left',
+    isShowIcon:true,
+    isShowBtn:true,
+    okText:'YES',
+    cancelText:'NO',
+    onConfirm: function(){
+        $.simpleAlert("您选择了确定");
+    }
+});
+$("#right").popConfirm({
+    title:'标题',
+    content:'<p>content 内容</p><p>content 内容</p>',
+    position:'right',
+    isShowIcon:true,
+    isShowBtn:true,
+    okText:'YES',
+    cancelText:'NO',
+    onConfirm: function(){
+        $.simpleAlert("您选择了确定");
+    }
+});
+$("#bottom-right").popConfirm({
+    title:'标题',
+    content:'<p>content 内容</p><p>content 内容</p>',
+    position:'bottom-right',
+    isShowIcon:true,
+    isShowBtn:true,
+    okText:'YES',
+    cancelText:'NO',
+    onConfirm: function(){
+        $.simpleAlert("您选择了确定");
+    }
+});
+$("#bottom").popConfirm({
+    title:'标题',
+    content:'<p>content 内容</p><p>content 内容</p>',
+    position:'bottom',
+    isShowIcon:true,
+    isShowBtn:true,
+    okText:'YES',
+    cancelText:'NO',
+    onConfirm: function(){
+        $.simpleAlert("您选择了确定");
+    }
+});
+$("#bottom-left").popConfirm({
+    title:'标题',
+    content:'<p>content 内容</p><p>content 内容</p>',
+    position:'bottom-left',
+    isShowIcon:true,
+    isShowBtn:true,
+    okText:'YES',
+    cancelText:'NO',
+    onConfirm: function(){
+        $.simpleAlert("您选择了确定");
+    }
+});
+</code></pre>
+			</div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-xs-12">
+        	<div class="awsui-code-title title2" id="event5">
+	        	关闭图标
+	        </div>
+	        <p class="awsui-margin-top-5">是否显示关闭图标，设置属性<code>closeable:true</code>。</p>
+        	<div class="awsui-code-demo">
+        		<button type="button" class="awsui-btn awsui-btn-blue" id="close_icon">点击</button>
+        	</div>
+			<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-html">&lt;button type="button" class="awsui-btn" id="close_icon"&gt;点击&lt;/button&gt;
+</code></pre>
+			</div>
+			<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+			<div class="awsui-code-info">
+        		<pre><code class="language-js">$("#close_icon").popConfirm({
+    title:'标题',
+    content:'<p>content 内容</p><p>content 内容</p>',
+    closeable:true,
+    isShowIcon:true,
+    isShowBtn:true,
+    onConfirm: function(){
+        $.simpleAlert("您选择了确认");
+    }
+});
+</code></pre>
+			</div>
+        </div>
+	</div>
+	<div class="section_right">
+		<div class="nav">
+			<!-- 右侧导航 -->
+		</div>
+    </div>
+	<div class="navTop">
+		<img src="../img/top.png" alt=""/>
+	</div>
+	<script src="../../js/jquery/scripts/jquery.js"></script>
+	<script src="../../js/awsui.js"></script>
+	<script src="../prism/prism.js"></script>
+	<script src="../js/public.js?v=1"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#popbox-basic").popConfirm({
+				title:'标题',
+				content:'<p>content 内容</p><p>content 内容</p>',
+				isMulti:true,
+				isShowBtn:true,
+				onConfirm: function(){
+					$.simpleAlert("您选择了确认");
+				},
+				onClose : function(){
+					$.simpleAlert("您选择了取消");
+				}
+			});
+			$("#custom-click").popConfirm({
+				title:'标题',
+				content:'<p>content 内容</p><p>content 内容</p>',
+				isShowBtn:true,
+				okText:'YES',
+				cancelText:'NO',
+				onConfirm: function(){
+					$.simpleAlert("您选择了确认");
+				}
+			});
+			$("#icon-click").popConfirm({
+			    title:'标题',
+			    content:'<p>content 内容</p><p>content 内容</p>',
+			    isShowIcon:true,
+			    isShowBtn:true,
+			    okText:'YES',
+			    cancelText:'NO',
+			    onConfirm: function(){
+			        $.simpleAlert("您选择了YES");
+			    }
+			});
+			$("#top-right").popConfirm({
+				title:'标题',
+			    content:'<p>content 内容</p><p>content 内容</p>',
+			    position:'top-right',
+			    isShowIcon:true,
+			    isShowBtn:true,
+			    okText:'YES',
+			    cancelText:'NO',
+			    onConfirm: function(){
+			        $.simpleAlert("您选择了确定");
+			    }
+			});
+			$("#top").popConfirm({
+				title:'标题',
+			    content:'<p>content 内容</p><p>content 内容</p>',
+			    position:'top',
+			    isShowIcon:true,
+			    isShowBtn:true,
+			    okText:'YES',
+			    cancelText:'NO',
+			    onConfirm: function(){
+			        $.simpleAlert("您选择了确定");
+			    }
+			});
+			$("#top-left").popConfirm({
+				title:'标题',
+			    content:'<p>content 内容</p><p>content 内容</p>',
+			    position:'top-left',
+			    isShowIcon:true,
+			    isShowBtn:true,
+			    okText:'YES',
+			    cancelText:'NO',
+			    onConfirm: function(){
+			        $.simpleAlert("您选择了确定");
+			    }
+			});
+			$("#left").popConfirm({
+				title:'标题',
+			    content:'<p>content 内容</p><p>content 内容</p>',
+			    position:'left',
+			    isShowIcon:true,
+			    isShowBtn:true,
+			    okText:'YES',
+			    cancelText:'NO',
+			    onConfirm: function(){
+			        $.simpleAlert("您选择了确定");
+			    }
+			});
+			$("#right").popConfirm({
+				title:'标题',
+			    content:'<p>content 内容</p><p>content 内容</p>',
+			    position:'right',
+			    isShowIcon:true,
+			    isShowBtn:true,
+			    okText:'YES',
+			    cancelText:'NO',
+			    onConfirm: function(){
+			        $.simpleAlert("您选择了确定");
+			    }
+			});
+			$("#bottom-right").popConfirm({
+				title:'标题',
+			    content:'<p>content 内容</p><p>content 内容</p>',
+			    position:'bottom-right',
+			    isShowIcon:true,
+			    isShowBtn:true,
+			    okText:'YES',
+			    cancelText:'NO',
+			    onConfirm: function(){
+			        $.simpleAlert("您选择了确定");
+			    }
+			});
+			$("#bottom").popConfirm({
+				title:'标题',
+			    content:'<p>content 内容</p><p>content 内容</p>',
+			    position:'bottom',
+			    isShowIcon:true,
+			    isShowBtn:true,
+			    okText:'YES',
+			    cancelText:'NO',
+			    onConfirm: function(){
+			        $.simpleAlert("您选择了确定");
+			    }
+			});
+			$("#bottom-left").popConfirm({
+				title:'标题',
+			    content:'<p>content 内容</p><p>content 内容</p>',
+			    position:'bottom-left',
+			    isShowIcon:true,
+			    isShowBtn:true,
+			    okText:'YES',
+			    cancelText:'NO',
+			    onConfirm: function(){
+			        $.simpleAlert("您选择了确定");
+			    }
+			});
+			$("#close_icon").popConfirm({
+			    title:'标题',
+			    content:'<p>content 内容</p><p>content 内容</p>',
+			    closeable:true,
+			    isShowIcon:true,
+			    isShowBtn:true,
+			    onConfirm: function(){
+			        $.simpleAlert("您选择了确认");
+			    }
+			});
+		});
+	</script>
+</body>
+</html>

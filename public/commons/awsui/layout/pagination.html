@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="基于AWSUI-Pagination的主流前端响应式框架">
+		<meta name="keywords" content="分页 - AWSUI">
+		<title>Pagination</title>
+		<link rel="stylesheet" href="../../css/awsui.css">
+		<link rel="stylesheet" href="../css/bootstrap.css">
+		<link rel="stylesheet" href="../css/uidoc.css?v=1">
+		<link rel="stylesheet" type="text/css" href="../prism/prism.css"/>
+	</head>
+	<body>
+		<div class="awsui-wrapper">
+			<div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 awsui-border-bottom">
+				<div class="awsui-markdown">
+					<h1 class="title2" id="event">分页</h1>
+					<p class="awsui-margin-bottom-14">
+						分页仅仅提供了页码，以及该页的起始位置信息，所以需要在提供的callback函数中根据这两个信息，去服务器端获取该页的数据进行渲染展示。
+						提供了两种处理形式，一种是完全在JavaScript端实现（参见示例1）；另一种情况，在Java程序（参见示例2）， 处理这个分页附件的JavaScript实现，注意这里并不是指处理分页数据；经常用于以下场景：</p>
+					<ul>
+						<li>当加载/渲染所有数据将花费很多时间时。</li>
+						<li>可切换页码浏览数据。</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title">
+					引入文件
+				</div>
+				<p class="awsui-margin-top-5">务必确保路径正确</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">&lt;script&gt;
+	var 无数据 = "无数据";
+	var 显示0到1条共2条 = "显示0到1条共2条";
+	var 下一页 = "下一页";
+	var 上一页 = "上一页";
+&lt;/script&gt;
+&lt;script src="../commons/js/jquery/scripts/ui/awsui.pagination.js"&gt;&lt;/script&gt;
+</code></pre>
+				</div>
+			</div>
+
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event1">
+					JavaScript前端调用
+				</div>
+				<p class="awsui-margin-bottom-5">JavaScript分页</p>
+				<div class="awsui-code-demo">
+					<div id="pagination"></div>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">HTML 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-html">&lt;div id="pagination"&gt;&lt;/div&gt;</code></pre>
+				</div>
+				<p class="awsui-margin-top-5" style="padding:0;">JavaScript 代码</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">$(document).ready(function () {
+	$("#pagination").pagination(36, {
+		pageLimit: 10,
+		showItem: 10,
+		currentPage: 0,
+		ellipseCount: 0,
+		linkTo: "#",
+		prevText: "上一页",
+		nextText: "下一页",
+		ellipseText: "...",
+		prevShowAlways: true,
+		nextShowAlways: true,
+		showIfSinglePage: true,
+		loadFirstPage: false,
+		showDisplay: true,
+		display: "显示 {0} 到 {1} 条， 共 {2} 条",
+		callback: function (pageNum, start, dom) {
+			$.simpleAlert("当前页数：" + pageNum + "<br/>" + "当前页数start：" + start);
+			return false;
+		}
+	});
+});
+</code></pre>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-xs-12">
+				<div class="awsui-code-title title2" id="event2">
+					Java后端调用
+				</div>
+				<p class="awsui-margin-bottom-5">Java分页</p>
+				<div class="awsui-code-info">
+					<pre><code class="language-js">//定义PaginationModel的模型，用来描述分页组件的属性，可根据具体需求定义模型中的属性
+//需要实现callback函数，用来处理翻页之后的数据请求
+/**
+private int pageLimit = 10;// 每页显示的条数
+private int showItem = 10;// 显示分页按钮的数量
+private int ellipseCount = 0;// 当页数多时，是否显示更多的标志
+private String ellipseText = "...";// 显示更多的时候的文字内容
+private boolean showIfSinglePage = true;// 仅一页时，是否显示工具条
+private boolean loadFirstPage = false;// 是否加载第一页
+private String linkTo = "#";// 分页导航的链接的动作
+private String prevText = "上一页";// 显示的文本 上一页
+private String nextText = "下一页";// 显示的文本 下一页
+private boolean prevShowAlways = true;// 是否总显示“上一页”按钮
+private boolean nextShowAlways = true;// 是否总显示“下一页”按钮
+private boolean showDisplay = true;// 是否显示详细信息
+private String display = "显示 {0} 到 {1} 条， 共 {2} 条";
+private String callback = "";// 回调函数
+*/
+PaginationModel model = new PaginationModel();
+//设置相应属性，属性的set方法说明见上面注释内容
+
+//生成PageIndex对象
+PaginationIndex p = new PaginationIndex("Test", 4, 16, 30, model);
+System.out.println(p.toString());
+
+//下面是PaginationIndex构造函数的参数定义，请参考
+/**
+* 构造一个基本的简单分页对象
+*
+* @param id dom元素的ID标识
+* @param currentPage 当前页
+* @param totalPageCount 总行数
+* @param pageLimit 每页行数
+* @param paginationModel 分页组件模型信息
+*
+*/
+public PaginationIndex(String id, int currentPage, int totalPageCount, int pageLimit, PaginationModel paginationModel)
+</code></pre>
+				</div>
+			</div>
+		</div>
+		<div class="section_right">
+			<div class="nav">
+				<!-- 右侧导航 -->
+			</div>
+		</div>
+		<div class="navTop">
+			<img src="../img/top.png" alt=""/>
+		</div>
+		<script src="../../js/jquery/scripts/jquery.js"></script>
+		<script src="../../js/awsui.js"></script>
+		<script src="../prism/prism.js"></script>
+		<script src="../js/public.js?v=1"></script>
+		<script>
+            var 无数据 = "无数据";
+            var 显示0到1条共2条 = "显示0到1条共2条";
+            var 下一页 = "下一页";
+            var 上一页 = "上一页";
+		</script>
+		<script src="../../js/jquery/scripts/ui/awsui.pagination.js"></script>
+		<script type="text/javascript">
+            $(document).ready(function () {
+                $("#pagination").pagination(36, {
+                    pageLimit: 10,
+                    showItem: 10,
+                    currentPage: 0,
+                    ellipseCount: 0,
+                    linkTo: "#",
+                    prevText: "上一页",
+                    nextText: "下一页",
+                    ellipseText: "...",
+                    prevShowAlways: true,
+                    nextShowAlways: true,
+                    showIfSinglePage: true,
+                    loadFirstPage: false,
+                    showDisplay: true,
+                    display: "显示 {0} 到 {1} 条， 共 {2} 条",
+                    callback: function (pageNum, start, dom) {
+                        $.simpleAlert("当前页数：" + pageNum + "<br/>" + "当前页数start：" + start);
+                        return false;
+                    }
+                });
+            });
+		</script>
+	</body>
+</html>

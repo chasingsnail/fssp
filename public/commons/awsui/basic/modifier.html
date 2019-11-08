@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="基于AWSUI-modifier的主流前端响应式框架">
+    <meta name="keywords" content="徽章 - AWSUI">
+    <title>badge</title>
+    <link rel="stylesheet" href="../../css/awsui.css">
+    <link rel="stylesheet" href="../css/uidoc.css?v=1">
+    <script src="../../js/jquery/scripts/jquery.js"></script>
+    <script src="../../js/awsui.js"></script>
+    <link rel="stylesheet" type="text/css" href="../dlhighlight/style.css" media="all" />
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../../css/font/iconfont.css">
+    <script src="../clipboard/clipboard.min.js"></script>
+    <script src="../dlhighlight/highlight.js"></script>
+    <script src="../dlhighlight/lang-js.js"></script>
+    <script src="../js/public.js?v=1"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            font-family: "Microsoft Yahei";
+        }
+
+        pre{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            font-family: "Microsoft Yahei"!important;
+        }
+        .title2{
+            display: inline-block;
+            font-size: 18px;
+            font-family: "Microsoft Yahei";
+        }
+        .title3{
+            margin-top:2px;
+            color: #1A1F23;
+            font-size: 14px;
+            font-family: "Microsoft Yahei";
+        }
+        .code{
+            max-width: 100%!important;
+            overflow: inherit;!important;
+            border: 0!important;
+            background-color: white!important;
+        }
+        .code a{
+            border: 0!important;
+            height:42px!important;
+            line-height: 42px!important;
+            padding: 0 6px!important;
+        }
+        pre{
+            height:40px!important;
+            font-size: 14px!important;
+        }
+        pre div{
+            position: absolute!important;
+            top:0!important;
+        }
+        .wrap-icon-c{
+            font-size: 14px;
+            padding-left: 8px;
+            float: left;
+            line-height: 48px;
+        }
+        #select2_code{
+            height:128px!important;
+            right:-4px!important;
+        }
+        #select2_code>a:first-child{
+            right:-10px!important;
+        }
+        #select2_code1>a:first-child{
+            right:-10px!important;
+        }
+        #import>a:first-child{
+            right:-2px!important;
+        }
+        .nav{
+            width:50px;
+            height:50px;
+            position: fixed;
+            right: 30px;
+            bottom: 15px;
+            opacity: .95;
+            z-index: 9999;
+            border: 0!important;
+        }
+        .nav>img{
+            cursor: pointer;
+        }
+
+        .awsui-badge-dot{
+            width:8px;
+            height:8px;
+            border-radius: 50%;
+            background-color: #FFB800;
+        }
+
+        .wrap{
+            padding-left: 7px;
+        }
+        legend{
+            display: block;
+            width: 100%;
+            padding: 0;
+            margin-bottom: 20px;
+            font-size: 21px;
+            line-height: inherit;
+            color: #333;
+            border: 0;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .nav {
+            width: auto;
+            height: auto;
+            position: fixed;
+            right: 30px;
+            top:25%;
+            opacity: .95;
+            z-index: 9999;
+            border: 0 !important;
+        }
+        .navTop{
+            width: 50px;
+            height: 50px;
+            position: fixed;
+            right: 45px;
+            opacity: .95;
+            z-index: 9999;
+            border: 0!important;
+        }
+        .navTop > img {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-11 col-md-11 col-lg-11 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"
+             style="margin-top:20px;">
+            <table class="tab">
+                <tr>
+                    <td>
+                        <span class="title2" id="easydo">徽章</span>
+                        <span class="title3" style="display: block;">徽章是修饰性的元素，可单独使用也可与其它元素相互组合使用</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:20px;background:#F2F2F2;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="padding-left:15px;line-height:45px;font-size:16px;height:45px;">
+                       示例
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="border-left:1px solid #f2f2f2;border-right: 1px solid #f2f2f2">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="wrap col-sm-12 col-md-12 col-lg-12" style=";font-size:14px;height:50px;line-height:50px;background: white;">
+                       <span class="awsui-badge awsui-badge-orange"></span>
+                       <span class="awsui-badge awsui-badge-dot"></span>
+                       <span class="awsui-badge awsui-badge-green"></span>
+                       <span class="awsui-badge awsui-badge-blue"></span>
+                        <span class="awsui-badge awsui-badge-red"></span>
+                        <span class="awsui-badge awsui-badge-square">6</span>
+                        <span class="awsui-badge awsui-badge-circle">10</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="background:#F2F2F2;border-top:0;">
+            <div class="container-fluid">
+                <div class="row" >
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="padding-left:15px;line-height:45px;font-size:16px;height:45px;">
+                        代码示例
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="height:42px;;border:1px solid #f2f2f2;border-top:0;">
+                        <div style="width:99%;height:100%;float: left;margin-left:5px;">
+								<pre id="import1" class="code" style="line-height: 20px;">
+<span class="awsui-badge awsui-badge-orange"></span>
+</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="height:42px;border:1px solid #f2f2f2;border-top:0;">
+                        <div style="width:99%;height:100%;float: left;margin-left:5px;">
+								<pre id="import2" class="code" style="line-height: 20px;">
+<span class="awsui-badge awsui-badge-dot"></span></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="height:42px;border:1px solid #f2f2f2;border-top:0;">
+                        <div style="width:99%;height:100%;float: left;margin-left:5px;">
+								<pre id="imp" class="code" style="line-height: 20px;">
+<span class="awsui-badge awsui-badge-green"></span></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="height:42px;border:1px solid #f2f2f2;border-top:0;">
+                        <div style="width:99%;height:100%;float: left;margin-left:5px;">
+								<pre id="impor3" class="code" style="line-height: 20px;">
+<span class="awsui-badge awsui-badge-blue"></span></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+    <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12" style="height:42px;border:1px solid #f2f2f2;border-top:0;">
+                    <div style="width:99%;height:100%;float: left;margin-left:5px;">
+								<pre id="impo4" class="code" style="line-height: 22px;">
+<span class="awsui-badge awsui-badge-red"></span></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="height:42px;border:1px solid #f2f2f2;border-top:0;">
+                        <div style="width:99%;height:100%;float: left;margin-left:5px;">
+								<pre id="impo5" class="code" style="line-height: 20px;">
+<span class="awsui-badge awsui-badge-square">6</span></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="height:42px;border:1px solid #f2f2f2;border-top:0;">
+                        <div style="width:99%;height:100%;float: left;margin-left:5px;">
+								<pre id="impo6" class="code" style="line-height: 20px;">
+<span class="awsui-badge awsui-badge-circle">10</span></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:20px;background:#F2F2F2;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="padding-left:15px;line-height:45px;font-size:16px;height:45px;">
+                        示例
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="border-left:1px solid #f2f2f2;border-right: 1px solid #f2f2f2">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="wrap col-sm-12 col-md-12 col-lg-12" style="font-size:14px;height:50px;background: white;">
+                        <div class="wrap-icon-c">
+                            <button type="button" class="awsui-btn awsui-btn-normal">
+                                动态
+                                <span class="awsui-badge awsui-badge-orange"></span>
+                            </button>
+                        </div>
+                        <div class="wrap-icon-c">
+                            <button type="button" class="awsui-btn awsui-btn-normal">
+                                查看消息
+                                <span class="awsui-badge awsui-badge-square">6</span>
+                            </button>
+                        </div>
+                        <div class="wrap-icon-c">
+                            <button type="button" class="awsui-btn awsui-btn-normal">
+                                信箱
+                                <span class="awsui-badge awsui-badge-circle">10</span>
+                            </button>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="background:#F2F2F2;border-top:0;">
+            <div class="container-fluid">
+                <div class="row" >
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="padding-left:15px;line-height:45px;font-size:16px;height:45px;">
+                        示例代码
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="height:124px;border:1px solid #f2f2f2;border-top:0;">
+			<div style="width:99%;height:100%;float: left;margin-left:5px;">
+                 <pre class="code" id="select2_code" style="line-height: 28px;padding-top: 5px">
+<button type="button" class="awsui-btn awsui-btn-normal">动态
+    <span class="awsui-badge awsui-badge-orange">
+    </span>
+</button>
+			</pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="height:124px;border:1px solid #f2f2f2;border-top:0;">
+			<div style="width:99%;height:100%;float: left;margin-left:5px;">
+              <pre class="code" id="select2_code1" style="line-height: 28px;padding-top: 5px">
+<button type="button" class="awsui-btn awsui-btn-normal">查看消息
+    <span class="awsui-badge awsui-badge-square">6
+    </span>
+</button>
+			</pre>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="height:124px;border:1px solid #f2f2f2;border-top:0;">
+            <div style="width:99%;height:100%;float: left;margin-left:5px;">
+              <pre class="code" id="tt" style="line-height: 28px;padding-top: 5px">
+<button type="button" class="awsui-btn awsui-btn-normal">信箱
+    <span class="awsui-badge awsui-badge-circle">10
+    </span>
+</button>
+			</pre>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <div class="row">
+    <div class="col-sm-11 col-md-11 col-lg-11 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:30px;">
+        <table class="tab">
+            <tr>
+                <td>
+                    <span class="title2" id="useComponent">角标</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:20px;background:#F2F2F2;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="padding-left:15px;line-height:45px;font-size:16px;height:45px;">
+                        示例
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="height:70px;border: 1px solid #e2e2e2;">
+                        <div class="awsui-grid" style="margin-left:15px;" >
+                            <span class="awsui-halve awsui-halve-red awsui-halve-left">最新</span>
+                        </div>
+                        <div class="awsui-grid" style="margin-left:130px;">
+                            <span class="awsui-halve awsui-halve-green awsui-halve-right" >限免</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="background:#F2F2F2;;">
+            <div class="container-fluid">
+                <div class="row" >
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="padding-left:15px;line-height:45px;font-size:16px;height:45px;">
+                        示例代码
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="height:42px;border:1px solid #f2f2f2;border-top:0;">
+                        <div style="width:99%;height:100%;float: left;margin-left:5px;">
+								<pre id="im" class="code" style="line-height: 20px;">
+<div class="awsui-grid" style="margin-left:15px;"><span class="awsui-halve awsui-halve-red awsui-halve-left">最新</span></div>
+</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" >
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="height:42px;border:1px solid #f2f2f2;border-top:0;">
+                        <div style="width:99%;height:100%;float: left;margin-left:5px;">
+								<pre id="im2" class="code" style="line-height: 20px;">
+<div class="awsui-grid" style="margin-left:130px;"><span class="awsui-halve awsui-halve-green awsui-halve-right">限免</span></div>
+                                </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<!--文本-->
+    <div class="row">
+        <div class="col-sm-11 col-md-11 col-lg-11 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:30px;">
+            <table class="tab">
+                <tr>
+                    <td>
+                        <span class="title2" id="desc">文本</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:20px;background:#F2F2F2;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="padding-left:15px;line-height:45px;font-size:16px;height:45px;">
+                        示例
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="height:126px;">
+                       <p class="awsui-p" style="border: 1px solid #e2e2e2;margin-top:10px;width:134px;">
+                           解冻风来末上青,
+                           解垂罗袖拜卿卿.
+                           无端袅娜临官路,
+                           舞送行人过一生.
+                       </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="background:#F2F2F2;;">
+            <div class="container-fluid">
+                <div class="row" >
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="padding-left:15px;line-height:45px;font-size:16px;height:45px;">
+                        示例代码
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="height:42px;border:1px solid #f2f2f2;border-top:0;">
+                        <div style="width:99%;height:100%;float: left;margin-left:5px;">
+								<pre id="imx" class="code" style="line-height: 20px;">
+<p class="awsui-p">解冻风来末上青,解垂罗袖拜卿卿.无端袅娜临官路,舞送行人过一生.</p>
+</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="row" style="margin-top:20px;">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:20px;">
+            <table class="tab">
+                <tr>
+                    <td>
+                        <span class="title2" id="awsuisjsx">引用</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row" style="margin-top:20px">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="background:#F2F2F2;">
+            <div class="container-fluid">
+                <div class="row" >
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="padding-left:15px;line-height:45px;font-size:16px;height:45px;">
+                        示例
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="height:42px;border:1px solid #f2f2f2;border-top:0;">
+                        <div class="awsui-quote-green" style="float: left;width:3px;height:42px"></div>
+                        <div style="width:99%;height:100%;float: left;margin-left:5px;">
+								<pre id="imax" class="code" style="line-height: 20px;">
+引用区域的文字
+</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="background:#F2F2F2;;">
+            <div class="container-fluid">
+                <div class="row" >
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="padding-left:15px;line-height:45px;font-size:16px;height:45px;">
+                        示例代码
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="height:45px;border-bottom:1px solid #F2F2F2;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="height:42px;border:1px solid #f2f2f2;border-bottom:0px;border-top:0;font-size:16px;background: white;">
+                        <div style="width:99%;font-family: 'Microsoft Yahei';float: left;position:absolute;left:5px;">
+								<pre class="code" id="button" style="line-height: 22px;">
+ &lt;pre id="port" class="awsui-auote-green"&gt;引用区域的文字&lt;/pre&gt;
+								</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top:20px;">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-top:20px;">
+            <table class="tab">
+                <tr>
+                    <td>
+                        <span class="title2" id="selector_h1">分割线</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row" style="margin-top:20px;">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="background:#F2F2F2;">
+            <div class="container-fluid">
+                <div class="row" >
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="padding-left:15px;line-height:45px;font-size:16px;height:45px;">
+                       示例
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="height:auto;margin-top:20px;">
+                        <div style="font-size: 14px;padding-left: 15px;margin-bottom: 10px;">默认分割线</div>
+                        <fieldset><hr></fieldset>
+                        <div style="font-size: 14px;padding-left: 15px;margin-bottom: 10px;">赤色分割线</div>
+                        <fieldset><hr class="awsui-leg-red"></fieldset>
+                        <div style="font-size: 14px;padding-left: 15px;margin-bottom: 10px;">蓝色分割线</div>
+                        <fieldset><hr class="awsui-leg-blue"></fieldset>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="background:#F2F2F2;;">
+            <div class="container-fluid">
+                <div class="row" >
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="padding-left:15px;line-height:45px;font-size:16px;height:45px;">
+                        示例代码
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="height:42px;border:1px solid #f2f2f2;border-top:0;">
+                        <div style="width:99%;float: left;margin-left:5px;">
+								<pre id="i1" class="code" style="line-height: 20px;">
+ &lt;hr&gt;
+</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" >
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="height:42px;border:1px solid #f2f2f2;border-top:0;">
+                        <div style="width:99%;float: left;margin-left:5px;">
+								<pre id="i2" class="code" style="line-height: 20px;">
+ &lt;hr class="awsui-leg-red"&gt;</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row"style="margin-bottom: 20px">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" >
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="height:42px;border:1px solid #f2f2f2;border-top:0;">
+                        <div style="width:99%;float: left;margin-left:5px;">
+								<pre id="i3" class="code" style="line-height: 20px;">
+ &lt;hr class="awsui-leg-blue"&gt;</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="section_right">
+        <div class="nav" style="position: fixed;right:20px;">
+            <!-- 右侧导航 -->
+        </div>
+    </div>
+    <div class="navTop" style="position: fixed;bottom:40px;display: none">
+        <img src="../img/top.png" alt="" style="width: 45px"/>
+    </div>
+</div>
+
+
+
+</div>
+</body>
+</html>
+<script>
+    $(window).load(function(){
+        $(".zclip").css("z-index","-1")
+    })
+    
+</script>
