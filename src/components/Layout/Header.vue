@@ -1,18 +1,31 @@
 <template>
   <div class="header-wrap">
     <header class="header-content main-content">
-      <router-link class="home" :to="{ name: 'home' }">首页</router-link>
+      <router-link
+        class="home"
+        :to="{ name: 'home' }"
+      >首页</router-link>
       <div class="operate">
         <div class="user"><span class="highlight">蛇皮</span>，欢迎回来！</div>
-        <div class="operate-item" @click="showNotice">
-          <i class="icon icon-notice"></i>通知(<span class="highlight">8</span>)
+        <div
+          class="operate-item"
+          @click="showNotice"
+        >
+          <i class="icon icon-notice"></i>
+          <span>通知(<span class="highlight">{{msgNum}}</span>)</span>
         </div>
         <span class="spacer"></span>
-        <div class="operate-item" @click="switchTheme">
+        <div
+          class="operate-item"
+          @click="switchTheme"
+        >
           <i class="icon icon-theme"></i>切换管理主题
         </div>
         <span class="spacer"></span>
-        <div class="operate-item" @click="exit">
+        <div
+          class="operate-item"
+          @click="exit"
+        >
           <i class="icon icon-exit"></i>退出
         </div>
       </div>
@@ -24,11 +37,16 @@
 export default {
   props: {},
   data() {
-    return {}
+    return {
+      msgNum: 8
+    }
   },
   mounted() {},
   methods: {
-    showNotice() {},
+    showNotice() {
+      // 点击重置为0
+      this.msgNum = 0
+    },
     switchTheme() {},
     exit() {}
   }
@@ -50,8 +68,11 @@ export default {
       float: right;
       display: flex;
       align-items: center;
+      .awsui-iconfont {
+        vertical-align: middle;
+      }
       .highlight {
-        color: #FF6600;
+        color: #ff6600;
       }
       .user {
         margin-right: 20px;
@@ -63,7 +84,31 @@ export default {
         background-color: #ccc;
       }
       .operate-item {
+        display: inline-flex;
+        align-items: center;
         cursor: pointer;
+        &:hover {
+          color: #ff6600;
+        }
+        .icon {
+          display: inline-block;
+          width: 14px;
+          height: 14px;
+          margin-right: 5px;
+          background: no-repeat center;
+          &.icon-notice {
+            background-image: url('../../assets/images/icon_message@2x.png');
+            background-size: 14px;
+          }
+          &.icon-theme {
+            background-image: url('../../assets/images/icon_change_admin@2x.png');
+            background-size: 14px;
+          }
+          &.icon-exit {
+            background-image: url('../../assets/images/icon_exit@2x.png');
+            background-size: 14px;
+          }
+        }
       }
     }
   }
