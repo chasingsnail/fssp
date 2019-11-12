@@ -29,6 +29,7 @@
       </div>
       <div class="swiper-pagination"></div>
     </div>
+    ttt
   </div>
 </template>
 
@@ -42,7 +43,8 @@ export default {
       // eslint-disable-next-line
       var mySwiper = new Swiper('.swiper-container', {
         loop: true, // 循环模式选项
-        autoplay: { // 自动播放
+        autoplay: {
+          // 自动播放
           delay: 3000
         },
         // 分页
@@ -61,7 +63,7 @@ export default {
 <style lang="scss" scoped>
 .home-wrap {
   /deep/ .swiper-pagination-bullet-active {
-    background: #FF6600;
+    background: #ff6600;
   }
 }
 </style>
