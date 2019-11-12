@@ -109,11 +109,14 @@
       <div class="qs-cell">
         <div class="qs-title">联系电话：</div>
         <div class="qs-input">
-          <el-input v-model="tel"></el-input>
+          <el-input
+            v-model="tel"
+            placeholder="请留下您的常用联系方式，便于我们及时反馈您的意见"
+          ></el-input>
         </div>
       </div>
 
-      <div class="button-group">
+      <div class="footer-button">
         <el-button
           type="primary"
           @click="handleSubmit"
@@ -255,8 +258,9 @@ export default {
         background-image: url('../assets/images/icon_details_addphoto@2x.png');
       }
     }
-    .qs-input {
-    }
   }
+}
+.footer-button {
+  text-align: center;
 }
 </style>
