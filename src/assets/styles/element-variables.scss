@@ -1,0 +1,18 @@
+/* 改变主题色变量 */
+// $--color-primary: #ff6600;
+// $--color-success: #409ff5;
+// $--color-info: #aaa;
+
+/* 改变 icon 字体路径变量，必需 */
+// $--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+// @import '~element-ui/packages/theme-chalk/src/index';
+
+.el-dialog__header {
+  padding: 15px 30px;
+  border-bottom: 1px solid #d8dde6;
+}
+
+.el-dialog__body {
+  padding: 20px 30px;
+}

@@ -27,7 +27,6 @@ export const splitRoute = arr => {
         // 兼容合并非导航页面
         routeItem.children = []
       }
-      console.log(routeItem, children)
       routeArr.push({
         ...routeItem,
         children: [...routeItem.children, ...children]
@@ -44,4 +43,11 @@ export const splitRoute = arr => {
     routeArr,
     routeLink
   }
+}
+
+export const simpleAlert = (text, type = 'info', delay = 1500) => {
+  $.simpleAlert(text, type)
+  setTimeout(() => {
+    $.simpleAlert('close')
+  }, delay)
 }

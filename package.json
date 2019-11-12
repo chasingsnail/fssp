@@ -40,6 +40,9 @@
       "plugin:vue/essential",
       "@vue/standard"
     ],
+    "globals": {
+      "$": true
+    },
     "rules": {
       "Extra semicolon": "off",
       "space-before-function-paren": "off"

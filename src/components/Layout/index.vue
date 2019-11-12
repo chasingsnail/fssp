@@ -15,16 +15,19 @@
     </div>
     <NavMenu />
     <router-view />
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
 import Header from './Header'
 import NavMenu from './NavMenu'
+import Footer from './Footer'
 export default {
   components: {
     Header,
-    NavMenu
+    NavMenu,
+    Footer
   },
   data() {
     return {}

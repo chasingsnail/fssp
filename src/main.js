@@ -2,14 +2,30 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from '@/store'
-import { Button } from 'element-ui'
+import * as Util from '@/utils'
+import './assets/styles/element-variables.scss'
+import {
+  Button,
+  Dialog,
+  Checkbox,
+  CheckboxButton,
+  CheckboxGroup,
+  Input
+} from 'element-ui'
 import '@/assets/styles/base.scss'
 
 Vue.use(Button)
+Vue.use(Dialog)
+Vue.use(Checkbox)
+Vue.use(CheckboxButton)
+Vue.use(CheckboxGroup)
+Vue.use(Input)
+
 Vue.config.productionTip = false
 
+Vue.prototype.$Utils = Util
+
 router.beforeEach(async (to, from, next) => {
-  console.log(to, from)
   if (!store.state.hasRoute) {
     await store.dispatch('getRoutes') // 异步获取路由
     router.addRoutes(store.state.orderedRoutes)
