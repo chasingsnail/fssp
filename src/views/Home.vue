@@ -4,7 +4,7 @@
       <div class="swiper-wrapper">
         <div class="swiper-slide">
           <img
-            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573323262149&di=12b524a9945b67beb11c7a625edd5a23&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01dea958a566d2a801219c77c47a22.png"
+            src="../assets/images/banner1.png"
             alt=""
             width="100%"
             height="auto"
@@ -12,7 +12,7 @@
         </div>
         <div class="swiper-slide">
           <img
-            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573323262149&di=12b524a9945b67beb11c7a625edd5a23&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01dea958a566d2a801219c77c47a22.png"
+            src="../assets/images/banner1.png"
             alt=""
             width="100%"
             height="auto"
@@ -20,7 +20,7 @@
         </div>
         <div class="swiper-slide">
           <img
-            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573323262149&di=12b524a9945b67beb11c7a625edd5a23&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01dea958a566d2a801219c77c47a22.png"
+            src="../assets/images/banner1.png"
             alt=""
             width="100%"
             height="auto"
