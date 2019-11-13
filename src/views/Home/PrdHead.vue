@@ -16,13 +16,7 @@ export default {
   props: {
     title: String,
     subTitle: String
-  },
-  data() {
-    return {}
-  },
-  computed: {},
-  methods: {},
-  mounted() {}
+  }
 }
 </script>
 

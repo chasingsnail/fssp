@@ -14,7 +14,9 @@ import {
   Breadcrumb,
   BreadcrumbItem,
   Select,
-  Option
+  Option,
+  Row,
+  Col
 } from 'element-ui'
 import '@/assets/styles/base.scss'
 
@@ -28,6 +30,8 @@ Vue.use(Breadcrumb)
 Vue.use(BreadcrumbItem)
 Vue.use(Select)
 Vue.use(Option)
+Vue.use(Row)
+Vue.use(Col)
 
 Vue.config.productionTip = false
 

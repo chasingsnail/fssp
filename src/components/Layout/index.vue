@@ -15,7 +15,10 @@
     </div>
     <NavMenu />
     <div class="page-view">
-      <Breadcrumb v-if="showBread" :matchedRoutes="$route.matched"/>
+      <Breadcrumb
+        v-if="showBread"
+        :matchedRoutes="$route.matched"
+      />
       <router-view />
     </div>
     <Footer></Footer>
@@ -36,7 +39,9 @@ export default {
   },
   computed: {
     showBread() {
-      return !this.$route.meta || (this.$route.meta && !this.$route.meta.noBread)
+      return (
+        !this.$route.meta || (this.$route.meta && !this.$route.meta.noBread)
+      )
     }
   },
   data() {
@@ -50,13 +55,19 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.main-wrap /deep/ .main-content {
-  width: 1200px;
-  margin: 0 auto;
+.main-wrap {
+  /deep/ .main-content {
+    width: 1200px;
+    margin: 0 auto;
+  }
+  /deep/ .page-wrap {
+    background-color: #fff;
+  }
 }
+
 .page-view {
-  background-color: #EFEFEF;
-  padding-bottom: 20px
+  background-color: #efefef;
+  padding-bottom: 20px;
 }
 .logo-wrap {
   padding: 30px 0;

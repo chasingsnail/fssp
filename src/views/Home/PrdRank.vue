@@ -36,11 +36,6 @@ export default {
   props: {
     prdList: Array
   },
-  data() {
-    return {}
-  },
-  computed: {},
-  methods: {},
   mounted() {
     // eslint-disable-next-line
     var swiper = new Swiper('.prd-swiper-container', {
@@ -108,7 +103,7 @@ export default {
     left: 0;
     width: 80px;
     height: 80px;
-    background: url('../assets/images/tag_top_product@2x.png') no-repeat center;
+    background: url('../../assets/images/tag_top_product@2x.png') no-repeat center;
     background-size: 100%;
     .top {
       position: absolute;

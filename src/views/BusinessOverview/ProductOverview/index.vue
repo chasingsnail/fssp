@@ -1,5 +1,5 @@
 <template>
-  <div class="main-content overview-wrap">
+  <div class="main-content page-wrap">
 
     <DataDesc>
       财务服务中心提供8大项产品线，<span class="highlight">53</span>项服务。
@@ -109,29 +109,26 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.overview-wrap {
-  background-color: #fff;
-  .filter-bar {
-    padding: 20px;
-    border-bottom: 1px solid #dddddd;
-    .filter-item {
-      display: inline-block;
-      margin-right: 40px;
-    }
-    .operate-item {
-      float: right;
-    }
-    .label {
-      margin-right: 8px;
-      font-size: 14px;
-      color: #333333;
-    }
-    /deep/ .el-select {
-      width: 160px;
-    }
+.filter-bar {
+  padding: 20px;
+  border-bottom: 1px solid #dddddd;
+  .filter-item {
+    display: inline-block;
+    margin-right: 40px;
   }
-  .prd-chart {
-    padding: 74px 160px;
+  .operate-item {
+    float: right;
   }
+  .label {
+    margin-right: 8px;
+    font-size: 14px;
+    color: #333333;
+  }
+  /deep/ .el-select {
+    width: 160px;
+  }
+}
+.prd-chart {
+  padding: 74px 160px;
 }
 </style>

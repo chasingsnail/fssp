@@ -4,7 +4,7 @@
       <div class="swiper-wrapper">
         <div class="swiper-slide">
           <img
-            src="../assets/images/banner1.png"
+            src="../../assets/images/banner1.png"
             alt=""
             width="100%"
             height="auto"
@@ -12,7 +12,7 @@
         </div>
         <div class="swiper-slide">
           <img
-            src="../assets/images/banner1.png"
+            src="../../assets/images/banner1.png"
             alt=""
             width="100%"
             height="auto"
@@ -20,7 +20,7 @@
         </div>
         <div class="swiper-slide">
           <img
-            src="../assets/images/banner1.png"
+            src="../../assets/images/banner1.png"
             alt=""
             width="100%"
             height="auto"
@@ -132,8 +132,8 @@
 <script>
 import Swiper from 'swiper'
 import 'swiper/css/swiper.min.css'
-import PrdHead from '@/components/PrdHead'
-import PrdRank from '@/components/PrdRank'
+import PrdHead from './PrdHead'
+import PrdRank from './PrdRank'
 export default {
   name: 'home',
   components: {
@@ -238,10 +238,10 @@ export default {
         background-size: 44px;
         cursor: pointer;
         &.icon-feedback {
-          background-image: url('../assets/images/feedback.png');
+          background-image: url('../../assets/images/feedback.png');
         }
         &.icon-scroll {
-          background-image: url('../assets/images/scrollTop.png');
+          background-image: url('../../assets/images/scrollTop.png');
         }
       }
     }
@@ -263,12 +263,12 @@ export default {
     .icon-upload {
       width: 80px;
       height: 80px;
-      background: url('../assets/images/normal_details_addphoto@2x.png')
+      background: url('../../assets/images/normal_details_addphoto@2x.png')
         no-repeat center;
       background-size: 80px;
       cursor: pointer;
       &:hover {
-        background-image: url('../assets/images/icon_details_addphoto@2x.png');
+        background-image: url('../../assets/images/icon_details_addphoto@2x.png');
       }
     }
   }

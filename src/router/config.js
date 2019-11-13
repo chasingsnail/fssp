@@ -204,7 +204,7 @@ const routeMap = {
           path: 'homePage',
           name: 'homePage',
           component: () =>
-            import(/* webpackChunkName: "about" */ '../views/Home.vue'),
+            import(/* webpackChunkName: "about" */ '../views/Home'),
           meta: {
             hideGuide: true,
             noBread: true
