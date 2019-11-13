@@ -14,7 +14,10 @@
       </div>
     </div>
     <NavMenu />
-    <router-view />
+    <div class="page-view">
+      <Breadcrumb v-if="showBread" :matchedRoutes="$route.matched"/>
+      <router-view />
+    </div>
     <Footer></Footer>
   </div>
 </template>
@@ -23,16 +26,25 @@
 import Header from './Header'
 import NavMenu from './NavMenu'
 import Footer from './Footer'
+import Breadcrumb from './Breadcrumb'
 export default {
   components: {
     Header,
     NavMenu,
-    Footer
+    Footer,
+    Breadcrumb
+  },
+  computed: {
+    showBread() {
+      return !this.$route.meta || (this.$route.meta && !this.$route.meta.noBread)
+    }
   },
   data() {
     return {}
   },
-  mounted() {},
+  mounted() {
+    console.log(this.$route.matched)
+  },
   methods: {}
 }
 </script>
@@ -41,6 +53,9 @@ export default {
 .main-wrap /deep/ .main-content {
   width: 1200px;
   margin: 0 auto;
+}
+.page-view {
+  background-color: #EFEFEF;
 }
 .logo-wrap {
   padding: 30px 0;

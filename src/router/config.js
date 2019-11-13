@@ -181,6 +181,12 @@ import PageLayout from '@/components/PageLayout'
 //   }
 // ]
 
+/*
+** single: 是否没有子菜单，例如首页
+** hideGuide: 该子项是否在导航中隐藏，例如详情页
+** noBread: 是否不显示面包屑
+*/
+
 const routeMap = {
   // 首页
   home: {
@@ -200,7 +206,8 @@ const routeMap = {
           component: () =>
             import(/* webpackChunkName: "about" */ '../views/Home.vue'),
           meta: {
-            hideGuide: true
+            hideGuide: true,
+            noBread: true
           }
         }
       ]
@@ -240,7 +247,10 @@ const routeMap = {
           component: () =>
             import(
               /* webpackChunkName: "productDetal" */ '../views/BusinessOverview/ProductOverview/detail.vue'
-            )
+            ),
+          meta: {
+            routeName: '委托与否'
+          }
         }
       ],
       meta: {
@@ -303,7 +313,8 @@ const routeMap = {
               /* webpackChunkName: "serviceDetail" */ '../views/BusinessAttend/ServiceDetail'
             ),
           meta: {
-            hideGuide: true
+            hideGuide: true,
+            noBread: true
           }
         }
       ]
@@ -352,6 +363,7 @@ const routeMap = {
               /* webpackChunkName: "shoppingCart" */ '../views/ShoppingCart'
             ),
           meta: {
+            routeName: '全部',
             hideGuide: true
           }
         }

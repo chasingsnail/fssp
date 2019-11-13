@@ -89,20 +89,23 @@
           <div
             id="upfile"
             class="icon-upload"
+            @click="handleUpload"
           ></div>
+
           <!-- <button
             id="upfile"
             onclick="return false;"
             type="button"
             class="awsui-btn awsui-btn-blue"
-          >文件上传</button>
+          >文件上传</button> -->
           <input
             type="file"
-            style="display:none;"
-            id="upfile_upfile"
+            hidden
+            ref="upfile"
             multiple="multiple"
+            @change="checkFile"
             accept=".jpg, .jpeg, .gif, .png, .bmp"
-          > -->
+          />
         </div>
       </div>
 
@@ -142,12 +145,21 @@ export default {
       typeList: [],
       desc: '',
       tel: '',
-      file: '',
+      files: [],
       dialogVisible: false,
       prdList: ['product1', 'product2', 'product3', 'product4', 'product5']
     }
   },
   methods: {
+    handleUpload() {
+      this.$refs.upfile.click()
+    },
+    // 获取选择的文件流
+    checkFile(e) {
+      console.log(e.target.files)
+      this.files = [...this.files, ...e.target.files] // 合并数组
+      console.log(this.files)
+    },
     handleSubmit() {
       if (!this.typeList.length) {
         return this.$Utils.simpleAlert('请选择问题类型', 'warning')
@@ -173,6 +185,7 @@ export default {
       this.dialogVisible = true
     },
     reset() {
+      this.files = []
       this.typeList = []
       this.desc = ''
       this.tel = ''
