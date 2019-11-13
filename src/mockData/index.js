@@ -46,6 +46,12 @@ export const mockRoutes = [
     isOutLink: true,
     text: '关于我们',
     outUrl: '//www.baidu.com'
+  },
+  {
+    isOutLink: true,
+    inner: true,
+    text: '本页打开',
+    outUrl: '//www.baidu.com'
   }
 ]
 

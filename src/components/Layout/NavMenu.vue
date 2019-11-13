@@ -10,7 +10,7 @@
         <a
           v-if="item.isOutLink"
           class="outlink"
-          target="_blank"
+          :target="item.inner ? '_self' : '_blank'"
           :href="item.outUrl"
         >{{item.text}}</a>
         <router-link
