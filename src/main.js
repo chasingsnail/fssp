@@ -12,7 +12,9 @@ import {
   CheckboxGroup,
   Input,
   Breadcrumb,
-  BreadcrumbItem
+  BreadcrumbItem,
+  Select,
+  Option
 } from 'element-ui'
 import '@/assets/styles/base.scss'
 
@@ -24,6 +26,8 @@ Vue.use(CheckboxGroup)
 Vue.use(Input)
 Vue.use(Breadcrumb)
 Vue.use(BreadcrumbItem)
+Vue.use(Select)
+Vue.use(Option)
 
 Vue.config.productionTip = false
 

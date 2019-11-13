@@ -56,6 +56,7 @@ export default {
 }
 .page-view {
   background-color: #EFEFEF;
+  padding-bottom: 20px
 }
 .logo-wrap {
   padding: 30px 0;

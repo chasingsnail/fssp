@@ -48,3 +48,103 @@ export const mockRoutes = [
     outUrl: '//www.baidu.com'
   }
 ]
+
+export const prdData = [
+  {
+    lineCode: 1,
+    lineName: '总账',
+    products: [
+      {
+        code: '10',
+        name: '总账记账1',
+        percent: 100,
+        services: [
+          {
+            code: '101',
+            name: '服务1',
+            status: 0
+          },
+          {
+            code: '102',
+            name: '服务2',
+            status: 1
+          }
+        ]
+      },
+      {
+        code: '11',
+        name: '总账记账2',
+        percent: 0,
+        services: [
+          {
+            code: '111',
+            name: '服务1',
+            status: 0
+          },
+          {
+            code: '112',
+            name: '服务2',
+            status: 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    lineCode: 2,
+    lineName: '核算',
+    products: [
+      {
+        code: '12',
+        name: '核算1',
+        percent: 100,
+        services: [
+          {
+            code: '101',
+            name: '服务1',
+            status: 0
+          },
+          {
+            code: '102',
+            name: '服务2',
+            status: 1
+          }
+        ]
+      },
+      {
+        code: '13',
+        name: '核算2',
+        percent: 0,
+        services: [
+          {
+            code: '111',
+            name: '服务1',
+            status: 0
+          },
+          {
+            code: '112',
+            name: '服务2',
+            status: 0
+          }
+        ]
+      },
+      {
+        code: '14',
+        name: '核算3',
+        percent: 0,
+        services: [
+          {
+            code: '111',
+            name: '服务1',
+            status: 0
+          },
+          {
+            code: '112',
+            name: '服务2',
+            status: 0
+          }
+        ]
+      }
+    ]
+  }
+]
