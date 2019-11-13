@@ -8,7 +8,7 @@
       <a
         v-if="item.isOutLink"
         :href="item.outUrl"
-        target="_blank"
+        :target="item.inner ? '_self' : '_blank'"
       ><i class="icon icon-outlink"></i>{{item.text}}</a>
       <router-link
         v-else
