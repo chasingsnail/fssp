@@ -21,8 +21,10 @@ export const mockRoutes = [
       },
       {
         isOutLink: true,
-        text: '百度',
-        outUrl: '//www.baidu.com'
+        inner: true,
+        text: '搜狗',
+        name: 'sogou',
+        outUrl: '//www.sogou.com'
       }
     ]
   },
@@ -42,17 +44,38 @@ export const mockRoutes = [
   {
     name: 'shoppingCart'
   },
+  // 外链 - 新标签页
   {
     isOutLink: true,
     text: '关于我们',
     outUrl: '//www.baidu.com'
   },
+  // 外链 - 项目内打开
   {
     isOutLink: true,
     inner: true,
+    name: 'baidu',
     text: '本页打开',
     outUrl: '//www.baidu.com'
   }
+  // 外链 - 含子路有
+  // {
+  //   isOutLink: true,
+  //   text: '本页打开子路由',
+  //   children: [
+  //     {
+  //       isOutLink: true,
+  //       text: 'outLink',
+  //       outUrl: '//www.baidu.com'
+  //     },
+  //     {
+  //       isOutLink: true,
+  //       inner: true,
+  //       text: 'innerLink',
+  //       outUrl: '//www.baidu.com'
+  //     }
+  //   ]
+  // }
 ]
 
 export const prdData = [

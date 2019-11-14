@@ -18,6 +18,7 @@ import {
   Row,
   Col
 } from 'element-ui'
+import iFrameResize from 'iframe-resizer/js/iframeResizer'
 import '@/assets/styles/base.scss'
 
 Vue.use(Button)
@@ -32,6 +33,12 @@ Vue.use(Select)
 Vue.use(Option)
 Vue.use(Row)
 Vue.use(Col)
+
+Vue.directive('resize', {
+  bind: function(el, { value = {} }) {
+    el.addEventListener('load', () => iFrameResize(value, el))
+  }
+})
 
 Vue.config.productionTip = false
 

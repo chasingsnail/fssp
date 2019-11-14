@@ -1,4 +1,5 @@
 import routeMap from '@/router/config.js'
+import { iframeNode, iframeChildNode } from '@/router/iframeRoute.js'
 
 export const splitRoute = arr => {
   let routeArr = []
@@ -20,7 +21,12 @@ export const splitRoute = arr => {
             children.push(parentRoute[child.name])
             linkChildren.push(parentRoute[child.name])
           } else {
-            linkChildren.push(child)
+            if (child.inner) {
+              children.push(iframeChildNode(child))
+              linkChildren.push(iframeChildNode(child))
+            } else {
+              linkChildren.push(child)
+            }
           }
         })
       if (!routeItem.children) {
@@ -36,7 +42,13 @@ export const splitRoute = arr => {
         children: [...routeItem.children, ...linkChildren]
       })
     } else {
-      routeLink.push(parent)
+      if (parent.inner) {
+        let _route = iframeNode(parent)
+        routeLink.push(_route)
+        routeArr.push(_route)
+      } else {
+        routeLink.push(parent)
+      }
     }
   })
   return {

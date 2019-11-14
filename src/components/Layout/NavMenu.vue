@@ -13,10 +13,12 @@
           :target="item.inner ? '_self' : '_blank'"
           :href="item.outUrl"
         >{{item.text}}</a>
+
         <router-link
-          v-else-if="item.meta.single"
+          v-else-if="item.meta.single || item.meta.url"
           :to="{name: item.name}"
         >{{item.meta.routeName}}</router-link>
+
         <template v-else>
           {{item.meta.routeName}}
           <SubItem :subRoutes="filterRoute(item.children)" />

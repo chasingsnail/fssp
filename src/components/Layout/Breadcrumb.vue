@@ -1,10 +1,12 @@
 <template>
   <div class="bread-wrap">
     <el-breadcrumb separator="/">
-      <el-breadcrumb-item
-        v-for="route in matchedRoutes"
-        :key="route.name"
-      >{{route.meta.routeName}}</el-breadcrumb-item>
+      <template v-for="route in matchedRoutes">
+        <el-breadcrumb-item
+          v-if="route.meta.routeName"
+          :key="route.name"
+        >{{route.meta.routeName}}</el-breadcrumb-item>
+      </template>
     </el-breadcrumb>
   </div>
 </template>

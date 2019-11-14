@@ -14,6 +14,7 @@ const store = new Vuex.Store({
   mutations: {
     setRoute(state, routes) {
       const { routeArr, routeLink } = splitRoute(routes)
+      console.log(111, routeArr, routeLink)
       state.orderedRoutes = routeArr
       state.routerLinks = routeLink
       state.hasRoute = true

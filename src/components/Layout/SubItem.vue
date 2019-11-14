@@ -8,14 +8,14 @@
       <a
         v-if="item.isOutLink"
         :href="item.outUrl"
-        :target="item.inner ? '_self' : '_blank'"
+        target="_blank"
       ><i class="icon icon-outlink"></i>{{item.text}}</a>
       <router-link
         v-else
         :to="{name: item.name}"
       ><i
           class="icon"
-          :class="'icon-' + item.name"
+          :class="item.meta.innerLink ? 'icon-outlink' : 'icon-' + item.name"
         ></i>{{item.meta.routeName}}</router-link>
       <template>
 
