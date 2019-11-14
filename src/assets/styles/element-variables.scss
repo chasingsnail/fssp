@@ -16,3 +16,20 @@
 .el-dialog__body {
   padding: 20px 30px;
 }
+
+.el-button {
+  border-radius: 2px;
+}
+
+.el-table  {
+  th {
+    &.is-leaf {
+      background-color: #DDD;
+      border-bottom: 0;
+    }
+    &>.cell {
+      color: #262729;
+    }
+  }
+}
+

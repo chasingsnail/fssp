@@ -1,0 +1,224 @@
+<template>
+  <div>
+    <BlockHead
+      icon="prd"
+      title="委托产品"
+    />
+
+    <div class="block-cell">
+      <ul class="class-wrap">
+        <li
+          class="class-item"
+          v-for="item in classList"
+          :class="{active: activeClass === item.id}"
+          @click="handleClassChange(item.id)"
+          :key="item.id"
+        >
+          {{item.name}}
+        </li>
+      </ul>
+
+      <el-row :gutter="20">
+        <el-checkbox-group
+          v-model="checkedList"
+          @change="handleCheckedChange"
+        >
+          <el-col
+            :span="12"
+            v-for="item in prdList"
+            :key="item.id"
+          >
+            <div class="cell-wrap">
+              <img
+                src="../../../assets/images/pic_product1.png"
+                width="212"
+                height="212"
+              >
+              <div class="prd-info">
+                <div class="info-content">
+                  <div class="info-title">{{item.name}}</div>
+                  <div class="info-detail">
+                    <ul>
+                      <li
+                        class="info-sub"
+                        v-for="(sub, index) in item.subs"
+                        :key="index"
+                      ><i
+                          class="icon"
+                          :class="sub.active ? 'icon-checked' : 'icon-no-checked'"
+                        ></i>{{sub.name}}</li>
+                    </ul>
+                  </div>
+
+                </div>
+                <el-button type="primary">定制服务</el-button>
+              </div>
+              <div class="check-wrap">
+                <el-checkbox
+                  :label="item.id"
+                  :key="item.id"
+                ></el-checkbox>
+              </div>
+
+            </div>
+          </el-col>
+        </el-checkbox-group>
+      </el-row>
+
+      <div class="company-link">
+        <el-link type="primary">查看已委托产品>></el-link>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import BlockHead from '@/components/BlockHead'
+
+export default {
+  components: {
+    BlockHead
+  },
+  data() {
+    return {
+      checkedList: [],
+      prdList: [
+        {
+          name: '产品1',
+          id: 1,
+          subs: [
+            {
+              name: '总账入账审核',
+              active: false
+            },
+            {
+              name: '实物管理',
+              active: true
+            }
+          ]
+        },
+        {
+          name: '产品2',
+          id: 2,
+          subs: [
+            {
+              name: '总账入账审核',
+              active: false
+            },
+            {
+              name: '实物管理',
+              active: true
+            }
+          ]
+        }
+      ],
+      activeClass: 1,
+      classList: [
+        {
+          id: 1,
+          name: '全部'
+        },
+        {
+          id: 2,
+          name: '总账'
+        }
+      ]
+    }
+  },
+  mounted() {
+    this.fetData()
+  },
+  methods: {
+    fetData() {
+      // 获取分类与产品列表...
+    },
+    handleClassChange(id) {
+      this.activeClass = id
+      // 接口请求..
+    },
+    handleCheckedChange(val) {
+      this.$emit('setPrdList', val)
+      // this.checkedList = val
+    }
+  }
+}
+</script>
+
+<style scoped lang="scss">
+.block-cell {
+  padding: 0 20px;
+  .operate-button {
+    padding: 20px 0;
+  }
+  .company-link {
+    padding: 20px 0 30px;
+    font-size: 12px;
+  }
+}
+.class-wrap {
+  padding: 30px 0;
+}
+.class-item {
+  display: inline-block;
+  padding: 8px 26px;
+  margin-right: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+  border: 1px dotted #cccccc;
+  border-radius: 18px;
+  cursor: pointer;
+  &.active {
+    background-color: #f5a623;
+    border-color: #f5a623;
+    color: #fff;
+  }
+}
+.cell-wrap {
+  display: flex;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(204, 204, 204, 1);
+  .prd-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    padding-left: 20px;
+    .info-content {
+      flex: 1;
+      .info-title {
+        font-size: 24px;
+        line-height: 1.3;
+      }
+      .info-detail {
+        height: 140px;
+        overflow: auto;
+      }
+      .info-sub {
+        margin-top: 12px;
+        font-size: 14px;
+        .icon {
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          margin-right: 10px;
+          background: no-repeat center;
+          background-size: contain;
+          vertical-align: bottom;
+          &.icon-checked {
+            background-image: url('../../../assets/images/tag_sel_service.png');
+          }
+          &.icon-no-checked {
+            background-image: url('../../../assets/images/tag_unsel_service.png');
+          }
+        }
+      }
+    }
+  }
+  .check-wrap {
+    /deep/ .el-checkbox__label {
+      display: none;
+    }
+  }
+}
+</style>

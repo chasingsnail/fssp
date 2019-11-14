@@ -16,7 +16,11 @@ import {
   Select,
   Option,
   Row,
-  Col
+  Col,
+  DatePicker,
+  Link,
+  Table,
+  TableColumn
 } from 'element-ui'
 import iFrameResize from 'iframe-resizer/js/iframeResizer'
 import '@/assets/styles/base.scss'
@@ -33,6 +37,10 @@ Vue.use(Select)
 Vue.use(Option)
 Vue.use(Row)
 Vue.use(Col)
+Vue.use(DatePicker)
+Vue.use(Link)
+Vue.use(Table)
+Vue.use(TableColumn)
 
 Vue.directive('resize', {
   bind: function(el, { value = {} }) {
