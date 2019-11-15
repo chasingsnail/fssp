@@ -57,7 +57,10 @@
                   </div>
 
                 </div>
-                <el-button type="primary">定制服务</el-button>
+                <el-button
+                  type="primary"
+                  @click="handleToDetail(item.id)"
+                >定制服务</el-button>
               </div>
               <div class="check-wrap">
                 <el-checkbox
@@ -118,7 +121,14 @@ export default {
       this.activeClass = this.classList[0].id
       this.fetchData()
     },
+    handleToDetail(id) {
+      this.$router.push({ name: 'serviceDetail', query: { id } })
+    },
     fetchData() {
+      const params = {
+        id: this.activeClass
+      }
+      console.log(params)
       // 获取分类与产品列表...
       this.prdList = [
         {

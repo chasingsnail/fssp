@@ -21,7 +21,9 @@ import {
   Link,
   Table,
   TableColumn,
-  Pagination
+  Pagination,
+  Tabs,
+  TabPane
 } from 'element-ui'
 // import iFrameResize from 'iframe-resizer/js/iframeResizer'
 import '@/assets/styles/base.scss'
@@ -43,6 +45,8 @@ Vue.use(Link)
 Vue.use(Table)
 Vue.use(TableColumn)
 Vue.use(Pagination)
+Vue.use(Tabs)
+Vue.use(TabPane)
 
 // Vue.directive('resize', {
 //   bind: function(el, { value = {} }) {

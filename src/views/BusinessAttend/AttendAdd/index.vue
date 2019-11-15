@@ -71,7 +71,10 @@
 
     <companyConf :tableData="tableData" />
 
-    <ProductConf @setPrdList="setPrdList" />
+    <ProductConf
+      ref="prd"
+      @setPrdList="setPrdList"
+    />
 
     <div class="submit-block">
       <el-button
@@ -88,6 +91,7 @@ import companyConf from './CompanyConf'
 import ProductConf from './ProductConf'
 
 export default {
+  name: 'attendAdd',
   components: {
     companyConf,
     ProductConf
@@ -135,7 +139,15 @@ export default {
       this.checkedPrd = list
     }
   },
-  mounted() {}
+  beforeRouteLeave(to, from, next) {
+    if (to.name !== 'serviceDetail') {
+      this.$destroy(this.$options.name)
+    }
+    next()
+  },
+  activated() {
+    this.$refs.prd.fetchData()
+  }
 }
 </script>
 

@@ -182,7 +182,7 @@ export default {
     }
   },
   beforeRouteLeave(to, from, next) {
-    if (to.name !== 'productList') {
+    if (to.name !== 'serviceDetail') {
       this.$destroy(this.$options.name)
     }
     next()

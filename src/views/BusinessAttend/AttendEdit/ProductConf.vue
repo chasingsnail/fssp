@@ -57,7 +57,10 @@
                   </div>
                 </div>
                 <div>
-                  <el-button type="primary">变更服务</el-button>
+                  <el-button
+                    type="primary"
+                    @click="handleToDetail(item.id)"
+                  >变更服务</el-button>
                   <el-button type="info">取消委托</el-button>
                 </div>
 
@@ -103,6 +106,9 @@ export default {
     this.fetchClass()
   },
   methods: {
+    handleToDetail(id) {
+      this.$router.push({ name: 'serviceDetail', query: { id } })
+    },
     // 获取分类
     fetchClass() {
       // ajax...
