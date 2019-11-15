@@ -19,7 +19,9 @@
         v-if="showBread"
         :matchedRoutes="$route.matched"
       />
-      <router-view />
+      <keep-alive include="attendEdit">
+        <router-view />
+      </keep-alive>
     </div>
     <Footer></Footer>
   </div>

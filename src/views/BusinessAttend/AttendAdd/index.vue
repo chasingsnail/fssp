@@ -71,10 +71,13 @@
 
     <companyConf :tableData="tableData" />
 
-    <ProductConf @setPrdList="setPrdList"/>
+    <ProductConf @setPrdList="setPrdList" />
 
     <div class="submit-block">
-      <el-button type="primary" @click="handleSubmit">提交</el-button>
+      <el-button
+        type="primary"
+        @click="handleSubmit"
+      >提交</el-button>
     </div>
 
   </div>
@@ -149,6 +152,9 @@ export default {
     vertical-align: top;
     & + .filter-item {
       margin-left: 40px;
+    }
+    /deep/ .el-date-editor.el-input {
+      width: 160px;
     }
     .tip {
       margin-top: 12px;

@@ -57,9 +57,6 @@ export default {
   data() {
     return {}
   },
-  mounted() {
-    console.log(this.$route.matched)
-  },
   methods: {
     filterRoute(arr) {
       // 隐藏不需要展示路由

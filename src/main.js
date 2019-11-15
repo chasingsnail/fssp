@@ -20,9 +20,10 @@ import {
   DatePicker,
   Link,
   Table,
-  TableColumn
+  TableColumn,
+  Pagination
 } from 'element-ui'
-import iFrameResize from 'iframe-resizer/js/iframeResizer'
+// import iFrameResize from 'iframe-resizer/js/iframeResizer'
 import '@/assets/styles/base.scss'
 
 Vue.use(Button)
@@ -41,12 +42,13 @@ Vue.use(DatePicker)
 Vue.use(Link)
 Vue.use(Table)
 Vue.use(TableColumn)
+Vue.use(Pagination)
 
-Vue.directive('resize', {
-  bind: function(el, { value = {} }) {
-    el.addEventListener('load', () => iFrameResize(value, el))
-  }
-})
+// Vue.directive('resize', {
+//   bind: function(el, { value = {} }) {
+//     el.addEventListener('load', () => iFrameResize(value, el))
+//   }
+// })
 
 Vue.config.productionTip = false
 

@@ -55,9 +55,12 @@
                         ></i>{{sub.name}}</li>
                     </ul>
                   </div>
-
                 </div>
-                <el-button type="primary">定制服务</el-button>
+                <div>
+                  <el-button type="primary">变更服务</el-button>
+                  <el-button type="info">取消委托</el-button>
+                </div>
+
               </div>
               <div class="check-wrap">
                 <el-checkbox
@@ -76,9 +79,6 @@
         v-else
       >暂无数据</div>
 
-      <div class="company-link">
-        <el-link type="primary">查看已委托产品>></el-link>
-      </div>
     </div>
   </div>
 </template>
@@ -90,11 +90,12 @@ export default {
   components: {
     BlockHead
   },
+  props: {},
   data() {
     return {
-      checkedList: [],
       prdList: [],
-      activeClass: 1,
+      checkedList: [],
+      activeClass: null,
       classList: []
     }
   },
@@ -115,11 +116,11 @@ export default {
           name: '总账'
         }
       ]
-      this.activeClass = this.classList[0].id
-      this.fetchData()
+      this.activeClass = this.classList[0].id || null
     },
-    fetchData() {
-      // 获取分类与产品列表...
+    fetchData(param) {
+      // 获取产品列表...
+      // fetch(param) ...
       this.prdList = [
         {
           name: '产品1',
@@ -127,7 +128,7 @@ export default {
           subs: [
             {
               name: '总账入账审核',
-              active: false
+              active: true
             },
             {
               name: '实物管理',
@@ -141,7 +142,7 @@ export default {
           subs: [
             {
               name: '总账入账审核',
-              active: true
+              active: false
             },
             {
               name: '实物管理',
@@ -162,6 +163,9 @@ export default {
     },
     checkStatus(subs) {
       return subs.every(item => item.active)
+    },
+    clearData() {
+      this.prdList = []
     },
     handleClassChange(id) {
       this.activeClass = id
