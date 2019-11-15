@@ -200,7 +200,7 @@
       </el-table>
 
       <div class="company-link">
-        <el-link type="primary">查看已委托公司>></el-link>
+        <el-link type="success">查看已委托公司>></el-link>
       </div>
     </div>
   </div>

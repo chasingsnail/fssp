@@ -19,13 +19,7 @@ export default {
   props: {
     title: String,
     icon: String
-  },
-  data() {
-    return {}
-  },
-  computed: {},
-  methods: {},
-  mounted() {}
+  }
 }
 </script>
 

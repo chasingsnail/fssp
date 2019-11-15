@@ -80,7 +80,7 @@
       >暂无数据</div>
 
       <div class="company-link">
-        <el-link type="primary">查看已委托产品>></el-link>
+        <el-link type="success">查看已委托产品>></el-link>
       </div>
     </div>
   </div>
