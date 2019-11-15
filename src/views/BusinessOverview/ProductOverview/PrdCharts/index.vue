@@ -55,6 +55,7 @@ export default {
         mainPosMap[item.lineCode] = index
         let _arr = item.products.map(subItem => {
           subItem.parentId = item.lineCode
+          subItem.parentName = item.lineName
           return subItem
         })
         this.subItems = [...this.subItems, ..._arr]

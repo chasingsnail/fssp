@@ -7,6 +7,7 @@
           :key="route.name"
         >{{route.meta.routeName}}</el-breadcrumb-item>
       </template>
+      <el-breadcrumb-item v-if="extraKey">{{extraKey}}</el-breadcrumb-item>
     </el-breadcrumb>
   </div>
 </template>
@@ -18,6 +19,11 @@ export default {
   },
   data() {
     return {}
+  },
+  computed: {
+    extraKey() {
+      return this.$route.query && this.$route.query.extra
+    }
   },
   mounted() {},
   methods: {}

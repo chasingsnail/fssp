@@ -182,10 +182,10 @@ import PageLayout from '@/components/PageLayout'
 // ]
 
 /*
-** single: 是否没有子菜单，例如首页
-** hideGuide: 该子项是否在导航中隐藏，例如详情页
-** noBread: 是否不显示面包屑
-*/
+ ** single: 是否没有子菜单，例如首页
+ ** hideGuide: 该子项是否在导航中隐藏，例如详情页
+ ** noBread: 是否不显示面包屑
+ */
 
 const routeMap = {
   // 首页
@@ -242,8 +242,8 @@ const routeMap = {
           }
         },
         {
-          path: 'productDetal',
-          name: 'productDetal',
+          path: 'productDetail',
+          name: 'productDetail',
           component: () =>
             import(
               /* webpackChunkName: "productDetal" */ '../views/BusinessOverview/ProductOverview/detail.vue'
