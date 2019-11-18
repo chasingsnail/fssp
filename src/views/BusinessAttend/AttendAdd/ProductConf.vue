@@ -59,13 +59,14 @@
                 </div>
                 <el-button
                   type="primary"
-                  @click="handleToDetail(item.id)"
+                  @click="handleToDetail(item)"
                 >定制服务</el-button>
               </div>
               <div class="check-wrap">
                 <el-checkbox
                   :label="item.id"
                   :key="item.id"
+                  @change="handleChangeSubStatus($event, item.id)"
                 ></el-checkbox>
               </div>
 
@@ -88,6 +89,7 @@
 
 <script>
 import BlockHead from '@/components/BlockHead'
+import { setStorage, getStorage } from '@/utils/storage'
 
 export default {
   components: {
@@ -121,8 +123,23 @@ export default {
       this.activeClass = this.classList[0].id
       this.fetchData()
     },
-    handleToDetail(id) {
-      this.$router.push({ name: 'serviceDetail', query: { id } })
+    reRender() {
+      const _data = getStorage('checkService')
+      if (!_data) return
+      const _index = this.prdList.findIndex(item => item.id === _data.id)
+      this.$set(this.prdList, _index, _data)
+      // 维护全选关系
+      let checkAll = _data.subs.every(item => item.active)
+      const sideIndex = this.checkedList.findIndex(id => id === _data.id)
+      if (checkAll && sideIndex === -1) {
+        this.checkedList.push(_data.id)
+      } else if (!checkAll && sideIndex !== -1) {
+        this.checkStatus.splice(sideIndex, 1)
+      }
+    },
+    handleToDetail(item) {
+      setStorage('checkService', item)
+      this.$router.push({ name: 'serviceDetail' })
     },
     fetchData() {
       const params = {
@@ -136,10 +153,12 @@ export default {
           id: 1,
           subs: [
             {
+              id: 12,
               name: '总账入账审核',
               active: false
             },
             {
+              id: 13,
               name: '实物管理',
               active: true
             }
@@ -150,10 +169,12 @@ export default {
           id: 2,
           subs: [
             {
+              id: 14,
               name: '总账入账审核',
               active: true
             },
             {
+              id: 15,
               name: '实物管理',
               active: true
             }
@@ -168,6 +189,13 @@ export default {
         if (flag && !this.checkedList.includes(item.id)) {
           this.checkedList.push(item.id)
         }
+      })
+    },
+    // 全选按钮事件
+    handleChangeSubStatus(flag, id) {
+      const _index = this.prdList.findIndex(item => item.id === id)
+      this.prdList[_index].subs.forEach(item => {
+        item.active = flag
       })
     },
     checkStatus(subs) {

@@ -89,7 +89,7 @@
 <script>
 import companyConf from './CompanyConf'
 import ProductConf from './ProductConf'
-
+import { removeStorage } from '@/utils/storage'
 export default {
   name: 'attendAdd',
   components: {
@@ -141,12 +141,13 @@ export default {
   },
   beforeRouteLeave(to, from, next) {
     if (to.name !== 'serviceDetail') {
+      removeStorage('checkService')
       this.$destroy(this.$options.name)
     }
     next()
   },
   activated() {
-    this.$refs.prd.fetchData()
+    this.$refs.prd.reRender()
   }
 }
 </script>

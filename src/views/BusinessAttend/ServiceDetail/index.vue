@@ -52,7 +52,7 @@
                 </template>
               </el-table-column>
               <el-table-column
-                prop="service"
+                prop="name"
                 label="产品服务"
               >
               </el-table-column>
@@ -171,6 +171,7 @@
 import Tip from './Tip'
 import Note from './Note'
 import Collapse from './Collapse'
+import { getStorage, setStorage } from '@/utils/storage'
 export default {
   components: {
     Tip,
@@ -196,13 +197,22 @@ export default {
       dialogVisible: false,
       checkList: [],
       activeName: 'detail',
-      tableData: []
+      tableData: [],
+      currentItem: {}
     }
   },
-  computed: {},
   methods: {
     handleConfirm() {
-      // ..请求接口
+      this.tableData.forEach(item => {
+        if (this.checkList.includes(item.id)) {
+          item.active = true
+        }
+      })
+      const _data = {
+        ...this.currentItem,
+        subs: this.tableData
+      }
+      setStorage('checkService', _data)
       this.$router.go(-1)
     },
     handleClose() {
@@ -218,23 +228,8 @@ export default {
       console.log(file)
     },
     fetchData() {
-      const params = {
-        id: this.$route.query.id
-      }
-      console.log(params)
-      // 请求接口
-      this.tableData = [
-        {
-          id: 1,
-          service: '总账服务1',
-          active: true
-        },
-        {
-          id: 2,
-          service: '总账服务2',
-          active: false
-        }
-      ]
+      this.currentItem = getStorage('checkService')
+      this.tableData = this.currentItem.subs
       this.renderCheck()
     },
     renderCheck() {
