@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import GreyLine from './PrdCharts/GreyLine'
+import GreyLine from './GreyLine'
 export default {
   components: {
     GreyLine
@@ -99,7 +99,7 @@ export default {
     float: right;
     width: 48px;
     height: 48px;
-    background: url('../../../assets/images/icon_service_unsel@2x.png')
+    background: url('../../../../assets/images/icon_service_unsel@2x.png')
       no-repeat center;
     background-size: 48px;
   }
@@ -107,8 +107,8 @@ export default {
     float: right;
     width: 40px;
     height: 40px;
-    background: url('../../../assets/images/icon_service_sel@2x.png') no-repeat
-      center;
+    background: url('../../../../assets/images/icon_service_sel@2x.png')
+      no-repeat center;
     background-size: 40px;
     background-color: #fff;
     border-radius: 50%;

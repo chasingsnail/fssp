@@ -97,6 +97,16 @@ export const prdData = [
             code: '102',
             name: '服务2',
             status: 1
+          },
+          {
+            code: '103',
+            name: '服务3',
+            status: 0
+          },
+          {
+            code: '104',
+            name: '服务4',
+            status: 1
           }
         ]
       },

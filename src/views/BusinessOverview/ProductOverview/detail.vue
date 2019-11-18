@@ -2,29 +2,19 @@
   <div class="main-content page-wrap detail-wrap">
     <h3 class="title">产品全景图-委托与否-{{childNode}}</h3>
     <AttendBadge></AttendBadge>
-    <div class="node-chart">
-      <div
-        class="row-item"
-        v-for="(item, index) in subItems"
-        :key="item.name"
-      >
-        <ChildNode
-          :subInfo="item"
-          :index="index"
-          :active="item.parentId === currentId"
-        />
-      </div>
+    <div class="prd-chart">
+      <SubCharts />
     </div>
   </div>
 </template>
 
 <script>
 import AttendBadge from '../component/AttendBadge'
-import ChildNode from './childNode'
+import SubCharts from './SubCharts'
 export default {
   components: {
     AttendBadge,
-    ChildNode
+    SubCharts
   },
   data() {
     return {
@@ -32,9 +22,6 @@ export default {
     }
   },
   computed: {
-    parentNode() {
-      return this.$route.query.parent
-    },
     childNode() {
       return this.$route.query.extra
     }
@@ -65,5 +52,8 @@ export default {
       text-align: right;
     }
   }
+}
+.prd-chart {
+  padding: 74px 0;
 }
 </style>
