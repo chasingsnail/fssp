@@ -19,7 +19,7 @@
         v-if="showBread"
         :matchedRoutes="$route.matched"
       />
-      <keep-alive include="attendEdit,attendAdd">
+      <keep-alive include="attendEdit,attendAdd,productOverview">
         <router-view />
       </keep-alive>
     </div>

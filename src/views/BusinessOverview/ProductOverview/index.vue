@@ -69,6 +69,7 @@
 import DataDesc from '@/components/DataDesc'
 import PrdChart from './PrdCharts'
 export default {
+  name: 'productList',
   components: {
     DataDesc,
     PrdChart
@@ -102,8 +103,6 @@ export default {
       ]
     }
   },
-  computed: {},
-  methods: {},
   mounted() {}
 }
 </script>

@@ -228,14 +228,17 @@ const routeMap = {
       path: 'productOverview',
       name: 'productOverview',
       redirect: '/businessOverview/productOverview/productList',
-      component: PageLayout,
+      component: () =>
+        import(
+          /* webpackChunkName: "productOverview" */ '../views/BusinessOverview/ProductOverview/layout.vue'
+        ),
       children: [
         {
           path: 'productList',
           name: 'productList',
           component: () =>
             import(
-              /* webpackChunkName: "productList" */ '../views/BusinessOverview/ProductOverview/index.vue'
+              /* webpackChunkName: "productOverview" */ '../views/BusinessOverview/ProductOverview/index.vue'
             ),
           meta: {
             routeName: '委托与否'
@@ -246,7 +249,7 @@ const routeMap = {
           name: 'productDetail',
           component: () =>
             import(
-              /* webpackChunkName: "productDetal" */ '../views/BusinessOverview/ProductOverview/detail.vue'
+              /* webpackChunkName: "productOverview" */ '../views/BusinessOverview/ProductOverview/detail.vue'
             ),
           meta: {
             routeName: '委托与否'

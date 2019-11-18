@@ -5,6 +5,12 @@
     <div class="prd-chart">
       <SubCharts />
     </div>
+    <div class="button-block">
+      <el-button
+        type="primary"
+        @click="goBack"
+      >返回</el-button>
+    </div>
   </div>
 </template>
 
@@ -12,21 +18,24 @@
 import AttendBadge from '../component/AttendBadge'
 import SubCharts from './SubCharts'
 export default {
+  name: 'productDetail',
   components: {
     AttendBadge,
     SubCharts
   },
   data() {
-    return {
-      subItems: [{}]
-    }
+    return {}
   },
   computed: {
     childNode() {
       return this.$route.query.extra
     }
   },
-  methods: {},
+  methods: {
+    goBack() {
+      this.$router.go(-1)
+    }
+  },
   mounted() {}
 }
 </script>
@@ -54,6 +63,10 @@ export default {
   }
 }
 .prd-chart {
-  padding: 74px 0;
+  padding: 128px 0 74px;
+}
+.button-block {
+  margin-top: 100px;
+  text-align: center;
 }
 </style>
