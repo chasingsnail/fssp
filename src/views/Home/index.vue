@@ -27,7 +27,7 @@
           >
         </div>
       </div>
-      <div class="swiper-pagination"></div>
+      <div class="home-swiper-pagination"></div>
     </div>
     <div class="main-content">
 
@@ -51,145 +51,80 @@
       </div>
     </div>
     <!-- 反馈 -->
-    <el-dialog
-      title="提示"
-      :visible.sync="dialogVisible"
-      width="50%"
-    >
-
-      <div class="qs-cell">
-        <div class="qs-title">您遇到的问题类型<span class="highlight">（必填）</span>：</div>
-        <div class="qs-input">
-          <el-checkbox-group v-model="typeList">
-            <el-checkbox label="service">系统服务</el-checkbox>
-            <el-checkbox label="quality">服务品质</el-checkbox>
-            <el-checkbox label="needs">新业务需求</el-checkbox>
-            <el-checkbox label="intime">服务时效</el-checkbox>
-            <el-checkbox label="change">业务变更需求</el-checkbox>
-            <el-checkbox label="price">服务价格</el-checkbox>
-          </el-checkbox-group>
-        </div>
-      </div>
-
-      <div class="qs-cell">
-        <div class="qs-title">问题描述<span class="highlight">（必填）</span>：</div>
-        <div class="qs-input">
-          <el-input
-            type="textarea"
-            :rows="3"
-            placeholder="请简要描述您的问题或意见，您的宝贵意见将帮助我们提供更优质的服务，感谢您的支持！"
-            v-model="desc"
-          ></el-input>
-        </div>
-      </div>
-
-      <div class="qs-cell">
-        <div class="qs-title">图片<span class="info">（选填，提供问题截图）</span>：</div>
-        <div class="qs-input">
-          <div
-            id="upfile"
-            class="icon-upload"
-            @click="handleUpload"
-          ></div>
-
-          <!-- <button
-            id="upfile"
-            onclick="return false;"
-            type="button"
-            class="awsui-btn awsui-btn-blue"
-          >文件上传</button> -->
-          <input
-            type="file"
-            hidden
-            ref="upfile"
-            multiple="multiple"
-            @change="checkFile"
-            accept=".jpg, .jpeg, .gif, .png, .bmp"
-          />
-        </div>
-      </div>
-
-      <div class="qs-cell">
-        <div class="qs-title">联系电话：</div>
-        <div class="qs-input">
-          <el-input
-            v-model="tel"
-            placeholder="请留下您的常用联系方式，便于我们及时反馈您的意见"
-          ></el-input>
-        </div>
-      </div>
-
-      <div class="footer-button">
-        <el-button
-          type="primary"
-          @click="handleSubmit"
-        >提交反馈</el-button>
-      </div>
-    </el-dialog>
+    <FeedbackModal
+      ref="feedback"
+      :form="feebackForm"
+    ></FeedbackModal>
   </div>
 </template>
 
 <script>
 import Swiper from 'swiper'
-import 'swiper/css/swiper.min.css'
+import 'swiper/dist/css/swiper.min.css'
 import PrdHead from './PrdHead'
 import PrdRank from './PrdRank'
+import FeedbackModal from '@/components/FeedbackModal'
 export default {
   name: 'home',
   components: {
     PrdHead,
-    PrdRank
+    PrdRank,
+    FeedbackModal
   },
   data() {
     return {
-      typeList: [],
-      desc: '',
-      tel: '',
-      files: [],
+      feebackForm: {
+        typeList: [],
+        desc: '',
+        tel: '',
+        files: []
+      },
+
       dialogVisible: false,
       prdList: ['product1', 'product2', 'product3', 'product4', 'product5']
     }
   },
   methods: {
-    handleUpload() {
-      this.$refs.upfile.click()
-    },
-    // 获取选择的文件流
-    checkFile(e) {
-      console.log(e.target.files)
-      this.files = [...this.files, ...e.target.files] // 合并数组
-      console.log(this.files)
-    },
-    handleSubmit() {
-      if (!this.typeList.length) {
-        return this.$Utils.simpleAlert('请选择问题类型', 'warning')
-      }
-      if (!this.desc) {
-        return this.$Utils.simpleAlert('请填写问题描述', 'warning')
-      }
-      const params = {
-        type: this.typeList,
-        desc: this.desc,
-        file: this.file,
-        tel: this.tel
-      }
-      console.log(params)
-      // 接口请求...
-      // if 提交成功
-      this.reset()
-      this.dialogVisible = false
-      $.simpleAlert('提交成功', 'ok')
-    },
+    // handleUpload() {
+    //   this.$refs.upfile.click()
+    // },
+    // // 获取选择的文件流
+    // checkFile(e) {
+    //   console.log(e.target.files)
+    //   this.files = [...this.files, ...e.target.files] // 合并数组
+    //   console.log(this.files)
+    // },
+    // handleSubmit() {
+    //   if (!this.typeList.length) {
+    //     return this.$Utils.simpleAlert('请选择问题类型', 'warning')
+    //   }
+    //   if (!this.desc) {
+    //     return this.$Utils.simpleAlert('请填写问题描述', 'warning')
+    //   }
+    //   const params = {
+    //     type: this.typeList,
+    //     desc: this.desc,
+    //     file: this.file,
+    //     tel: this.tel
+    //   }
+    //   console.log(params)
+    //   // 接口请求...
+    //   // if 提交成功
+    //   this.reset()
+    //   this.dialogVisible = false
+    //   $.simpleAlert('提交成功', 'ok')
+    // },
     fillFeedback() {
       this.reset()
-      this.dialogVisible = true
+      this.$refs.feedback.open()
     },
     reset() {
-      this.files = []
-      this.typeList = []
-      this.desc = ''
-      this.tel = ''
-      this.file = ''
+      this.feebackForm = {
+        files: [],
+        typeList: [],
+        desc: '',
+        tel: ''
+      }
     },
     scrollToTop() {
       document.body.scrollTop = document.documentElement.scrollTop = 0
@@ -198,14 +133,13 @@ export default {
       // eslint-disable-next-line
       var mySwiper = new Swiper('.swiper-container', {
         loop: true, // 循环模式选项
-        autoplay: {
-          // 自动播放
-          delay: 3000
-        },
+        // autoplay: {
+        //   // 自动播放
+        //   delay: 3000
+        // },
         // 分页
-        pagination: {
-          el: '.swiper-pagination'
-        }
+        pagination: '.home-swiper-pagination',
+        paginationClickable: true
       })
     }
   },
@@ -219,6 +153,15 @@ export default {
 .home-wrap {
   /deep/ .swiper-pagination-bullet-active {
     background: #ff6600;
+  }
+  .home-swiper-pagination {
+    position: absolute;
+    text-align: center;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    z-index: 10;
   }
   .main-content {
     padding: 30px 0 50px;

@@ -6,10 +6,11 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    name: 'base'
-  }
+  // {
+  //   path: '/',
+  //   name: 'base',
+  //   components: Layout
+  // }
 ]
 
 const router = new VueRouter({

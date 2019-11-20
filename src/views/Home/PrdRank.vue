@@ -31,7 +31,7 @@
 
 <script>
 import Swiper from 'swiper'
-import 'swiper/css/swiper.min.css'
+import 'swiper/dist/css/swiper.min.css'
 export default {
   props: {
     prdList: Array
@@ -39,12 +39,14 @@ export default {
   mounted() {
     // eslint-disable-next-line
     var swiper = new Swiper('.prd-swiper-container', {
+      pagination: '.swiper-pagination',
+      paginationClickable: true,
       slidesPerView: 3,
-      spaceBetween: 30,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true
-      }
+      spaceBetween: 30
+      // pagination: {
+      //   el: '.swiper-pagination',
+      //   clickable: true
+      // }
     })
   }
 }
@@ -103,7 +105,8 @@ export default {
     left: 0;
     width: 80px;
     height: 80px;
-    background: url('../../assets/images/tag_top_product@2x.png') no-repeat center;
+    background: url('../../assets/images/tag_top_product@2x.png') no-repeat
+      center;
     background-size: 100%;
     .top {
       position: absolute;

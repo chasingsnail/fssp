@@ -27,6 +27,8 @@ import {
 } from 'element-ui'
 // import iFrameResize from 'iframe-resizer/js/iframeResizer'
 import '@/assets/styles/base.scss'
+require('es6-promise').polyfill()
+require('es6-promise/auto')
 
 Vue.use(Button)
 Vue.use(Dialog)
@@ -59,6 +61,7 @@ Vue.config.productionTip = false
 Vue.prototype.$Utils = Util
 
 router.beforeEach(async (to, from, next) => {
+  console.log(to, 666666)
   if (!store.state.hasRoute) {
     await store.dispatch('getRoutes') // 异步获取路由
     router.addRoutes(store.state.orderedRoutes)

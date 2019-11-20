@@ -81,8 +81,8 @@
             name="note"
           >
             <Tip>感谢您选择<span class="highlight">金服财务服务中心</span>，办理业务前，请详细阅读以下事项，如有疑问可在<a
-                class="link"
-                href="/"
+                class="link feedbackLink"
+                @click="handleFeedback"
               >意见反馈</a>处联系我们</Tip>
             <Note></Note>
           </el-tab-pane>
@@ -164,6 +164,10 @@
         </div>
       </div>
     </el-dialog>
+    <FeedbackModal
+      ref="feedback"
+      :form="feebackForm"
+    ></FeedbackModal>
   </div>
 </template>
 
@@ -171,15 +175,23 @@
 import Tip from './Tip'
 import Note from './Note'
 import Collapse from './Collapse'
+import FeedbackModal from '@/components/FeedbackModal'
 import { getStorage, setStorage } from '@/utils/storage'
 export default {
   components: {
     Tip,
     Note,
-    Collapse
+    Collapse,
+    FeedbackModal
   },
   data() {
     return {
+      feebackForm: {
+        typeList: [],
+        desc: '',
+        tel: '',
+        files: []
+      },
       questions: [
         {
           q:
@@ -202,6 +214,18 @@ export default {
     }
   },
   methods: {
+    reset() {
+      this.feebackForm = {
+        files: [],
+        typeList: [],
+        desc: '',
+        tel: ''
+      }
+    },
+    handleFeedback() {
+      this.reset()
+      this.$refs.feedback.open()
+    },
     handleConfirm() {
       this.tableData.forEach(item => {
         if (this.checkList.includes(item.id)) {
@@ -355,5 +379,8 @@ export default {
       margin-top: 24px;
     }
   }
+}
+.feedbackLink {
+  cursor: pointer;
 }
 </style>
