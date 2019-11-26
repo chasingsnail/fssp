@@ -37,10 +37,10 @@ export default {
       return this.index % 2 !== 0
     },
     startX() {
-      return this.isRight ? 100 : 200
+      return this.isRight ? 240 : 200
     },
     endX() {
-      return this.isRight ? -70 : 370
+      return this.isRight ? 70 : 370
     },
     lineColor() {
       return this.active ? '#AAA' : 'transparent'
@@ -55,13 +55,13 @@ export default {
 .line {
   position: absolute;
   top: 0;
-  // left: 0;
+  left: 0;
   overflow: visible;
-  &.left {
-    left: 0;
-  }
-  &.right {
-    right: 0;
-  }
+  // &.left {
+  //   left: 0;
+  // }
+  // &.right {
+  //   right: 0;
+  // }
 }
 </style>
