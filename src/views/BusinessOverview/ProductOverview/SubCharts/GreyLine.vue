@@ -7,7 +7,7 @@
   >
     <line
       :x1="startX"
-      y1="0"
+      y1="24"
       :x2="endX"
       :y2="endPos"
       :stroke="lineColor"
@@ -37,10 +37,10 @@ export default {
       return this.index % 2 !== 0
     },
     startX() {
-      return this.isRight ? 300 : 0
+      return this.isRight ? 240 : 200
     },
     endX() {
-      return this.isRight ? 130 : 170
+      return this.isRight ? 70 : 370
     },
     lineColor() {
       return this.active ? '#AAA' : 'transparent'
@@ -54,14 +54,14 @@ export default {
 <style scoped lang="scss">
 .line {
   position: absolute;
-  top: 24px;
-  // left: 0;
+  top: 0;
+  left: 0;
   overflow: visible;
-  &.left {
-    left: 200px;
-  }
-  &.right {
-    right: 200px;
-  }
+  // &.left {
+  //   left: 200px;
+  // }
+  // &.right {
+  //   right: 200px;
+  // }
 }
 </style>

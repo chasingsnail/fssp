@@ -71,6 +71,21 @@ export default {
             code: '104',
             name: '服务4',
             status: 1
+          },
+          {
+            code: '105',
+            name: '服务4',
+            status: 1
+          },
+          {
+            code: '106',
+            name: '服务4',
+            status: 1
+          },
+          {
+            code: '107',
+            name: '服务4',
+            status: 1
           }
         ]
       }
@@ -81,19 +96,9 @@ export default {
         let plus = index % 2 === 0 ? 0 : -1
         let sideIndex = (index + plus) / 2
         let centerPos = sideIndex * 88 + 44
-        item.endY = mainPos - centerPos
+        item.endY = mainPos - centerPos + 24
         return item
       })
-      // data.services.forEach((item, index) => {
-      //   mainPosMap[item.code] = index
-      //   let _arr = item.products.map(subItem => {
-      //     subItem.parentId = item.lineCode
-      //     subItem.parentName = item.lineName
-      //     return subItem
-      //   })
-      //   this.subItems = [...this.subItems, ..._arr]
-      // })
-      // this.processLinePos(mainPosMap)
     },
     processLinePos(posMap) {
       this.subItems.forEach((item, index) => {

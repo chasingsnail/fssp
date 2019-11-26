@@ -11,14 +11,20 @@
           v-if="active"
         >
           <div class="pannel-info">
-            <h5>{{subInfo.name}}</h5>
+            <h5
+              class="panel-text"
+              :title="subInfo.name"
+            >{{subInfo.name}}</h5>
             <p>{{subInfo.percent}}%</p>
           </div>
           <i class="icon-active"></i>
         </div>
       </transition>
       <i class="icon-uncheck"></i>
-      <span class="inner-text">{{subInfo.name}}</span>
+      <span
+        class="inner-text"
+        :title="subInfo.name"
+      >{{subInfo.name}}</span>
     </div>
     <GreyLine
       :index="index"
@@ -78,6 +84,10 @@ export default {
   .inner-text {
     display: inline-block;
     height: 48px;
+    width: 125px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     margin: 0 12px;
     line-height: 48px;
     vertical-align: top;
@@ -129,6 +139,12 @@ export default {
     font-size: 14px;
     color: #fff;
     cursor: pointer;
+    .panel-text {
+      width: 125px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
     .pannel-info {
       display: inline-block;
       margin: 3px 12px;
