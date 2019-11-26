@@ -85,7 +85,7 @@ export const prdData = [
     products: [
       {
         code: '10',
-        name: '总账记账1',
+        name: '资金管理与检查',
         percent: 100,
         services: [
           {
@@ -112,7 +112,7 @@ export const prdData = [
       },
       {
         code: '11',
-        name: '总账记账2',
+        name: '资金管理与检查',
         percent: 0,
         services: [
           {
@@ -151,6 +151,46 @@ export const prdData = [
         ]
       },
       {
+        code: '14',
+        name: '核算3',
+        percent: 0,
+        services: [
+          {
+            code: '111',
+            name: '服务1',
+            status: 0
+          },
+          {
+            code: '112',
+            name: '服务2',
+            status: 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    lineCode: 3,
+    lineName: '综合',
+    products: [
+      {
+        code: '12',
+        name: '核算1',
+        percent: 100,
+        services: [
+          {
+            code: '101',
+            name: '服务1',
+            status: 0
+          },
+          {
+            code: '102',
+            name: '服务2',
+            status: 1
+          }
+        ]
+      },
+      {
         code: '13',
         name: '核算2',
         percent: 0,
@@ -170,6 +210,46 @@ export const prdData = [
       {
         code: '14',
         name: '核算3',
+        percent: 0,
+        services: [
+          {
+            code: '111',
+            name: '服务1',
+            status: 0
+          },
+          {
+            code: '112',
+            name: '服务2',
+            status: 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    lineCode: 4,
+    lineName: '综合',
+    products: [
+      {
+        code: '12',
+        name: '核算1',
+        percent: 100,
+        services: [
+          {
+            code: '101',
+            name: '服务1',
+            status: 0
+          },
+          {
+            code: '102',
+            name: '服务2',
+            status: 1
+          }
+        ]
+      },
+      {
+        code: '13',
+        name: '核算2',
         percent: 0,
         services: [
           {

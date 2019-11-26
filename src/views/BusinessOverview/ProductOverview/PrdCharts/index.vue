@@ -1,5 +1,8 @@
 <template>
-  <div class="chart-content">
+  <div
+    class="chart-content"
+    :style="{minHeight: calcHeight + 'px'}"
+  >
     <div
       class="row-item"
       v-for="(item, index) in subItems"
@@ -36,7 +39,8 @@ export default {
     return {
       currentId: null,
       headItems: [],
-      subItems: []
+      subItems: [],
+      calcHeight: 200
     }
   },
   computed: {},
@@ -60,6 +64,8 @@ export default {
         })
         this.subItems = [...this.subItems, ..._arr]
       })
+      const lastTop = this.calcMainPos(this.headItems.length - 1)
+      this.calcHeight = lastTop + 56 + 40
       this.processLinePos(mainPosMap)
     },
     processLinePos(posMap) {
@@ -68,7 +74,7 @@ export default {
         const sideIndex = (index + plus) / 2
         let subCenterPos = sideIndex * 88 + 24
         let mainCenterPos = this.calcMainPos(posMap[item.parentId]) + 30
-        item.endY = mainCenterPos - subCenterPos
+        item.endY = mainCenterPos - subCenterPos + 24
       })
     }
   },
