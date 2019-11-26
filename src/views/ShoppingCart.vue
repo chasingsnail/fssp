@@ -60,107 +60,110 @@
           v-if="checkList.length"
         >删除</el-button>
       </div>
-      <el-table
-        ref="multipleTable"
-        :data="tableData"
-        style="width: 100%"
-        @selection-change="handleSelectionChange"
-      >
-        <el-table-column
-          type="selection"
-          width="55"
+      <div>
+        <el-table
+          ref="multipleTable"
+          :data="tableData"
+          style="width: 100%"
+          @selection-change="handleSelectionChange"
         >
-        </el-table-column>
-        <el-table-column type="expand">
-          <template slot-scope="props">
-            <el-row
-              :gutter="40"
-              class="expand-block"
-            >
-              <el-col
-                :span="8"
-                class="expand-cell"
+          <el-table-column
+            type="selection"
+            width="55"
+          >
+          </el-table-column>
+          <el-table-column type="expand">
+            <template slot-scope="props">
+              <el-row
+                :gutter="40"
+                class="expand-block"
               >
-                <label class="label">订单类别</label>
-                <div class="cell">
-                  <el-input v-model="props.row.orderCategory"></el-input>
-                </div>
-              </el-col>
-              <el-col
-                :span="8"
-                class="expand-cell"
+                <el-col
+                  :span="8"
+                  class="expand-cell"
+                >
+                  <label class="label">订单类别</label>
+                  <div class="cell">
+                    <el-input v-model="props.row.orderCategory"></el-input>
+                  </div>
+                </el-col>
+                <el-col
+                  :span="8"
+                  class="expand-cell"
+                >
+                  <label class="label">账单主体</label>
+                  <div class="cell">
+                    <el-input v-model="props.row.account"></el-input>
+                  </div>
+                </el-col>
+                <el-col
+                  :span="8"
+                  class="expand-cell"
+                >
+                  <label class="label">委托模式</label>
+                  <div class="cell">
+                    <el-input v-model="props.row.mode"></el-input>
+                  </div>
+                </el-col>
+              </el-row>
+              <!-- <div>{{props.row.orderCategory}}</div> -->
+            </template>
+          </el-table-column>
+          <el-table-column
+            prop="orderCategory"
+            label="订单类别"
+          >
+            <template slot-scope="scope">
+              <div class="category-item">
+                <i
+                  class="icon"
+                  :class="orderMap[scope.row.orderCategory].icon"
+                ></i>
+                <span class="inner-text">{{orderMap[scope.row.orderCategory].text}}</span>
+              </div>
+            </template>
+          </el-table-column>
+          <el-table-column
+            prop="account"
+            label="账单主体"
+          >
+          </el-table-column>
+          <el-table-column
+            prop="mode"
+            label="委托模式"
+          >
+          </el-table-column>
+          <el-table-column
+            prop="fund"
+            label="资金属性"
+          >
+          </el-table-column>
+          <el-table-column
+            prop="date"
+            label="期望生效日期"
+            min-width="340"
+          >
+            <template slot-scope="scope">
+              <el-date-picker
+                v-model="scope.row.date"
+                type="date"
+                placeholder="选择日期"
               >
-                <label class="label">账单主体</label>
-                <div class="cell">
-                  <el-input v-model="props.row.account"></el-input>
-                </div>
-              </el-col>
-              <el-col
-                :span="8"
-                class="expand-cell"
-              >
-                <label class="label">委托模式</label>
-                <div class="cell">
-                  <el-input v-model="props.row.mode"></el-input>
-                </div>
-              </el-col>
-            </el-row>
-            <!-- <div>{{props.row.orderCategory}}</div> -->
-          </template>
-        </el-table-column>
-        <el-table-column
-          prop="orderCategory"
-          label="订单类别"
-        >
-          <template slot-scope="scope">
-            <div class="category-item">
-              <i
-                class="icon"
-                :class="orderMap[scope.row.orderCategory].icon"
-              ></i>
-              <span class="inner-text">{{orderMap[scope.row.orderCategory].text}}</span>
-            </div>
-          </template>
-        </el-table-column>
-        <el-table-column
-          prop="account"
-          label="账单主体"
-        >
-        </el-table-column>
-        <el-table-column
-          prop="mode"
-          label="委托模式"
-        >
-        </el-table-column>
-        <el-table-column
-          prop="fund"
-          label="资金属性"
-        >
-        </el-table-column>
-        <el-table-column
-          prop="date"
-          label="期望生效日期"
-          min-width="340"
-        >
-          <template slot-scope="scope">
-            <el-date-picker
-              v-model="scope.row.date"
-              type="date"
-              placeholder="选择日期"
-            >
-            </el-date-picker>
-            <span class="tip">
-              <i class="el-icon-warning-outline"></i>
-              提示：包干业务委托是月度生效，需按照全月收费。
-            </span>
-          </template>
-        </el-table-column>
-        <!-- <el-table-column
+              </el-date-picker>
+              <span class="tip">
+                <i class="el-icon-warning-outline"></i>
+                提示：包干业务委托是月度生效，需按照全月收费。
+              </span>
+            </template>
+          </el-table-column>
+          <!-- <el-table-column
           prop="date"
           label="日期"
         >
         </el-table-column> -->
-      </el-table>
+        </el-table>
+      </div>
+
       <div class="page-bar">
         <el-pagination
           layout="prev, pager, next"

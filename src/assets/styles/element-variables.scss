@@ -9,27 +9,35 @@ $--font-path: '~element-ui/lib/theme-chalk/fonts';
 @import '~element-ui/packages/theme-chalk/src/index';
 
 .el-dialog__header {
-	padding: 15px 30px;
-	border-bottom: 1px solid #d8dde6;
+  padding: 15px 30px;
+  border-bottom: 1px solid #d8dde6;
 }
 
 .el-dialog__body {
-	padding: 20px 30px;
+  padding: 20px 30px;
 }
 
 .el-button {
-	border-radius: 2px;
+  border-radius: 2px;
 }
 
 .el-table {
-	th {
-		&.is-leaf {
-			background-color: #ddd;
-			border-bottom: 0;
-		}
-		& > .cell {
-			color: #262729;
-			font-weight: bold;
-		}
-	}
+  th {
+    &.is-leaf {
+      background-color: #ddd;
+      border-bottom: 0;
+    }
+    & > .cell {
+      color: #262729;
+      font-weight: bold;
+    }
+  }
+}
+
+.el-table__header {
+  width: 100% !important;
+}
+
+.el-table__body {
+  width: 100% !important;
 }

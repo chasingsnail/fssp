@@ -138,6 +138,7 @@ export default {
     border-radius: 24px;
     font-size: 14px;
     color: #fff;
+    z-index: 100;
     cursor: pointer;
     .panel-text {
       width: 125px;
