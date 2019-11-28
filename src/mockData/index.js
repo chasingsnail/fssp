@@ -153,20 +153,53 @@ export const prdData = [
       {
         code: '14',
         name: '核算3',
-        percent: 0,
-        services: [
-          {
-            code: '111',
-            name: '服务1',
-            status: 0
-          },
-          {
-            code: '112',
-            name: '服务2',
-            status: 0
-          }
-        ]
+        percent: 0
       }
+      // {
+      //   code: '143',
+      //   name: '核算3',
+      //   percent: 0
+      // },
+      // {
+      //   code: '141',
+      //   name: '核算3',
+      //   percent: 0
+      // },
+      // {
+      //   code: '144',
+      //   name: '核算3',
+      //   percent: 0
+      // },
+      // {
+      //   code: '145',
+      //   name: '核算3',
+      //   percent: 0
+      // },
+      // {
+      //   code: '146',
+      //   name: '核算3',
+      //   percent: 0
+      // },
+      // {
+      //   code: '147',
+      //   name: '核算3',
+      //   percent: 0
+      // },
+      // {
+      //   code: '148',
+      //   name: '核算3',
+      //   percent: 0
+      // },
+      // {
+      //   code: '149',
+      //   name: '核算3',
+      //   percent: 0
+      // },
+      // {
+      //   code: '1400',
+      //   name: '核算3',
+      //   percent: 0
+      // }
     ]
   },
   {

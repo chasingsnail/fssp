@@ -1,5 +1,6 @@
 <template>
   <div
+    ref="chartWrap"
     class="chart-content"
     :style="{minHeight: calcHeight + 'px'}"
   >
@@ -40,16 +41,17 @@ export default {
       currentId: null,
       headItems: [],
       subItems: [],
-      calcHeight: 200
+      calcHeight: 200,
+      realHeight: 0,
+      topGap: 50
     }
   },
-  computed: {},
   methods: {
     setTransform(index) {
       return index % 2 === 0 ? 'scaleToLeft' : 'scaleToRight'
     },
     calcMainPos(index) {
-      return 48 + 110 * index
+      return 48 + this.topGap * index + index * 56
     },
     fetchData() {
       let mainPosMap = {}
@@ -64,9 +66,18 @@ export default {
         })
         this.subItems = [...this.subItems, ..._arr]
       })
-      const lastTop = this.calcMainPos(this.headItems.length - 1)
+      let lastTop = this.calcMainPos(this.headItems.length - 1)
       this.calcHeight = lastTop + 56 + 40
-      this.processLinePos(mainPosMap)
+      this.$nextTick(_ => {
+        this.realHeight = this.$refs.chartWrap.getBoundingClientRect().height
+        if (this.realHeight > this.calcHeight) {
+          const count = this.headItems.length
+          this.topGap = (this.realHeight - 40 - count * 56) / (count - 1)
+        }
+        lastTop = this.calcMainPos(this.headItems.length - 1)
+        this.calcHeight = lastTop + 56 + 40
+        this.processLinePos(mainPosMap)
+      })
     },
     processLinePos(posMap) {
       this.subItems.forEach((item, index) => {

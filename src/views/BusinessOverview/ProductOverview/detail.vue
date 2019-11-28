@@ -63,7 +63,7 @@ export default {
   }
 }
 .prd-chart {
-  padding: 128px 0 74px;
+  padding: 188px 0 74px;
 }
 .button-block {
   margin-top: 100px;

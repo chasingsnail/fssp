@@ -13,8 +13,8 @@
     </div>
     <div class="head-item active">
       {{headItem.name}}
-      <div class="parent-node head-item">{{parentNode}}<i class="icon-arrow"></i></div>
     </div>
+    <div class="parent-node head-item">{{parentNode}}<i class="icon-arrow"></i></div>
   </div>
 </template>
 
@@ -153,8 +153,9 @@ export default {
   }
   .parent-node {
     position: absolute;
-    top: -130px;
-    left: 87px;
+    top: -145px;
+    left: 50%;
+    transform: translateX(-50%);
     .icon-arrow {
       position: absolute;
       top: 56px;
